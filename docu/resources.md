@@ -1,0 +1,3 @@
+- Buch zur Einführung in Secure Multi Party Computation: https://www.cs.virginia.edu/~evans/pragmaticmpc/pragmaticmpc.pdf
+- ABY ist eine Framework für Secret Sharing bei dem die Shares von Arithmetic zu Binary zu Yao konvertiert werden können. Untersützt normalerweise nur 2 Parties aber wurde mit ABY3 erweitert so dass nun auch 3 Parties möglich sind: https://github.com/ladnir/aby3
+- 
