@@ -23,3 +23,6 @@ def inner_join(left, right, key=0):
                 def _(right_column):
                     result[left_row][left.shape[1] + right_column] = right[left_row][right_column + 1]
     return result
+
+def order_by(table, key):
+    table.sort((key,))
