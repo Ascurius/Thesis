@@ -1,8 +1,12 @@
-a = sint.Matrix(4, 5)
-a.input_from(0)
-vec = a.get_column(5)
-# vec.elements()[0]
-print_ln("%s", len(vec.elements()))
+dummy_data = [20, 99, 20, 20, 10, 11, 12, 12, 23, 24, 10, 11]
+arr_test = sint.Array(len(dummy_data))
+arr_test.assign(dummy_data)
 
-# for i in range(a.shape[0]):
-#     print_ln("%s", a[i].reveal())
+def group_by(arr):
+    result = []
+    count = 1
+    for i in range(len(arr)):
+        if arr[i] == arr[i+1]:
+            count += 1
+        else:
+            result.append([arr[i-1], count])

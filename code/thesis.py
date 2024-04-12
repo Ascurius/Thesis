@@ -1,5 +1,5 @@
 # from Compiler.types import sint
-# from Compiler.library import for_range_opt, if_
+from Compiler.library import for_range_opt, if_, print_ln
 
 def print_matrix(matrix):
     for i in range(matrix.shape[0]):
@@ -27,22 +27,70 @@ def get_matrix_dimensions(filename):
 
 p0_row, p0_col = get_matrix_dimensions("Player-Data/Input-P0-0")
 p1_row, p1_col = get_matrix_dimensions("Player-Data/Input-P1-0")
-p2_row, p2_col = get_matrix_dimensions("Player-Data/Input-P2-0")
 
 a = sint.Matrix(p0_row, p0_col)
 a.input_from(0)
+col_a = a.get_column(2)
+size_a = len(col_a.elements())
+arr_a = sint.Array(size_a).create_from(col_a.elements())
 
-# a = Matrix(p0_row, p0_col, sint)
-# a.input_from(0)
+b = sint.Matrix(p1_row, p1_col)
+b.input_from(1)
+col_b = b.get_column(2)
+size_b = len(col_b.elements())
+arr_b = sint.Array(size_b).create_from(col_b.elements())
 
-# b = sint.Matrix(p1_row, p1_col)
-# b.input_from(1)
+def isInArray(element, array, size):
+    @for_range_opt(size)
+    def _(i):
+        @if_(array[i].equal(element).reveal())
+        def _():
+            return True
+    return False
 
-# c = sint.Matrix(p2_row, p2_col)
-# c.input_from(2)
+# for i in range(arr_a.length):
+#     for j in range(arr_b.length):
+#         dbit = arr_a[i].equal(arr_b[j])
+#         @if_(dbit.reveal())
+#         def _():
+#             # result_size[0].update(result_size[0] + 1)
+#             result.append(arr_a[i])
+    
+def get_shape(arr):
+    if isinstance(arr, list):
+        return [len(arr)] + get_shape(arr[0])
+    else:
+        return []
 
-def order_by(table, key):
-    table.sort((key,))
+def groub_by(array):
+    result = []
+    count = sint(1)
+    last_element = sint(0)
+    for i in range(0, array.length-1):
+        s_arr = sint.Array(2)
+        dbit = array[i].not_equal(last_element)
+        @if_e(dbit.reveal())
+        def _():
+            s_arr[0] = array[i]
+            count.update(sint(1))
+        @else_
+        def _():
+            count.update(count + sint(1))
+        print_ln("%s", s_arr.reveal_list())
+    s_arr = sint.Array(2)
+    s_arr[0], s_arr[1] = array[i-1], count
+    result.append(s_arr)
+    # s_result = MultiArray(get_shape(result), sint)
+    # s_result.assign(result)
+    return result
 
-order_by(a, 4)
-print_matrix(a)
+dummy_data = [20, 99, 20, 20, 10, 11, 12, 12, 23, 24, 10, 11]
+arr_test = sint.Array(len(dummy_data))
+arr_test.assign(dummy_data)
+arr_test.sort()
+
+res = groub_by(arr_test)
+# for i in :
+    # print_ln("Element: %s has count %s", i[0].get_type, i[1].get_type)
+    # print_ln("Element: %s has count %s", i[0].reveal(), i[1].reveal())
+    # print_ln("Element: %s has count %s", element.reveal(), count.reveal())

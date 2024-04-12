@@ -1,7 +1,7 @@
 from Compiler.types import sint
 from Compiler.library import for_range_opt, if_
 
-def inner_join(left, right, key=0):
+def inner_join_nested_loop(left, right, key=0):
     """
     The key=0 represents the zeroth column which usualy is the id.
     """
