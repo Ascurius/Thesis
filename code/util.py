@@ -62,3 +62,9 @@ def odd_even_merge_sort(array):
 def print_matrix(matrix):
     for i in range(matrix.shape[0]):
         print_ln("%s", matrix[i].reveal())
+
+def get_shape(arr):
+    if isinstance(arr, list):
+        return [len(arr)] + get_shape(arr[0])
+    else:
+        return []
