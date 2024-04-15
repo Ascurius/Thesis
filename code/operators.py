@@ -32,7 +32,7 @@ def inner_join_nested_loop(left, right, key=0):
 def order_by(table, key):
     table.sort((key,))
 
-def groub_by(array):
+def groub_by_with_reveal(array):
     result = MultiArray([arr_test.length, 2], sint)
     count = sint(1)
     current_element = sint(0)
@@ -54,6 +54,28 @@ def groub_by(array):
     def _():
         result[-1][0] = current_element
         result[-1][1] = count
+    return result
+
+def groub_by_count(matrix, key):
+    matrix.sort((key,))
+    result = sint.Matrix(
+        rows=matrix.shape[0],
+        columns=matrix.shape[1]+2
+    )
+    for i in range(matrix.shape[0]):
+        result[i].assign_vector(matrix[i])
+
+    count = sint(0)
+    rel = matrix.shape[1] # index of the relevancy column
+    agg = matrix.shape[1] + 1 # index of the aggregation column
+    current_element = sint(0)
+    for i in range(matrix.shape[0]-1):
+        result[i][rel] = (matrix[i][key] == matrix[i+1][key]).if_else(sint(0), sint(1))
+        count = (matrix[i][key] == current_element).if_else((count+sint(1)), sint(1))
+        current_element = (matrix[i][key] != current_element).if_else(matrix[i][key], current_element)
+        result[i][agg] = count
+    result[-1][rel] = sint(1)
+    result[-1][agg] = (matrix[-1][key] == current_element).if_else((count+sint(1)), sint(1))
     return result
 
 ########################

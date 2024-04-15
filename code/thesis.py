@@ -1,87 +1,73 @@
-from Compiler.types import cint
-# from Compiler.library import for_range_opt, if_, print_ln
+# from Compiler.types import cint
+from Compiler.library import for_range_opt, print_ln
 
-# def print_matrix(matrix):
-#     for i in range(matrix.shape[0]):
-#         print_ln("%s", matrix[i].reveal())
+def print_matrix(matrix):
+    for i in range(matrix.shape[0]):
+        print_ln("%s", matrix[i].reveal())
 
-# def get_matrix_dimensions(filename):
-#     num_rows = 0
-#     num_cols = None
+def get_matrix_dimensions(filename):
+    num_rows = 0
+    num_cols = None
 
-#     with open(filename, 'r') as file:
-#         for line in file:
-#             # Increment row count for each line
-#             num_rows += 1
+    with open(filename, 'r') as file:
+        for line in file:
+            # Increment row count for each line
+            num_rows += 1
 
-#             # Split the line into integers
-#             row_data = line.strip().split()
+            # Split the line into integers
+            row_data = line.strip().split()
 
-#             # Check if the number of columns is consistent
-#             if num_cols is None:
-#                 num_cols = len(row_data)
-#             elif num_cols != len(row_data):
-#                 raise ValueError("Inconsistent number of columns in the matrix")
+            # Check if the number of columns is consistent
+            if num_cols is None:
+                num_cols = len(row_data)
+            elif num_cols != len(row_data):
+                raise ValueError("Inconsistent number of columns in the matrix")
 
-#     return num_rows, num_cols
+    return num_rows, num_cols
 
-# p0_row, p0_col = get_matrix_dimensions("Player-Data/Input-P0-0")
+p0_row, p0_col = get_matrix_dimensions("Player-Data/Input-P0-0")
 # p1_row, p1_col = get_matrix_dimensions("Player-Data/Input-P1-0")
 
-# a = sint.Matrix(p0_row, p0_col)
-# a.input_from(0)
-# col_a = a.get_column(2)
-# size_a = len(col_a.elements())
-# arr_a = sint.Array(size_a).create_from(col_a.elements())
+a = sint.Matrix(p0_row, 5)
+a.input_from(0)
+a.sort((1,))
 
-# b = sint.Matrix(p1_row, p1_col)
-# b.input_from(1)
-# col_b = b.get_column(2)
-# size_b = len(col_b.elements())
-# arr_b = sint.Array(size_b).create_from(col_b.elements())
+print_ln("%s", a.get_column(1).reveal())
 
-def groub_by(array):
-    space = sint.Array(array.length)
-    # result = MultiArray([arr_test.length, 2], sint)
-    arr_count = sint.Array(None, address=space.address)
-    arr_value = sint.Array(None, address=space.address)
-    count = sint(1)
+def refill_matrix(target, source):
+    assert target.shape[0] >= source.shape[0]
+    for i in range(source.shape[0]):
+        target[i].assign_vector(source[i])
+
+def increase(count):
+    count += 1
+    return count
+
+def groub_by(matrix, key):
+    matrix.sort((key,))
+    result = sint.Matrix(
+        rows=matrix.shape[0],
+        columns=matrix.shape[1]+2
+    )
+    for i in range(matrix.shape[0]):
+        result[i].assign_vector(matrix[i])
+
+    count = sint(0)
+    rel = matrix.shape[1] # index of the relevancy column
+    agg = matrix.shape[1] + 1 # index of the aggregation column
     current_element = sint(0)
-    idx = regint(0)
-    @for_range_opt(array.length)
-    def _(i):
-        dbit = (array[i] != current_element).if_else(1,0).reveal()
-        @if_e(dbit)
-        def _():
-            @if_((current_element != sint(0)).if_else(1,0).reveal())
-            def _():
-                arr_value[idx] = current_element
-                arr_count[idx] = count
-                idx.update(idx + regint(1))
-            current_element.update(array[i])
-            count.update(sint(1))
-        @else_
-        def _():
-            count.update(count + sint(1))
-    @if_((current_element != sint(0)).if_else(1,0).reveal())
-    def _():
-        arr_value[idx+1] = current_element
-        arr_count[idx+1] = count
-    print_ln("%s", arr_value.reveal_list())
-    result = sint.Matrix(rows=2, columns=arr_value.length)
-    result.set_column(0, arr_value)
-    result.set_column(1, arr_count)
-    return arr_value, arr_count
+    for i in range(matrix.shape[0]-1):
+        result[i][rel] = (matrix[i][key] == matrix[i+1][key]).if_else(sint(0), sint(1))
+        count = (matrix[i][key] == current_element).if_else((count+sint(1)), sint(1))
+        current_element = (matrix[i][key] != current_element).if_else(matrix[i][key], current_element)
+        result[i][agg] = count
+    result[-1][rel] = sint(1)
+    result[-1][agg] = (matrix[-1][key] == current_element).if_else((count+sint(1)), sint(1))
+    return result
+        
+# dummy_data = [20, 99, 20, 20, 10, 11, 12, 12, 23, 24, 10, 11]
+# arr_test = sint.Array(len(dummy_data))
+# arr_test.assign(dummy_data)
+# arr_test.sort()
 
-dummy_data = [20, 99, 20, 20, 10, 11, 12, 12, 23, 24, 10, 11]
-arr_test = sint.Array(len(dummy_data))
-arr_test.assign(dummy_data)
-arr_test.sort()
-
-res = groub_by(arr_test)
-# print_ln("%s", res.reveal_list())
-# print_ln("%s", res)
-# for i in res:
-#     # print_ln("Element: %s has count %s", i[0].get_type, i[1].get_type)
-    # print_ln("Element: %s has count %s", i[0].reveal(), i[1].reveal())
-    # print_ln("%s", i)
+print_matrix(groub_by(a, 1))
