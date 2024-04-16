@@ -37,34 +37,21 @@ def get_matrix_dimensions(filename):
 
     return num_rows, num_cols
 
-def odd_even_merge(half_array):
-    if half_array.length > 2:
-        odd_even_merge(half_array[:-1])
-        odd_even_merge(half_array)
-        @for_range_opt(1, half_array.length - 2)
-        def _(i):
-            b = (half_array[i] < half_array[i+1]).less_than(half_array[i], half_array[i+1])
-            @if_(b.reveal())
-            def _():
-                half_array[i], half_array[i+1] = half_array[i+1], half_array[1]
-    else:
-        b = (half_array[0] < half_array[1]).less_than(half_array[0], half_array[1])
-        @if_(b.reveal())
-        def _():
-            half_array[0], half_array[1] = half_array[1], half_array[0]
-
-def odd_even_merge_sort(array):
-    if array.length > 1:
-        odd_even_merge_sort(array[:int(array.length / 2)])
-        odd_even_merge_sort(array[int(array.length / 2):])
-        odd_even_merge(array)
-
 def print_matrix(matrix):
     for i in range(matrix.shape[0]):
         print_ln("%s", matrix[i].reveal())
+
+def print_matches(matrix, match_key):
+    for i in range(matrix.shape[0]):
+        print_ln_if(matrix[i][match_key].reveal(), "%s", matrix[i].reveal())
 
 def get_shape(arr):
     if isinstance(arr, list):
         return [len(arr)] + get_shape(arr[0])
     else:
         return []
+
+def refill_matrix(target, source):
+    assert target.shape[0] >= source.shape[0]
+    for i in range(source.shape[0]):
+        target[i].assign_vector(source[i])
