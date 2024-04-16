@@ -6,27 +6,26 @@ from Compiler.library import for_range_opt, if_
 #### Secure operators
 ########################
 
-def inner_join_nested_loop(left, right, key=0):
-    """
-    The key=0 represents the zeroth column which usualy is the id.
-    """
+def inner_join_nested_loop(left, right, left_key, right_key):
     result = sint.Matrix(
-        rows=left.shape[0], 
-        columns=left.shape[1] + right.shape[1] - 1
+        rows=left.shape[0] * right.shape[0],
+        columns=left.shape[1] + right.shape[1] + 1
     )
+    current_idx = regint(0)
     @for_range_opt(left.shape[0])
     def _(left_row):
         @for_range_opt(right.shape[0])
         def _(right_row):
-            evaluate = left[left_row][key].equal(right[right_row][key])
-            @if_(evaluate.reveal())
-            def _():
-                @for_range_opt(left.shape[1])
-                def _(left_column):
-                    result[left_row][left_column] = left[left_row][left_column]
-                @for_range_opt(right.shape[1] - 1)
-                def _(right_column):
-                    result[left_row][left.shape[1] + right_column] = right[left_row][right_column + 1]
+            new_row = sint.Array(result.shape[1])
+            @for_range_opt(left.shape[1])
+            def _(left_col):
+                new_row[left_col] = left[left_row][left_col]
+            @for_range_opt(right.shape[1])
+            def _(right_col):
+                new_row[left.shape[1]+right_col] = right[right_row][right_col]
+            result[current_idx].assign(new_row)
+            result[current_idx][-1] = (left[left_row][left_key] == right[right_row][right_key]).if_else(sint(1),sint(0))
+            current_idx.update(current_idx + regint(1))
     return result
 
 def order_by(table, key):
