@@ -47,6 +47,6 @@ def generate_player_input(rows, player_file=0):
             ]
             file.write(" ".join(map(str, data)) + "\n")
 
-generate_player_input(20, player_file=0)
-generate_player_input(20, player_file=1)
-generate_player_input(20, player_file=2)
+generate_player_input(50, player_file=0)
+generate_player_input(50, player_file=1)
+generate_player_input(50, player_file=2)

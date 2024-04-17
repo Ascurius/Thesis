@@ -1,4 +1,4 @@
-from Compiler.types import sint
+from Compiler.types import sint, regint
 from Compiler.library import for_range_opt, if_
 
 
@@ -6,7 +6,39 @@ from Compiler.library import for_range_opt, if_
 #### Secure operators
 ########################
 
-def inner_join_nested_loop(left, right, left_key, right_key):
+def select_by_list(matrix: sint.Matrix, keys: list) -> sint.Matrix:
+    keys.sort()
+    result = sint.Matrix(
+        rows=matrix.shape[0],
+        columns=len(keys)
+    )
+    for i in range(len(keys)):
+        result.set_column(
+            i,
+            matrix.get_column(keys[i])
+        )
+    return result
+
+def select_by_array(matrix: sint.Matrix, keys: regint.Array) -> sint.Matrix:
+    keys.sort()
+    result = sint.Matrix(
+        rows=matrix.shape[0],
+        columns=keys.length
+    )
+    @for_range_opt(keys.length)
+    def _(i):
+        result.set_column(
+            i,
+            matrix.get_column(keys[i])
+        )
+    return result
+
+def inner_join_nested_loop(
+        left: sint.Matrix, 
+        right: sint.Matrix, 
+        left_key: int, 
+        right_key: int
+    ) -> sint.Matrix:
     result = sint.Matrix(
         rows=left.shape[0] * right.shape[0],
         columns=left.shape[1] + right.shape[1] + 1
@@ -28,10 +60,19 @@ def inner_join_nested_loop(left, right, left_key, right_key):
             current_idx.update(current_idx + regint(1))
     return result
 
-def order_by(table, key):
-    table.sort((key,))
+def order_by(matrix: sint.Matrix, key: int, reverse: bool = False):
+    matrix.sort((key,))
+    if reverse:
+        result = sint.Matrix(
+            rows=matrix.shape[0],
+            columns=matrix.shape[1]
+        )
+        for i in range(matrix.shape[0] // 2):
+            j = matrix.shape[0] - i - 1
+            result[i], result[j] = matrix[j], matrix[i]
+        return result
 
-def groub_by_with_reveal(array):
+def groub_by_count_with_reveal(array: sint.Matrix):
     result = MultiArray([arr_test.length, 2], sint)
     count = sint(1)
     current_element = sint(0)
@@ -55,7 +96,7 @@ def groub_by_with_reveal(array):
         result[-1][1] = count
     return result
 
-def groub_by_count(matrix, key):
+def groub_by_count(matrix: sint.Matrix, key: int):
     matrix.sort((key,))
     result = sint.Matrix(
         rows=matrix.shape[0],
@@ -77,11 +118,20 @@ def groub_by_count(matrix, key):
     result[-1][agg] = (matrix[-1][key] == current_element).if_else((count+sint(1)), sint(1))
     return result
 
+def limit(matrix: sint.Matrix, n_rows: int) -> sint.Matrix:
+    result = sint.Matrix(
+        rows=n_rows,
+        columns=matrix.shape[1]
+    )
+    for i in range(n_rows+1):
+        result[i] = matrix[i]
+    return result
+
 ########################
 #### Plaintext operators
 ########################
 
-def group_by(arr):
+def p_group_by(arr: list):
     result = []
     count = 1
     current_element = None
