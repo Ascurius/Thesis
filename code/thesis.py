@@ -1,15 +1,24 @@
-
+# from thesis.operators import (
+#     groub_by_count,
+#     select_by_list,
+#     limit,
+#     order_by
+# )
+# from thesis.util import (
+#     print_matrix,
+#     print_matches,
+#     get_matrix_dimensions
+# )
 
 def print_matrix(matrix):
     for i in range(matrix.shape[0]):
         print_ln("%s", matrix[i].reveal())
 
-def print_matched(matrix, match_key):
-    for i in range(matrix.shape[0]):
-        dbit = (matrix[i][match_key] == 1).if_else(1,0)
-        @if_(dbit.reveal())
-        def _():
-            print_ln("%s", matrix[i].reveal())
+def print_matches(matrix, match_key, n_rows=None):
+    if not n_rows:
+        n_rows = matrix.shape[0]
+    for i in range(n_rows):
+        print_ln_if(matrix[i][match_key].reveal(), "%s", matrix[i].reveal())
 
 def get_matrix_dimensions(filename):
     num_rows = 0
@@ -84,7 +93,6 @@ def limit(matrix: sint.Matrix, n_rows: int) -> sint.Matrix:
         columns=matrix.shape[1]
     )
     for i in range(n_rows):
-        print_ln("%s", matrix[i].reveal())
         result[i] = matrix[i]
     return result
 
@@ -114,8 +122,8 @@ def select_relevant(matrix: sint.Matrix, match_key: int) -> sint.Matrix:
     return result
 
 
-s = select_by_list(a, [0,2])
-g = groub_by_count(s, 1)
-o = order_by(g, -1, reverse=True)
+s = select_by_list(a, [1])
+g = groub_by_count(s, 0)
+o = order_by(g, -1, True)
 l = limit(o, 5)
-print_matched(l, 2)
+print_matches(l, 2)

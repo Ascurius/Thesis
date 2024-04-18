@@ -1,6 +1,5 @@
-from Compiler.types import sint, regint
+# from Compiler.types import sint, regint
 from Compiler.library import for_range_opt, if_
-
 
 ########################
 #### Secure operators
@@ -123,7 +122,7 @@ def limit(matrix: sint.Matrix, n_rows: int) -> sint.Matrix:
         rows=n_rows,
         columns=matrix.shape[1]
     )
-    for i in range(n_rows+1):
+    for i in range(n_rows):
         result[i] = matrix[i]
     return result
 

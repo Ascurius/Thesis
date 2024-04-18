@@ -1,3 +1,5 @@
+from Compiler.library import print_ln, print_ln_if
+
 def string_to_array(string):
     """
     Wandelt einen String in ein Array von Zahlen um, wobei jede Zahl dem Unicode-Wert des entsprechenden Zeichens entspricht.
