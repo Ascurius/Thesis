@@ -1,14 +1,4 @@
-# from thesis.operators import (
-#     groub_by_count,
-#     select_by_list,
-#     limit,
-#     order_by
-# )
-# from thesis.util import (
-#     print_matrix,
-#     print_matches,
-#     get_matrix_dimensions
-# )
+
 
 def print_matrix(matrix):
     for i in range(matrix.shape[0]):
@@ -101,29 +91,9 @@ p0_row, p0_col = get_matrix_dimensions("Player-Data/Input-P0-0")
 a = sint.Matrix(p0_row, p0_col)
 a.input_from(0)
 
-def select_relevant(matrix: sint.Matrix, match_key: int) -> sint.Matrix:
-    count = regint(0)
-    vec = matrix.get_column(match_key)
-    for i in range(len(vec.elements())):
-        @if_(vec.elements()[i].reveal())
-        def _():
-            count.update(count+1)
-    result = sint.Matrix(
-        rows=count,
-        columns=matrix.shape[1]
-    )
-    result_row = regint(0)
-    for i in range(matrix.shape[0]):
-        dbit = (matrix[i][match_key] == 1).if_else(1,0)
-        @if_(dbit)
-        def _():
-            result[result_row] = matrix[i]
-            result_row.update(result_row+1)
-    return result
-
-
 s = select_by_list(a, [1])
 g = groub_by_count(s, 0)
-o = order_by(g, -1, True)
+o = order_by(g, -1, reverse=True)
 l = limit(o, 5)
+
 print_matches(l, 2)

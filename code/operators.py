@@ -1,4 +1,4 @@
-# from Compiler.types import sint, regint
+from Compiler.types import sint, regint
 from Compiler.library import for_range_opt, if_
 
 ########################

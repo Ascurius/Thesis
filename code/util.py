@@ -57,3 +57,23 @@ def refill_matrix(target, source):
     assert target.shape[0] >= source.shape[0]
     for i in range(source.shape[0]):
         target[i].assign_vector(source[i])
+
+def select_relevant(matrix: sint.Matrix, match_key: int) -> sint.Matrix:
+    count = regint(0)
+    vec = matrix.get_column(match_key)
+    for i in range(len(vec.elements())):
+        @if_(vec.elements()[i].reveal())
+        def _():
+            count.update(count+1)
+    result = sint.Matrix(
+        rows=count,
+        columns=matrix.shape[1]
+    )
+    result_row = regint(0)
+    for i in range(matrix.shape[0]):
+        dbit = (matrix[i][match_key] == 1).if_else(1,0)
+        @if_(dbit)
+        def _():
+            result[result_row] = matrix[i]
+            result_row.update(result_row+1)
+    return result
