@@ -117,13 +117,20 @@ def groub_by_count(matrix: sint.Matrix, key: int):
     result[-1][agg] = (matrix[-1][key] == current_element).if_else((count+sint(1)), sint(1))
     return result
 
-def limit(matrix: sint.Matrix, n_rows: int) -> sint.Matrix:
+def limit(matrix: sint.Matrix, maximum: int, match_col: int) -> sint.Matrix:
     result = sint.Matrix(
-        rows=n_rows,
-        columns=matrix.shape[1]
+        rows=matrix.shape[0],
+        columns=matrix.shape[1] + 1
     )
-    for i in range(n_rows):
-        result[i] = matrix[i]
+    cnt = sint(0)
+    for i in range(matrix.shape[0]):
+        result[i].assign_vector(matrix[i])
+        cnt = (matrix[i][match_col] == sint(1)).if_else(
+            (cnt+sint(1)), cnt
+        )
+        result[i][matrix.shape[1]] = (
+            (matrix[i][match_col] == sint(1)) & (cnt <= sint(5))
+        ).if_else(sint(1), sint(0))
     return result
 
 ########################

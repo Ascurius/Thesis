@@ -4,10 +4,8 @@ def print_matrix(matrix):
     for i in range(matrix.shape[0]):
         print_ln("%s", matrix[i].reveal())
 
-def print_matches(matrix, match_key, n_rows=None):
-    if not n_rows:
-        n_rows = matrix.shape[0]
-    for i in range(n_rows):
+def print_matches(matrix, match_key):
+    for i in range(matrix.shape[0]):
         print_ln_if(matrix[i][match_key].reveal(), "%s", matrix[i].reveal())
 
 def get_matrix_dimensions(filename):
@@ -77,23 +75,46 @@ def order_by(matrix: sint.Matrix, key: int, reverse: bool = False):
             result[i], result[j] = matrix[j], matrix[i]
         return result
 
-def limit(matrix: sint.Matrix, n_rows: int) -> sint.Matrix:
+def limit(matrix: sint.Matrix, maximum: int, match_col: int) -> sint.Matrix:
     result = sint.Matrix(
-        rows=n_rows,
-        columns=matrix.shape[1]
+        rows=matrix.shape[0],
+        columns=matrix.shape[1] + 1
     )
-    for i in range(n_rows):
-        result[i] = matrix[i]
+    cnt = sint(0)
+    for i in range(matrix.shape[0]):
+        result[i].assign_vector(matrix[i])
+        cnt = (matrix[i][match_col] == sint(1)).if_else(
+            (cnt+sint(1)), cnt
+        )
+        result[i][matrix.shape[1]] = (
+            (matrix[i][match_col] == sint(1)) & (cnt <= sint(5))
+        ).if_else(sint(1), sint(0))
     return result
 
-p0_row, p0_col = get_matrix_dimensions("Player-Data/Input-P0-0")
+# def select_relevant_rows(matrix: sint.Matrix, matched_col: int) -> sint.Matrix:
+#     matrix.sort((matched_col,))
+#     n_relevant = sint(0)
+#     for i in range(matrix.shape[0]):
+#         n_relevant = (matrix[i][matched_col]).if_else((n_relevant + sint(1)), n_relevant)
+
+#     result = sint.Matrix(
+#         rows=n_relevant,
+#         columns=matrix.shape[1]
+#     )
+#     for i in range(n_relevant):
+#         result[i] = matrix[i]
+#     return result
+
+p0_row, p0_col = get_matrix_dimensions("Player-Data/Input-P1-0")
 
 a = sint.Matrix(p0_row, p0_col)
-a.input_from(0)
+a.input_from(1)
 
 s = select_by_list(a, [1])
 g = groub_by_count(s, 0)
 o = order_by(g, -1, reverse=True)
-l = limit(o, 5)
 
-print_matches(l, 2)
+l = limit(o, 5, -2)
+
+print_matches(l, -1)
+# print_matrix(o)
