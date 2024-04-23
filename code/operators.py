@@ -1,3 +1,5 @@
+import numpy as np
+from itertools import groupby
 from Compiler.types import sint, regint
 from Compiler.library import for_range_opt, if_
 
@@ -137,18 +139,19 @@ def limit(matrix: sint.Matrix, maximum: int, match_col: int) -> sint.Matrix:
 #### Plaintext operators
 ########################
 
-def p_group_by(arr: list):
-    result = []
-    count = 1
-    current_element = None
-    for i in range(len(arr)):
-        if arr[i] != current_element:
-            if current_element is not None:
-                result.append([current_element, count])
-            current_element = arr[i]
-            count = 1
-        else:
-            count += 1
-    if current_element is not None:
-        result.append([current_element, count])
-    return result
+def select_columns(matrix: np.ndarray, columns: list) -> np.ndarray:
+    columns.sort()
+    return matrix[:, columns]
+
+def group_by_count(matrix: np.ndarray, key: int) -> np.ndarray:
+    column = sorted(matrix[:, key])
+    return np.array(
+        ([(k, len(list(g))) for k, g in groupby(column)])
+    )
+
+def order_by(matrix, keys, reversed=False):
+    sorted_matrix = sorted(matrix, key=lambda x: (x[keys[1]], x[keys[0]]), reverse=reversed)
+    return np.array(sorted_matrix)
+
+def limit(matrix, maximum):
+    return matrix[:maximum]

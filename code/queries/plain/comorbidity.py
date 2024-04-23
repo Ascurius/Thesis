@@ -1,8 +1,8 @@
 import numpy as np
 from itertools import groupby
-from pprint import pprint
 
-filename = "/home/martin/Masterarbeit/MP-SPDZ_latest/Player-Data/Input-P1-0"
+player = 0
+filename = "/home/martin/Masterarbeit/MP-SPDZ_latest/Player-Data/Input-P{}-0".format(player)
 
 def print_matrix(matrix: np.ndarray) -> None:
     for row in matrix:
@@ -44,8 +44,8 @@ def group_by_count(matrix: np.ndarray, key: int) -> np.ndarray:
         ([(k, len(list(g))) for k, g in groupby(column)])
     )
 
-def order_by(matrix, key, reversed=False):
-    sorted_matrix = sorted(matrix, key=lambda x: int(x[key]), reverse=reversed)
+def order_by(matrix, keys, reversed=False):
+    sorted_matrix = sorted(matrix, key=lambda x: (x[keys[1]], x[keys[0]]), reverse=reversed)
     return np.array(sorted_matrix)
 
 def limit(matrix, maximum):
@@ -53,7 +53,7 @@ def limit(matrix, maximum):
 
 s = select_columns(m, [1])
 g = group_by_count(s, 0)
-o = order_by(g, 1, reversed=True)
+o = order_by(g, [0,1], reversed=True)
 l = limit(o, 5)
 
 print_matrix(l)

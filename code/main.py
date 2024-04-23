@@ -28,7 +28,7 @@ def get_matrix_dimensions(filename):
 
     return num_rows, num_cols
 
-def select_by_list(matrix: sint.Matrix, keys: list) -> sint.Matrix:
+def select_columns(matrix: sint.Matrix, keys: list) -> sint.Matrix:
     keys.sort()
     result = sint.Matrix(
         rows=matrix.shape[0],
@@ -90,14 +90,15 @@ def limit(matrix: sint.Matrix, maximum: int) -> sint.Matrix:
     return result
 
 
-p0_row, p0_col = get_matrix_dimensions("Player-Data/Input-P1-0")
+player = 0
+p0_row, p0_col = get_matrix_dimensions("Player-Data/Input-P{}-0".format(player))
 
 a = sint.Matrix(p0_row, p0_col)
-a.input_from(1)
+a.input_from(player)
 
-s = select_by_list(a, [1])
+s = select_columns(a, [1])
 g = groub_by_count(s, 0)
 o = order_by(g, order_key=-1, relevance_key=-2, reverse=True)
 
 l = limit(o, 5)
-print_matrix(select_by_list(l, [0,3]))
+print_matrix(select_columns(l, [0,3]))
