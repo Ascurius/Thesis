@@ -25,8 +25,9 @@ def random_date(min_year, max_year):
     
     return timestamp
 
-def generate_player_input(rows, player_file=0):
-    with open("./Player-Data/Input-P{}-0".format(player_file), "w") as file:
+def generate_player_input(rows, player=0):
+    filename = "/home/martin/Masterarbeit/MP-SPDZ_latest/Player-Data/Input-P{}-0".format(player)
+    with open(filename, "w") as file:
         for i in range(1, rows + 1):
             year = random.randint(1900, 2100),
             timestamp = int(random_date(year[0], 2100))
@@ -47,6 +48,6 @@ def generate_player_input(rows, player_file=0):
             ]
             file.write(" ".join(map(str, data)) + "\n")
 
-generate_player_input(50, player_file=0)
-generate_player_input(50, player_file=1)
-generate_player_input(50, player_file=2)
+generate_player_input(100000000, player=0)
+generate_player_input(100000000, player=1)
+generate_player_input(100000000, player=2)
