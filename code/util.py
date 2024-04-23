@@ -1,4 +1,6 @@
+import time
 from Compiler.library import print_ln, print_ln_if
+from Compiler.types import sint
 
 def string_to_array(string):
     """
@@ -77,3 +79,13 @@ def select_relevant(matrix: sint.Matrix, match_key: int) -> sint.Matrix:
             result[result_row] = matrix[i]
             result_row.update(result_row+1)
     return result
+
+def measure_time(func):
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+        result = func(*args, **kwargs)
+        end_time = time.time()
+        execution_time = end_time - start_time
+        print(f"Execution time of '{func.__name__}': {execution_time:.6f} seconds")
+        return result
+    return wrapper
