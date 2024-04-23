@@ -63,47 +63,32 @@ def groub_by_count(matrix: sint.Matrix, key: int):
     result[-1][agg] = (matrix[-1][key] == current_element).if_else((count+sint(1)), sint(1))
     return result
 
-def order_by(matrix: sint.Matrix, key: int, reverse: bool = False):
-    matrix.sort((key,))
-    if reverse:
-        result = sint.Matrix(
-            rows=matrix.shape[0],
-            columns=matrix.shape[1]
-        )
-        for i in range(matrix.shape[0] // 2):
-            j = matrix.shape[0] - i - 1
-            result[i], result[j] = matrix[j], matrix[i]
-        return result
-
-def limit(matrix: sint.Matrix, maximum: int, match_col: int) -> sint.Matrix:
+def order_by(matrix: sint.Matrix, order_key: int, relevance_key: int, reverse: bool = False):
     result = sint.Matrix(
         rows=matrix.shape[0],
         columns=matrix.shape[1] + 1
     )
-    cnt = sint(0)
     for i in range(matrix.shape[0]):
-        result[i].assign_vector(matrix[i])
-        cnt = (matrix[i][match_col] == sint(1)).if_else(
-            (cnt+sint(1)), cnt
-        )
-        result[i][matrix.shape[1]] = (
-            (matrix[i][match_col] == sint(1)) & (cnt <= sint(5))
-        ).if_else(sint(1), sint(0))
+        result[i] = matrix[i]
+        result[i][matrix.shape[1]] = matrix[i][order_key] * matrix[i][relevance_key]
+    result.sort((matrix.shape[1],))
+    if reverse:
+        swap = result.same_shape()
+        for i in range(result.shape[0] // 2):
+            j = result.shape[0] - i - 1
+            swap[i], swap[j] = result[j], result[i]
+        return swap
     return result
 
-# def select_relevant_rows(matrix: sint.Matrix, matched_col: int) -> sint.Matrix:
-#     matrix.sort((matched_col,))
-#     n_relevant = sint(0)
-#     for i in range(matrix.shape[0]):
-#         n_relevant = (matrix[i][matched_col]).if_else((n_relevant + sint(1)), n_relevant)
+def limit(matrix: sint.Matrix, maximum: int) -> sint.Matrix:
+    result = sint.Matrix(
+        rows=maximum,
+        columns=matrix.shape[1]
+    )
+    for i in range(maximum):
+        result[i].assign_vector(matrix[i])
+    return result
 
-#     result = sint.Matrix(
-#         rows=n_relevant,
-#         columns=matrix.shape[1]
-#     )
-#     for i in range(n_relevant):
-#         result[i] = matrix[i]
-#     return result
 
 p0_row, p0_col = get_matrix_dimensions("Player-Data/Input-P1-0")
 
@@ -112,9 +97,7 @@ a.input_from(1)
 
 s = select_by_list(a, [1])
 g = groub_by_count(s, 0)
-o = order_by(g, -1, reverse=True)
+o = order_by(g, order_key=-1, relevance_key=-2, reverse=True)
 
-l = limit(o, 5, -2)
-
-print_matches(l, -1)
-# print_matrix(o)
+l = limit(o, 5)
+print_matrix(select_by_list(l, [0,3]))

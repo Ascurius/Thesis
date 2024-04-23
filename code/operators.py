@@ -5,7 +5,7 @@ from Compiler.library import for_range_opt, if_
 #### Secure operators
 ########################
 
-def select_by_list(matrix: sint.Matrix, keys: list) -> sint.Matrix:
+def select_columns(matrix: sint.Matrix, keys: list) -> sint.Matrix:
     keys.sort()
     result = sint.Matrix(
         rows=matrix.shape[0],
