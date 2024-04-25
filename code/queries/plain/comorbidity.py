@@ -48,7 +48,6 @@ def limit(matrix, maximum):
 def comorbidity(matrix):
     m = matrix
     m = select_columns(m, [1])
-    del matrix
     m = group_by_count(m, 0)
     m = order_by(m, [0,1], reversed=True)
     m = limit(m, 5)
@@ -64,4 +63,3 @@ for _ in range(num_tests):
     # print(f"Average time needed for computation: {single_time:.6f}")
     total_time += single_time
 print(f"Average time needed for computation: {(total_time/num_tests):.6f}")
-# print(f"Average time needed for computation: {single_time:.6f}")
