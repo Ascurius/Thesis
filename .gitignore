@@ -2,6 +2,8 @@ env/
 MP-SPDZ_latest/
 MP-SPDZ/*
 mp-spdz-0.3.8/
+smcql/
+duckdb/*.duckdb
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
