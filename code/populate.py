@@ -1,5 +1,7 @@
 import random
-from datetime import datetime
+import calendar
+import csv
+from datetime import datetime, timedelta
 
 def random_date(min_year, max_year):
     # Generate a random year between min_year and max_year
@@ -48,6 +50,72 @@ def generate_player_input(rows, player=0):
             ]
             file.write(" ".join(map(str, data)) + "\n")
 
-generate_player_input(100000000, player=0)
-generate_player_input(100000000, player=1)
-generate_player_input(100000000, player=2)
+def fill_medication_csv(filename, site):
+    with open(filename, 'w', newline='') as csvfile:
+        writer = csv.writer(csvfile)
+
+        for _ in range(1000000):
+            random_year = str(random.randint(2000, 2022))
+            random_month = random.randint(1, 12)
+            max_day = calendar.monthrange(int(random_year), random_month)[1]  # Maximum number of days in the random month
+            random_day = random.randint(1, max_day)  # Random day within the valid range for the random month
+            last_column_date = datetime(int(random_year), random_month, random_day)
+
+            row = [
+                str(random.randint(1, 10)),  # First column (random number between 1 and 10)
+                '7',  # Second column (fixed value of 7)
+                random_year,  # Third column (random year between 2000 and 2022)
+                str(random_month),  # Fourth column (random month between 1 and 12)
+                'aspirin',  # Fifth column (fixed value of 'aspirin')
+                '10 mg',  # Sixth column (fixed value of '10 mg')
+                'oral',  # Seventh column (fixed value of 'oral')
+                last_column_date.strftime('%m/%d/%y')  # Eighth column (random date in the last 10 years with the same year as the third column)
+            ]
+            writer.writerow(row)
+
+def fill_diagnoses_csv(filename, site):
+    with open(filename, 'w', newline='') as csvfile:
+        writer = csv.writer(csvfile)
+
+        for _ in range(1000000):
+            # Generate random data for the row
+            random_year = str(random.randint(2000, 2022))
+            random_month = random.randint(1, 12)
+            max_day = calendar.monthrange(int(random_year), random_month)[1]  # Maximum number of days in the random month
+            random_day = random.randint(1, max_day)  # Random day within the valid range for the random month
+            last_column_date = datetime(int(random_year), random_month, random_day)
+
+            row = [
+                str(random.randint(1, 10)),  # First column (random number between 1 and 10)
+                site,  # Second column (fixed value of 4)
+                random_year,  # Third column (random year between 2000 and 2022)
+                str(random.randint(1, 12)),  # Fourth column (random month between 1 and 12)
+                '1', '1', '1', '1',  # Fifth to eighth columns (fixed value of 1)
+                '{:.2f}'.format(random.uniform(100, 500)),  # Ninth column (random float between 100 and 500 with two decimal places)
+                '1',  # Tenth column (fixed value of 1)
+                last_column_date.strftime('%m/%d/%y'),  # Eleventh column (random date in the last 10 years with the same year as the third column)
+                '{:.2f}'.format(random.uniform(100, 500)),  # Twelfth column (random float between 100 and 500 with two decimal places)
+                '{:03d}'.format(random.randint(1, 999))  # Thirteenth column (random integer between 1 and 999 with leading zeros)
+            ]
+            writer.writerow(row)
+
+# generate_player_input(100000000, player=0)
+# generate_player_input(100000000, player=1)
+# generate_player_input(100000000, player=2)
+
+fill_medication_csv(
+    "/home/martin/Masterarbeit/smcql/conf/workload/testDB/1/medications.csv",
+    site=4
+)
+fill_medication_csv(
+    "/home/martin/Masterarbeit/smcql/conf/workload/testDB/2/medications.csv",
+    site=7
+)
+fill_diagnoses_csv(
+    "/home/martin/Masterarbeit/smcql/conf/workload/testDB/1/diagnoses.csv",
+    site=4
+)
+fill_diagnoses_csv(
+    "/home/martin/Masterarbeit/smcql/conf/workload/testDB/2/diagnoses.csv",
+    site=7
+)
