@@ -69,7 +69,7 @@ def fill_medication_csv(filename, site):
                 'aspirin',  # Fifth column (fixed value of 'aspirin')
                 '10 mg',  # Sixth column (fixed value of '10 mg')
                 'oral',  # Seventh column (fixed value of 'oral')
-                last_column_date.strftime('%m/%d/%y')  # Eighth column (random date in the last 10 years with the same year as the third column)
+                last_column_date.strftime('%y/%m/%d')  # Eighth column (random date in the last 10 years with the same year as the third column)
             ]
             writer.writerow(row)
 
@@ -85,15 +85,18 @@ def fill_diagnoses_csv(filename, site):
             random_day = random.randint(1, max_day)  # Random day within the valid range for the random month
             last_column_date = datetime(int(random_year), random_month, random_day)
 
+            # Choose between 008.45 and 414.01 for the eighth column
+            eighth_column_value = random.choice(['008.45', '414.01'])
+
             row = [
                 str(random.randint(1, 10)),  # First column (random number between 1 and 10)
-                site,  # Second column (fixed value of 4)
+                '4',  # Second column (fixed value of 4)
                 random_year,  # Third column (random year between 2000 and 2022)
                 str(random.randint(1, 12)),  # Fourth column (random month between 1 and 12)
                 '1', '1', '1', '1',  # Fifth to eighth columns (fixed value of 1)
-                '{:.2f}'.format(random.uniform(100, 500)),  # Ninth column (random float between 100 and 500 with two decimal places)
+                eighth_column_value,  # Ninth column (either 008.45 or 414.01)
                 '1',  # Tenth column (fixed value of 1)
-                last_column_date.strftime('%m/%d/%y'),  # Eleventh column (random date in the last 10 years with the same year as the third column)
+                last_column_date.strftime('%y/%m/%d'),  # Eleventh column (random date in the last 10 years with the same year as the third column)
                 '{:.2f}'.format(random.uniform(100, 500)),  # Twelfth column (random float between 100 and 500 with two decimal places)
                 '{:03d}'.format(random.randint(1, 999))  # Thirteenth column (random integer between 1 and 999 with leading zeros)
             ]
@@ -104,18 +107,18 @@ def fill_diagnoses_csv(filename, site):
 # generate_player_input(100000000, player=2)
 
 fill_medication_csv(
-    "/home/martin/Masterarbeit/smcql/conf/workload/testDB/1/medications.csv",
+    "/home/martin/Masterarbeit/duckdb/testData/1/medications.csv",
     site=4
 )
 fill_medication_csv(
-    "/home/martin/Masterarbeit/smcql/conf/workload/testDB/2/medications.csv",
+    "/home/martin/Masterarbeit/duckdb/testData/2/medications.csv",
     site=7
 )
 fill_diagnoses_csv(
-    "/home/martin/Masterarbeit/smcql/conf/workload/testDB/1/diagnoses.csv",
+    "/home/martin/Masterarbeit/duckdb/testData/1/diagnoses.csv",
     site=4
 )
 fill_diagnoses_csv(
-    "/home/martin/Masterarbeit/smcql/conf/workload/testDB/2/diagnoses.csv",
+    "/home/martin/Masterarbeit/duckdb/testData/2/diagnoses.csv",
     site=7
 )
