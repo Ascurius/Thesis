@@ -12,11 +12,13 @@ fi
 echo "Creating test database..."
 
 dbPrefix='thesis'
+rm "$path/thesis.duckdb"
 duckdb "$path/thesis.duckdb" -c ".read $path/testData/test_schema.sql"
 
 for i in 1 2
 do
     dbName=$dbPrefix'_site'$i
+    rm "$path/$dbName.duckdb"
     duckdb "$path/$dbName.duckdb" -c ".read $path/testData/test_schema.sql"
     duckdb "$path/$dbName.duckdb" -c "COPY diagnoses FROM '$path/testData/$i/diagnoses.csv' WITH DELIMITER ','"
     duckdb "$path/$dbName.duckdb" -c "COPY medications FROM '$path/testData/$i/medications.csv' WITH DELIMITER ','"
