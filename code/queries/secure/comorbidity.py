@@ -28,13 +28,14 @@ def get_matrix_dimensions(filename):
 
     return num_rows, num_cols
 
-def select_columns(matrix: sint.Matrix, keys: list) -> sint.Matrix:
+def select_columns(matrix: sint.Matrix, keys: regint.Array) -> sint.Matrix:
     keys.sort()
     result = sint.Matrix(
         rows=matrix.shape[0],
         columns=len(keys)
     )
-    for i in range(len(keys)):
+    @for_range_opt(len(keys))
+    def _(i):
         result.set_column(
             i,
             matrix.get_column(keys[i])
@@ -47,16 +48,20 @@ def groub_by_count(matrix: sint.Matrix, key: int):
         rows=matrix.shape[0],
         columns=matrix.shape[1]+2
     )
-    for i in range(matrix.shape[0]):
+    @for_range_opt(matrix.shape[0])
+    def _(i):
         result[i].assign_vector(matrix[i])
 
     count = sint(0)
     rel = matrix.shape[1] # index of the relevancy column
     agg = matrix.shape[1] + 1 # index of the aggregation column
     current_element = sint(0)
-    for i in range(matrix.shape[0]-1):
+    @for_range_opt(matrix.shape[0]-1)
+    def _(i):
+        nonlocal current_element
         result[i][rel] = (matrix[i][key] == matrix[i+1][key]).if_else(sint(0), sint(1))
-        count = (matrix[i][key] == current_element).if_else((count+sint(1)), sint(1))
+        adder = (matrix[i][key] == current_element).if_else((count+sint(1)), sint(1))
+        count.update(adder)
         current_element = (matrix[i][key] != current_element).if_else(matrix[i][key], current_element)
         result[i][agg] = count
     result[-1][rel] = sint(1)
@@ -68,13 +73,15 @@ def order_by(matrix: sint.Matrix, order_key: int, relevance_key: int, reverse: b
         rows=matrix.shape[0],
         columns=matrix.shape[1] + 1
     )
-    for i in range(matrix.shape[0]):
+    @for_range_opt(matrix.shape[0])
+    def _(i):
         result[i] = matrix[i]
         result[i][matrix.shape[1]] = matrix[i][order_key] * matrix[i][relevance_key]
     result.sort((matrix.shape[1],))
     if reverse:
         swap = result.same_shape()
-        for i in range(result.shape[0] // 2):
+        @for_range_opt(result.shape[0] // 2)
+        def _(i):
             j = result.shape[0] - i - 1
             swap[i], swap[j] = result[j], result[i]
         return swap
@@ -85,7 +92,8 @@ def limit(matrix: sint.Matrix, maximum: int) -> sint.Matrix:
         rows=maximum,
         columns=matrix.shape[1]
     )
-    for i in range(maximum):
+    @for_range_opt(maximum)
+    def _(i):
         result[i].assign_vector(matrix[i])
     return result
 
