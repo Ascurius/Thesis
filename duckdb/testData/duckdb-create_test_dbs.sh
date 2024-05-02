@@ -12,28 +12,27 @@ fi
 echo "Creating test database..."
 
 dbPrefix='thesis'
-dbLocation="~/Masterarbeit/duckdb/"
-duckdb "$dbLocation/thesis.duckdb" -c ".read $path/testData/test_schema.sql"
+duckdb "$path/thesis.duckdb" -c ".read $path/testData/test_schema.sql"
 
 for i in 1 2
 do
     dbName=$dbPrefix'_site'$i
-    duckdb "$dbLocation/$dbName.duckdb" -c ".read $path/testData/test_schema.sql"
-    duckdb "$dbLocation/$dbName.duckdb" -c "COPY diagnoses FROM '$path/testData/$i/diagnoses.csv' WITH DELIMITER ','"
-    duckdb "$dbLocation/$dbName.duckdb" -c "COPY medications FROM '$path/testData/$i/medications.csv' WITH DELIMITER ','"
-    duckdb "$dbLocation/$dbName.duckdb" -c "COPY site FROM '$path/testData/$i/site.csv' WITH DELIMITER ','"
+    duckdb "$path/$dbName.duckdb" -c ".read $path/testData/test_schema.sql"
+    duckdb "$path/$dbName.duckdb" -c "COPY diagnoses FROM '$path/testData/$i/diagnoses.csv' WITH DELIMITER ','"
+    duckdb "$path/$dbName.duckdb" -c "COPY medications FROM '$path/testData/$i/medications.csv' WITH DELIMITER ','"
+    duckdb "$path/$dbName.duckdb" -c "COPY site FROM '$path/testData/$i/site.csv' WITH DELIMITER ','"
 
     val=$i
     if (($val == 1)); then
-        duckdb "$dbLocation/$dbName.duckdb" -c "COPY remote_diagnoses FROM '$path/testData/2/diagnoses.csv' WITH DELIMITER ','"
+        duckdb "$path/$dbName.duckdb" -c "COPY remote_diagnoses FROM '$path/testData/2/diagnoses.csv' WITH DELIMITER ','"
     else
-        duckdb "$dbLocation/$dbName.duckdb" -c "COPY remote_diagnoses FROM '$path/testData/1/diagnoses.csv' WITH DELIMITER ','"
+        duckdb "$path/$dbName.duckdb" -c "COPY remote_diagnoses FROM '$path/testData/1/diagnoses.csv' WITH DELIMITER ','"
     fi
-    duckdb "$dbLocation/$dbName.duckdb" -c "CREATE TABLE remote_cdiff_cohort_diagnoses AS (SELECT * FROM remote_diagnoses WHERE icd9='008.45')"
-    duckdb "$dbLocation/$dbName.duckdb" -c "CREATE TABLE remote_mi_cohort_diagnoses AS (SELECT * FROM remote_diagnoses WHERE icd9 like '414%')"
-    duckdb "$dbLocation/$dbName.duckdb" -c "CREATE TABLE remote_mi_cohort_medications AS (SELECT * FROM remote_medications WHERE lower(medication) like '%aspirin%')"
+    duckdb "$path/$dbName.duckdb" -c "CREATE TABLE remote_cdiff_cohort_diagnoses AS (SELECT * FROM remote_diagnoses WHERE icd9='008.45')"
+    duckdb "$path/$dbName.duckdb" -c "CREATE TABLE remote_mi_cohort_diagnoses AS (SELECT * FROM remote_diagnoses WHERE icd9 like '414%')"
+    duckdb "$path/$dbName.duckdb" -c "CREATE TABLE remote_mi_cohort_medications AS (SELECT * FROM remote_medications WHERE lower(medication) like '%aspirin%')"
 
-    duckdb "$dbLocation/$dbName.duckdb" -c ".read $path/testData/setup_test_registries.sql"
+    duckdb "$path/$dbName.duckdb" -c ".read $path/testData/setup_test_registries.sql"
 done
 
 # psql -lqt | cut -d \| -f 1 | grep -qw $dbPrefix
