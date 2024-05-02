@@ -50,11 +50,11 @@ def generate_player_input(rows, player=0):
             ]
             file.write(" ".join(map(str, data)) + "\n")
 
-def fill_medication_csv(filename, site):
+def fill_medication_csv(filename, site, rows):
     with open(filename, 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
 
-        for _ in range(1000000):
+        for _ in range(rows):
             random_year = str(random.randint(2000, 2022))
             random_month = random.randint(1, 12)
             max_day = calendar.monthrange(int(random_year), random_month)[1]  # Maximum number of days in the random month
@@ -63,7 +63,7 @@ def fill_medication_csv(filename, site):
 
             row = [
                 str(random.randint(1, 10)),  # First column (random number between 1 and 10)
-                '7',  # Second column (fixed value of 7)
+                site,  # Second column (fixed value of 7)
                 random_year,  # Third column (random year between 2000 and 2022)
                 str(random_month),  # Fourth column (random month between 1 and 12)
                 'aspirin',  # Fifth column (fixed value of 'aspirin')
@@ -73,11 +73,11 @@ def fill_medication_csv(filename, site):
             ]
             writer.writerow(row)
 
-def fill_diagnoses_csv(filename, site):
+def fill_diagnoses_csv(filename, site, rows):
     with open(filename, 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
 
-        for _ in range(1000000):
+        for _ in range(rows):
             # Generate random data for the row
             random_year = str(random.randint(2000, 2022))
             random_month = random.randint(1, 12)
@@ -90,7 +90,7 @@ def fill_diagnoses_csv(filename, site):
 
             row = [
                 str(random.randint(1, 10)),  # First column (random number between 1 and 10)
-                '4',  # Second column (fixed value of 4)
+                site,  # Second column (fixed value of 4)
                 random_year,  # Third column (random year between 2000 and 2022)
                 str(random.randint(1, 12)),  # Fourth column (random month between 1 and 12)
                 '1', '1', '1', '1',  # Fifth to eighth columns (fixed value of 1)
@@ -106,19 +106,24 @@ def fill_diagnoses_csv(filename, site):
 # generate_player_input(100000000, player=1)
 # generate_player_input(100000000, player=2)
 
+max_rows = 1000
 fill_medication_csv(
     "/home/martin/Masterarbeit/duckdb/testData/1/medications.csv",
-    site=4
+    site=4,
+    rows=max_rows
 )
 fill_medication_csv(
     "/home/martin/Masterarbeit/duckdb/testData/2/medications.csv",
-    site=7
+    site=7,
+    rows=max_rows
 )
 fill_diagnoses_csv(
     "/home/martin/Masterarbeit/duckdb/testData/1/diagnoses.csv",
-    site=4
+    site=4,
+    rows=max_rows
 )
 fill_diagnoses_csv(
     "/home/martin/Masterarbeit/duckdb/testData/2/diagnoses.csv",
-    site=7
+    site=7,
+    rows=max_rows
 )
