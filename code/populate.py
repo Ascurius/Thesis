@@ -1,3 +1,4 @@
+import os
 import random
 import calendar
 import csv
@@ -106,24 +107,25 @@ def fill_diagnoses_csv(filename, site, rows):
 # generate_player_input(100000000, player=1)
 # generate_player_input(100000000, player=2)
 
-max_rows = 1000
+max_rows = 100000
+pwd = os.getcwd()
 fill_medication_csv(
-    "/home/martin/Masterarbeit/duckdb/testData/1/medications.csv",
+    f"{pwd}/duckdb/testData/1/medications.csv",
     site=4,
     rows=max_rows
 )
 fill_medication_csv(
-    "/home/martin/Masterarbeit/duckdb/testData/2/medications.csv",
+    f"{pwd}/duckdb/testData/2/medications.csv",
     site=7,
     rows=max_rows
 )
 fill_diagnoses_csv(
-    "/home/martin/Masterarbeit/duckdb/testData/1/diagnoses.csv",
+    f"{pwd}/duckdb/testData/1/diagnoses.csv",
     site=4,
     rows=max_rows
 )
 fill_diagnoses_csv(
-    "/home/martin/Masterarbeit/duckdb/testData/2/diagnoses.csv",
+    f"{pwd}/duckdb/testData/2/diagnoses.csv",
     site=7,
     rows=max_rows
 )
