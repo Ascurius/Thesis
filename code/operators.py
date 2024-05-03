@@ -62,7 +62,7 @@ def inner_join_nested_loop(
             current_idx.update(current_idx + regint(1))
     return result
 
-def order_by(matrix: sint.Matrix, order_key: int, relevance_key: int, reverse: bool = False):
+def order_by(matrix: sint.Matrix, order_key: int, relevance_key: int, reverse: bool = False) -> sint.Matrix:
     result = sint.Matrix(
         rows=matrix.shape[0],
         columns=matrix.shape[1] + 1
@@ -105,7 +105,7 @@ def groub_by_count_with_reveal(array: sint.Matrix):
         result[-1][1] = count
     return result
 
-def groub_by_count(matrix: sint.Matrix, key: int):
+def groub_by_count(matrix: sint.Matrix, key: int) -> sint.Matrix:
     matrix.sort((key,))
     result = sint.Matrix(
         rows=matrix.shape[0],
