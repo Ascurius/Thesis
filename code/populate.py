@@ -2,9 +2,11 @@ import os
 import random
 import calendar
 import csv
-from datetime import datetime, timedelta
+import click
+import sys
+from datetime import datetime
 
-def random_date(min_year, max_year):
+def random_date(min_year: int, max_year: int) -> float:
     # Generate a random year between min_year and max_year
     year = random.randint(min_year, max_year)
     
@@ -28,8 +30,7 @@ def random_date(min_year, max_year):
     
     return timestamp
 
-def generate_player_input(rows, player=0):
-    filename = "/home/martin/Masterarbeit/MP-SPDZ_latest/Player-Data/Input-P{}-0".format(player)
+def generate_player_input(filename: str, rows: int) -> None:
     with open(filename, "w") as file:
         for i in range(1, rows + 1):
             year = random.randint(1900, 2100),
@@ -51,7 +52,7 @@ def generate_player_input(rows, player=0):
             ]
             file.write(" ".join(map(str, data)) + "\n")
 
-def fill_medication_csv(filename, site, rows):
+def fill_medication_csv(filename: str, site: int, rows: int) -> None:
     with open(filename, 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
 
@@ -74,7 +75,7 @@ def fill_medication_csv(filename, site, rows):
             ]
             writer.writerow(row)
 
-def fill_diagnoses_csv(filename, site, rows):
+def fill_diagnoses_csv(filename: str, site: int, rows: int) -> None:
     with open(filename, 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
 
@@ -103,29 +104,42 @@ def fill_diagnoses_csv(filename, site, rows):
             ]
             writer.writerow(row)
 
-# generate_player_input(100000000, player=0)
-# generate_player_input(100000000, player=1)
-# generate_player_input(100000000, player=2)
+@click.command()
+@click.argument("system", type=click.Choice(["db", "secure"]), required=True)
+@click.argument("max_rows", type=int, required=True)
+def main(system: str, max_rows: int) -> None:
+    pwd = os.getcwd()
+    if system == "db":
+        if not os.path.exists(f"{pwd}/duckdb"):
+            click.echo(f'Directory "{pwd}/duckdb" could not be found!')
+            sys.exit()
+        fill_medication_csv(
+            f"{pwd}/duckdb/testData/1/medications.csv",
+            site=4,
+            rows=max_rows
+        )
+        fill_medication_csv(
+            f"{pwd}/duckdb/testData/2/medications.csv",
+            site=7,
+            rows=max_rows
+        )
+        fill_diagnoses_csv(
+            f"{pwd}/duckdb/testData/1/diagnoses.csv",
+            site=4,
+            rows=max_rows
+        )
+        fill_diagnoses_csv(
+            f"{pwd}/duckdb/testData/2/diagnoses.csv",
+            site=7,
+            rows=max_rows
+        )
+    else:
+        if not os.path.exists(f"{pwd}/MP-SPDZ/Player-Data"):
+            click.echo(f'Directory "{pwd}/MP-SPDZ/Player-Data" could not be found!')
+            sys.exit()
+        generate_player_input(f"{pwd}/MP-SPDZ/Player-Data/Input-P0-0", max_rows)
+        generate_player_input(f"{pwd}/MP-SPDZ/Player-Data/Input-P1-0", max_rows)
+        generate_player_input(f"{pwd}/MP-SPDZ/Player-Data/Input-P2-0", max_rows)
 
-max_rows = 100000
-pwd = os.getcwd()
-fill_medication_csv(
-    f"{pwd}/duckdb/testData/1/medications.csv",
-    site=4,
-    rows=max_rows
-)
-fill_medication_csv(
-    f"{pwd}/duckdb/testData/2/medications.csv",
-    site=7,
-    rows=max_rows
-)
-fill_diagnoses_csv(
-    f"{pwd}/duckdb/testData/1/diagnoses.csv",
-    site=4,
-    rows=max_rows
-)
-fill_diagnoses_csv(
-    f"{pwd}/duckdb/testData/2/diagnoses.csv",
-    site=7,
-    rows=max_rows
-)
+if __name__ == "__main__":
+    main()
