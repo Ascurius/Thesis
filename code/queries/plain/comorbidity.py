@@ -1,10 +1,8 @@
+import os
+import sys
 import time
 import numpy as np
 from itertools import groupby
-
-player = 0
-num_rows = 100000000
-filename = "/home/martin/Masterarbeit/MP-SPDZ_latest/Player-Data/Input-P{}-0".format(player)
 
 def measure_time(func):
     def wrapper(*args, **kwargs):
@@ -16,16 +14,6 @@ def measure_time(func):
         # print(f"Execution time of '{func.__name__}': {execution_time:.6f} seconds")
         return result, execution_time
     return wrapper
-
-def print_matrix(matrix: np.ndarray) -> None:
-    for row in matrix:
-        print(row)
-
-@measure_time
-def preprocess():
-    m = np.fromfile(filename, sep=" ", dtype=int, count=num_rows*13)
-    m = m.reshape((num_rows,13))
-    return m
 
 def select_columns(matrix: np.ndarray, columns: list) -> np.ndarray:
     columns.sort()
@@ -45,6 +33,12 @@ def limit(matrix, maximum):
     return matrix[:maximum]
 
 @measure_time
+def preprocess(filename, num_rows):
+    m = np.fromfile(filename, sep=" ", dtype=int, count=num_rows*13)
+    m = m.reshape((num_rows,13))
+    return m
+
+@measure_time
 def comorbidity(matrix):
     m = matrix
     m = select_columns(m, [1])
@@ -53,13 +47,12 @@ def comorbidity(matrix):
     m = limit(m, 5)
     return m
     
-data, pre_time = preprocess()
-num_tests = 10
-print(f"Number of rows: {num_rows}")
-print(f"Time needed for preprocessing: {pre_time:.6f}")
-total_time = 0
-for _ in range(num_tests):
+if __name__ == "__main__":
+    pwd = os.getcwd()
+    max_rows = int(sys.argv[1])
+    input_file = f"{pwd}/MP-SPDZ/Player-Data/Input-P0-0"
+
+    data, pre_time = preprocess(input_file, max_rows)
     _, single_time = comorbidity(data)
-    # print(f"Average time needed for computation: {single_time:.6f}")
-    total_time += single_time
-print(f"Average time needed for computation: {(total_time/num_tests):.6f}")
+    # print(f"Time needed for preprocessing: {pre_time:.6f}")
+    print(f"Time needed for executing the query: {single_time:.6f}")
