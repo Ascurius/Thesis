@@ -46,6 +46,3 @@ with open(f"{path}/results/measurements/{query}_plain.csv", 'w', newline='') as 
         average_execution_time = total_execution_time / num_tests
 
         writer.writerow([max_rows, average_execution_time])
-
-        print(f"Test for {max_rows} rows")
-        print(f"Average Execution Time: {average_execution_time:.6}")
