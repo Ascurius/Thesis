@@ -1,3 +1,5 @@
+#!/bin/bash
+
 query="comorbidity"
 extension="_secure.txt"
 path=$(pwd)

@@ -1,3 +1,5 @@
+#!/bin/bash
+
 mp_spdz_version="0.3.8"
 
 
