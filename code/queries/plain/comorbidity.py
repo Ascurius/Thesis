@@ -32,7 +32,6 @@ def order_by(matrix, keys, reversed=False):
 def limit(matrix, maximum):
     return matrix[:maximum]
 
-@measure_time
 def preprocess(filename, num_rows):
     m = np.fromfile(filename, sep=" ", dtype=int, count=num_rows*13)
     m = m.reshape((num_rows,13))
@@ -52,7 +51,6 @@ if __name__ == "__main__":
     max_rows = int(sys.argv[1])
     input_file = f"{pwd}/MP-SPDZ/Player-Data/Input-P0-0"
 
-    data, pre_time = preprocess(input_file, max_rows)
+    data = preprocess(input_file, max_rows)
     _, single_time = comorbidity(data)
-    # print(f"Time needed for preprocessing: {pre_time:.6f}")
     print(f"Time needed for executing the query: {single_time:.6f}")
