@@ -26,11 +26,15 @@ sql_rows, sql_times = read_plain(f"{pwd}/results/measurements/{query}_db.txt")
 # Perform linear regression
 slope, intercept, _, _, _ = linregress(np.log(secure_rows), np.log(secure_times))
 
-# Extrapolate the next data point (1,000,000 rows)
-next_row = 1000000
-next_time = np.exp(intercept + slope * np.log(next_row))
-secure_rows.append(next_row)
-secure_times.append(next_time)
+# Extrapolate for additional data points
+extrapolated_data_points = [
+    slope * 400000 + intercept,
+    slope * 600000 + intercept,
+    slope * 800000 + intercept,
+    slope * 1000000 + intercept
+]
+secure_rows.extend([400000, 600000, 800000, 1000000])
+secure_times.extend(extrapolated_data_points)
 
 # Data for SQL query
 
@@ -40,8 +44,9 @@ plt.figure(figsize=(10, 6))
 plt.plot(plain_rows, plain_times, marker='o', label='Python')
 
 # Plotting secure query
-plt.plot(secure_rows[:3], secure_times[:3], marker='o', linestyle='-', label='MP-SPDZ')
-plt.plot(secure_rows[2:], secure_times[2:], marker='o', linestyle=':', color='orange')
+# plt.plot(secure_rows, secure_times, marker='o', linestyle='-', label='MP-SPDZ')
+plt.plot(secure_rows[:13], secure_times[:13], marker='o', linestyle='-', label='MP-SPDZ')
+plt.plot(secure_rows[12:], secure_times[12:], marker='o', linestyle=':', color='orange')
 
 
 # Plotting SQL query
@@ -56,4 +61,4 @@ plt.grid(True)
 plt.legend()
 # plt.legend(['Measured Data', 'Extrapolated Data'], loc='upper left')
 plt.tight_layout()
-plt.savefig('query_time_comparison.png')
+plt.savefig('./results/img/query_time_comparison.png')
