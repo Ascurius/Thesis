@@ -46,7 +46,7 @@ def generate_player_input(filename: str, rows: int) -> None:
                 random.randint(0, 1),
                 random.randint(0, 1),
                 random.randint(0, 1),
-                int(random.uniform(0, 1000)),
+                random.choice([8, 414]),
                 random.randint(0, 1),
                 timestamp,
                 int(random.uniform(0, 1000)),
