@@ -54,10 +54,11 @@ def inner_join_nested_loop(
             current_idx.update(current_idx + regint(1))
     return result
 
-a = sint.Matrix(100, 13)
+max_rows = 10
+a = sint.Matrix(max_rows, 13)
 a.input_from(0)
 
-b = sint.Matrix(100, 13)
+b = sint.Matrix(max_rows, 13)
 b.input_from(1)
 
 j = inner_join_nested_loop(a, b, 1, 1)

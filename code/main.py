@@ -100,7 +100,7 @@ def limit(matrix: sint.Matrix, maximum: int) -> sint.Matrix:
 
 p0_row, p0_col = get_matrix_dimensions("Player-Data/Input-P0-0")
 
-a = sint.Matrix(100000, p0_col)
+a = sint.Matrix(800000, p0_col)
 a.input_from(0)
 
 columns = Array(1, regint)
@@ -111,4 +111,3 @@ g = groub_by_count(s, 0)
 o = order_by(g, order_key=-1, relevance_key=-2, reverse=True)
 
 l = limit(o, 5)
-# print_matrix(select_columns(l, [0,3]))
