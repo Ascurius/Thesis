@@ -1,16 +1,42 @@
 
 def print_matrix(matrix: sint.Matrix):
     for i in range(matrix.shape[0]):
-        print_ln("%s", matrix[i].reveal())
+        @if_(matrix[i][0].reveal())
+        def _():
+            print_ln("%s", matrix[i].reveal())
 
-def print_matches(matrix: sint.Matrix, match_keys: list):
-    for row in range(matrix.shape[0]):
-        if all(matrix[row][col] for col in match_keys):
-            print_ln("%s", matrix[row].reveal())
+def print_matches(matrix, match_key):
+    for i in range(matrix.shape[0]):
+        print_ln_if(matrix[i][match_key].reveal(), "%s", matrix[i].reveal())
+
+def select_relevant(matrix):
+    result = sint.Matrix(
+        rows=matrix.shape[0],
+        columns=matrix.shape[1]
+    )
+    idx = regint(0)
+    @for_range_opt(matrix.shape[0])
+    def _(i):
+        dbit = (matrix[i][-1] & matrix[i][-2]).if_else(1,0)
+        @if_(dbit.reveal())
+        def _():
+            result[idx].assign_vector(matrix[i])
+            idx.update(idx + 1)
+    return result
+
+def count_relevant(matrix, relevancy_key):
+    idx = regint(0)
+    @for_range_opt(matrix.shape[0])
+    def _(i):
+        dbit = (matrix[i][relevancy_key] == 1).if_else(1,0)
+        @if_(dbit.reveal())
+        def _():
+            idx.update(idx + 1)
+    return idx
+
 
 def select_distinct(matrix: sint.Matrix, column: int) -> sint.Matrix:
-    matrix.sort((column, ))
-
+    # matrix.sort((column,))
     result = sint.Matrix(
         rows=matrix.shape[0],
         columns=matrix.shape[1] + 1
@@ -22,7 +48,24 @@ def select_distinct(matrix: sint.Matrix, column: int) -> sint.Matrix:
     rel = matrix.shape[1] # index of the relevancy column
     @for_range_opt(matrix.shape[0]-1)
     def _(i):
-        result[i][rel] = (matrix[i][column] == matrix[i+1][column]).if_else(sint(0), sint(1))
+        dbit_join = (matrix[i][-1] == 1).if_else(1,0)
+        dbit_wa = (matrix[i][a.shape[1]] == 1).if_else(1,0)
+        dbit_wb = (matrix[i][-2] == 1).if_else(1,0)
+        dbit_rel = (matrix[i][column] == matrix[i+1][column]).if_else(0,1)
+        result[i][rel] = (dbit_join & dbit_wa & dbit_wb & dbit_rel).if_else(1,0)
+
+        # print_ln("i: %s, i+1: %s", matrix[i][column].reveal(), matrix[i+1][column].reveal())
+        # print_ln("JOIN: %s", matrix[i][-1].reveal())
+        # print_ln("WHERE (for table a): %s", matrix[i][a.shape[1]].reveal())
+        # print_ln("WHERE (for table b): %s", matrix[i][-2].reveal())
+        # print_ln("i: %s, i+1: %s, dbit: %s", matrix[i][column].reveal(), matrix[i+1][column].reveal(), result[i][rel].reveal())
+        # result[i][rel] = dbit
+        # @if_(dbit.reveal())
+        # def _():
+        #     print_ln("i: %s, i+1: %s", matrix[i][column].reveal(), matrix[i+1][column].reveal())
+        #     print_ln("JOIN: %s", matrix[i][-1].reveal())
+        #     print_ln("WHERE (for table b): %s", matrix[i][a.shape[1]-1].reveal())
+        #     print_ln("WHERE (for table a): %s", matrix[i][-2].reveal())
     result[-1][rel] = sint(1)
     return result
 
@@ -53,40 +96,42 @@ def inner_join_nested_loop(
             current_idx.update(current_idx + regint(1))
     return result
 
-def where(matrix: sint.Matrix, key: int, value: int) -> sint.Matrix:
-    pass
+def where(matrix, key, value):
+    result = sint.Matrix(
+        rows=matrix.shape[0],
+        columns=matrix.shape[1] + 1
+    )
+    @for_range_opt(matrix.shape[0])
+    def _(i):
+        result[i].assign_vector(matrix[i])
+        result[i][-1] = (matrix[i][key] == value).if_else(1,0)
+    return result
 
 
-max_rows = 10
+max_rows = 50
 a = sint.Matrix(max_rows, 13)
 a.input_from(0)
-
 b = sint.Matrix(max_rows, 13)
 b.input_from(1)
 
-j = inner_join_nested_loop(a, b, 1, 1)
+aw = where(a, 8, 414)
+bw = where(b, 4, 0)
 
-s = select_distinct(j, 1)
+matrix = inner_join_nested_loop(a, b, 1, 1)
 
-result = sint.Matrix(
-    rows=a.shape[0],
-    columns=a.shape[1] + 1
-)
-@for_range_opt(a.shape[0])
+# matrix = select_distinct(matrix, 0)
+
+idx = regint(0)
+@for_range_opt(matrix.shape[0])
 def _(i):
-    result[i].assign_vector(a[i])
-
-@for_range_opt(a.shape[0])
-def _(i):
-    dbit_1 = (a[i][8] == 414).if_else(sint(1), sint(0))
-    dbit_2 = (b[i][4] == 0).if_else(sint(1), sint(0))
-    dbit_3 = (a[i][2] <= b[i][2]).if_else(sint(1), sint(0))
-    dbit_final = dbit_1.bit_and(dbit_2.bit_and(dbit_3))
-    result[i][a.shape[1]] = dbit_final
-
-# @for_range_opt(s.shape[0])
-# def _(row):
-#     dbit = ((s[row][s.shape[1]-1].reveal() == sint(1)) and (s[row][s.shape[1]-2].reveal() == sint(1))).if_else(0,1)
-#     @if_(dbit.reveal())
-#     def _():
-#         print_ln("%s", s[row].reveal())
+    join = (matrix[i][-1] == 1).if_else(1,0)
+    where_a = (matrix[i][aw.shape[1]] == 1).if_else(1,0)
+    where_b = (matrix[i][-2] == 1).if_else(1,0)
+    # dbit = (join & where_a & where_b).if_else(1,0)
+    dbit = (matrix[i][-1] == 1).if_else(1,0)
+    @if_(dbit.reveal())
+    def _():
+        # print_ln("%s %s %s", join.reveal(), where_a.reveal(), where_b.reveal())
+        print_ln("%s", matrix[i].reveal())
+        idx.update(idx + 1)
+print_ln("%s", idx)

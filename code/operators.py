@@ -161,3 +161,11 @@ def order_by(matrix, keys, reversed=False):
 
 def limit(matrix, maximum):
     return matrix[:maximum]
+
+def hash_join(left, right, left_key, right_key):
+    h = defaultdict(list)
+    # hash phase
+    for row in left:
+        h[row[left_key]].append(row)
+    # join phase
+    return [(s, r) for r in right for s in h[r[right_key]]]
