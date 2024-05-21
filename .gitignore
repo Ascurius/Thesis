@@ -8,6 +8,7 @@ duckdb/testData/1/*
 duckdb/testData/2/*
 *.png
 results/measurements/*
+result*.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
