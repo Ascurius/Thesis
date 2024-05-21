@@ -1,4 +1,3 @@
-cd duckdb
 duckdb thesis.duckdb -c "DROP TABLE table1;"
 duckdb thesis.duckdb -c "DROP TABLE table2;"
 
