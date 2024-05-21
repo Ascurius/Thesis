@@ -1,6 +1,3 @@
-from pprint import pprint
-from collections import defaultdict
-import numpy as np
 
 def preprocess(filename):
     with open(filename, 'r') as file:
