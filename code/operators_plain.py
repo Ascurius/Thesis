@@ -1,9 +1,18 @@
+from typing import List
 import numpy as np
 from itertools import groupby
 
 ########################
 #### Plaintext operators
 ########################
+
+def preprocess(filename: str):
+    with open(filename, 'r') as file:
+        list_of_lists = []
+        for line in file:
+            elements = list(map(int, line.split()))
+            list_of_lists.append(elements)
+    return list_of_lists
 
 def select_columns(matrix: np.ndarray, columns: list) -> np.ndarray:
     columns.sort()
@@ -30,7 +39,7 @@ def hash_join(left, right, left_key, right_key):
     # join phase
     return [(s, r) for r in right for s in h[r[right_key]]]
 
-def select_distinct(matrix: list, column: int) -> list:
+def select_distinct(matrix: List[List[int]], column: int) -> List[List[int]]:
     result = []
     prev_value = None
     for i in range(len(matrix)):
@@ -41,7 +50,12 @@ def select_distinct(matrix: list, column: int) -> list:
             result.append(matrix[i] + [0])
     return result
 
-def nested_loop_join(left, right, left_key, right_key):
+def nested_loop_join(
+        left: List[List[int]],
+        right: List[List[int]], 
+        left_key: int, 
+        right_key: int
+    ) -> List[List[int]]:
     result = []
     for l_row in left:
         for r_row in right:
@@ -51,7 +65,7 @@ def nested_loop_join(left, right, left_key, right_key):
                 result.append(l_row + r_row + [0])
     return result
 
-def where(matrix, key, value):
+def where(matrix: List[List[int]], key: int, value: int) -> List[List[int]]:
     for i in range(len(matrix)):
         if matrix[i][key] == value:
             matrix[i].append(1)
@@ -59,7 +73,7 @@ def where(matrix, key, value):
             matrix[i].append(0)
     return matrix
 
-def where_less_then(matrix, col1, col2):
+def where_less_then(matrix: List[List[int]], col1: int, col2: int) -> List[List[int]]:
     for i in range(len(matrix)):
         if matrix[i][col1] <= matrix[i][col2]:
             matrix[i].append(1)
