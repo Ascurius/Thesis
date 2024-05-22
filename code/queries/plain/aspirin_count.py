@@ -56,12 +56,6 @@ m = where_less_then(j, 2, len(aw[0])+2)
 
 
 
-# print(s)
-# m = []
-# for row in lt:
-#     if row[-1] == row[-2] == row[-3] == row[13] == 1:
-#         m.append(row)
-        
 s = select_distinct(m, 0)
 c = 0
 for row in s:
