@@ -33,7 +33,7 @@ def select_by_array(matrix: sint.Matrix, keys: regint.Array) -> sint.Matrix:
         )
     return result
 
-def inner_join_nested_loop(
+def join_nested_loop(
         left: sint.Matrix, 
         right: sint.Matrix, 
         left_key: int, 
@@ -208,4 +208,30 @@ def distinct(matrix: sint.Matrix, key: int) -> sint.Matrix:
         result[i][-1] = dbit
         new_value = (dbit == 1).if_else(matrix[i][key], prev_value)
         prev_value.update(new_value)
+    return result
+
+def row_number_over_partition_by(matrix: sint.Matrix, key: int, condition: Callable[[List[int]], bool] = lambda row: True):
+    matrix.sort((key,))
+    result = sint.Matrix(
+        rows=matrix.shape[0],
+        columns=matrix.shape[1] + 1
+    )
+    @for_range_opt(matrix.shape[0])
+    def _(i):
+        result[i].assign_vector(matrix[i])
+
+    count = sint(0)
+    current_element = sint(0)
+    @for_range_opt(matrix.shape[0]-1)
+    def _(i):
+        new_count = (matrix[i][key] != current_element).if_else(0,count)
+        count.update(new_count)
+
+        current_element.update(matrix[i][key])
+
+        adder = (condition(matrix[i])).if_else((count+1), count)
+        ## ...or a hardcoded condition like the one below (commented out)
+        # adder = (matrix[i][13] == 1).if_else((count+1), count)
+        count.update(adder)
+        result[i][-1] = count
     return result
