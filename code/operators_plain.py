@@ -112,10 +112,9 @@ def row_number_over_partition_by(
         matrix: List[List[int]], 
         key: int, 
         condition: Callable[[List[int]], bool] = lambda row: True
-    ) -> Tuple[List[List[int]], int]:
+    ) -> List[List[int]]:
     matrix.sort(key=lambda row: row[key])
 
-    relevancy_column = len(matrix[0])
     row_number = 0
     prev_partition = -1
 
@@ -130,7 +129,7 @@ def row_number_over_partition_by(
         if condition(matrix[i]):
             row_number += 1
         matrix[i][-1] = row_number
-    return matrix, relevancy_column
+    return matrix
 
 def filter_and_mark(matrix: List[List[int]], comparison_func: Callable[[List[int]], bool]) -> Tuple[List[List[int]], int]:
     relevancy_column = len(matrix[0])
