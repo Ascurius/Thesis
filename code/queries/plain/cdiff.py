@@ -43,10 +43,9 @@ def row_number_over_partition_by(
         matrix: List[List[int]], 
         key: int, 
         condition: Callable[[List[int]], bool] = lambda row: True
-    ) -> Tuple[List[List[int]], int]:
+    ) -> List[List[int]]:
     matrix.sort(key=lambda row: row[key])
 
-    relevancy_column = len(matrix[0])
     row_number = 0
     prev_partition = -1
 
@@ -61,7 +60,7 @@ def row_number_over_partition_by(
         if condition(matrix[i]):
             row_number += 1
         matrix[i][-1] = row_number
-    return matrix, relevancy_column
+    return matrix
 
 def select_distinct(
         matrix: List[List[int]], 
@@ -83,13 +82,13 @@ table1 = preprocess("/home/mpretz/Thesis/MP-SPDZ/Player-Data/Input-P0-0")
 w, match_col_where = where(table1, 8, 8)
 w.sort(key=lambda row: (row[1], row[2]))
 
-diags, match_col_partition = row_number_over_partition_by(w, 1, condition=lambda row: row[13] == 1)
+diags = row_number_over_partition_by(w, 1, condition=lambda row: row[13] == 1)
 
 join, match_col_join = nested_loop_join(
     diags, diags, 1, 1, 
     condition=lambda left, right: (abs(left[2] - right[2]) >= 15) and \
                                   (abs(left[2] - right[2]) <= 56) and \
-                                  (left[match_col_partition]+1 == right[match_col_partition])
+                                  (left[match_col_where+1]+1 == right[match_col_where+1])
 )
 
 selection = select_distinct(join, 1, 
