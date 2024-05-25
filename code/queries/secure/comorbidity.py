@@ -1,33 +1,4 @@
 
-
-def print_matrix(matrix):
-    for i in range(matrix.shape[0]):
-        print_ln("%s", matrix[i].reveal())
-
-def print_matches(matrix, match_key):
-    for i in range(matrix.shape[0]):
-        print_ln_if(matrix[i][match_key].reveal(), "%s", matrix[i].reveal())
-
-def get_matrix_dimensions(filename):
-    num_rows = 0
-    num_cols = None
-
-    with open(filename, 'r') as file:
-        for line in file:
-            # Increment row count for each line
-            num_rows += 1
-
-            # Split the line into integers
-            row_data = line.strip().split()
-
-            # Check if the number of columns is consistent
-            if num_cols is None:
-                num_cols = len(row_data)
-            elif num_cols != len(row_data):
-                raise ValueError("Inconsistent number of columns in the matrix")
-
-    return num_rows, num_cols
-
 def select_columns(matrix: sint.Matrix, keys: regint.Array) -> sint.Matrix:
     keys.sort()
     result = sint.Matrix(
@@ -98,7 +69,7 @@ def limit(matrix: sint.Matrix, maximum: int) -> sint.Matrix:
     return result
 
 
-a = sint.Matrix(800000, 13)
+a = sint.Matrix(50, 13)
 a.input_from(0)
 
 columns = Array(1, regint)
