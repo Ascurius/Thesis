@@ -2,7 +2,6 @@ env/
 MP-SPDZ_latest/
 MP-SPDZ/*
 mp-spdz-0.3.8/
-smcql/
 duckdb/*.duckdb
 duckdb/testData/1/*
 duckdb/testData/2/*
