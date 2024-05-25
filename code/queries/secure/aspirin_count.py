@@ -109,12 +109,11 @@ wlt = where_less_then(join, 2, aw.shape[1]+2)
 
 select = select_distinct(wlt, 0)
 
-idx = regint(0)
+count = regint(0)
 @for_range_opt(select.shape[0])
 def _(i):
     dbit_5 = (select[i][-1] == 1).if_else(1,0) # select distinct
     @if_(dbit_5.reveal())
     def _():
-        print_ln("%s", select[i].reveal())
-        idx.update(idx + 1)
-print_ln("%s", idx)
+        count.update(count + 1)
+print_ln("%s", count)
