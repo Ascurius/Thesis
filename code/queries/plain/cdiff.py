@@ -77,7 +77,7 @@ def select_distinct(
             result.append(matrix[i] + [0])
     return result
 
-table1 = preprocess("/home/mpretz/Thesis/MP-SPDZ/Player-Data/Input-P0-0")
+table1 = preprocess("./MP-SPDZ/Player-Data/Input-P0-0")
 
 w, match_col_where = where(table1, 8, 8)
 

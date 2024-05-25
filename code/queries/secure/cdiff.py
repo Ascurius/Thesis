@@ -133,13 +133,6 @@ def _(i):
     @if_(dbit.reveal())
     def _():
         c.update(c+1)
-        # print_ln("%s", matrix[i].reveal())
-    d = (
-        (matrix[i][1] == 6) &
-        (matrix[i][2] == 1991)
-    ).if_else(1,0)
-    @if_(d.reveal())
-    def _():
         print_ln("%s", matrix[i].reveal())
 print_ln("%s", c.reveal())
 

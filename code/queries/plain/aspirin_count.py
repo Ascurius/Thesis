@@ -44,8 +44,8 @@ def where_less_then(matrix, col1, col2):
             matrix[i].append(0)
     return matrix
 
-a = preprocess("/home/mpretz/Thesis/MP-SPDZ/Player-Data/Input-P0-0")
-b = preprocess("/home/mpretz/Thesis/MP-SPDZ/Player-Data/Input-P1-0")
+a = preprocess("./MP-SPDZ/Player-Data/Input-P0-0")
+b = preprocess("./MP-SPDZ/Player-Data/Input-P1-0")
 
 aw = where(a, 8, 414)
 bw = where(b, 4, 0)
@@ -60,6 +60,5 @@ s = select_distinct(m, 0)
 c = 0
 for row in s:
     if row[-1] == 1:
-        print(row[0])
         c += 1
-print("Total count: {}".format(c))
+print(c)
