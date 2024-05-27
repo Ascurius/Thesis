@@ -103,30 +103,29 @@ def groub_by_count_with_reveal(array: sint.Matrix):
         result[-1][1] = count
     return result
 
-def groub_by_count(matrix: sint.Matrix, key: int) -> sint.Matrix:
+def group_by_count(matrix: sint.Matrix, key: int) -> sint.Matrix:
     matrix.sort((key,))
     result = sint.Matrix(
         rows=matrix.shape[0],
-        columns=matrix.shape[1]+2
+        columns=matrix.shape[1] + 2
     )
     @for_range_opt(matrix.shape[0])
     def _(i):
         result[i].assign_vector(matrix[i])
 
     count = sint(0)
-    rel = matrix.shape[1] # index of the relevancy column
-    agg = matrix.shape[1] + 1 # index of the aggregation column
     current_element = sint(0)
     @for_range_opt(matrix.shape[0]-1)
     def _(i):
-        nonlocal current_element
-        result[i][rel] = (matrix[i][key] == matrix[i+1][key]).if_else(sint(0), sint(1))
         adder = (matrix[i][key] == current_element).if_else((count+sint(1)), sint(1))
+
+        current_element.update(matrix[i][key])
         count.update(adder)
-        current_element = (matrix[i][key] != current_element).if_else(matrix[i][key], current_element)
-        result[i][agg] = count
-    result[-1][rel] = sint(1)
-    result[-1][agg] = (matrix[-1][key] == current_element).if_else((count+sint(1)), sint(1))
+
+        result[i][-2] = (matrix[i][key] == matrix[i+1][key]).if_else(sint(0), sint(1))
+        result[i][-1] = count
+    result[-1][-2] = sint(1)
+    result[-1][-1] = (matrix[-1][key] == current_element).if_else((count+sint(1)), sint(1))
     return result
 
 def limit(matrix: sint.Matrix, maximum: int) -> sint.Matrix:
