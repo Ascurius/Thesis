@@ -80,6 +80,7 @@ def select_distinct(
 table1 = preprocess("./MP-SPDZ/Player-Data/Input-P0-0")
 
 w, match_col_where = where(table1, 8, 8)
+w.sort(key=lambda row: (row[1], row[2]))
 
 diags = row_number_over_partition_by(w, 1, condition=lambda row: row[13] == 1)
 

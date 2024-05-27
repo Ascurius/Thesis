@@ -100,6 +100,7 @@ a = sint.Matrix(max_rows, 13)
 a.input_from(0)
 
 w, match_where = where(a, 8, 8)
+w.sort((1,2))
 
 diags = row_number_over_partition_by(w, 1, condition=lambda row: row[13] == 1)
 
