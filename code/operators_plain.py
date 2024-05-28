@@ -1,54 +1,61 @@
 from collections import defaultdict
 from typing import Callable, List, Tuple
 import numpy as np
-from itertools import groupby
 
 ########################
 #### Plaintext operators
 ########################
 
-def preprocess(filename: str):
+def preprocess(filename: str, num_rows: int = 50) -> List[List[int]]:
+    list_of_lists = []
     with open(filename, 'r') as file:
-        list_of_lists = []
-        for line in file:
+        for _ in range(num_rows):  
+            line = file.readline()  
             elements = list(map(int, line.split()))
             list_of_lists.append(elements)
     return list_of_lists
 
-def select(matrix: List[List[int]], columns: List[int]) -> List[List[int]]:
+def select_columns(matrix: List[List[int]], columns: List[int]) -> List[List[int]]:
     columns.sort()
-    return [[row[i] for i in columns] for row in matrix]
+    selected_matrix = []
+    for row in matrix:
+        selected_row = [row[col] for col in columns]
+        selected_matrix.append(selected_row)
+    return selected_matrix
 
-def group_by(matrix: List[List[int]], key: int) -> List[List[int]]:
-    matrix.sort(key=lambda row: row[key])
+def group_by_count(matrix: List[List[int]], key: int) -> List[List[int]]:
+    matrix.sort(key=lambda row: (row[key], row[2]))
+    result = [row + [0, 0] for row in matrix]
+
     count = 0
-    current_element = -1
-
-    for i in range(len(matrix)-1):
-        matrix[i].extend([0,0])
-        if matrix[i][key] == matrix[i+1][key]:
-            matrix[i][-2] = 0
-        else:
-            matrix[i][-2] = 1
-        if matrix[i][key] == current_element:
-            count = count + 1
-            current_element = current_element
-        else:
+    current_element = None
+    for i in range(len(matrix) - 1):
+        if matrix[i][key] != current_element:
             count = 1
-            current_element = matrix[i][key]
-        matrix[i][-1] = count
-    matrix[-1][-2] = 1
+        else:
+            count += 1    
+        current_element = matrix[i][key]
+        result[i][-2] = int(matrix[i][key] != matrix[i + 1][key])  # Relevancy column
+        result[i][-1] = count                                      # Count column
+    
+    result[-1][-2] = 1
     if matrix[-1][key] == current_element:
-        matrix[-1][-1] = count + 1
+        result[-1][-1] = count + 1
     else:
-        matrix[-1][-1] = 1
-    return matrix
+        result[-1][-1] = 1
+    return result
 
-def order_by(matrix, keys, reversed=False):
-    sorted_matrix = sorted(matrix, key=lambda x: (x[keys[1]], x[keys[0]]), reverse=reversed)
-    return np.array(sorted_matrix)
+def order_by(matrix: List[List[int]], order_key: int, 
+             relevance_key: int = None, reversed: bool = False
+            ) -> List[List[int]]:
+    result = [row + [0] for row in matrix]
 
-def limit(matrix, maximum):
+    for i in range(len(matrix)):
+        result[i][-1] = matrix[i][order_key] * (matrix[i][relevance_key] if relevance_key is not None else 1)
+    result.sort(key=lambda row: row[-1], reverse=reversed)
+    return result
+
+def limit(matrix: List[List[int]], maximum) -> List[List[int]]:
     return matrix[:maximum]
 
 def hash_join(left, right, left_key, right_key):
@@ -80,8 +87,7 @@ def nested_loop_join(
         left_key: int, 
         right_key: int,
         condition: Callable[[List[int], List[int]], bool] = lambda left, right: True
-    ) -> Tuple[List[List[int]], int]:
-    relevancy_column = len(left[0]) + len(right[0])
+    ) -> List[List[int]]:
     result = []
     for l_row in left:
         for r_row in right:
@@ -89,16 +95,15 @@ def nested_loop_join(
                 result.append(l_row + r_row + [1])
             else:
                 result.append(l_row + r_row + [0])
-    return result, relevancy_column
+    return result
 
-def where(matrix: List[List[int]], key: int, value: int) -> Tuple[List[List[int]], int]:
-    relevancy_column = len(matrix[0])
+def where(matrix: List[List[int]], key: int, value: int) -> List[List[int]]:
     for i in range(len(matrix)):
         if matrix[i][key] == value:
             matrix[i].append(1)
         else:
             matrix[i].append(0)
-    return matrix, relevancy_column
+    return matrix
 
 def where_less_then(matrix: List[List[int]], col1: int, col2: int) -> List[List[int]]:
     for i in range(len(matrix)):
@@ -131,7 +136,7 @@ def row_number_over_partition_by(
         matrix[i][-1] = row_number
     return matrix
 
-def filter_and_mark(matrix: List[List[int]], comparison_func: Callable[[List[int]], bool]) -> Tuple[List[List[int]], int]:
+def where_condition(matrix: List[List[int]], comparison_func: Callable[[List[int]], bool]) -> Tuple[List[List[int]], int]:
     relevancy_column = len(matrix[0])
     for row in matrix:
         row.append(1 if comparison_func(row) else 0)
