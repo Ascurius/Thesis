@@ -1,26 +1,10 @@
+from typing import Callable, List
 
-def print_matrix(matrix: sint.Matrix):
-    for i in range(matrix.shape[0]):
-        @if_(matrix[i][0].reveal())
-        def _():
-            print_ln("%s", matrix[i].reveal())
-
-def print_matches(matrix, match_key):
-    for i in range(matrix.shape[0]):
-        print_ln_if(matrix[i][match_key].reveal(), "%s", matrix[i].reveal())
-
-def count_relevant(matrix, relevancy_key):
-    idx = regint(0)
-    @for_range_opt(matrix.shape[0])
-    def _(i):
-        dbit = (matrix[i][relevancy_key] == 1).if_else(1,0)
-        @if_(dbit.reveal())
-        def _():
-            idx.update(idx + 1)
-    return idx
-
-
-def select_distinct(matrix: sint.Matrix, key: int) -> sint.Matrix:
+def select_distinct(
+        matrix: sint.Matrix, 
+        key: int, 
+        condition: Callable[[sint.Array], bool] = lambda row: True
+    ) -> sint.Matrix:
     matrix.sort((key,))
     result = sint.Matrix(
         rows=matrix.shape[0],
@@ -33,21 +17,19 @@ def select_distinct(matrix: sint.Matrix, key: int) -> sint.Matrix:
         result[i].assign_vector(matrix[i])
         dbit = (
             (matrix[i][key] != prev_value) &
-            (matrix[i][-1] == 1) &
-            (matrix[i][-2] == 1) &
-            (matrix[i][-3] == 1) &
-            (matrix[i][13] == 1)
+            condition(matrix[i])
         ).if_else(sint(1),sint(0))
         result[i][-1] = dbit
         new_value = (dbit == 1).if_else(matrix[i][key], prev_value)
         prev_value.update(new_value)
     return result
 
-def inner_join_nested_loop(
+def join_nested_loop(
         left: sint.Matrix, 
         right: sint.Matrix, 
         left_key: int, 
-        right_key: int
+        right_key: int,
+        condition: Callable[[sint.Array, sint.Array], bool] = lambda left, right: True
     ) -> sint.Matrix:
     result = sint.Matrix(
         rows=left.shape[0] * right.shape[0],
@@ -66,11 +48,14 @@ def inner_join_nested_loop(
             def _(right_col):
                 new_row[left.shape[1]+right_col] = right[right_row][right_col]
             result[current_idx].assign(new_row)
-            result[current_idx][-1] = (left[left_row][left_key] == right[right_row][right_key]).if_else(sint(1),sint(0))
+            result[current_idx][-1] = (
+                (left[left_row][left_key] == right[right_row][right_key]) &
+                condition(left[left_row], right[right_row])
+            ).if_else(sint(1),sint(0))
             current_idx.update(current_idx + regint(1))
     return result
 
-def where(matrix, key, value):
+def where(matrix: sint.Matrix, key: int, value: int) -> sint.Matrix:
     result = sint.Matrix(
         rows=matrix.shape[0],
         columns=matrix.shape[1] + 1
@@ -81,7 +66,7 @@ def where(matrix, key, value):
         result[i][-1] = (matrix[i][key] == value).if_else(1,0)
     return result
 
-def where_less_then(matrix, col_1, col_2):
+def where_less_then(matrix: sint.Matrix, col_1: int, col_2: int) -> sint.Matrix:
     result = sint.Matrix(
         rows=matrix.shape[0],
         columns=matrix.shape[1] + 1
@@ -103,11 +88,19 @@ b.input_from(1)
 aw = where(a, 8, 414)
 bw = where(b, 4, 0)
 
-join = inner_join_nested_loop(aw, bw, 1, 1)
+join = join_nested_loop(aw, bw, 1, 1)
 
 wlt = where_less_then(join, 2, aw.shape[1]+2)
 
-select = select_distinct(wlt, 0)
+def distinct_condition(row):
+    return (
+        (row[-1] == 1) &
+        (row[-2] == 1) &
+        (row[-3] == 1) &
+        (row[13] == 1)
+    ).if_else(1,0)
+
+select = select_distinct(wlt, 0, condition=distinct_condition)
 
 count = regint(0)
 @for_range_opt(select.shape[0])

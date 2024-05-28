@@ -1,6 +1,6 @@
 from typing import Callable, List, Tuple
 
-def where(matrix: sint.Matrix, key: int, value: int) -> Tuple[sint.Matrix, int]:
+def where(matrix: sint.Matrix, key: int, value: int) -> sint.Matrix:
     result = sint.Matrix(
         rows=matrix.shape[0],
         columns=matrix.shape[1] + 1
@@ -9,15 +9,15 @@ def where(matrix: sint.Matrix, key: int, value: int) -> Tuple[sint.Matrix, int]:
     def _(i):
         result[i].assign_vector(matrix[i])
         result[i][-1] = (matrix[i][key] == value).if_else(1,0)
-    return result, result.shape[1]-1
+    return result
 
 def join_nested_loop(
         left: sint.Matrix, 
         right: sint.Matrix, 
         left_key: int, 
         right_key: int,
-        condition: Callable[[List[int], List[int]], bool] = True
-    ) -> Tuple[List[List[int]], int]:
+        condition: Callable[[sint.Array, sint.Array], bool] = lambda left, right: True
+    ) -> sint.Matrix:
     result = sint.Matrix(
         rows=left.shape[0] * right.shape[0],
         columns=left.shape[1] + right.shape[1] + 1
@@ -40,12 +40,12 @@ def join_nested_loop(
                 condition(left[left_row], right[right_row])
             ).if_else(sint(1),sint(0))
             current_idx.update(current_idx + regint(1))
-    return result, result.shape[1]-1
+    return result
 
 def row_number_over_partition_by(
         matrix: sint.Matrix, 
         key: int, 
-        condition: Callable[[List[int]], bool] = lambda row: True
+        condition: Callable[[sint.Array], bool] = lambda row: True
     ) -> sint.Matrix:
     matrix.sort((key,))
     result = sint.Matrix(
@@ -66,15 +66,14 @@ def row_number_over_partition_by(
         current_element.update(matrix[i][key])
 
         adder = (condition(matrix[i])).if_else((count+1), count)
-        # adder = (matrix[i][13] == 1).if_else((count+1), count)
         count.update(adder)
         result[i][-1] = count
     return result
 
-def distinct(
+def select_distinct(
         matrix: sint.Matrix, 
         key: int, 
-        condition: Callable[[List[int], List[int]], bool] = lambda row: True
+        condition: Callable[[sint.Array], bool] = lambda row: True
     ) -> sint.Matrix:
     matrix.sort((key,))
     result = sint.Matrix(
@@ -99,7 +98,7 @@ max_rows = 50
 a = sint.Matrix(max_rows, 13)
 a.input_from(0)
 
-w, match_where = where(a, 8, 8)
+w = where(a, 8, 8)
 w.sort((1,2))
 
 diags = row_number_over_partition_by(w, 1, condition=lambda row: row[13] == 1)
@@ -111,7 +110,7 @@ def join_condition(left, right):
         (left[14]+1 == right[14])
     ).if_else(1,0)
 
-join, match_join = join_nested_loop(
+join = join_nested_loop(
     diags, diags, 1, 1,
     condition=join_condition
 )
@@ -124,7 +123,7 @@ def distinct_condition(row):
     ).if_else(1,0)
     return dbit
 
-selection = distinct(join, 1, condition=distinct_condition)
+selection = select_distinct(join, 1, condition=distinct_condition)
 
 matrix = selection
 c = sint(0)

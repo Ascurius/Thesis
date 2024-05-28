@@ -15,18 +15,22 @@ def group_by_count(matrix: sint.Matrix, key: int) -> sint.Matrix:
     current_element = sint(0)
     @for_range_opt(matrix.shape[0]-1)
     def _(i):
-        adder = (matrix[i][key] == current_element).if_else((count+sint(1)), sint(1))
-
+        adder = (matrix[i][key] == current_element).if_else(
+            (count+sint(1)), sint(1)
+        )
         current_element.update(matrix[i][key])
         count.update(adder)
-
-        result[i][-2] = (matrix[i][key] == matrix[i+1][key]).if_else(sint(0), sint(1))
+        result[i][-2] = (matrix[i][key] == matrix[i+1][key]).if_else(
+            sint(0), sint(1)
+        )
         result[i][-1] = count
     result[-1][-2] = sint(1)
-    result[-1][-1] = (matrix[-1][key] == current_element).if_else((count+sint(1)), sint(1))
+    result[-1][-1] = (matrix[-1][key] == current_element).if_else(
+        (count+sint(1)), sint(1)
+    )
     return result
 
-def order_by(matrix: sint.Matrix, order_key: int, relevance_key: int = None, reverse: bool = False):
+def order_by(matrix: sint.Matrix, order_key: int, relevance_key: int, reverse: bool = False):
     result = sint.Matrix(
         rows=matrix.shape[0],
         columns=matrix.shape[1] + 1
@@ -34,7 +38,7 @@ def order_by(matrix: sint.Matrix, order_key: int, relevance_key: int = None, rev
     @for_range_opt(matrix.shape[0])
     def _(i):
         result[i] = matrix[i]
-        result[i][matrix.shape[1]] = matrix[i][order_key] * (matrix[i][relevance_key] if relevance_key is not None else 1)
+        result[i][matrix.shape[1]] = matrix[i][order_key] * matrix[i][relevance_key]
     result.sort((matrix.shape[1],))
     if reverse:
         swap = result.same_shape()
