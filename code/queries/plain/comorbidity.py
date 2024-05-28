@@ -71,7 +71,6 @@ def preprocess(filename: str, num_rows: int = 50) -> List[List[int]]:
 @measure_time
 def comorbidity(matrix):
     m = matrix
-    # m = select_columns(m, [1])
     m = group_by_count(m, 1)
     m = order_by(m, order_key=-1, relevance_key=-2, reversed=True)
     m = limit(m, 10)

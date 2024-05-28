@@ -2,7 +2,7 @@
 from typing import Callable, List
 
 def group_by_count(matrix: sint.Matrix, key: int) -> sint.Matrix:
-    matrix.sort((key,))
+    matrix.sort((key,2))
     result = sint.Matrix(
         rows=matrix.shape[0],
         columns=matrix.shape[1] + 2
