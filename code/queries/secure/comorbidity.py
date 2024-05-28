@@ -38,8 +38,8 @@ def order_by(matrix: sint.Matrix, order_key: int, relevance_key: int, reverse: b
     @for_range_opt(matrix.shape[0])
     def _(i):
         result[i] = matrix[i]
-        result[i][matrix.shape[1]] = matrix[i][order_key] * matrix[i][relevance_key]
-    result.sort((matrix.shape[1],))
+        result[i][-1] = matrix[i][order_key] * matrix[i][relevance_key]
+    result.sort((-1,))
     if reverse:
         swap = result.same_shape()
         @for_range_opt(result.shape[0] // 2)
