@@ -98,12 +98,13 @@ def nested_loop_join(
     return result
 
 def where(matrix: List[List[int]], key: int, value: int) -> List[List[int]]:
+    result = []
     for i in range(len(matrix)):
         if matrix[i][key] == value:
-            matrix[i].append(1)
+            result.append(matrix[i] + [1])
         else:
-            matrix[i].append(0)
-    return matrix
+            result.append(matrix[i] + [0])
+    return result
 
 def where_less_then(matrix: List[List[int]], col1: int, col2: int) -> List[List[int]]:
     for i in range(len(matrix)):

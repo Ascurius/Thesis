@@ -11,12 +11,13 @@ def preprocess(filename: str, num_rows: int = 50) -> List[List[int]]:
     return list_of_lists
 
 def where(matrix: List[List[int]], key: int, value: int) -> List[List[int]]:
+    result = []
     for i in range(len(matrix)):
         if matrix[i][key] == value:
-            matrix[i].append(1)
+            result.append(matrix[i] + [1])
         else:
-            matrix[i].append(0)
-    return matrix
+            result.append(matrix[i] + [0])
+    return result
 
 def nested_loop_join(
         left: List[List[int]],
