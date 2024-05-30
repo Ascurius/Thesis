@@ -67,7 +67,7 @@ def preprocess(filename: str, num_rows: int = 50) -> List[List[int]]:
             list_of_lists.append(elements)
     return list_of_lists
 
-def union_all(left, right):
+def union_all(left: List[List[int]], right: List[List[int]]) -> List[List[int]]:
     return left + right
 
 max_rows = 50
