@@ -71,6 +71,7 @@ def select_distinct(
         column: int,
         condition: Callable[[List[int]], bool] = lambda row: True
     ) -> List[List[int]]:
+    matrix.sort(key=lambda row: row[column])
     result = []
     prev_value = None
     for i in range(len(matrix)):
