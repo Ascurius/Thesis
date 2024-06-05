@@ -63,8 +63,8 @@ def print_matrix(matrix):
     for i in range(matrix.shape[0]):
         print_ln("%s", matrix[i].reveal())
 
-
-a = sint.Matrix(50, 13)
+max_rows = 1000
+a = sint.Matrix(max_rows, 13)
 a.input_from(0)
 
 g = group_by_count(a, 1)
