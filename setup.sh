@@ -23,5 +23,7 @@ rm -rf mp-spdz-$mp_spdz_version
 python3 "$(pwd)/MP-SPDZ/setup.py" "install" >/dev/null
 
 cd MP-SPDZ
+./Scripts/setup-ssl.sh
+./Scripts/tldr.sh
 sudo apt install automake build-essential clang cmake git libboost-dev libboost-thread-dev libgmp-dev libntl-dev libsodium-dev libssl-dev libtool python3 libboost-filesystem-dev libboost-iostreams-dev
 make replicated-bin-party.x
