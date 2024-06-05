@@ -6,7 +6,7 @@ duckdb/*.duckdb
 duckdb/testData/1/*
 duckdb/testData/2/*
 *.png
-results/measurements/*
+# results/measurements/*
 result*.txt
 results/*.txt
 
