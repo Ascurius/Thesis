@@ -26,20 +26,42 @@ for max_row in "${rows[@]}"; do
     echo "Compiling high-level code..."
     python3 "./compile.py" -B 64 $query_path >/dev/null
     echo "Executing the program..."
-    output=$(eval "$path/MP-SPDZ/Scripts/replicated.sh $query") # Execute the query
+    # Initialize variables to accumulate the values
+    total_execution_time=0
+    total_data_sent=0
+    total_rounds=0
+    total_global_sent=0
 
-    # Extract relevant lines
-    time_line=$(echo "$output" | grep "Time =")
-    data_line=$(echo "$output" | grep "Data sent =")
-    global_line=$(echo "$output" | grep "Global data sent =")
+    # Run the command n times and accumulate the values
+    for ((i=1; i<=5; i++))
+    do
+        output=$(eval "$path/MP-SPDZ/Scripts/replicated.sh $query") # Execute the query
+        
+        # Extract relevant lines
+        time_line=$(echo "$output" | grep "Time =")
+        data_line=$(echo "$output" | grep "Data sent =")
+        global_line=$(echo "$output" | grep "Global data sent =")
 
-    # Extract values using sed
-    execution_time=$(echo "$time_line" | sed -n 's/Time = \([0-9\.]*\).*/\1/p')
-    data_sent=$(echo "$data_line" | sed -n 's/Data sent = \([0-9\.]*\).*/\1/p')
-    rounds=$(echo "$data_line" | sed -n 's/.*~\([0-9]*\).*/\1/p')
-    global_sent=$(echo "$global_line" | sed -n 's/Global data sent = \([0-9\.]*\).*/\1/p')
+        # Extract values using sed
+        execution_time=$(echo "$time_line" | sed -n 's/Time = \([0-9\.]*\).*/\1/p')
+        data_sent=$(echo "$data_line" | sed -n 's/Data sent = \([0-9\.]*\).*/\1/p')
+        rounds=$(echo "$data_line" | sed -n 's/.*~\([0-9]*\).*/\1/p')
+        global_sent=$(echo "$global_line" | sed -n 's/Global data sent = \([0-9\.]*\).*/\1/p')
 
-    echo "$max_row,$execution_time,$data_sent,$rounds,$global_sent" >> "$path/measurements/results/test_$query$extension" # Store the result of the execution in a text file
+        # Accumulate the values
+        total_execution_time=$(echo "$total_execution_time + $execution_time" | bc)
+        total_data_sent=$(echo "$total_data_sent + $data_sent" | bc)
+        total_rounds=$(echo "$total_rounds + $rounds" | bc)
+        total_global_sent=$(echo "$total_global_sent + $global_sent" | bc)
+    done
+
+    # Compute the averages
+    avg_execution_time=$(echo "scale=6; $total_execution_time / $n" | bc)
+    avg_data_sent=$(echo "scale=6; $total_data_sent / $n" | bc)
+    avg_rounds=$(echo "scale=6; $total_rounds / $n" | bc)
+    avg_global_sent=$(echo "scale=6; $total_global_sent / $n" | bc)
+
+    echo "$max_row,$avg_execution_time,$avg_data_sent,$avg_rounds,$avg_global_sent" >> "$path/measurements/results/test_$query$extension" # Store the result of the execution in a text file
     echo "Done"
     cd ..
 done
