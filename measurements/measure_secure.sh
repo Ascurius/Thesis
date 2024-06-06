@@ -10,7 +10,8 @@ if [ ! -f "$query_path" ]; then
     exit 1
 fi
 
-rows=(1000 2000 4000 6000 8000 10000 20000 40000 60000 80000 100000 200000 400000 600000 800000 1000000)
+# rows=(1000 2000 4000 6000 8000 10000 20000 40000 60000 80000 100000 200000 400000 600000 800000 1000000)
+rows=(1000)
 echo "max_row,execution_time,data_sent,rounds,global_sent" >> "$path/measurements/results/test_$query$extension"
 for max_row in "${rows[@]}"; do
     echo "Measure performance for $max_row rows"
@@ -33,7 +34,8 @@ for max_row in "${rows[@]}"; do
     total_global_sent=0
 
     # Run the command n times and accumulate the values
-    for ((i=1; i<=5; i++))
+    n_tests=5
+    for ((i=1; i<=$n_tests; i++))
     do
         output=$(eval "$path/MP-SPDZ/Scripts/replicated.sh $query") # Execute the query
         
@@ -56,10 +58,10 @@ for max_row in "${rows[@]}"; do
     done
 
     # Compute the averages
-    avg_execution_time=$(echo "scale=6; $total_execution_time / $n" | bc)
-    avg_data_sent=$(echo "scale=6; $total_data_sent / $n" | bc)
-    avg_rounds=$(echo "scale=6; $total_rounds / $n" | bc)
-    avg_global_sent=$(echo "scale=6; $total_global_sent / $n" | bc)
+    avg_execution_time=$(echo "scale=6; $total_execution_time / $n_tests" | bc)
+    avg_data_sent=$(echo "scale=6; $total_data_sent / $n_tests" | bc)
+    avg_rounds=$(echo "scale=0; $total_rounds / $n_tests" | bc)
+    avg_global_sent=$(echo "scale=6; $total_global_sent / $n_tests" | bc)
 
     echo "$max_row,$avg_execution_time,$avg_data_sent,$avg_rounds,$avg_global_sent" >> "$path/measurements/results/test_$query$extension" # Store the result of the execution in a text file
     echo "Done"
