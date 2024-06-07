@@ -21,7 +21,7 @@ fi
 git clone git@github.com:Ascurius/MP-SPDZ.git >/dev/null
 wget https://github.com/data61/MP-SPDZ/releases/download/v0.3.8/mp-spdz-$mp_spdz_version.tar.xz >/dev/null
 tar -xf mp-spdz-$mp_spdz_version.tar.xz >/dev/null
-mv "mp-spdz-$mp_spdz_version/bin/Linux-a"/* "MP-SPDZ/bin/"
+mv "mp-spdz-$mp_spdz_version/bin/Linux-a"* "MP-SPDZ/bin/"
 rm -rf mp-spdz-$mp_spdz_version.tar.xz
 rm -rf mp-spdz-$mp_spdz_version
 
