@@ -18,10 +18,6 @@ fi
 
 echo "Running performance test for plain queries"
 
-# if [ -f "$out_file" ]; then
-#     rm "$out_file"
-# fi
-
 rows=(1000 2000 4000 6000 8000 10000 20000 40000 60000 80000 100000 200000 400000 600000 800000 1000000)
 for max_rows in "${rows[@]}"; do
     echo "Performance test for $max_rows rows"
