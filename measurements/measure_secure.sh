@@ -12,7 +12,7 @@ fi
 
 # rows=(1000 2000 4000 6000 8000 10000 20000 40000 60000 80000 100000 200000 400000 600000 800000 1000000)
 rows=(1000)
-echo "max_row,execution_time,data_sent,rounds,global_sent" >> "$path/measurements/results/test_$query$extension"
+# echo "max_row,execution_time,data_sent,rounds,global_sent" >> "$path/measurements/results/$query$extension"
 for max_row in "${rows[@]}"; do
     echo "Measure performance for $max_row rows"
     # # -- Generate new test data
@@ -63,7 +63,7 @@ for max_row in "${rows[@]}"; do
     avg_rounds=$(echo "scale=0; $total_rounds / $n_tests" | bc)
     avg_global_sent=$(echo "scale=6; $total_global_sent / $n_tests" | bc)
 
-    echo "$max_row,$avg_execution_time,$avg_data_sent,$avg_rounds,$avg_global_sent" >> "$path/measurements/results/test_$query$extension" # Store the result of the execution in a text file
+    echo "$max_row,$avg_execution_time,$avg_data_sent,$avg_rounds,$avg_global_sent" >> "$path/measurements/results/$query$extension" # Store the result of the execution in a text file
     echo "Done"
     cd ..
 done
