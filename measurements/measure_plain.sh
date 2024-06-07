@@ -8,15 +8,13 @@ fi
 path=$(pwd)
 query=$1
 query_path="$path/code/queries/plain/$query.py"
+num_tests=5
+out_file="$path/measurements/results/${query}_plain.txt"
 
 if [ ! -f "$query_path" ]; then
     echo "Query file '$query_path' could not be found!"
     exit 1
 fi
-
-num_tests=5
-extension="_plain.txt"
-out_file="$path/measurements/results/$query$extension"
 
 echo "Running performance test for plain queries"
 

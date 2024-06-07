@@ -1,9 +1,15 @@
 #!/bin/bash
 
-query=$1
-extension="_secure.txt"
+if [ $# -eq 0 ]; then
+    echo "No arguments provided. Make sure you specify the name of the query to be measured."
+    exit 1
+fi
+
 path=$(pwd)
+query=$1
 query_path="$path/code/queries/secure/$query.py"
+num_tests=1
+out_file="$path/measurements/results/${query}_secure.txt"
 
 if [ ! -f "$query_path" ]; then
     echo "Query file '$query_path' could not be found!"
@@ -34,7 +40,6 @@ for max_row in "${rows[@]}"; do
     total_global_sent=0
 
     # Run the command n times and accumulate the values
-    n_tests=5
     for ((i=1; i<=$n_tests; i++))
     do
         output=$(eval "$path/MP-SPDZ/Scripts/replicated.sh $query") # Execute the query
@@ -63,7 +68,7 @@ for max_row in "${rows[@]}"; do
     avg_rounds=$(echo "scale=0; $total_rounds / $n_tests" | bc)
     avg_global_sent=$(echo "scale=6; $total_global_sent / $n_tests" | bc)
 
-    echo "$max_row,$avg_execution_time,$avg_data_sent,$avg_rounds,$avg_global_sent" >> "$path/measurements/results/$query$extension" # Store the result of the execution in a text file
+    echo "$max_row,$avg_execution_time,$avg_data_sent,$avg_rounds,$avg_global_sent" >> $out_file # Store the result of the execution in a text file
     echo "Done"
     cd ..
 done
