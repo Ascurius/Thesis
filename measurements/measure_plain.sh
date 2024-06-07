@@ -2,7 +2,7 @@
 
 path=$(pwd)
 query=$1
-query_path="$path/code/queries/secure/$query.py"
+query_path="$path/code/queries/plain/$query.py"
 
 if [ $# -eq 0 ]; then
     echo "No arguments provided."
@@ -20,9 +20,9 @@ out_file="$path/measurements/results/$query$extension"
 
 echo "Running performance test for plain queries"
 
-if [ -f "$out_file" ]; then
-    rm "$out_file"
-fi
+# if [ -f "$out_file" ]; then
+#     rm "$out_file"
+# fi
 
 rows=(1000 2000 4000 6000 8000 10000 20000 40000 60000 80000 100000 200000 400000 600000 800000 1000000)
 for max_rows in "${rows[@]}"; do
@@ -32,8 +32,7 @@ for max_rows in "${rows[@]}"; do
         populate_script="$path/code/populate.py"
         python3 "$populate_script" "secure" "$max_rows"
 
-        query_script="$path/code/queries/plain/$query.py"
-        output=$(python3 "$query_script" "$max_rows")
+        output=$(python3 "$query_path" "$max_rows")
         execution_time=$(echo "$output" | awk -F': ' '{print $2}')
         total_execution_time=$(echo "$total_execution_time + $execution_time" | bc)
     done
