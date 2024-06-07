@@ -1,5 +1,17 @@
+import os
 from pprint import pprint
+import sys
+import time
 from typing import List, Callable, Tuple
+
+def measure_time(func):
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+        result = func(*args, **kwargs)
+        end_time = time.time()
+        execution_time = end_time - start_time
+        return result, execution_time
+    return wrapper
 
 def preprocess(filename: str, num_rows: int = 50) -> List[List[int]]:
     list_of_lists = []
@@ -73,27 +85,33 @@ def select_distinct(
             result.append(matrix[i] + [0])
     return result
 
-max_rows = 50
-table1 = preprocess("./MP-SPDZ/Player-Data/Input-P0-0", max_rows)
+@measure_time
+def cdiff(data):
+    w = where(data, 8, 8)
+    w.sort(key=lambda row: (row[1], row[2]))
+    diags = row_number_over_partition_by(w, 1, condition=lambda row: row[13] == 1)
+    join = nested_loop_join(
+        diags, diags, 1, 1, 
+        condition=lambda left, right: (abs(left[2] - right[2]) >= 15) and \
+                                    (abs(left[2] - right[2]) <= 56) and \
+                                    (left[14]+1 == right[14])
+    )
+    selection = select_distinct(join, 1, 
+        condition=lambda row: row[13] == row[-1] == row[-3] == 1
+    )
+    result = []
+    c = 0
+    for row in selection:
+        if row[-1]:
+            result.append(row)
+            c += 1
+    return result
 
-w = where(table1, 8, 8)
-w.sort(key=lambda row: (row[1], row[2]))
+if __name__ == "__main__":
+    pwd = os.getcwd()
+    max_rows = int(sys.argv[1])
+    input_file = f"{pwd}/MP-SPDZ/Player-Data/Input-P0-0"
 
-diags = row_number_over_partition_by(w, 1, condition=lambda row: row[13] == 1)
-
-join = nested_loop_join(
-    diags, diags, 1, 1, 
-    condition=lambda left, right: (abs(left[2] - right[2]) >= 15) and \
-                                  (abs(left[2] - right[2]) <= 56) and \
-                                  (left[14]+1 == right[14])
-)
-
-selection = select_distinct(join, 1, 
-    condition=lambda row: row[13] == row[-1] == row[-3] == 1
-)
-c = 0
-for row in selection:
-    if row[-1]:
-        print(row)
-        c += 1
-print(c)
+    data = preprocess(input_file, max_rows)
+    result, single_time = cdiff(data)
+    print(f"Time needed for executing the query: {single_time:.6f}")
