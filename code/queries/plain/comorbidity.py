@@ -11,8 +11,6 @@ def measure_time(func):
         result = func(*args, **kwargs)
         end_time = time.time()
         execution_time = end_time - start_time
-        # print(f"Number of rows: {num_rows}")
-        # print(f"Execution time of '{func.__name__}': {execution_time:.6f} seconds")
         return result, execution_time
     return wrapper
 
@@ -84,4 +82,3 @@ if __name__ == "__main__":
     data = preprocess(input_file, max_rows)
     result, single_time = comorbidity(data)
     print(f"Time needed for executing the query: {single_time:.6f}")
-    pprint(result)
