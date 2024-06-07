@@ -1,13 +1,13 @@
 #!/bin/bash
 
+if [ $# -eq 0 ]; then
+    echo "No arguments provided. Make sure you specify the name of the query to be measured."
+    exit 1
+fi
+
 path=$(pwd)
 query=$1
 query_path="$path/code/queries/plain/$query.py"
-
-if [ $# -eq 0 ]; then
-    echo "No arguments provided."
-    exit 1
-fi
 
 if [ ! -f "$query_path" ]; then
     echo "Query file '$query_path' could not be found!"
