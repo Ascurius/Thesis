@@ -28,15 +28,22 @@ for max_row in "${rows[@]}"; do
     echo "Fill reference table with test data..."
     ./setup_reference_table.sh
     echo "Analyzing the query..."
-    analysis=$(duckdb "./thesis.duckdb" -c "EXPLAIN ANALYZE $query")
+    total_execution_time=0.0
+    for ((i=1; i<=$num_tests; i++)); do
+        analysis=$(duckdb "./thesis.duckdb" -c "EXPLAIN ANALYZE $query")
 
-    # Extract total time using regex
-    if [[ $analysis =~ Total\ Time:\ ([0-9]+\.[0-9]+)s ]]; then
-        total_time="${BASH_REMATCH[1]}"
-        echo "$max_row,$total_time" >> $out_file
-    else
-        echo "Total Time not found."
-        exit 1
-    fi
+        # Extract total time using regex
+        if [[ $analysis =~ Total\ Time:\ ([0-9]+\.[0-9]+)s ]]; then
+            execution_time="${BASH_REMATCH[1]}"
+            total_execution_time=$(echo "$total_execution_time + $execution_time" | bc)
+        else
+            echo "Total Time not found."
+            exit 1
+        fi
+    done
+
+    average_execution_time=$(echo "scale=6; ($total_execution_time / $num_tests)" | bc)
+    echo "$max_row, $average_execution_time" >> $out_file
+
     cd ..
 done
