@@ -8,7 +8,7 @@ fi
 path=$(pwd)
 query=$1
 query_path="$path/code/queries/secure/$query.py"
-num_tests=1
+n_tests=1
 out_file="$path/measurements/results/${query}_secure.txt"
 
 if [ ! -f "$query_path" ]; then
@@ -16,9 +16,9 @@ if [ ! -f "$query_path" ]; then
     exit 1
 fi
 
-# rows=(1000 2000 4000 6000 8000 10000 20000 40000 60000 80000 100000 200000 400000 600000 800000 1000000)
-rows=(1000)
-# echo "max_row,execution_time,data_sent,rounds,global_sent" >> "$path/measurements/results/$query$extension"
+echo "Running performance test for plain query: $query"
+
+rows=(1000 2000 4000 6000 8000 10000 20000 40000 60000 80000 100000 200000 400000 600000 800000 1000000)
 for max_row in "${rows[@]}"; do
     echo "Measure performance for $max_row rows"
     # # -- Generate new test data
