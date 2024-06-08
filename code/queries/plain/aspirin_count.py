@@ -1,5 +1,16 @@
+import os
+import sys
+import time
 from typing import Callable, List
 
+def measure_time(func):
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+        result = func(*args, **kwargs)
+        end_time = time.time()
+        execution_time = end_time - start_time
+        return result, execution_time
+    return wrapper
 
 def preprocess(filename: str, num_rows: int = 50) -> List[List[int]]:
     list_of_lists = []
@@ -58,20 +69,29 @@ def where_less_then(matrix: List[List[int]], col1: int, col2: int) -> List[List[
             matrix[i].append(0)
     return matrix
 
-max_rows = 50
-a = preprocess("./MP-SPDZ/Player-Data/Input-P0-0", max_rows)
-b = preprocess("./MP-SPDZ/Player-Data/Input-P1-0", max_rows)
 
-aw = where(a, 8, 414)
-bw = where(b, 4, 0)
+@measure_time
+def aspirin_count(table1, table2):
+    aw = where(table1, 8, 414)
+    bw = where(table2, 4, 0)
 
-j = nested_loop_join(aw, bw, 1, 1)
+    j = nested_loop_join(aw, bw, 1, 1)
 
-m = where_less_then(j, 2, len(aw[0])+2)
+    m = where_less_then(j, 2, len(aw[0])+2)
 
-s = select_distinct(m, 0, condition=lambda row: row[-1] == row[-2] == row[-3] == row[13] == 1)
-c = 0
-for row in s:
-    if row[-1] == 1:
-        c += 1
-print(c)
+    s = select_distinct(m, 0, condition=lambda row: row[-1] == row[-2] == row[-3] == row[13] == 1)
+
+    c = 0
+    for row in s:
+        if row[-1]:
+            c += 1
+    return c
+
+if __name__ == "__main__":
+    pwd = os.getcwd()
+    max_rows = int(sys.argv[1])
+    a = preprocess("./MP-SPDZ/Player-Data/Input-P0-0", max_rows)
+    b = preprocess("./MP-SPDZ/Player-Data/Input-P1-0", max_rows)
+
+    result, single_time = aspirin_count(a, b)
+    print(f"Time needed for executing the query: {single_time:.6f}")
