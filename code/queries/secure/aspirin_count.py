@@ -79,28 +79,36 @@ def where_less_then(matrix: sint.Matrix, col_1: int, col_2: int) -> sint.Matrix:
         ).if_else(1,0)
     return result
 
-max_rows = 50
+max_rows = 1000
 a = sint.Matrix(max_rows, 13)
 a.input_from(0)
 b = sint.Matrix(max_rows, 13)
 b.input_from(1)
 
-aw = where(a, 8, 414)
-bw = where(b, 4, 0)
+# aw = where(a, 8, 414)
+# bw = where(b, 4, 0)
 
-join = join_nested_loop(aw, bw, 1, 1)
+def join_condition(left, right):
+    return (
+        (left[8] == 414) &
+        (right[4] == 0) &
+        (left[2] <= right[2])
+    ).if_else(1,0)
 
-wlt = where_less_then(join, 2, aw.shape[1]+2)
+join = join_nested_loop(a, b, 1, 1, join_condition)
+
+# wlt = where_less_then(join, 2, aw.shape[1]+2)
 
 def distinct_condition(row):
     return (
-        (row[-1] == 1) &
-        (row[-2] == 1) &
-        (row[-3] == 1) &
-        (row[13] == 1)
+        row[-1] == 1
+        # (row[-1] == 1) &
+        # (row[-2] == 1) &
+        # (row[-3] == 1) &
+        # (row[13] == 1)
     ).if_else(1,0)
 
-select = select_distinct(wlt, 0, condition=distinct_condition)
+select = select_distinct(join, 0, condition=distinct_condition)
 
 count = regint(0)
 @for_range_opt(select.shape[0])
