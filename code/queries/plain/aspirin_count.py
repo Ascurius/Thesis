@@ -94,4 +94,4 @@ if __name__ == "__main__":
     b = preprocess("./MP-SPDZ/Player-Data/Input-P1-0", max_rows)
 
     result, single_time = aspirin_count(a, b)
-    print(f"Time needed for executing the query: {single_time:.6f}")
+    print(f"{single_time:.6f}")

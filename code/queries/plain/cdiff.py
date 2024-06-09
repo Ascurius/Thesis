@@ -113,4 +113,4 @@ if __name__ == "__main__":
 
     data = preprocess(input_file, max_rows)
     result, single_time = cdiff(data)
-    print(f"Time needed for executing the query: {single_time:.6f}")
+    print(f"{single_time:.6f}")
