@@ -18,12 +18,13 @@ fi
 
 echo "Running performance test for plain query: $query"
 
+# # -- Generate new test data
+echo "Generating test data..."
+python3 "$path/code/populate.py" "secure" "1000000"
+
 rows=(1000 2000 4000 6000 8000 10000 20000 40000 60000 80000 100000 200000 400000 600000 800000 1000000)
 for max_row in "${rows[@]}"; do
     echo "Measure performance for $max_row rows"
-    # # -- Generate new test data
-    echo "Generating test data..."
-    python3 "$path/code/populate.py" "secure" "$max_row"
 
     # # -- Modify the high-level program
     sed -i -r "s/(max_rows\s*=\s*)[0-9]+/\1$max_row/" $query_path
