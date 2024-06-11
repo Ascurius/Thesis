@@ -6,7 +6,9 @@ def select_distinct(
         key: int, 
         condition: Callable[[sint.Array], bool] = lambda row: True
     ) -> sint.Matrix:
+    start_timer(600)
     matrix.sort((key,))
+    stop_timer(600)
     result = sint.Matrix(
         rows=matrix.shape[0],
         columns=matrix.shape[1] + 1
@@ -80,7 +82,7 @@ def where_less_then(matrix: sint.Matrix, col_1: int, col_2: int) -> sint.Matrix:
         ).if_else(1,0)
     return result
 
-max_rows = 50
+max_rows = 250
 a = sint.Matrix(max_rows, 13)
 a.input_from(0)
 b = sint.Matrix(max_rows, 13)
@@ -122,12 +124,12 @@ select = select_distinct(wlt, 0, condition=distinct_condition)
 stop_timer(500)
 
 count = regint(0)
-start_timer(600)
+start_timer(700)
 @for_range_opt(select.shape[0])
 def _(i):
     dbit_5 = (select[i][-1] == 1).if_else(1,0) # select distinct
     @if_(dbit_5.reveal())
     def _():
         count.update(count + 1)
-stop_timer(600)
+stop_timer(700)
 print_ln("%s", count)

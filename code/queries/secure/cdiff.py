@@ -76,9 +76,9 @@ def select_distinct(
         key: int, 
         condition: Callable[[sint.Array], bool] = lambda row: True
     ) -> sint.Matrix:
-    start_timer(800)
+    start_timer(600)
     matrix.sort()
-    stop_timer(800)
+    stop_timer(600)
     result = sint.Matrix(
         rows=matrix.shape[0],
         columns=matrix.shape[1] + 1
