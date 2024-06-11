@@ -59,10 +59,6 @@ def limit(matrix: sint.Matrix, maximum: int) -> sint.Matrix:
         result[i].assign_vector(matrix[i])
     return result
 
-def print_matrix(matrix):
-    for i in range(matrix.shape[0]):
-        print_ln("%s", matrix[i].reveal())
-
 max_rows = 1000
 a = sint.Matrix(max_rows, 13)
 a.input_from(0)
@@ -71,5 +67,3 @@ g = group_by_count(a, 1)
 o = order_by(g, order_key=-1, relevance_key=-2, reverse=True)
 
 l = limit(o, 10)
-
-print_matrix(l)
