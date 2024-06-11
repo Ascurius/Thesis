@@ -1,5 +1,6 @@
-from pprint import pprint
-from typing import List, Callable, Tuple
+import sys
+import time
+from typing import List, Callable
 
 def preprocess(filename: str, num_rows: int = 50) -> List[List[int]]:
     list_of_lists = []
@@ -9,6 +10,15 @@ def preprocess(filename: str, num_rows: int = 50) -> List[List[int]]:
             elements = list(map(int, line.split()))
             list_of_lists.append(elements)
     return list_of_lists
+
+def measure_time(func):
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+        result = func(*args, **kwargs)
+        end_time = time.time()
+        execution_time = end_time - start_time
+        return result, execution_time
+    return wrapper
 
 def where(matrix: List[List[int]], key: int, value: int) -> List[List[int]]:
     result = []
@@ -76,27 +86,39 @@ def select_distinct(
 def union_all(left: List[List[int]], right: List[List[int]]) -> List[List[int]]:
     return left + right
 
-max_rows = 50
-a = preprocess("./MP-SPDZ/Player-Data/Input-P0-0", max_rows)
-b = preprocess("./MP-SPDZ/Player-Data/Input-P1-0", max_rows)
 
-union = union_all(a,b)
+@measure_time
+def plaintext_cdiff(a, b):
+    union = union_all(a,b)
 
-w = where(union, 8, 8)
-w.sort(key=lambda row: (row[1], row[2]))
+    w = where(union, 8, 8)
+    w.sort(key=lambda row: (row[1], row[2]))
 
-diags = row_number_over_partition_by(w, 1, condition=lambda row: row[13] == 1)
+    diags = row_number_over_partition_by(w, 1, condition=lambda row: row[13] == 1)
 
-join = nested_loop_join(
-    diags, diags, 1, 1, 
-    condition=lambda left, right: (abs(left[2] - right[2]) >= 15) and \
-                                  (abs(left[2] - right[2]) <= 56) and \
-                                  (left[14]+1 == right[14])
-)
+    join = nested_loop_join(
+        diags, diags, 1, 1, 
+        condition=lambda left, right: (abs(left[2] - right[2]) >= 15) and \
+                                    (abs(left[2] - right[2]) <= 56) and \
+                                    (left[14]+1 == right[14])
+    )
 
-selection = select_distinct(join, 1, 
-    condition=lambda row: row[13] == row[-1] == row[-3] == 1
-)
-for row in selection:
-    if row[-1]:
-        print(row[1])
+    selection = select_distinct(join, 1, 
+        condition=lambda row: row[13] == row[-1] == row[-3] == 1
+    )
+
+    result = []
+    c = 0
+    for row in selection:
+        if row[-1]:
+            result.append(row[1])
+            c += 1
+    return result
+
+if __name__ == "__main__":
+    max_rows = int(sys.argv[1])
+    a = preprocess("./MP-SPDZ/Player-Data/Input-P0-0", max_rows)
+    b = preprocess("./MP-SPDZ/Player-Data/Input-P1-0", max_rows)
+
+    result, single_time = plaintext_cdiff(a, b)
+    print(f"{single_time:.6f}")
