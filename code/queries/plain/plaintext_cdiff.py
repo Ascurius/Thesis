@@ -73,15 +73,14 @@ def select_distinct(
         column: int,
         condition: Callable[[List[int]], bool] = lambda row: True
     ) -> List[List[int]]:
-    result = []
     prev_value = None
     for i in range(len(matrix)):
         if (matrix[i][column] != prev_value) and condition(matrix[i]):
-            result.append(matrix[i] + [1])
+            matrix[i].append(1)
             prev_value = matrix[i][column]
         else:
-            result.append(matrix[i] + [0])
-    return result
+            matrix[i].append(0)
+    return matrix
 
 def union_all(left: List[List[int]], right: List[List[int]]) -> List[List[int]]:
     return left + right
