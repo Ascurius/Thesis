@@ -59,11 +59,18 @@ def limit(matrix: sint.Matrix, maximum: int) -> sint.Matrix:
         result[i].assign_vector(matrix[i])
     return result
 
-max_rows = 1000
+max_rows = 50
 a = sint.Matrix(max_rows, 13)
 a.input_from(0)
 
+start_timer(100)
 g = group_by_count(a, 1)
-o = order_by(g, order_key=-1, relevance_key=-2, reverse=True)
+stop_timer(100)
 
+start_timer(200)
+o = order_by(g, order_key=-1, relevance_key=-2, reverse=True)
+stop_timer(200)
+
+start_timer(300)
 l = limit(o, 10)
+stop_timer(300)

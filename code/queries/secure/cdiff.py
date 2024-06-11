@@ -75,7 +75,9 @@ def select_distinct(
         key: int, 
         condition: Callable[[sint.Array], bool] = lambda row: True
     ) -> sint.Matrix:
-    matrix.sort((key,))
+    start_timer(800)
+    matrix.sort()
+    stop_timer(800)
     result = sint.Matrix(
         rows=matrix.shape[0],
         columns=matrix.shape[1] + 1
@@ -94,14 +96,22 @@ def select_distinct(
         prev_value.update(new_value)
     return result
 
-max_rows = 50
+max_rows = 100
 a = sint.Matrix(max_rows, 13)
 a.input_from(0)
 
+start_timer(100)
 w = where(a, 8, 8)
-w.sort((1,2))
+stop_timer(100)
 
+start_timer(200)
+w.sort((1,2))
+stop_timer(200)
+
+
+start_timer(300)
 diags = row_number_over_partition_by(w, 1, condition=lambda row: row[13] == 1)
+stop_timer(300)
 
 def join_condition(left, right):
     return (
@@ -110,10 +120,12 @@ def join_condition(left, right):
         (left[14]+1 == right[14])
     ).if_else(1,0)
 
+start_timer(400)
 join = join_nested_loop(
     diags, diags, 1, 1,
     condition=join_condition
 )
+stop_timer(400)
 
 def distinct_condition(row):
     dbit = (
@@ -123,7 +135,9 @@ def distinct_condition(row):
     ).if_else(1,0)
     return dbit
 
+start_timer(500)
 selection = select_distinct(join, 1, condition=distinct_condition)
+stop_timer(500)
 
 matrix = selection
 c = sint(0)

@@ -79,42 +79,54 @@ def where_less_then(matrix: sint.Matrix, col_1: int, col_2: int) -> sint.Matrix:
         ).if_else(1,0)
     return result
 
-max_rows = 1000
+max_rows = 50
 a = sint.Matrix(max_rows, 13)
 a.input_from(0)
 b = sint.Matrix(max_rows, 13)
 b.input_from(1)
 
-# aw = where(a, 8, 414)
-# bw = where(b, 4, 0)
+start_timer(100)
+aw = where(a, 8, 414)
+stop_timer(100)
+start_timer(200)
+bw = where(b, 4, 0)
+stop_timer(200)
 
-def join_condition(left, right):
-    return (
-        (left[8] == 414) &
-        (right[4] == 0) &
-        (left[2] <= right[2])
-    ).if_else(1,0)
+# def join_condition(left, right):
+#     return (
+#         (left[8] == 414) &
+#         (right[4] == 0) &
+#         (left[2] <= right[2])
+#     ).if_else(1,0)
 
-join = join_nested_loop(a, b, 1, 1, join_condition)
+start_timer(300)
+join = join_nested_loop(aw, bw, 1, 1)
+stop_timer(300)
 
-# wlt = where_less_then(join, 2, aw.shape[1]+2)
+start_timer(400)
+wlt = where_less_then(join, 2, aw.shape[1]+2)
+stop_timer(400)
 
 def distinct_condition(row):
     return (
-        row[-1] == 1
-        # (row[-1] == 1) &
-        # (row[-2] == 1) &
-        # (row[-3] == 1) &
-        # (row[13] == 1)
+        # row[-1] == 1
+        (row[-1] == 1) &
+        (row[-2] == 1) &
+        (row[-3] == 1) &
+        (row[13] == 1)
     ).if_else(1,0)
 
-select = select_distinct(join, 0, condition=distinct_condition)
+start_timer(500)
+select = select_distinct(wlt, 0, condition=distinct_condition)
+stop_timer(500)
 
 count = regint(0)
+start_timer(600)
 @for_range_opt(select.shape[0])
 def _(i):
     dbit_5 = (select[i][-1] == 1).if_else(1,0) # select distinct
     @if_(dbit_5.reveal())
     def _():
         count.update(count + 1)
+stop_timer(600)
 print_ln("%s", count)
