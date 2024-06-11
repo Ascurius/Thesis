@@ -9,6 +9,7 @@ duckdb/testData/2/*
 # results/measurements/*
 result*.txt
 results/*.txt
+*.dat
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
