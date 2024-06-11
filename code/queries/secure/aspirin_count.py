@@ -1,3 +1,4 @@
+from Compiler.library import start_timer, stop_timer
 from typing import Callable, List
 
 def select_distinct(
