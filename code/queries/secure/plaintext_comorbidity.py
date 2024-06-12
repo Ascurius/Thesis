@@ -1,4 +1,4 @@
-from Compiler.library import start_timer, stop_timer
+
 from typing import Callable, List
 
 def group_by_count(matrix: sint.Matrix, key: int) -> sint.Matrix:
@@ -59,18 +59,28 @@ def limit(matrix: sint.Matrix, maximum: int) -> sint.Matrix:
         result[i].assign_vector(matrix[i])
     return result
 
-max_rows = 250
+def union_all(left, right):
+    result = sint.Matrix(
+        rows=left.shape[0] + right.shape[0],
+        columns=left.shape[1]
+    )
+    @for_range_opt(left.shape[0])
+    def _(i):
+        result[i].assign_vector(left[i])
+    @for_range_opt(right.shape[0])
+    def _(j):
+        result[left.shape[0] + j].assign_vector(right[j])
+    return result
+
+max_rows = 10
 a = sint.Matrix(max_rows, 13)
 a.input_from(0)
+b = sint.Matrix(max_rows, 13)
+b.input_from(1)
 
-start_timer(100)
+union = union_all(a, b)
+
 g = group_by_count(a, 1)
-stop_timer(100)
-
-start_timer(200)
 o = order_by(g, order_key=-1, relevance_key=-2, reverse=True)
-stop_timer(200)
 
-start_timer(300)
 l = limit(o, 10)
-stop_timer(300)

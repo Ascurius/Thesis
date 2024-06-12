@@ -58,29 +58,37 @@ def order_by(matrix: List[List[int]], order_key: int,
 def limit(matrix: List[List[int]], maximum) -> List[List[int]]:
     return matrix[:maximum]
 
-def hash_join(left, right, left_key, right_key):
-    h = defaultdict(list)
-    # hash phase
-    for row in left:
-        h[row[left_key]].append(row)
-    # join phase
-    return [(s, r) for r in right for s in h[r[right_key]]]
+def hash_join(left, right, left_key, right_key, condition: lambda left, right: True):
+    hash_map = defaultdict(list)
+
+    # Hash phase
+    for l_row in left:
+        secure_hash = l_row[left_key]
+        hash_map[secure_hash].append(l_row)
+    
+    # Join phase
+    result = []
+    for r_row in right:
+        secure_hash = r_row[right_key]
+        for l_row in hash_map[secure_hash]:
+            if condition(l_row, r_row):
+                result.append(l_row + r_row)
+    
+    return result
 
 def select_distinct(
         matrix: List[List[int]], 
         column: int,
         condition: Callable[[List[int]], bool] = lambda row: True
     ) -> List[List[int]]:
-    matrix.sort(key=lambda row: row[column])
-    result = []
     prev_value = None
     for i in range(len(matrix)):
         if (matrix[i][column] != prev_value) and condition(matrix[i]):
-            result.append(matrix[i] + [1])
+            matrix[i].append(1)
             prev_value = matrix[i][column]
         else:
-            result.append(matrix[i] + [0])
-    return result
+            matrix[i].append(0)
+    return matrix
 
 def nested_loop_join(
         left: List[List[int]],

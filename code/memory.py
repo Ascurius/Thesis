@@ -1,15 +1,8 @@
+import os
 import sys
 import time
 from typing import List, Callable
-
-def preprocess(filename: str, num_rows: int = 50) -> List[List[int]]:
-    list_of_lists = []
-    with open(filename, 'r') as file:
-        for _ in range(num_rows):  
-            line = file.readline()  
-            elements = list(map(int, line.split()))
-            list_of_lists.append(elements)
-    return list_of_lists
+from memory_profiler import profile
 
 def measure_time(func):
     def wrapper(*args, **kwargs):
@@ -19,6 +12,16 @@ def measure_time(func):
         execution_time = end_time - start_time
         return result, execution_time
     return wrapper
+
+@profile
+def preprocess(filename: str, num_rows: int = 50) -> List[List[int]]:
+    list_of_lists = []
+    with open(filename, 'r') as file:
+        for _ in range(num_rows):  
+            line = file.readline()  
+            elements = list(map(int, line.split()))
+            list_of_lists.append(elements)
+    return list_of_lists
 
 def where(matrix: List[List[int]], key: int, value: int) -> List[List[int]]:
     result = []
@@ -82,42 +85,32 @@ def select_distinct(
             matrix[i].append(0)
     return matrix
 
-def union_all(left: List[List[int]], right: List[List[int]]) -> List[List[int]]:
-    return left + right
-
-
-@measure_time
-def plaintext_cdiff(a, b):
-    union = union_all(a,b)
-
-    w = where(union, 8, 8)
+@profile
+def cdiff(data):
+    w = where(data, 8, 8)
     w.sort(key=lambda row: (row[1], row[2]))
-
     diags = row_number_over_partition_by(w, 1, condition=lambda row: row[13] == 1)
-
     join = nested_loop_join(
         diags, diags, 1, 1, 
         condition=lambda left, right: (abs(left[2] - right[2]) >= 15) and \
                                     (abs(left[2] - right[2]) <= 56) and \
                                     (left[14]+1 == right[14])
     )
-
     selection = select_distinct(join, 1, 
         condition=lambda row: row[13] == row[-1] == row[-3] == 1
     )
-
     result = []
     c = 0
     for row in selection:
         if row[-1]:
-            result.append(row[1])
+            result.append(row)
             c += 1
     return result
 
 if __name__ == "__main__":
+    pwd = os.getcwd()
     max_rows = int(sys.argv[1])
-    a = preprocess("./MP-SPDZ/Player-Data/Input-P0-0", max_rows)
-    b = preprocess("./MP-SPDZ/Player-Data/Input-P1-0", max_rows)
+    input_file = f"{pwd}/MP-SPDZ/Player-Data/Input-P0-0"
 
-    result, single_time = plaintext_cdiff(a, b)
-    print(f"{single_time:.6f}")
+    data = preprocess(input_file, max_rows)
+    cdiff(data)

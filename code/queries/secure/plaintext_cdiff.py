@@ -1,4 +1,3 @@
-from Compiler.library import start_timer, stop_timer
 from typing import Callable, List, Tuple
 
 def where(matrix: sint.Matrix, key: int, value: int) -> sint.Matrix:
@@ -76,9 +75,7 @@ def select_distinct(
         key: int, 
         condition: Callable[[sint.Array], bool] = lambda row: True
     ) -> sint.Matrix:
-    start_timer(600)
-    matrix.sort()
-    stop_timer(600)
+    matrix.sort((key,))
     result = sint.Matrix(
         rows=matrix.shape[0],
         columns=matrix.shape[1] + 1
@@ -97,22 +94,31 @@ def select_distinct(
         prev_value.update(new_value)
     return result
 
-max_rows = 100
+def union_all(left, right):
+    result = sint.Matrix(
+        rows=left.shape[0] + right.shape[0],
+        columns=left.shape[1]
+    )
+    @for_range_opt(left.shape[0])
+    def _(i):
+        result[i].assign_vector(left[i])
+    @for_range_opt(right.shape[0])
+    def _(j):
+        result[left.shape[0] + j].assign_vector(right[j])
+    return result
+
+max_rows = 50
 a = sint.Matrix(max_rows, 13)
 a.input_from(0)
+b = sint.Matrix(max_rows, 13)
+b.input_from(1)
 
-start_timer(100)
-w = where(a, 8, 8)
-stop_timer(100)
+union = union_all(a, b)
 
-start_timer(200)
+w = where(union, 8, 8)
 w.sort((1,2))
-stop_timer(200)
 
-
-start_timer(300)
 diags = row_number_over_partition_by(w, 1, condition=lambda row: row[13] == 1)
-stop_timer(300)
 
 def join_condition(left, right):
     return (
@@ -121,12 +127,10 @@ def join_condition(left, right):
         (left[14]+1 == right[14])
     ).if_else(1,0)
 
-start_timer(400)
 join = join_nested_loop(
     diags, diags, 1, 1,
     condition=join_condition
 )
-stop_timer(400)
 
 def distinct_condition(row):
     dbit = (
@@ -136,9 +140,7 @@ def distinct_condition(row):
     ).if_else(1,0)
     return dbit
 
-start_timer(500)
 selection = select_distinct(join, 1, condition=distinct_condition)
-stop_timer(500)
 
 matrix = selection
 c = sint(0)
@@ -148,6 +150,6 @@ def _(i):
     @if_(dbit.reveal())
     def _():
         c.update(c+1)
-        print_ln("%s", matrix[i].reveal())
-print_ln("%s", c.reveal())
+        # print_ln("%s", matrix[i].reveal())
+# print_ln("%s", c.reveal())
 
