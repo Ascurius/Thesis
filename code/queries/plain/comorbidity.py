@@ -3,7 +3,6 @@ from pprint import pprint
 import sys
 import time
 from typing import List
-import numpy as np
 
 def measure_time(func):
     def wrapper(*args, **kwargs):

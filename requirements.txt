@@ -1,4 +1,4 @@
-click==8.1.7
+click
 contourpy==1.2.1
 cycler==0.12.1
 duckdb==0.10.2
