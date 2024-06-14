@@ -77,7 +77,7 @@ def select_distinct(
         condition: Callable[[sint.Array], bool] = lambda row: True
     ) -> sint.Matrix:
     start_timer(600)
-    matrix.sort()
+    matrix.sort((key,))
     stop_timer(600)
     result = sint.Matrix(
         rows=matrix.shape[0],
@@ -97,7 +97,7 @@ def select_distinct(
         prev_value.update(new_value)
     return result
 
-max_rows = 100
+max_rows = 50
 a = sint.Matrix(max_rows, 13)
 a.input_from(0)
 
@@ -148,6 +148,6 @@ def _(i):
     @if_(dbit.reveal())
     def _():
         c.update(c+1)
-        print_ln("%s", matrix[i].reveal())
+        print_ln("%s", matrix[i][1].reveal())
 print_ln("%s", c.reveal())
 
