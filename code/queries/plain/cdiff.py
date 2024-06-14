@@ -88,20 +88,23 @@ def cdiff(data):
     w = where(data, 8, 8)
     w.sort(key=lambda row: (row[1], row[2]))
     diags = row_number_over_partition_by(w, 1, condition=lambda row: row[13] == 1)
+    del w # Free memory from WHERE result
     join = nested_loop_join(
         diags, diags, 1, 1, 
         condition=lambda left, right: (abs(left[2] - right[2]) >= 15) and \
                                     (abs(left[2] - right[2]) <= 56) and \
                                     (left[14]+1 == right[14])
     )
+    del diags  # Free memory from partition result
     selection = select_distinct(join, 1, 
         condition=lambda row: row[13] == row[-1] == row[-3] == 1
     )
+    del join # Free memory from join result
     result = []
     c = 0
     for row in selection:
         if row[-1]:
-            result.append(row)
+            result.append(row[1])
             c += 1
     return result
 
@@ -111,5 +114,5 @@ if __name__ == "__main__":
     input_file = f"{pwd}/MP-SPDZ/Player-Data/Input-P0-0"
 
     data = preprocess(input_file, max_rows)
-    result, single_time = cdiff(data)
+    _, single_time = cdiff(data)
     print(f"{single_time:.6f}")
