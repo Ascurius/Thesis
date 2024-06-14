@@ -74,6 +74,7 @@ def select_distinct(
         condition: Callable[[List[int]], bool] = lambda row: True
     ) -> List[List[int]]:
     prev_value = None
+    matrix.sort(key=lambda row: row[column])
     for i in range(len(matrix)):
         if (matrix[i][column] != prev_value) and condition(matrix[i]):
             matrix[i].append(1)

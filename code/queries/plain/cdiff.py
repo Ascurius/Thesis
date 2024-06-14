@@ -74,6 +74,7 @@ def select_distinct(
         column: int,
         condition: Callable[[List[int]], bool] = lambda row: True
     ) -> List[List[int]]:
+    matrix.sort(key=lambda row: row[column])
     prev_value = None
     for i in range(len(matrix)):
         if (matrix[i][column] != prev_value) and condition(matrix[i]):
@@ -85,24 +86,21 @@ def select_distinct(
 
 @measure_time
 def cdiff(data):
-    w = where(data, 8, 8)
-    w.sort(key=lambda row: (row[1], row[2]))
-    diags = row_number_over_partition_by(w, 1, condition=lambda row: row[13] == 1)
-    del w # Free memory from WHERE result
-    join = nested_loop_join(
-        diags, diags, 1, 1, 
+    m = where(data, 8, 8)
+    m.sort(key=lambda row: (row[1], row[2]))
+    m = row_number_over_partition_by(m, 1, condition=lambda row: row[13] == 1)
+    m = nested_loop_join(
+        m, m, 1, 1, 
         condition=lambda left, right: (abs(left[2] - right[2]) >= 15) and \
                                     (abs(left[2] - right[2]) <= 56) and \
                                     (left[14]+1 == right[14])
     )
-    del diags  # Free memory from partition result
-    selection = select_distinct(join, 1, 
+    m = select_distinct(m, 1, 
         condition=lambda row: row[13] == row[-1] == row[-3] == 1
     )
-    del join # Free memory from join result
     result = []
     c = 0
-    for row in selection:
+    for row in m:
         if row[-1]:
             result.append(row[1])
             c += 1

@@ -26,6 +26,7 @@ def select_distinct(
         column: int,
         condition: Callable[[List[int]], bool] = lambda row: True
     ) -> List[List[int]]:
+    matrix.sort(key=lambda row: row[column])
     prev_value = None
     for i in range(len(matrix)):
         if (matrix[i][column] != prev_value) and condition(matrix[i]):
@@ -74,14 +75,12 @@ def aspirin_count(table1, table2):
     aw = where(table1, 8, 414)
     bw = where(table2, 4, 0)
 
-    j = nested_loop_join(aw, bw, 1, 1)
-
-    m = where_less_then(j, 2, len(aw[0])+2)
-
-    s = select_distinct(m, 0, condition=lambda row: row[-1] == row[-2] == row[-3] == row[13] == 1)
+    m = nested_loop_join(aw, bw, 1, 1)
+    m = where_less_then(m, 2, len(aw[0])+2)
+    m = select_distinct(m, 0, condition=lambda row: row[-1] == row[-2] == row[-3] == row[13] == 1)
 
     c = 0
-    for row in s:
+    for row in m:
         if row[-1]:
             c += 1
     return c
@@ -92,5 +91,5 @@ if __name__ == "__main__":
     a = preprocess("./MP-SPDZ/Player-Data/Input-P0-0", max_rows)
     b = preprocess("./MP-SPDZ/Player-Data/Input-P1-0", max_rows)
 
-    result, single_time = aspirin_count(a, b)
+    _, single_time = aspirin_count(a, b)
     print(f"{single_time:.6f}")
