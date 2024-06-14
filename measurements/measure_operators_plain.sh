@@ -55,7 +55,7 @@ fi
 
 echo "Generating test data..."
 populate_script="$path/code/populate.py"
-# python "$populate_script" "secure" "1000000"
+python3 "$populate_script" "secure" "1000000"
 
 for ((i=start_index; i<${#rows[@]}; i++)); do
     max_rows=${rows[i]}
