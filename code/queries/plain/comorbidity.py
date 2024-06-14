@@ -21,6 +21,7 @@ def select_columns(matrix: List[List[int]], columns: List[int]) -> List[List[int
         selected_matrix.append(selected_row)
     return selected_matrix
 
+@measure_time
 def group_by_count(matrix: List[List[int]], key: int) -> List[List[int]]:
     matrix.sort(key=lambda row: (row[key], row[2]))
     result = [row + [0, 0] for row in matrix]
@@ -43,6 +44,7 @@ def group_by_count(matrix: List[List[int]], key: int) -> List[List[int]]:
         result[-1][-1] = 1
     return result
 
+@measure_time
 def order_by(matrix: List[List[int]], order_key: int, 
              relevance_key: int = None, reversed: bool = False
             ) -> List[List[int]]:
@@ -53,6 +55,7 @@ def order_by(matrix: List[List[int]], order_key: int,
     result.sort(key=lambda row: row[-1], reverse=reversed)
     return result
 
+@measure_time
 def limit(matrix: List[List[int]], maximum) -> List[List[int]]:
     return matrix[:maximum]
 
@@ -65,13 +68,11 @@ def preprocess(filename: str, num_rows: int = 50) -> List[List[int]]:
             list_of_lists.append(elements)
     return list_of_lists
 
-@measure_time
-def comorbidity(matrix):
-    m = matrix
-    m = group_by_count(m, 1)
-    m = order_by(m, order_key=-1, relevance_key=-2, reversed=True)
-    m = limit(m, 10)
-    return m
+def comorbidity(m):
+    m, group_time = group_by_count(m, 1)
+    m, order_time = order_by(m, order_key=-1, relevance_key=-2, reversed=True)
+    m, limit_time = limit(m, 10)
+    return [group_time, order_time, limit_time] 
     
 if __name__ == "__main__":
     pwd = os.getcwd()
@@ -79,5 +80,9 @@ if __name__ == "__main__":
     input_file = f"{pwd}/MP-SPDZ/Player-Data/Input-P0-0"
 
     data = preprocess(input_file, max_rows)
-    result, single_time = comorbidity(data)
-    print(f"{single_time:.6f}")
+    times = comorbidity(data)
+
+    print(f"Total time: {sum(times):.6f}")
+    print(f"Group by: {times[0]:.6f}")
+    print(f"Order by: {times[1]:.6f}")
+    print(f"Limit: {times[2]:.6f}")
