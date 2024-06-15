@@ -20,18 +20,17 @@ fi
 echo "Running performance test for plain query: $query"
 
 # Write column headers to output file depending on query
-base_header="rows,total_time"
 if [ $query = "aspirin_count" ]; then
-    header="$base_header,first_filter,second_filter,join,third_filter,distinct,distinct_sort,count"
+    header="rows,first_filter,second_filter,join,third_filter,distinct,distinct_sort,count,total"
 elif [ $query = "cdiff" ]; then
-    header="$base_header,first_filter,sort,partition_by,join,distinct,distinct_sort,count"
+    header="rows,first_filter,sort,partition_by,join,distinct,distinct_sort,count,total"
 elif [ $query = "comorbidity" ]; then
-    header="$base_header,group_by,order_by,limit"
+    header="rows,group_by,order_by,limit,total"
 fi
 echo $header >> $out_file
 
-rows=(1000 2000 4000 6000 8000 10000 20000 40000 60000 80000 100000 200000 400000 600000 800000 1000000)
-# rows=(1000)
+# rows=(1000 2000 4000 6000 8000 10000 20000 40000 60000 80000 100000 200000 400000 600000 800000 1000000)
+rows=(1000)
 # Set default start_max_rows if not specified
 if [ -z "$start_max_rows" ]; then
     start_max_rows=${rows[0]}
@@ -55,13 +54,13 @@ fi
 
 echo "Generating test data..."
 populate_script="$path/code/populate.py"
-python3 "$populate_script" "secure" "1000000"
+# python3 "$populate_script" "secure" "1000000"
 
 for ((i=start_index; i<${#rows[@]}; i++)); do
     max_rows=${rows[i]}
     echo "Performance test for $max_rows rows"
 
-    # total_execution_time=0.0
+    total_execution_time=0.0
     total_times=()
     for ((j=1; j<=$num_tests; j++)); do
         output=$(python3 "$query_path" "$max_rows")

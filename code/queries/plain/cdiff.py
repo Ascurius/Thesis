@@ -3,13 +3,23 @@ import sys
 import time
 from typing import List, Callable
 
+TOTAL_EXECUTION_TIME = 0.0
+
 def measure_time(func):
     def wrapper(*args, **kwargs):
+        global TOTAL_EXECUTION_TIME
+        print(f"{func.__name__}:", end=" ")
         start_time = time.time()
         result = func(*args, **kwargs)
         end_time = time.time()
         execution_time = end_time - start_time
-        return result, execution_time
+        TOTAL_EXECUTION_TIME += execution_time
+        if isinstance(result, tuple):
+            print(f"{execution_time:.6f}")
+            print(f"select_distinct_sorting: {result[1]:.6f}")
+            return result[0]
+        print(f"{execution_time:.6f}")
+        return result
     return wrapper
 
 def preprocess(filename: str, num_rows: int = 50) -> List[List[int]]:
@@ -80,7 +90,7 @@ def select_distinct(
     ) -> List[List[int]]:
     st = time.time()
     matrix.sort(key=lambda row: row[column])
-    sort_time = time.time() - st
+    et = time.time() - st
 
     prev_value = None
     for i in range(len(matrix)):
@@ -89,32 +99,30 @@ def select_distinct(
             prev_value = matrix[i][column]
         else:
             matrix[i].append(0)
-    return matrix, sort_time
+    return matrix, et
 
 def cdiff(data):
-    m, w_time = where(data, 8, 8)
+    m = where(data, 8, 8)
     st = time.time()
     m.sort(key=lambda row: (row[1], row[2]))
-    sort_time = time.time() - st
-    m, partition_time = row_number_over_partition_by(m, 1, condition=lambda row: row[13] == 1)
-    m, join_time = nested_loop_join(
+    print(f"correctness_sort: {time.time() - st:.6f}")
+    m = row_number_over_partition_by(m, 1, condition=lambda row: row[13] == 1)
+    m = nested_loop_join(
         m, m, 1, 1, 
         condition=lambda left, right: (abs(left[2] - right[2]) >= 15) and \
                                     (abs(left[2] - right[2]) <= 56) and \
                                     (left[14]+1 == right[14])
     )
-    m, distinct_time = select_distinct(m, 1, 
+    m = select_distinct(m, 1, 
         condition=lambda row: row[13] == row[-1] == row[-3] == 1
     )
     result = []
-    c = 0
-    st = time.time()
-    for row in m[0]:
-        if row[-1]:
-            result.append(row[1])
-            c += 1
-    count_time = time.time() - st
-    return [w_time, sort_time, partition_time, join_time, distinct_time, m[1], count_time]
+    # c = 0
+    # for row in m[0]:
+    #     if row[-1]:
+    #         result.append(row[1])
+    #         c += 1
+    return result
 
 if __name__ == "__main__":
     pwd = os.getcwd()
@@ -122,13 +130,5 @@ if __name__ == "__main__":
     input_file = f"{pwd}/MP-SPDZ/Player-Data/Input-P0-0"
 
     data = preprocess(input_file, max_rows)
-    times = cdiff(data)
-
-    print(f"Total time: {sum(times):.6f}")
-    print(f"Where: {times[0]:.6f}")
-    print(f"Correctness sort: {times[1]:.6f}")
-    print(f"Partition by (with row_number): {times[2]:.6f}")
-    print(f"Join: {times[3]:.6f}")
-    print(f"Select distinct: {times[4]:.6f}")
-    print(f"Select distinct (only sort): {times[5]:.6f}")
-    print(f"Count: {times[6]:.6f}")
+    _ = cdiff(data)
+    print(f"total: {TOTAL_EXECUTION_TIME:.6f}")
