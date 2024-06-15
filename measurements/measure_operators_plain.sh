@@ -29,8 +29,8 @@ elif [ $query = "comorbidity" ]; then
 fi
 echo $header >> $out_file
 
-# rows=(1000 2000 4000 6000 8000 10000 20000 40000 60000 80000 100000 200000 400000 600000 800000 1000000)
-rows=(1000)
+rows=(1000 2000 4000 6000 8000 10000 20000 40000 60000 80000 100000 200000 400000 600000 800000 1000000)
+# rows=(1000)
 # Set default start_max_rows if not specified
 if [ -z "$start_max_rows" ]; then
     start_max_rows=${rows[0]}
@@ -54,7 +54,7 @@ fi
 
 echo "Generating test data..."
 populate_script="$path/code/populate.py"
-# python3 "$populate_script" "secure" "1000000"
+python3 "$populate_script" "secure" "1000000"
 
 for ((i=start_index; i<${#rows[@]}; i++)); do
     max_rows=${rows[i]}
