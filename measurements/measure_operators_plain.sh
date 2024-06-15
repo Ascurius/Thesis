@@ -30,8 +30,8 @@ elif [ $query = "comorbidity" ]; then
 fi
 echo $header >> $out_file
 
-rows=(1000 2000 4000 6000 8000 10000 20000 40000 60000 80000 100000 200000 400000 600000 800000 1000000)
-# rows=(1000)
+# rows=(1000 2000 4000 6000 8000 10000 20000 40000 60000 80000 100000 200000 400000 600000 800000 1000000)
+rows=(1000)
 # Set default start_max_rows if not specified
 if [ -z "$start_max_rows" ]; then
     start_max_rows=${rows[0]}
@@ -61,7 +61,7 @@ for ((i=start_index; i<${#rows[@]}; i++)); do
     max_rows=${rows[i]}
     echo "Performance test for $max_rows rows"
 
-    # total_execution_time=0.0
+    total_execution_time=0.0
     total_times=()
     for ((j=1; j<=$num_tests; j++)); do
         output=$(python3 "$query_path" "$max_rows")
@@ -69,11 +69,17 @@ for ((i=start_index; i<${#rows[@]}; i++)); do
         # Extract times using grep and regex
         times=($(echo "$output" | grep -oP '\d+\.\d+'))
 
+        # Calculate total time for query execution
+        for time in "${times[@]}"; do
+            total_execution_time=$(echo "$total_execution_time + $time" | bc)
+        done
+
         # Accumulate the times for each test
         total_times+=("${times[@]}")
     done
 
     # Average each specific time over the number of tests
+    average_total_time=$(echo "scale=6; $total_execution_time / $num_tests" | bc)
     average_times=()
     for ((k=0; k<${#times[@]}; k++)); do
         sum_time=0.0
@@ -86,7 +92,7 @@ for ((i=start_index; i<${#rows[@]}; i++)); do
     done
 
     # Only output as many times as currently present in the array:
-    output_line="$max_rows"
+    output_line="$max_rows,$average_total_time"
     for ((index=0; index<${#average_times[@]}; index++)); do
         output_line+=",${average_times[index]}"
     done
