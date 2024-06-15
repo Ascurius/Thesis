@@ -20,13 +20,12 @@ fi
 echo "Running performance test for plain query: $query"
 
 # Write column headers to output file depending on query
-base_header="rows,total_time"
 if [ $query = "aspirin_count" ]; then
-    header="$base_header,first_filter,second_filter,join,third_filter,distinct,distinct_sort,count"
+    header="rows,first_filter,second_filter,join,third_filter,distinct,distinct_sort,count,total"
 elif [ $query = "cdiff" ]; then
-    header="$base_header,first_filter,sort,partition_by,join,distinct,distinct_sort,count"
+    header="rows,first_filter,sort,partition_by,join,distinct,distinct_sort,count,total"
 elif [ $query = "comorbidity" ]; then
-    header="$base_header,group_by,order_by,limit"
+    header="rows,group_by,order_by,limit,total"
 fi
 echo $header >> $out_file
 
@@ -55,7 +54,7 @@ fi
 
 echo "Generating test data..."
 populate_script="$path/code/populate.py"
-python3 "$populate_script" "secure" "1000000"
+# python3 "$populate_script" "secure" "1000000"
 
 for ((i=start_index; i<${#rows[@]}; i++)); do
     max_rows=${rows[i]}
@@ -69,17 +68,11 @@ for ((i=start_index; i<${#rows[@]}; i++)); do
         # Extract times using grep and regex
         times=($(echo "$output" | grep -oP '\d+\.\d+'))
 
-        # Calculate total time for query execution
-        for time in "${times[@]}"; do
-            total_execution_time=$(echo "$total_execution_time + $time" | bc)
-        done
-
         # Accumulate the times for each test
         total_times+=("${times[@]}")
     done
 
     # Average each specific time over the number of tests
-    average_total_time=$(echo "scale=6; $total_execution_time / $num_tests" | bc)
     average_times=()
     for ((k=0; k<${#times[@]}; k++)); do
         sum_time=0.0
@@ -92,7 +85,7 @@ for ((i=start_index; i<${#rows[@]}; i++)); do
     done
 
     # Only output as many times as currently present in the array:
-    output_line="$max_rows,$average_total_time"
+    output_line="$max_rows"
     for ((index=0; index<${#average_times[@]}; index++)); do
         output_line+=",${average_times[index]}"
     done
