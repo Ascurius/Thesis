@@ -6,11 +6,13 @@ from typing import List
 
 def measure_time(func):
     def wrapper(*args, **kwargs):
+        print(f"{func.__name__}:", end=" ")
         start_time = time.time()
         result = func(*args, **kwargs)
         end_time = time.time()
         execution_time = end_time - start_time
-        return result, execution_time
+        print(f"{execution_time:.6f}")
+        return result
     return wrapper
 
 def select_columns(matrix: List[List[int]], columns: List[int]) -> List[List[int]]:
@@ -69,10 +71,10 @@ def preprocess(filename: str, num_rows: int = 50) -> List[List[int]]:
     return list_of_lists
 
 def comorbidity(m):
-    m, group_time = group_by_count(m, 1)
-    m, order_time = order_by(m, order_key=-1, relevance_key=-2, reversed=True)
-    m, limit_time = limit(m, 10)
-    return [group_time, order_time, limit_time] 
+    m = group_by_count(m, 1)
+    m = order_by(m, order_key=-1, relevance_key=-2, reversed=True)
+    m = limit(m, 10)
+    return m 
     
 if __name__ == "__main__":
     pwd = os.getcwd()
@@ -80,9 +82,4 @@ if __name__ == "__main__":
     input_file = f"{pwd}/MP-SPDZ/Player-Data/Input-P0-0"
 
     data = preprocess(input_file, max_rows)
-    times = comorbidity(data)
-
-    print(f"Total time: {sum(times):.6f}")
-    print(f"Group by: {times[0]:.6f}")
-    print(f"Order by: {times[1]:.6f}")
-    print(f"Limit: {times[2]:.6f}")
+    _ = comorbidity(data)
