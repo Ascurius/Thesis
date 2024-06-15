@@ -3,16 +3,20 @@ import sys
 import time
 from typing import Callable, List
 
+TOTAL_EXECUTION_TIME = 0.0
+
 def measure_time(func):
     def wrapper(*args, **kwargs):
+        global TOTAL_EXECUTION_TIME
         print(f"{func.__name__}:", end=" ")
         start_time = time.time()
         result = func(*args, **kwargs)
         end_time = time.time()
         execution_time = end_time - start_time
+        TOTAL_EXECUTION_TIME += execution_time
         if isinstance(result, tuple):
             print(f"{execution_time:.6f}")
-            print(f"select_distinct_sorting: {result[1]}")
+            print(f"select_distinct_sorting: {result[1]:.6f}")
             return result[0]
         print(f"{execution_time:.6f}")
         return result
@@ -95,7 +99,7 @@ def aspirin_count(table1, table2):
     for row in m: # Access the actual query result
         if row[-1]:
             c += 1
-    print(f"count: {time.time() - st}")
+    print(f"count: {time.time() - st:6f}")
     return c
 
 
@@ -105,3 +109,4 @@ if __name__ == "__main__":
     a = preprocess("./MP-SPDZ/Player-Data/Input-P0-0", max_rows)
     b = preprocess("./MP-SPDZ/Player-Data/Input-P1-0", max_rows)
     _ = aspirin_count(a, b)
+    print(f"total: {TOTAL_EXECUTION_TIME:.6f}")

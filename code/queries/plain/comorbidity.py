@@ -4,13 +4,17 @@ import sys
 import time
 from typing import List
 
+TOTAL_EXECUTION_TIME=0.0
+
 def measure_time(func):
     def wrapper(*args, **kwargs):
+        global TOTAL_EXECUTION_TIME
         print(f"{func.__name__}:", end=" ")
         start_time = time.time()
         result = func(*args, **kwargs)
         end_time = time.time()
         execution_time = end_time - start_time
+        TOTAL_EXECUTION_TIME+=execution_time
         print(f"{execution_time:.6f}")
         return result
     return wrapper
@@ -83,3 +87,4 @@ if __name__ == "__main__":
 
     data = preprocess(input_file, max_rows)
     _ = comorbidity(data)
+    print(f"total: {TOTAL_EXECUTION_TIME:.6f}")

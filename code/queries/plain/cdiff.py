@@ -3,16 +3,20 @@ import sys
 import time
 from typing import List, Callable
 
+TOTAL_EXECUTION_TIME = 0.0
+
 def measure_time(func):
     def wrapper(*args, **kwargs):
+        global TOTAL_EXECUTION_TIME
         print(f"{func.__name__}:", end=" ")
         start_time = time.time()
         result = func(*args, **kwargs)
         end_time = time.time()
         execution_time = end_time - start_time
+        TOTAL_EXECUTION_TIME += execution_time
         if isinstance(result, tuple):
             print(f"{execution_time:.6f}")
-            print(f"select_distinct_sorting: {result[1]}")
+            print(f"select_distinct_sorting: {result[1]:.6f}")
             return result[0]
         print(f"{execution_time:.6f}")
         return result
@@ -101,7 +105,7 @@ def cdiff(data):
     m = where(data, 8, 8)
     st = time.time()
     m.sort(key=lambda row: (row[1], row[2]))
-    print(f"correctness_sort: {time.time() - st}")
+    print(f"correctness_sort: {time.time() - st:.6f}")
     m = row_number_over_partition_by(m, 1, condition=lambda row: row[13] == 1)
     m = nested_loop_join(
         m, m, 1, 1, 
@@ -127,3 +131,4 @@ if __name__ == "__main__":
 
     data = preprocess(input_file, max_rows)
     _ = cdiff(data)
+    print(f"total: {TOTAL_EXECUTION_TIME:.6f}")
