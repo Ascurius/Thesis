@@ -5,7 +5,6 @@ mp-spdz-0.3.8/
 duckdb/*.duckdb
 duckdb/testData/1/*
 duckdb/testData/2/*
-*.png
 # results/measurements/*
 result*.txt
 results/*.txt
