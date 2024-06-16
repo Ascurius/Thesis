@@ -17,7 +17,7 @@ def read_plain(filename):
     return left_column, right_column
 
 pwd = os.getcwd()
-query = "comorbidity"
+query = "aspirin_count"
 
 plain_rows, plain_times = read_plain(f"{pwd}/results/measurements/{query}_plain.txt")
 secure_rows, secure_times = read_plain(f"{pwd}/results/measurements/{query}_secure.txt")
