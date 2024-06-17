@@ -59,9 +59,11 @@ def limit(matrix: sint.Matrix, maximum: int) -> sint.Matrix:
         result[i].assign_vector(matrix[i])
     return result
 
-max_rows = 50
+max_rows = 400000
+start_timer(10)
 a = sint.Matrix(max_rows, 13)
 a.input_from(0)
+stop_timer(10)
 
 start_timer(100)
 g = group_by_count(a, 1)
