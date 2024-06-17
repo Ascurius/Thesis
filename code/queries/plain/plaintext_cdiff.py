@@ -2,6 +2,25 @@ import sys
 import time
 from typing import List, Callable
 
+TOTAL_EXECUTION_TIME = 0.0
+
+def measure_time(func):
+    def wrapper(*args, **kwargs):
+        global TOTAL_EXECUTION_TIME
+        print(f"{func.__name__}:", end=" ")
+        start_time = time.time()
+        result = func(*args, **kwargs)
+        end_time = time.time()
+        execution_time = end_time - start_time
+        TOTAL_EXECUTION_TIME += execution_time
+        if isinstance(result, tuple):
+            print(f"{execution_time:.6f}")
+            print(f"select_distinct_sorting: {result[1]:.6f}")
+            return result[0]
+        print(f"{execution_time:.6f}")
+        return result
+    return wrapper
+
 def preprocess(filename: str, num_rows: int = 50) -> List[List[int]]:
     list_of_lists = []
     with open(filename, 'r') as file:
@@ -11,15 +30,7 @@ def preprocess(filename: str, num_rows: int = 50) -> List[List[int]]:
             list_of_lists.append(elements)
     return list_of_lists
 
-def measure_time(func):
-    def wrapper(*args, **kwargs):
-        start_time = time.time()
-        result = func(*args, **kwargs)
-        end_time = time.time()
-        execution_time = end_time - start_time
-        return result, execution_time
-    return wrapper
-
+@measure_time
 def where(matrix: List[List[int]], key: int, value: int) -> List[List[int]]:
     result = []
     for i in range(len(matrix)):
@@ -29,6 +40,7 @@ def where(matrix: List[List[int]], key: int, value: int) -> List[List[int]]:
             result.append(matrix[i] + [0])
     return result
 
+@measure_time
 def nested_loop_join(
         left: List[List[int]],
         right: List[List[int]], 
@@ -45,6 +57,7 @@ def nested_loop_join(
                 result.append(l_row + r_row + [0])
     return result
 
+@measure_time
 def row_number_over_partition_by(
         matrix: List[List[int]], 
         key: int, 
@@ -68,51 +81,53 @@ def row_number_over_partition_by(
         matrix[i][-1] = row_number
     return matrix
 
+@measure_time
 def select_distinct(
         matrix: List[List[int]], 
         column: int,
         condition: Callable[[List[int]], bool] = lambda row: True
     ) -> List[List[int]]:
-    prev_value = None
+    st = time.time()
     matrix.sort(key=lambda row: row[column])
+    et = time.time() - st
+
+    prev_value = None
     for i in range(len(matrix)):
         if (matrix[i][column] != prev_value) and condition(matrix[i]):
             matrix[i].append(1)
             prev_value = matrix[i][column]
         else:
             matrix[i].append(0)
-    return matrix
+    return matrix, et
 
+@measure_time
 def union_all(left: List[List[int]], right: List[List[int]]) -> List[List[int]]:
     return left + right
 
 
-@measure_time
 def plaintext_cdiff(a, b):
     union = union_all(a,b)
 
-    w = where(union, 8, 8)
-    w.sort(key=lambda row: (row[1], row[2]))
-
-    diags = row_number_over_partition_by(w, 1, condition=lambda row: row[13] == 1)
-
-    join = nested_loop_join(
-        diags, diags, 1, 1, 
+    m = where(union, 8, 8)
+    st = time.time()
+    m.sort(key=lambda row: (row[1], row[2]))
+    print(f"correctness_sort: {time.time() - st:.6f}")
+    m = row_number_over_partition_by(m, 1, condition=lambda row: row[13] == 1)
+    m = nested_loop_join(
+        m, m, 1, 1, 
         condition=lambda left, right: (abs(left[2] - right[2]) >= 15) and \
                                     (abs(left[2] - right[2]) <= 56) and \
                                     (left[14]+1 == right[14])
     )
-
-    selection = select_distinct(join, 1, 
+    m = select_distinct(m, 1, 
         condition=lambda row: row[13] == row[-1] == row[-3] == 1
     )
-
     result = []
-    c = 0
-    for row in selection:
-        if row[-1]:
-            result.append(row[1])
-            c += 1
+    # c = 0
+    # for row in m[0]:
+    #     if row[-1]:
+    #         result.append(row[1])
+    #         c += 1
     return result
 
 if __name__ == "__main__":
@@ -120,5 +135,5 @@ if __name__ == "__main__":
     a = preprocess("./MP-SPDZ/Player-Data/Input-P0-0", max_rows)
     b = preprocess("./MP-SPDZ/Player-Data/Input-P1-0", max_rows)
 
-    result, single_time = plaintext_cdiff(a, b)
-    print(f"{single_time:.6f}")
+    _ = plaintext_cdiff(a, b)
+    print(f"total: {TOTAL_EXECUTION_TIME:.6f}")

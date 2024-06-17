@@ -3,6 +3,24 @@ import sys
 import time
 from typing import Callable, List
 
+TOTAL_EXECUTION_TIME = 0.0
+
+def measure_time(func):
+    def wrapper(*args, **kwargs):
+        global TOTAL_EXECUTION_TIME
+        print(f"{func.__name__}:", end=" ")
+        start_time = time.time()
+        result = func(*args, **kwargs)
+        end_time = time.time()
+        execution_time = end_time - start_time
+        TOTAL_EXECUTION_TIME += execution_time
+        if isinstance(result, tuple):
+            print(f"{execution_time:.6f}")
+            print(f"select_distinct_sorting: {result[1]:.6f}")
+            return result[0]
+        print(f"{execution_time:.6f}")
+        return result
+    return wrapper
 
 def preprocess(filename: str, num_rows: int = 50) -> List[List[int]]:
     list_of_lists = []
@@ -13,21 +31,16 @@ def preprocess(filename: str, num_rows: int = 50) -> List[List[int]]:
             list_of_lists.append(elements)
     return list_of_lists
 
-def measure_time(func):
-    def wrapper(*args, **kwargs):
-        start_time = time.time()
-        result = func(*args, **kwargs)
-        end_time = time.time()
-        execution_time = end_time - start_time
-        return result, execution_time
-    return wrapper
-
+@measure_time
 def select_distinct(
         matrix: List[List[int]], 
         column: int,
         condition: Callable[[List[int]], bool] = lambda row: True
     ) -> List[List[int]]:
+    st = time.time()
     matrix.sort(key=lambda row: row[column])
+    et = time.time() - st
+
     prev_value = None
     for i in range(len(matrix)):
         if (matrix[i][column] != prev_value) and condition(matrix[i]):
@@ -35,8 +48,9 @@ def select_distinct(
             prev_value = matrix[i][column]
         else:
             matrix[i].append(0)
-    return matrix
+    return matrix, et
 
+@measure_time
 def nested_loop_join(
         left: List[List[int]],
         right: List[List[int]], 
@@ -53,6 +67,7 @@ def nested_loop_join(
                 result.append(l_row + r_row + [0])
     return result
 
+@measure_time
 def where(matrix: List[List[int]], key: int, value: int) -> List[List[int]]:
     result = []
     for i in range(len(matrix)):
@@ -62,6 +77,7 @@ def where(matrix: List[List[int]], key: int, value: int) -> List[List[int]]:
             result.append(matrix[i] + [0])
     return result
 
+@measure_time
 def where_less_then(matrix: List[List[int]], col1: int, col2: int) -> List[List[int]]:
     result = []
     for i in range(len(matrix)):
@@ -71,29 +87,30 @@ def where_less_then(matrix: List[List[int]], col1: int, col2: int) -> List[List[
             result.append(matrix[i] + [0])
     return result
 
+@measure_time
 def union_all(left: List[List[int]], right: List[List[int]]) -> List[List[int]]:
     return left + right
 
-@measure_time
 def plaintext_aspirin_count(a, b):
     union = union_all(a, b)
     aw = where(union, 8, 414)
     bw = where(union, 4, 0)
+    m = nested_loop_join(aw, bw, 1, 1)
+                                    # condition=lambda left, right: left[2] <= right[2])
+    m = where_less_then(m, 2, len(aw[0])+2)
+    m = select_distinct(m, 0, condition=lambda row: row[-1] == row[-2] == row[-3] == row[13] == 1)
 
-    matrix = nested_loop_join(aw, bw, 1, 1)
-    matrix = where_less_then(matrix, 2, len(aw[0])+2)
-    matrix = select_distinct(matrix, 0, condition=lambda row: row[-1] == row[-2] == row[-3] == row[13] == 1)
-    
     c = 0
-    for row in matrix:
+    st = time.time()
+    for row in m: # Access the actual query result
         if row[-1]:
             c += 1
+    print(f"count: {time.time() - st:6f}")
     return c
 
 if __name__ == "__main__":
     max_rows = int(sys.argv[1])
     a = preprocess("./MP-SPDZ/Player-Data/Input-P0-0", max_rows)
     b = preprocess("./MP-SPDZ/Player-Data/Input-P1-0", max_rows)
-
-    result, single_time = plaintext_aspirin_count(a, b)
-    print(f"{single_time:.6f}")
+    _ = plaintext_aspirin_count(a, b)
+    print(f"total: {TOTAL_EXECUTION_TIME:.6f}")

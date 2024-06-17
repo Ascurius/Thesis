@@ -14,7 +14,11 @@ def measure_time(func):
         result = func(*args, **kwargs)
         end_time = time.time()
         execution_time = end_time - start_time
-        TOTAL_EXECUTION_TIME+=execution_time
+        TOTAL_EXECUTION_TIME += execution_time
+        if isinstance(result, tuple):
+            print(f"{execution_time:.6f}")
+            print(f"select_distinct_sorting: {result[1]:.6f}")
+            return result[0]
         print(f"{execution_time:.6f}")
         return result
     return wrapper

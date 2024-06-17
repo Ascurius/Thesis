@@ -4,6 +4,25 @@ import sys
 import time
 from typing import List
 
+TOTAL_EXECUTION_TIME=0.0
+
+def measure_time(func):
+    def wrapper(*args, **kwargs):
+        global TOTAL_EXECUTION_TIME
+        print(f"{func.__name__}:", end=" ")
+        start_time = time.time()
+        result = func(*args, **kwargs)
+        end_time = time.time()
+        execution_time = end_time - start_time
+        TOTAL_EXECUTION_TIME += execution_time
+        if isinstance(result, tuple):
+            print(f"{execution_time:.6f}")
+            print(f"select_distinct_sorting: {result[1]:.6f}")
+            return result[0]
+        print(f"{execution_time:.6f}")
+        return result
+    return wrapper
+
 def preprocess(filename: str, num_rows: int = 50) -> List[List[int]]:
     list_of_lists = []
     with open(filename, 'r') as file:
@@ -13,25 +32,11 @@ def preprocess(filename: str, num_rows: int = 50) -> List[List[int]]:
             list_of_lists.append(elements)
     return list_of_lists
 
-def measure_time(func):
-    def wrapper(*args, **kwargs):
-        start_time = time.time()
-        result = func(*args, **kwargs)
-        end_time = time.time()
-        execution_time = end_time - start_time
-        return result, execution_time
-    return wrapper
-
-def select_columns(matrix: List[List[int]], columns: List[int]) -> List[List[int]]:
-    columns.sort()
-    selected_matrix = []
-    for row in matrix:
-        selected_row = [row[col] for col in columns]
-        selected_matrix.append(selected_row)
-    return selected_matrix
-
+@measure_time
 def group_by_count(matrix: List[List[int]], key: int) -> List[List[int]]:
+    st = time.time()
     matrix.sort(key=lambda row: (row[key], row[2]))
+    sort_time = time.time() - st
     result = [row + [0, 0] for row in matrix]
 
     count = 0
@@ -50,8 +55,9 @@ def group_by_count(matrix: List[List[int]], key: int) -> List[List[int]]:
         result[-1][-1] = count + 1
     else:
         result[-1][-1] = 1
-    return result
+    return result, sort_time
 
+@measure_time
 def order_by(matrix: List[List[int]], order_key: int, 
              relevance_key: int = None, reversed: bool = False
             ) -> List[List[int]]:
@@ -62,17 +68,17 @@ def order_by(matrix: List[List[int]], order_key: int,
     result.sort(key=lambda row: row[-1], reverse=reversed)
     return result
 
+@measure_time
 def limit(matrix: List[List[int]], maximum) -> List[List[int]]:
     return matrix[:maximum]
 
+@measure_time
 def union_all(left: List[List[int]], right: List[List[int]]) -> List[List[int]]:
     return left + right
 
 
-@measure_time
 def plaintext_comorbidity(a, b):
     m = union_all(a,b)
-
     m = group_by_count(m, 1)
     m = order_by(m, order_key=-1, relevance_key=-2, reversed=True)
     m = limit(m, 10)
@@ -83,5 +89,5 @@ if __name__ == "__main__":
     a = preprocess("./MP-SPDZ/Player-Data/Input-P0-0", max_rows)
     b = preprocess("./MP-SPDZ/Player-Data/Input-P1-0", max_rows)
 
-    result, single_time = plaintext_comorbidity(a, b)
-    print(f"{single_time:.6f}")
+    _ = plaintext_comorbidity(a, b)
+    print(f"total: {TOTAL_EXECUTION_TIME:.6f}")
