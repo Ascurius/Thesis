@@ -1,5 +1,6 @@
 import csv
 import os
+from matplotlib.ticker import ScalarFormatter
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -22,6 +23,9 @@ plt.title(f'Operator execution time in {query}')
 plt.legend()
 # plt.yscale('log')
 plt.grid(True)
+
+plt.gca().xaxis.set_major_formatter(ScalarFormatter(useMathText=True))
+plt.ticklabel_format(style='plain', axis='x')
 
 # Save the plot to a file
 output_path = f"{pwd}/measurements/plot/{query}_operators_plain.png"
