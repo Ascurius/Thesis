@@ -23,7 +23,7 @@ echo "Running performance test for plain query: $query"
 if [ $query = "aspirin_count" ]; then
     header="rows,first_filter,second_filter,join,third_filter,distinct,distinct_sort,count,total"
 elif [ $query = "cdiff" ]; then
-    header="rows,first_filter,sort,partition_by,join,distinct,distinct_sort,count,total"
+    header="rows,first_filter,sort,partition_by,join,distinct,distinct_sort,total"
 elif [ $query = "comorbidity" ]; then
     header="rows,group_by,order_by,limit,total"
 elif [ $query = "plaintext_comorbidity" ]; then
