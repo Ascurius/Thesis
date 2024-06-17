@@ -16,7 +16,7 @@ if [ ! -f "$query_path" ]; then
     exit 1
 fi
 
-echo "Running performance test for plain query: $query"
+echo "Running performance test for secure query: $query"
 
 # # -- Generate new test data
 echo "Generating test data..."
