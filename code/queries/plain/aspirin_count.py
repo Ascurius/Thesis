@@ -1,3 +1,4 @@
+from collections import defaultdict
 import os
 import sys
 import time
@@ -68,6 +69,25 @@ def nested_loop_join(
     return result
 
 @measure_time
+def hash_join(left, right, left_key, right_key, condition = lambda left, right: True):
+    hash_map = defaultdict(list)
+
+    # Hash phase
+    for l_row in left:
+        secure_hash = l_row[left_key]
+        hash_map[secure_hash].append(l_row)
+    
+    # Join phase
+    result = []
+    for r_row in right:
+        secure_hash = r_row[right_key]
+        for l_row in hash_map[secure_hash]:
+            if condition(l_row, r_row):
+                result.append(l_row + r_row)
+    
+    return result
+
+@measure_time
 def where(matrix: List[List[int]], key: int, value: int) -> List[List[int]]:
     result = []
     for i in range(len(matrix)):
@@ -86,13 +106,21 @@ def where_less_then(matrix: List[List[int]], col1: int, col2: int) -> List[List[
             matrix[i].append(0)
     return matrix
 
-def aspirin_count(table1, table2):
+def aspirin_count(table1, table2, join_type):
+    if join_type == "h":
+        join_function = hash_join
+        dist_cond = lambda row: row[-1] == row[-2] == row[13] == 1
+    elif join_type == "n":
+        join_function = nested_loop_join
+        dist_cond = lambda row: row[-1] == row[-2] == row[-3] == row[13] == 1
+    else:
+        print(f"Unknown join type: {join_type}")
+        exit()
     aw = where(table1, 8, 414)
     bw = where(table2, 4, 0)
-    m = nested_loop_join(aw, bw, 1, 1)
-                                    # condition=lambda left, right: left[2] <= right[2])
+    m = join_function(aw, bw, 1, 1)
     m = where_less_then(m, 2, len(aw[0])+2)
-    m = select_distinct(m, 0, condition=lambda row: row[-1] == row[-2] == row[-3] == row[13] == 1)
+    m = select_distinct(m, 0, condition=dist_cond)
 
     c = 0
     st = time.time()
@@ -108,5 +136,5 @@ if __name__ == "__main__":
     max_rows = int(sys.argv[1])
     a = preprocess("./MP-SPDZ/Player-Data/Input-P0-0", max_rows)
     b = preprocess("./MP-SPDZ/Player-Data/Input-P1-0", max_rows)
-    _ = aspirin_count(a, b)
+    _ = aspirin_count(a, b, sys.argv[2])
     print(f"total: {TOTAL_EXECUTION_TIME:.6f}")

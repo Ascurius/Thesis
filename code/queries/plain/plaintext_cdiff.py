@@ -1,3 +1,4 @@
+from collections import defaultdict
 import sys
 import time
 from typing import List, Callable
@@ -58,6 +59,25 @@ def nested_loop_join(
     return result
 
 @measure_time
+def hash_join(left, right, left_key, right_key, condition = lambda left, right: True):
+    hash_map = defaultdict(list)
+
+    # Hash phase
+    for l_row in left:
+        secure_hash = l_row[left_key]
+        hash_map[secure_hash].append(l_row)
+    
+    # Join phase
+    result = []
+    for r_row in right:
+        secure_hash = r_row[right_key]
+        for l_row in hash_map[secure_hash]:
+            if condition(l_row, r_row):
+                result.append(l_row + r_row)
+    
+    return result
+
+@measure_time
 def row_number_over_partition_by(
         matrix: List[List[int]], 
         key: int, 
@@ -105,22 +125,30 @@ def union_all(left: List[List[int]], right: List[List[int]]) -> List[List[int]]:
     return left + right
 
 
-def plaintext_cdiff(a, b):
+def plaintext_cdiff(a, b, join_type):
+    if join_type == "h":
+        join_function = hash_join
+        dist_cond = lambda row: row[13] == row[-2] == 1
+    elif join_type == "n":
+        join_function = nested_loop_join
+        dist_cond = lambda row: row[13] == row[-1] == row[-3] == 1
+    else:
+        print(f"Unknown join type: {join_type}")
+        exit()
     union = union_all(a,b)
-
     m = where(union, 8, 8)
     st = time.time()
     m.sort(key=lambda row: (row[1], row[2]))
     print(f"correctness_sort: {time.time() - st:.6f}")
     m = row_number_over_partition_by(m, 1, condition=lambda row: row[13] == 1)
-    m = nested_loop_join(
+    m = join_function(
         m, m, 1, 1, 
         condition=lambda left, right: (abs(left[2] - right[2]) >= 15) and \
                                     (abs(left[2] - right[2]) <= 56) and \
                                     (left[14]+1 == right[14])
     )
     m = select_distinct(m, 1, 
-        condition=lambda row: row[13] == row[-1] == row[-3] == 1
+        condition=dist_cond
     )
     result = []
     # c = 0
@@ -135,5 +163,5 @@ if __name__ == "__main__":
     a = preprocess("./MP-SPDZ/Player-Data/Input-P0-0", max_rows)
     b = preprocess("./MP-SPDZ/Player-Data/Input-P1-0", max_rows)
 
-    _ = plaintext_cdiff(a, b)
+    _ = plaintext_cdiff(a, b, sys.argv[2])
     print(f"total: {TOTAL_EXECUTION_TIME:.6f}")
