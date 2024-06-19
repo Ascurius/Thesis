@@ -8,9 +8,10 @@ fi
 path=$(pwd)
 query=$1
 start_max_rows=$2
+join_type="h"
 query_path="$path/code/queries/plain/$query.py"
 num_tests=5
-out_file="$path/measurements/results/${query}_plain.txt"
+out_file="$path/measurements/results/${query}_plain_${join_type}.txt"
 
 if [ ! -f "$query_path" ]; then
     echo "Query file '$query_path' could not be found!"
@@ -69,7 +70,7 @@ for ((i=start_index; i<${#rows[@]}; i++)); do
     total_execution_time=0.0
     total_times=()
     for ((j=1; j<=$num_tests; j++)); do
-        output=$(python3 "$query_path" "$max_rows")
+        output=$(python3 "$query_path" "$max_rows" "$join_type")
         
         # Extract times using grep and regex
         times=($(echo "$output" | grep -oP '\d+\.\d+'))
