@@ -83,6 +83,7 @@ def where_less_then(matrix: sint.Matrix, col_1: int, col_2: int) -> sint.Matrix:
     return result
 
 max_rows = 250
+print_ln("Executing aspirin_count with %s rows", max_rows)
 start_timer(10)
 a = sint.Matrix(max_rows, 13)
 a.input_from(0)

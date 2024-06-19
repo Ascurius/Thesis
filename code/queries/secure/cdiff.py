@@ -98,6 +98,7 @@ def select_distinct(
     return result
 
 max_rows = 20
+print_ln("Executing cdiff with %s rows", max_rows)
 start_timer(10)
 a = sint.Matrix(max_rows, 13)
 a.input_from(0)

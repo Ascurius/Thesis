@@ -108,6 +108,7 @@ def union_all(left, right):
     return result
 
 max_rows = 50
+print_ln("Executing plaintext_cdiff with %s rows", max_rows)
 a = sint.Matrix(max_rows, 13)
 a.input_from(0)
 b = sint.Matrix(max_rows, 13)
