@@ -28,5 +28,5 @@ plt.gca().xaxis.set_major_formatter(ScalarFormatter(useMathText=True))
 plt.ticklabel_format(style='plain', axis='x')
 
 # Save the plot to a file
-output_path = f"{pwd}/measurements/plot/{query}_operators_plain.png"
+output_path = f"{pwd}/measurements/plot/{query}_op_plain.png"
 plt.savefig(output_path)
