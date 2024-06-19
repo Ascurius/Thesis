@@ -1,11 +1,12 @@
 import csv
 import os
+import sys
 from matplotlib.ticker import ScalarFormatter
 import pandas as pd
 import matplotlib.pyplot as plt
 
 pwd = os.getcwd()
-query = "comorbidity"
+query = sys.argv[1]
 
 times = pd.read_csv(f"{pwd}/measurements/results/{query}_secure_op.txt", delimiter=",")
 if "total" in times.columns:
@@ -15,11 +16,11 @@ plt.figure(figsize=(12, 8))
 
 # Plot each operator's time against the number of rows
 for column in times.columns[1:]:
-    plt.plot(times['rows'], times[column], label=column)
+    plt.plot(times['rows'], times[column], label=column, marker='o')
 
 plt.xlabel('Number of rows')
 plt.ylabel('Time (seconds)')
-plt.title(f'Operator execution time in query: {query}')
+plt.title(f'MP-SPDZ operator execution time of {query}')
 plt.legend()
 # plt.yscale('log')
 plt.grid(True)
