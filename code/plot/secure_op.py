@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 pwd = os.getcwd()
 query = sys.argv[1]
 
-times = pd.read_csv(f"{pwd}/measurements/results/{query}_plain.txt", delimiter=",")
+times = pd.read_csv(f"{pwd}/measurements/results/{query}_secure_op.txt", delimiter=",")
 if "total" in times.columns:
     times = times.drop(columns=["total"])
 
@@ -20,7 +20,7 @@ for column in times.columns[1:]:
 
 plt.xlabel('Number of rows')
 plt.ylabel('Time (seconds)')
-plt.title(f'Python operator execution time of {query}')
+plt.title(f'MP-SPDZ operator execution time of {query}')
 plt.legend()
 # plt.yscale('log')
 plt.grid(True)
@@ -29,5 +29,5 @@ plt.gca().xaxis.set_major_formatter(ScalarFormatter(useMathText=True))
 plt.ticklabel_format(style='plain', axis='x')
 
 # Save the plot to a file
-output_path = f"{pwd}/measurements/plot/{query}_op_plain.png"
+output_path = f"{pwd}/measurements/plot/{query}_op_secure.png"
 plt.savefig(output_path)

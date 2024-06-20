@@ -26,8 +26,8 @@ def preprocess(filename: str, num_rows: int = 50) -> List[List[int]]:
             list_of_lists.append(elements)
     return list_of_lists
 
-a = preprocess("./MP-SPDZ/Player-Data/Input-P0-0", 10)
-b = preprocess("./MP-SPDZ/Player-Data/Input-P1-0", 10)
+a = preprocess("./MP-SPDZ/Player-Data/Input-P0-0", 20)
+b = preprocess("./MP-SPDZ/Player-Data/Input-P1-0", 20)
 
 result = nested_loop_join(a, b, 1, 1)
 result.sort(key=lambda row: row[0])
@@ -35,4 +35,5 @@ result.sort(key=lambda row: row[0])
 c = 0
 for row in result:
     if row[-1] == 1:
-        print(row[0])
+        c += 1
+print(c)

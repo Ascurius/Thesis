@@ -73,6 +73,7 @@ def union_all(left, right):
     return result
 
 max_rows = 10
+print_ln("Executing plaintext_comorbidity with %s rows", max_rows)
 a = sint.Matrix(max_rows, 13)
 a.input_from(0)
 b = sint.Matrix(max_rows, 13)

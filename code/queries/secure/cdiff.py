@@ -97,9 +97,12 @@ def select_distinct(
         prev_value.update(new_value)
     return result
 
-max_rows = 50
+max_rows = 20
+print_ln("Executing cdiff with %s rows", max_rows)
+start_timer(10)
 a = sint.Matrix(max_rows, 13)
 a.input_from(0)
+stop_timer(10)
 
 start_timer(100)
 w = where(a, 8, 8)
@@ -148,6 +151,5 @@ def _(i):
     @if_(dbit.reveal())
     def _():
         c.update(c+1)
-        print_ln("%s", matrix[i][1].reveal())
 print_ln("%s", c.reveal())
 

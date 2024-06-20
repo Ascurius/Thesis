@@ -1,6 +1,7 @@
 from collections import defaultdict
 from typing import List
 from hashlib import sha3_256
+import pandas as pd
 
 
 def preprocess(filename: str, num_rows: int = 50) -> List[List[int]]:
@@ -12,8 +13,8 @@ def preprocess(filename: str, num_rows: int = 50) -> List[List[int]]:
             list_of_lists.append(elements)
     return list_of_lists
 
-a = preprocess("./MP-SPDZ/Player-Data/Input-P0-0", 10)
-b = preprocess("./MP-SPDZ/Player-Data/Input-P1-0", 10)
+a = preprocess("./MP-SPDZ/Player-Data/Input-P0-0", 20)
+b = preprocess("./MP-SPDZ/Player-Data/Input-P1-0", 20)
 
 def hash_join(left, right, left_key, right_key):
     hash_map = defaultdict(list)
@@ -33,7 +34,9 @@ def hash_join(left, right, left_key, right_key):
     return result
 
 join = hash_join(a, b, 1, 1)
+# join = pd.DataFrame(join)
+# print(join)
 join.sort(key=lambda row: row[0])
-
-for i in join:
-    print(i[0])
+print(len(join))
+# for row in join:
+#     print(row)
