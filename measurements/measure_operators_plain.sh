@@ -8,7 +8,7 @@ fi
 path=$(pwd)
 query=$1
 start_max_rows=$2
-join_type="h"
+join_type="n"
 query_path="$path/code/queries/plain/$query.py"
 num_tests=5
 out_file="$path/measurements/results/${query}_plain_${join_type}.txt"
@@ -36,8 +36,8 @@ elif [ $query = "plaintext_cdiff" ]; then
 fi
 echo $header >> $out_file
 
-rows=(1000 2000 4000 6000 8000 10000 20000 40000 60000 80000 100000 200000 400000 600000 800000 1000000)
-# rows=(1000)
+# rows=(1000 2000 4000 6000 8000 10000 20000 40000 60000 80000 100000 200000 400000 600000 800000 1000000)
+rows=(50 100 150 200 250 300 350 400 450 500)
 # Set default start_max_rows if not specified
 if [ -z "$start_max_rows" ]; then
     start_max_rows=${rows[0]}

@@ -16,7 +16,8 @@ if [ ! -f "$query_path" ]; then
     exit 1
 fi
 
-rows=(1000 2000 4000 6000 8000 10000 20000 40000 60000 80000 100000 200000 400000 600000 800000 1000000)
+# rows=(1000 2000 4000 6000 8000 10000 20000 40000 60000 80000 100000 200000 400000 600000 800000 1000000)
+rows=(50 100 150 200 250 300 350 400 450 500)
 for max_row in "${rows[@]}"; do
     echo "Measure performance for $max_row rows"
     echo "Generating test data..."
@@ -30,7 +31,7 @@ for max_row in "${rows[@]}"; do
     echo "Analyzing the query..."
     total_execution_time=0.0
     for ((i=1; i<=$num_tests; i++)); do
-        analysis=$(duckdb "./thesis.duckdb" -c "EXPLAIN ANALYZE $query")
+        analysis=$(./duckdb "./thesis.duckdb" -c "EXPLAIN ANALYZE $query")
 
         # Extract total time using regex
         if [[ $analysis =~ Total\ Time:\ ([0-9]+\.[0-9]+)s ]]; then
