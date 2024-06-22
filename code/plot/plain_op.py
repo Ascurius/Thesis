@@ -37,6 +37,7 @@ sorted_labels = [column for column in sorted_columns]
 
 plt.legend(sorted_handles, sorted_labels)
 # plt.yscale('log')
+plt.xscale('log')
 plt.grid(True)
 
 plt.gca().xaxis.set_major_formatter(ScalarFormatter(useMathText=True))
