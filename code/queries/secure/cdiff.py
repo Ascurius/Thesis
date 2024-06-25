@@ -1,5 +1,27 @@
 from Compiler.library import start_timer, stop_timer
-from typing import Callable, List, Tuple
+from typing import Callable
+from Compiler.sorting import radix_sort_from_matrix
+from Compiler.util import tuplify
+
+def sort_by_two_cols(matrix: sint.Matrix, key1: int, key2: int):
+    # Create key indices tuples
+    col_1 = (None,) + tuplify((key1,))
+    col_2 = (None,) + tuplify((key2,))
+
+    # Retrieve vector from original matrix by key indices
+    X = matrix.get_vector_by_indices(*col_1)
+    Y = matrix.get_vector_by_indices(*col_2)
+
+    # Decompose the matrices vectors to list of bits
+    x_bits = X.bit_decompose(50)
+    y_bits = Y.bit_decompose(50)
+
+    # Create matrix from both bit
+    bs = Matrix.create_from(y_bits + x_bits)
+    # bs = Matrix.create_from(x_bits)
+    bs[-1][:] = bs[-1][:].bit_not() # Because len(bs) > 1
+
+    radix_sort_from_matrix(bs, matrix)
 
 def where(matrix: sint.Matrix, key: int, value: int) -> sint.Matrix:
     result = sint.Matrix(
@@ -109,7 +131,8 @@ w = where(a, 8, 8)
 stop_timer(100)
 
 start_timer(200)
-w.sort((1,2))
+# w.sort((1,2))
+sort_by_two_cols(w, 1, 2)
 stop_timer(200)
 
 
