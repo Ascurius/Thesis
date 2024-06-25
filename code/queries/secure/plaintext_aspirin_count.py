@@ -1,3 +1,4 @@
+from Compiler.library import start_timer, stop_timer
 from typing import Callable, List
 
 def select_distinct(
@@ -5,7 +6,9 @@ def select_distinct(
         key: int, 
         condition: Callable[[sint.Array], bool] = lambda row: True
     ) -> sint.Matrix:
+    start_timer(700)
     matrix.sort((key,))
+    stop_timer(700)
     result = sint.Matrix(
         rows=matrix.shape[0],
         columns=matrix.shape[1] + 1
@@ -94,26 +97,40 @@ def union_all(left, right):
 
 max_rows = 10
 print_ln("Executing plaintext_aspirin_count with %s rows", max_rows)
+start_timer(10)
 a = sint.Matrix(max_rows, 13)
 a.input_from(0)
 b = sint.Matrix(max_rows, 13)
 b.input_from(1)
+stop_timer(10)
 
+start_timer(100)
 union = union_all(a, b)
+stop_timer(100)
 
-# aw = where(a, 8, 414)
-# bw = where(b, 4, 0)
+start_timer(200)
+aw = where(union, 8, 414)
+stop_timer(200)
+
+start_timer(300)
+bw = where(union, 4, 0)
+stop_timer(300)
 
 def join_condition(left, right):
     return (
-        (left[8] == 414) &
-        (right[4] == 0) &
-        (left[2] <= right[2])
+        # (left[8] == 414) &
+        # (right[4] == 0) &
+        # (left[2] <= right[2])
+        left[2] <= right[2]
     ).if_else(1,0)
 
-join = join_nested_loop(union, union, 1, 1, join_condition)
+start_timer(400)
+join = join_nested_loop(aw, bw, 1, 1, join_condition)
+stop_timer(400)
 
+# start_timer(500)
 # wlt = where_less_then(join, 2, aw.shape[1]+2)
+# stop_timer(500)
 
 def distinct_condition(row):
     return (
@@ -124,13 +141,17 @@ def distinct_condition(row):
         # (row[13] == 1)
     ).if_else(1,0)
 
+start_timer(600)
 select = select_distinct(join, 0, condition=distinct_condition)
+stop_timer(600)
 
 count = regint(0)
+start_timer(800)
 @for_range_opt(select.shape[0])
 def _(i):
     dbit_5 = (select[i][-1] == 1).if_else(1,0) # select distinct
     @if_(dbit_5.reveal())
     def _():
         count.update(count + 1)
+stop_timer(800)
 print_ln("%s", count)

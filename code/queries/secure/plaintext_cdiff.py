@@ -1,4 +1,27 @@
+from Compiler.library import start_timer, stop_timer
 from typing import Callable, List, Tuple
+from Compiler.sorting import radix_sort_from_matrix
+from Compiler.util import tuplify
+
+def sort_by_two_cols(matrix: sint.Matrix, key1: int, key2: int):
+    # Create key indices tuples
+    col_1 = (None,) + tuplify((key1,))
+    col_2 = (None,) + tuplify((key2,))
+
+    # Retrieve vector from original matrix by key indices
+    X = matrix.get_vector_by_indices(*col_1)
+    Y = matrix.get_vector_by_indices(*col_2)
+
+    # Decompose the matrices vectors to list of bits
+    x_bits = X.bit_decompose(50)
+    y_bits = Y.bit_decompose(50)
+
+    # Create matrix from both bit
+    bs = Matrix.create_from(y_bits + x_bits)
+    # bs = Matrix.create_from(x_bits)
+    bs[-1][:] = bs[-1][:].bit_not() # Because len(bs) > 1
+
+    radix_sort_from_matrix(bs, matrix)
 
 def where(matrix: sint.Matrix, key: int, value: int) -> sint.Matrix:
     result = sint.Matrix(
@@ -75,7 +98,9 @@ def select_distinct(
         key: int, 
         condition: Callable[[sint.Array], bool] = lambda row: True
     ) -> sint.Matrix:
+    start_timer(700)
     matrix.sort((key,))
+    stop_timer(700)
     result = sint.Matrix(
         rows=matrix.shape[0],
         columns=matrix.shape[1] + 1
@@ -109,17 +134,29 @@ def union_all(left, right):
 
 max_rows = 50
 print_ln("Executing plaintext_cdiff with %s rows", max_rows)
+start_timer(10)
 a = sint.Matrix(max_rows, 13)
 a.input_from(0)
 b = sint.Matrix(max_rows, 13)
 b.input_from(1)
+stop_timer(10)
 
+start_timer(100)
 union = union_all(a, b)
+stop_timer(100)
 
+start_timer(200)
 w = where(union, 8, 8)
-w.sort((1,2))
+stop_timer(200)
 
+start_timer(300)
+# w.sort((1,2)
+sort_by_two_cols(w, 1, 2)
+stop_timer(300)
+
+start_timer(400)
 diags = row_number_over_partition_by(w, 1, condition=lambda row: row[13] == 1)
+stop_timer(400)
 
 def join_condition(left, right):
     return (
@@ -128,10 +165,12 @@ def join_condition(left, right):
         (left[14]+1 == right[14])
     ).if_else(1,0)
 
+start_timer(500)
 join = join_nested_loop(
     diags, diags, 1, 1,
     condition=join_condition
 )
+stop_timer(500)
 
 def distinct_condition(row):
     dbit = (
@@ -141,16 +180,18 @@ def distinct_condition(row):
     ).if_else(1,0)
     return dbit
 
-selection = select_distinct(join, 1, condition=distinct_condition)
+start_timer(600)
+matrix = select_distinct(join, 1, condition=distinct_condition)
+stop_timer(600)
 
-matrix = selection
 c = sint(0)
+start_timer(800)
 @for_range(matrix.shape[0])
 def _(i):
     dbit = (matrix[i][-1] == 1).if_else(1,0)
     @if_(dbit.reveal())
     def _():
         c.update(c+1)
-        # print_ln("%s", matrix[i].reveal())
+stop_timer(800)
 # print_ln("%s", c.reveal())
 
