@@ -1,8 +1,32 @@
 from Compiler.library import start_timer, stop_timer
 from typing import Callable, List
+from Compiler.sorting import radix_sort_from_matrix
+from Compiler.util import tuplify
+
+def sort_by_two_cols(matrix: sint.Matrix, key1: int, key2: int):
+    # Create key indices tuples
+    col_1 = (None,) + tuplify((key1,))
+    col_2 = (None,) + tuplify((key2,))
+
+    # Retrieve vector from original matrix by key indices
+    X = matrix.get_vector_by_indices(*col_1)
+    Y = matrix.get_vector_by_indices(*col_2)
+
+    # Decompose the matrices vectors to list of bits
+    x_bits = X.bit_decompose(50)
+    y_bits = Y.bit_decompose(50)
+
+    # Create matrix from both bit
+    bs = Matrix.create_from(y_bits + x_bits)
+    # bs = Matrix.create_from(x_bits)
+    bs[-1][:] = bs[-1][:].bit_not() # Because len(bs) > 1
+
+    radix_sort_from_matrix(bs, matrix)
 
 def group_by_count(matrix: sint.Matrix, key: int) -> sint.Matrix:
-    matrix.sort((key,2))
+    # matrix.sort((key,2))
+    # matrix.sort((key,))
+    sort_by_two_cols(matrix, key, 2)
     result = sint.Matrix(
         rows=matrix.shape[0],
         columns=matrix.shape[1] + 2
@@ -30,16 +54,12 @@ def group_by_count(matrix: sint.Matrix, key: int) -> sint.Matrix:
     )
     return result
 
-def order_by(matrix: sint.Matrix, order_key: int, relevance_key: int, reverse: bool = False):
+def order_by(matrix: sint.Matrix, order_key: int, reverse: bool = False):
     result = sint.Matrix(
         rows=matrix.shape[0],
         columns=matrix.shape[1] + 1
     )
-    @for_range_opt(matrix.shape[0])
-    def _(i):
-        result[i] = matrix[i]
-        result[i][-1] = matrix[i][order_key] * matrix[i][relevance_key]
-    result.sort((-1,))
+    result.sort((order_key,))
     if reverse:
         swap = result.same_shape()
         @for_range_opt(result.shape[0] // 2)
@@ -49,17 +69,21 @@ def order_by(matrix: sint.Matrix, order_key: int, relevance_key: int, reverse: b
         return swap
     return result
 
-def limit(matrix: sint.Matrix, maximum: int) -> sint.Matrix:
+def limit(matrix: sint.Matrix, maximum: int, relevancy_col: int) -> sint.Matrix:
     result = sint.Matrix(
-        rows=maximum,
+        rows=matrix.shape[0],
         columns=matrix.shape[1]
     )
-    @for_range_opt(maximum)
+    count = sint(0)
+    @for_range_opt(result.shape[0])
     def _(i):
         result[i].assign_vector(matrix[i])
+        result[i][relevancy_col] = (count > maximum).if_else(0, result[i][relevancy_col])
+        adder = (result[i][relevancy_col] == 1).if_else((count+1),count)
+        count.update(adder)
     return result
 
-max_rows = 250
+max_rows = 50
 print_ln("Executing comorbidity with %s rows", max_rows)
 start_timer(10)
 a = sint.Matrix(max_rows, 13)
@@ -71,9 +95,9 @@ g = group_by_count(a, 1)
 stop_timer(100)
 
 start_timer(200)
-o = order_by(g, order_key=-1, relevance_key=-2, reverse=True)
+o = order_by(g, order_key=-1, reverse=True)
 stop_timer(200)
 
 start_timer(300)
-l = limit(o, 10)
+matrix = limit(g, 10, -2)
 stop_timer(300)
