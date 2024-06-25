@@ -99,5 +99,5 @@ o = order_by(g, order_key=-1, reverse=True)
 stop_timer(200)
 
 start_timer(300)
-matrix = limit(g, 10, -2)
+matrix = limit(o, 10, -2)
 stop_timer(300)
