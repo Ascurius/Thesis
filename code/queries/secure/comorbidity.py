@@ -23,6 +23,19 @@ def sort_by_two_cols(matrix: sint.Matrix, key1: int, key2: int):
 
     radix_sort_from_matrix(bs, matrix)
 
+def select_columns(matrix: sint.Matrix, keys: list) -> sint.Matrix:
+    keys.sort()
+    result = sint.Matrix(
+        rows=matrix.shape[0],
+        columns=len(keys)
+    )
+    for i in range(len(keys)):
+        result.set_column(
+            i,
+            matrix.get_column(keys[i])
+        )
+    return result
+
 def group_by_count(matrix: sint.Matrix, key: int) -> sint.Matrix:
     # matrix.sort((key,2))
     # matrix.sort((key,))
@@ -55,19 +68,18 @@ def group_by_count(matrix: sint.Matrix, key: int) -> sint.Matrix:
     return result
 
 def order_by(matrix: sint.Matrix, order_key: int, reverse: bool = False):
-    result = sint.Matrix(
-        rows=matrix.shape[0],
-        columns=matrix.shape[1] + 1
-    )
-    result.sort((order_key,))
+    matrix.sort((order_key,))
     if reverse:
-        swap = result.same_shape()
-        @for_range_opt(result.shape[0] // 2)
+        swap = sint.Matrix(
+            rows=matrix.shape[0],
+            columns=matrix.shape[1]
+        )
+        @for_range_opt(matrix.shape[0] // 2)
         def _(i):
-            j = result.shape[0] - i - 1
-            swap[i], swap[j] = result[j], result[i]
+            j = matrix.shape[0] - i - 1
+            swap[i], swap[j] = matrix[j], matrix[i]
         return swap
-    return result
+    return matrix
 
 def limit(matrix: sint.Matrix, maximum: int, relevancy_col: int) -> sint.Matrix:
     result = sint.Matrix(
@@ -78,9 +90,11 @@ def limit(matrix: sint.Matrix, maximum: int, relevancy_col: int) -> sint.Matrix:
     @for_range_opt(result.shape[0])
     def _(i):
         result[i].assign_vector(matrix[i])
-        result[i][relevancy_col] = (count > maximum).if_else(0, result[i][relevancy_col])
-        adder = (result[i][relevancy_col] == 1).if_else((count+1),count)
-        count.update(adder)
+        adder = (result[i][relevancy_col] == 1).if_else(1, 0)
+        new_count = count + adder
+        result[i][relevancy_col] = (new_count > maximum).if_else(0, result[i][relevancy_col])
+        next_count = (new_count > maximum).if_else(count, new_count)
+        count.update(next_count)
     return result
 
 max_rows = 50
@@ -91,13 +105,17 @@ a.input_from(0)
 stop_timer(10)
 
 start_timer(100)
-g = group_by_count(a, 1)
+s = select_columns(a, [1])
 stop_timer(100)
 
 start_timer(200)
-o = order_by(g, order_key=-1, reverse=True)
+g = group_by_count(s, 0)
 stop_timer(200)
 
 start_timer(300)
-matrix = limit(o, 10, -2)
+o = order_by(g, order_key=2, reverse=True)
 stop_timer(300)
+
+start_timer(400)
+matrix = limit(o, 10, -2)
+stop_timer(400)
