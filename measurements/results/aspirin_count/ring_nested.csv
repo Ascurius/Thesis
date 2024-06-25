@@ -1,0 +1,38 @@
+100 rows
+Time = 282.637 seconds
+Time10 = 0.00227867 seconds (0.026 MB, 8 rounds)
+Time100 = 0.01936 seconds (0.2868 MB, 148 rounds)
+Time200 = 0.0171583 seconds (0.2868 MB, 148 rounds)
+Time300 = 63.9672 seconds (63.5168 MB, 501568 rounds)
+Time400 = 7.22415 seconds (91.9992 MB, 43264 rounds)
+Time500 = 150.3 seconds (980.042 MB, 1095908 rounds)
+Time600 = 12.9834 seconds (598.941 MB, 3165 rounds)
+Time700 = 60.9938 seconds (63.5168 MB, 501568 rounds)
+Data sent = 1199.67 MB in ~2142612 rounds (party 0 only; use '-v' for more details)
+Global data sent = 3599 MB (all parties)
+---
+1000rows
+Time = 4375.38 seconds 
+Time10 = 0.00865394 seconds (0.104 MB, 26 rounds)
+Time100 = 0.0626539 seconds (1.0668 MB, 567 rounds)
+Time200 = 0.0680843 seconds (0.9864 MB, 563 rounds)
+Time300 = 1000.51 seconds (1016.11 MB, 8025080 rounds)
+Time400 = 120.656 seconds (1472.07 MB, 692148 rounds)
+Time500 = 2303.35 seconds (15680.8 MB, 17510497 rounds)
+Time600 = 166.172 seconds (9584.11 MB, 26681 rounds)
+Time700 = 949.836 seconds (1016.11 MB, 8025080 rounds)
+Data sent = 19187.2 MB in ~34253961 rounds (party 0 only; use '-v' for more details)
+Global data sent = 57561.5 MB (all parties)
+---
+2000 rows
+Time = 17862.1 seconds 
+Time10 = 0.0884274 seconds (0.208 MB, 52 rounds)
+Time100 = 0.200334 seconds (2.0532 MB, 1130 rounds)
+Time200 = 0.20606 seconds (2.0532 MB, 1130 rounds)
+Time300 = 3958.61 seconds (4064.35 MB, 32100316 rounds)
+Time400 = 492.446 seconds (5888.43 MB, 2768584 rounds)
+Time500 = 9539.82 seconds (62722.8 MB, 70037164 rounds)
+Time600 = 689.262 seconds (38336.4 MB, 101921 rounds)
+Time700 = 3867.58 seconds (4064.43 MB, 32100320 rounds)
+Data sent = 76744.3 MB in ~137008696 rounds (party 0 only; use '-v' for more details)
+Global data sent = 230233 MB (all parties)
