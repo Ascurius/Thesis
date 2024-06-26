@@ -68,7 +68,9 @@ def group_by_count(matrix: sint.Matrix, key: int) -> sint.Matrix:
     return result
 
 def order_by(matrix: sint.Matrix, order_key: int, reverse: bool = False):
+    start_timer(400)
     matrix.sort((order_key,))
+    stop_timer(400)
     if reverse:
         swap = sint.Matrix(
             rows=matrix.shape[0],
@@ -97,7 +99,7 @@ def limit(matrix: sint.Matrix, maximum: int, relevancy_col: int) -> sint.Matrix:
         count.update(next_count)
     return result
 
-max_rows = 50
+max_rows = 2000
 print_ln("Executing comorbidity with %s rows", max_rows)
 start_timer(10)
 a = sint.Matrix(max_rows, 13)
@@ -116,6 +118,6 @@ start_timer(300)
 o = order_by(g, order_key=2, reverse=True)
 stop_timer(300)
 
-start_timer(400)
+start_timer(500)
 matrix = limit(o, 10, -2)
-stop_timer(400)
+stop_timer(500)
