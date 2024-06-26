@@ -1,0 +1,878 @@
+Starting cmd=numactl --membind=0 --cpunodebind=0 -- measurements/measure_secure.sh comorbidity
+Running performance test for secure query: comorbidity
+Generating test data...
+Measure performance for 100 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 comorbidity -pn 14596 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 comorbidity -pn 14596 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 comorbidity -pn 14596 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing comorbidity with 100 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 7.783e-06
+Stopped timer 10 at 0.00102477 (0.0104 MB, 2 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 2.927e-06
+Stopped timer 100 at 5.427e-06 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 2.488e-06
+Stopped timer 200 at 0.16878 (1.65394 MB, 2510 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 4.695e-06
+Starting timer 400 at 0 (0 MB, 0 rounds) after 3.25e-06
+Stopped timer 400 at 0.110634 (0.94568 MB, 1470 rounds)
+Stopped timer 300 at 0.110873 (0.94568 MB, 1470 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 4.317e-06
+Stopped timer 500 at 0.0969137 (0.320816 MB, 974 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 0.379236 seconds 
+Time10 = 0.00102477 seconds (0.0104 MB, 2 rounds)
+Time100 = 5.427e-06 seconds (0 MB, 0 rounds)
+Time200 = 0.16878 seconds (1.65394 MB, 2510 rounds)
+Time300 = 0.110873 seconds (0.94568 MB, 1470 rounds)
+Time400 = 0.110634 seconds (0.94568 MB, 1470 rounds)
+Time500 = 0.0969137 seconds (0.320816 MB, 974 rounds)
+Data sent = 2.93083 MB in ~4956 rounds (party 0 only; use '-v' for more details)
+Global data sent = 8.7717 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 200 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 comorbidity -pn 16987 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 comorbidity -pn 16987 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 comorbidity -pn 16987 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing comorbidity with 200 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 5.239e-06
+Stopped timer 10 at 0.00189876 (0.0208 MB, 3 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 2.973e-06
+Stopped timer 100 at 7.744e-06 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 2.545e-06
+Stopped timer 200 at 0.226662 (3.22517 MB, 2702 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 4.64e-06
+Starting timer 400 at 0 (0 MB, 0 rounds) after 3.146e-06
+Stopped timer 400 at 0.171636 (1.8873 MB, 1474 rounds)
+Stopped timer 300 at 0.17283 (1.8873 MB, 1474 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 9.323e-06
+Stopped timer 500 at 0.198575 (0.718448 MB, 1945 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 0.602061 seconds 
+Time10 = 0.00189876 seconds (0.0208 MB, 3 rounds)
+Time100 = 7.744e-06 seconds (0 MB, 0 rounds)
+Time200 = 0.226662 seconds (3.22517 MB, 2702 rounds)
+Time300 = 0.17283 seconds (1.8873 MB, 1474 rounds)
+Time400 = 0.171636 seconds (1.8873 MB, 1474 rounds)
+Time500 = 0.198575 seconds (0.718448 MB, 1945 rounds)
+Data sent = 5.85171 MB in ~6124 rounds (party 0 only; use '-v' for more details)
+Global data sent = 17.5135 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 300 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 comorbidity -pn 19374 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 comorbidity -pn 19374 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 comorbidity -pn 19374 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing comorbidity with 300 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 5.72e-06
+Stopped timer 10 at 0.00158345 (0.0312 MB, 4 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.673e-06
+Stopped timer 100 at 6.51e-06 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.282e-06
+Stopped timer 200 at 0.265162 (4.82149 MB, 2901 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 7.372e-06
+Starting timer 400 at 0 (0 MB, 0 rounds) after 6.386e-06
+Stopped timer 400 at 0.196911 (2.75926 MB, 1474 rounds)
+Stopped timer 300 at 0.197543 (2.75926 MB, 1474 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 4.321e-06
+Stopped timer 500 at 0.289676 (1.2144 MB, 2920 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 0.756565 seconds 
+Time10 = 0.00158345 seconds (0.0312 MB, 4 rounds)
+Time100 = 6.51e-06 seconds (0 MB, 0 rounds)
+Time200 = 0.265162 seconds (4.82149 MB, 2901 rounds)
+Time300 = 0.197543 seconds (2.75926 MB, 1474 rounds)
+Time400 = 0.196911 seconds (2.75926 MB, 1474 rounds)
+Time500 = 0.289676 seconds (1.2144 MB, 2920 rounds)
+Data sent = 8.82635 MB in ~7299 rounds (party 0 only; use '-v' for more details)
+Global data sent = 26.4167 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 400 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 comorbidity -pn 17113 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 comorbidity -pn 17113 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 comorbidity -pn 17113 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing comorbidity with 400 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 5.75e-06
+Stopped timer 10 at 0.00212028 (0.0416 MB, 6 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.707e-06
+Stopped timer 100 at 8.791e-06 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.33e-06
+Stopped timer 200 at 0.369646 (6.39989 MB, 3093 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 4.202e-06
+Starting timer 400 at 0 (0 MB, 0 rounds) after 3.167e-06
+Stopped timer 400 at 0.239327 (3.70446 MB, 1478 rounds)
+Stopped timer 300 at 0.240146 (3.70446 MB, 1478 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 4.411e-06
+Stopped timer 500 at 0.434326 (1.6192 MB, 3891 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 1.04835 seconds 
+Time10 = 0.00212028 seconds (0.0416 MB, 6 rounds)
+Time100 = 8.791e-06 seconds (0 MB, 0 rounds)
+Time200 = 0.369646 seconds (6.39989 MB, 3093 rounds)
+Time300 = 0.240146 seconds (3.70446 MB, 1478 rounds)
+Time400 = 0.239327 seconds (3.70446 MB, 1478 rounds)
+Time500 = 0.434326 seconds (1.6192 MB, 3891 rounds)
+Data sent = 11.7652 MB in ~8468 rounds (party 0 only; use '-v' for more details)
+Global data sent = 35.2123 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 500 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 comorbidity -pn 13260 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 comorbidity -pn 13260 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 comorbidity -pn 13260 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing comorbidity with 500 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 6.065e-06
+Stopped timer 10 at 0.00255537 (0.052 MB, 7 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.715e-06
+Stopped timer 100 at 1.0352e-05 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.344e-06
+Stopped timer 200 at 0.373982 (8.05869 MB, 3296 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 4.28e-06
+Starting timer 400 at 0 (0 MB, 0 rounds) after 2.815e-06
+Stopped timer 400 at 0.258787 (4.56926 MB, 1478 rounds)
+Stopped timer 300 at 0.259812 (4.56926 MB, 1478 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 4.4e-06
+Stopped timer 500 at 0.571021 (1.9436 MB, 4858 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 1.21086 seconds 
+Time10 = 0.00255537 seconds (0.052 MB, 7 rounds)
+Time100 = 1.0352e-05 seconds (0 MB, 0 rounds)
+Time200 = 0.373982 seconds (8.05869 MB, 3296 rounds)
+Time300 = 0.259812 seconds (4.56926 MB, 1478 rounds)
+Time400 = 0.258787 seconds (4.56926 MB, 1478 rounds)
+Time500 = 0.571021 seconds (1.9436 MB, 4858 rounds)
+Data sent = 14.6236 MB in ~9639 rounds (party 0 only; use '-v' for more details)
+Global data sent = 43.7667 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 600 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 comorbidity -pn 10934 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 comorbidity -pn 10934 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 comorbidity -pn 10934 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing comorbidity with 600 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 7.123e-06
+Stopped timer 10 at 0.00303502 (0.0624 MB, 8 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.792e-06
+Stopped timer 100 at 1.37e-05 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.313e-06
+Stopped timer 200 at 0.495652 (9.63709 MB, 3488 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 4.427e-06
+Starting timer 400 at 0 (0 MB, 0 rounds) after 3.105e-06
+Stopped timer 400 at 0.280436 (5.51446 MB, 1482 rounds)
+Stopped timer 300 at 0.281625 (5.51446 MB, 1482 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 4.69e-06
+Stopped timer 500 at 0.684933 (2.3484 MB, 5829 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 1.46867 seconds 
+Time10 = 0.00303502 seconds (0.0624 MB, 8 rounds)
+Time100 = 1.37e-05 seconds (0 MB, 0 rounds)
+Time200 = 0.495652 seconds (9.63709 MB, 3488 rounds)
+Time300 = 0.281625 seconds (5.51446 MB, 1482 rounds)
+Time400 = 0.280436 seconds (5.51446 MB, 1482 rounds)
+Time500 = 0.684933 seconds (2.3484 MB, 5829 rounds)
+Data sent = 17.5624 MB in ~10807 rounds (party 0 only; use '-v' for more details)
+Global data sent = 52.5623 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 700 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 comorbidity -pn 10271 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 comorbidity -pn 10271 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 comorbidity -pn 10271 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing comorbidity with 700 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 5.73e-06
+Stopped timer 10 at 0.00375328 (0.0728 MB, 10 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.859e-06
+Stopped timer 100 at 1.4803e-05 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.38e-06
+Stopped timer 200 at 0.506668 (11.2155 MB, 3687 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 7.454e-06
+Starting timer 400 at 0 (0 MB, 0 rounds) after 6.146e-06
+Stopped timer 400 at 0.337957 (6.45966 MB, 1486 rounds)
+Stopped timer 300 at 0.339391 (6.45966 MB, 1486 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 4.58e-06
+Stopped timer 500 at 0.837351 (2.7532 MB, 6800 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 1.69156 seconds 
+Time10 = 0.00375328 seconds (0.0728 MB, 10 rounds)
+Time100 = 1.4803e-05 seconds (0 MB, 0 rounds)
+Time200 = 0.506668 seconds (11.2155 MB, 3687 rounds)
+Time300 = 0.339391 seconds (6.45966 MB, 1486 rounds)
+Time400 = 0.337957 seconds (6.45966 MB, 1486 rounds)
+Time500 = 0.837351 seconds (2.7532 MB, 6800 rounds)
+Data sent = 20.5012 MB in ~11983 rounds (party 0 only; use '-v' for more details)
+Global data sent = 61.3579 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 800 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 comorbidity -pn 15756 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 comorbidity -pn 15756 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 comorbidity -pn 15756 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing comorbidity with 800 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 5.982e-06
+Stopped timer 10 at 0.00342323 (0.0832 MB, 11 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.415e-06
+Stopped timer 100 at 1.437e-05 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.061e-06
+Stopped timer 200 at 0.556853 (12.7939 MB, 3879 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 4.865e-06
+Starting timer 400 at 0 (0 MB, 0 rounds) after 3.08e-06
+Stopped timer 400 at 0.326472 (7.40486 MB, 1490 rounds)
+Stopped timer 300 at 0.328069 (7.40486 MB, 1490 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 4.778e-06
+Stopped timer 500 at 0.89715 (3.158 MB, 7771 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 1.79092 seconds 
+Time10 = 0.00342323 seconds (0.0832 MB, 11 rounds)
+Time100 = 1.437e-05 seconds (0 MB, 0 rounds)
+Time200 = 0.556853 seconds (12.7939 MB, 3879 rounds)
+Time300 = 0.328069 seconds (7.40486 MB, 1490 rounds)
+Time400 = 0.326472 seconds (7.40486 MB, 1490 rounds)
+Time500 = 0.89715 seconds (3.158 MB, 7771 rounds)
+Data sent = 23.44 MB in ~13151 rounds (party 0 only; use '-v' for more details)
+Global data sent = 70.1535 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 900 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 comorbidity -pn 18011 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 comorbidity -pn 18011 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 comorbidity -pn 18011 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing comorbidity with 900 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 8.563e-06
+Stopped timer 10 at 0.00669485 (0.0936 MB, 12 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.919e-06
+Stopped timer 100 at 2.0198e-05 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.304e-06
+Stopped timer 200 at 0.708149 (14.4527 MB, 4082 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 4.693e-06
+Starting timer 400 at 0 (0 MB, 0 rounds) after 3.27e-06
+Stopped timer 400 at 0.404112 (8.18926 MB, 1486 rounds)
+Stopped timer 300 at 0.405914 (8.18926 MB, 1486 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 4.39e-06
+Stopped timer 500 at 1.04808 (3.5628 MB, 8742 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 2.17426 seconds 
+Time10 = 0.00669485 seconds (0.0936 MB, 12 rounds)
+Time100 = 2.0198e-05 seconds (0 MB, 0 rounds)
+Time200 = 0.708149 seconds (14.4527 MB, 4082 rounds)
+Time300 = 0.405914 seconds (8.18926 MB, 1486 rounds)
+Time400 = 0.404112 seconds (8.18926 MB, 1486 rounds)
+Time500 = 1.04808 seconds (3.5628 MB, 8742 rounds)
+Data sent = 26.2984 MB in ~14322 rounds (party 0 only; use '-v' for more details)
+Global data sent = 78.7079 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 1000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 comorbidity -pn 18202 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 comorbidity -pn 18202 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 comorbidity -pn 18202 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing comorbidity with 1000 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 7.149e-06
+Stopped timer 10 at 0.00518276 (0.104 MB, 13 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.839e-06
+Stopped timer 100 at 1.9836e-05 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.317e-06
+Stopped timer 200 at 0.754581 (16.0311 MB, 4274 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 7.643e-06
+Starting timer 400 at 0 (0 MB, 0 rounds) after 6.357e-06
+Stopped timer 400 at 0.36296 (9.13446 MB, 1490 rounds)
+Stopped timer 300 at 0.364946 (9.13446 MB, 1490 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 4.54e-06
+Stopped timer 500 at 1.12733 (3.9676 MB, 9713 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 2.25723 seconds 
+Time10 = 0.00518276 seconds (0.104 MB, 13 rounds)
+Time100 = 1.9836e-05 seconds (0 MB, 0 rounds)
+Time200 = 0.754581 seconds (16.0311 MB, 4274 rounds)
+Time300 = 0.364946 seconds (9.13446 MB, 1490 rounds)
+Time400 = 0.36296 seconds (9.13446 MB, 1490 rounds)
+Time500 = 1.12733 seconds (3.9676 MB, 9713 rounds)
+Data sent = 29.2372 MB in ~15490 rounds (party 0 only; use '-v' for more details)
+Global data sent = 87.5035 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 2000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 comorbidity -pn 11594 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 comorbidity -pn 11594 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 comorbidity -pn 11594 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing comorbidity with 2000 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 8.229e-06
+Stopped timer 10 at 0.0104088 (0.208 MB, 26 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.898e-06
+Stopped timer 100 at 5.423e-05 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.398e-06
+Stopped timer 200 at 1.49802 (31.9759 MB, 6237 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 4.744e-06
+Starting timer 400 at 0 (0 MB, 0 rounds) after 3.135e-06
+Stopped timer 400 at 0.647655 (18.3453 MB, 1518 rounds)
+Stopped timer 300 at 0.65154 (18.3453 MB, 1518 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 4.78e-06
+Stopped timer 500 at 2.29166 (7.9352 MB, 19426 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 4.46386 seconds 
+Time10 = 0.0104088 seconds (0.208 MB, 26 rounds)
+Time100 = 5.423e-05 seconds (0 MB, 0 rounds)
+Time200 = 1.49802 seconds (31.9759 MB, 6237 rounds)
+Time300 = 0.65154 seconds (18.3453 MB, 1518 rounds)
+Time400 = 0.647655 seconds (18.3453 MB, 1518 rounds)
+Time500 = 2.29166 seconds (7.9352 MB, 19426 rounds)
+Data sent = 58.4644 MB in ~27207 rounds (party 0 only; use '-v' for more details)
+Global data sent = 174.977 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 4000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 comorbidity -pn 12613 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 comorbidity -pn 12613 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 comorbidity -pn 12613 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing comorbidity with 4000 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 4.897e-06
+Stopped timer 10 at 0.0206617 (0.416 MB, 52 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.85e-06
+Stopped timer 100 at 9.3306e-05 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.302e-06
+Stopped timer 200 at 2.70969 (63.9459 MB, 10167 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 4.641e-06
+Starting timer 400 at 0 (0 MB, 0 rounds) after 3.296e-06
+Stopped timer 400 at 1.16882 (36.6865 MB, 1570 rounds)
+Stopped timer 300 at 1.17652 (36.6865 MB, 1570 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 4.484e-06
+Stopped timer 500 at 4.60414 (15.8704 MB, 38852 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 8.53267 seconds 
+Time10 = 0.0206617 seconds (0.416 MB, 52 rounds)
+Time100 = 9.3306e-05 seconds (0 MB, 0 rounds)
+Time200 = 2.70969 seconds (63.9459 MB, 10167 rounds)
+Time300 = 1.17652 seconds (36.6865 MB, 1570 rounds)
+Time400 = 1.16882 seconds (36.6865 MB, 1570 rounds)
+Time500 = 4.60414 seconds (15.8704 MB, 38852 rounds)
+Data sent = 116.919 MB in ~50641 rounds (party 0 only; use '-v' for more details)
+Global data sent = 349.924 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 6000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 comorbidity -pn 12265 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 comorbidity -pn 12265 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 comorbidity -pn 12265 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing comorbidity with 6000 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 6.29e-06
+Stopped timer 10 at 0.0312803 (0.624 MB, 78 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.825e-06
+Stopped timer 100 at 0.000150713 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.282e-06
+Stopped timer 200 at 4.18922 (95.9159 MB, 14097 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 4.518e-06
+Starting timer 400 at 0 (0 MB, 0 rounds) after 3.002e-06
+Stopped timer 400 at 1.6171 (54.9473 MB, 1618 rounds)
+Stopped timer 300 at 1.62869 (54.9473 MB, 1618 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 4.023e-06
+Stopped timer 500 at 6.90561 (23.8056 MB, 58278 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 12.7858 seconds 
+Time10 = 0.0312803 seconds (0.624 MB, 78 rounds)
+Time100 = 0.000150713 seconds (0 MB, 0 rounds)
+Time200 = 4.18922 seconds (95.9159 MB, 14097 rounds)
+Time300 = 1.62869 seconds (54.9473 MB, 1618 rounds)
+Time400 = 1.6171 seconds (54.9473 MB, 1618 rounds)
+Time500 = 6.90561 seconds (23.8056 MB, 58278 rounds)
+Data sent = 175.293 MB in ~74071 rounds (party 0 only; use '-v' for more details)
+Global data sent = 524.63 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 8000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 comorbidity -pn 15312 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 comorbidity -pn 15312 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 comorbidity -pn 15312 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing comorbidity with 8000 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 6.281e-06
+Stopped timer 10 at 0.0314252 (0.832 MB, 104 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.581e-06
+Stopped timer 100 at 0.000175383 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.032e-06
+Stopped timer 200 at 5.27035 (127.886 MB, 18027 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 4.859e-06
+Starting timer 400 at 0 (0 MB, 0 rounds) after 3.32e-06
+Stopped timer 400 at 2.03052 (73.2885 MB, 1670 rounds)
+Stopped timer 300 at 2.04521 (73.2885 MB, 1670 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 4.374e-06
+Stopped timer 500 at 9.18415 (31.7408 MB, 77704 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 16.5821 seconds 
+Time10 = 0.0314252 seconds (0.832 MB, 104 rounds)
+Time100 = 0.000175383 seconds (0 MB, 0 rounds)
+Time200 = 5.27035 seconds (127.886 MB, 18027 rounds)
+Time300 = 2.04521 seconds (73.2885 MB, 1670 rounds)
+Time400 = 2.03052 seconds (73.2885 MB, 1670 rounds)
+Time500 = 9.18415 seconds (31.7408 MB, 77704 rounds)
+Data sent = 233.747 MB in ~97505 rounds (party 0 only; use '-v' for more details)
+Global data sent = 699.577 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 10000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 comorbidity -pn 18652 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 comorbidity -pn 18652 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 comorbidity -pn 18652 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing comorbidity with 10000 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 4.745e-06
+Stopped timer 10 at 0.0516195 (1.04 MB, 130 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.408e-06
+Stopped timer 100 at 0.000221689 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.021e-06
+Stopped timer 200 at 6.57194 (159.856 MB, 21957 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 4.882e-06
+Starting timer 400 at 0 (0 MB, 0 rounds) after 3.087e-06
+Stopped timer 400 at 2.53127 (91.5493 MB, 1718 rounds)
+Stopped timer 300 at 2.55063 (91.5493 MB, 1718 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 3.626e-06
+Stopped timer 500 at 10.8021 (39.676 MB, 97130 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 20.0277 seconds 
+Time10 = 0.0516195 seconds (1.04 MB, 130 rounds)
+Time100 = 0.000221689 seconds (0 MB, 0 rounds)
+Time200 = 6.57194 seconds (159.856 MB, 21957 rounds)
+Time300 = 2.55063 seconds (91.5493 MB, 1718 rounds)
+Time400 = 2.53127 seconds (91.5493 MB, 1718 rounds)
+Time500 = 10.8021 seconds (39.676 MB, 97130 rounds)
+Data sent = 292.121 MB in ~120935 rounds (party 0 only; use '-v' for more details)
+Global data sent = 874.283 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 20000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 comorbidity -pn 19367 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 comorbidity -pn 19367 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 comorbidity -pn 19367 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing comorbidity with 20000 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 6.677e-06
+Stopped timer 10 at 0.0836123 (2.08 MB, 260 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.421e-06
+Stopped timer 100 at 0.000504755 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.23e-06
+Stopped timer 200 at 12.5422 (319.706 MB, 41607 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.034e-05
+Starting timer 400 at 0 (0 MB, 0 rounds) after 7.899e-06
+Stopped timer 400 at 4.90782 (183.094 MB, 1970 rounds)
+Stopped timer 300 at 4.93948 (183.094 MB, 1970 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 6.153e-06
+Stopped timer 500 at 23.6083 (79.352 MB, 194253 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 41.2498 seconds 
+Time10 = 0.0836123 seconds (2.08 MB, 260 rounds)
+Time100 = 0.000504755 seconds (0 MB, 0 rounds)
+Time200 = 12.5422 seconds (319.706 MB, 41607 rounds)
+Time300 = 4.93948 seconds (183.094 MB, 1970 rounds)
+Time400 = 4.90782 seconds (183.094 MB, 1970 rounds)
+Time500 = 23.6083 seconds (79.352 MB, 194253 rounds)
+Data sent = 584.232 MB in ~238090 rounds (party 0 only; use '-v' for more details)
+Global data sent = 1748.54 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 40000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 comorbidity -pn 16303 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 comorbidity -pn 16303 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 comorbidity -pn 16303 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing comorbidity with 40000 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 6.12e-06
+Stopped timer 10 at 0.170696 (4.16 MB, 520 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.3e-06
+Stopped timer 100 at 0.00101235 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.397e-06
+Stopped timer 200 at 23.3336 (639.406 MB, 80907 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 9.985e-06
+Starting timer 400 at 0 (0 MB, 0 rounds) after 7.9e-06
+Stopped timer 400 at 8.42221 (366.104 MB, 2470 rounds)
+Stopped timer 300 at 8.47186 (366.104 MB, 2470 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 4.192e-06
+Stopped timer 500 at 48.2703 (158.704 MB, 388499 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 80.37 seconds 
+Time10 = 0.170696 seconds (4.16 MB, 520 rounds)
+Time100 = 0.00101235 seconds (0 MB, 0 rounds)
+Time200 = 23.3336 seconds (639.406 MB, 80907 rounds)
+Time300 = 8.47186 seconds (366.104 MB, 2470 rounds)
+Time400 = 8.42221 seconds (366.104 MB, 2470 rounds)
+Time500 = 48.2703 seconds (158.704 MB, 388499 rounds)
+Data sent = 1168.37 MB in ~472396 rounds (party 0 only; use '-v' for more details)
+Global data sent = 3496.8 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 60000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 comorbidity -pn 11988 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 comorbidity -pn 11988 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 comorbidity -pn 11988 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing comorbidity with 60000 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 8.398e-06
+Stopped timer 10 at 0.278088 (6.24 MB, 780 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.516e-06
+Stopped timer 100 at 0.00152344 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.217e-06
+Stopped timer 200 at 33.8589 (959.106 MB, 120207 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 2.6445e-05
+Starting timer 400 at 0 (0 MB, 0 rounds) after 8.731e-06
+Stopped timer 400 at 10.1045 (549.114 MB, 2970 rounds)
+Stopped timer 300 at 10.1708 (549.114 MB, 2970 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 2.315e-06
+Stopped timer 500 at 71.469 (238.136 MB, 582749 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 115.95 seconds 
+Time10 = 0.278088 seconds (6.24 MB, 780 rounds)
+Time100 = 0.00152344 seconds (0 MB, 0 rounds)
+Time200 = 33.8589 seconds (959.106 MB, 120207 rounds)
+Time300 = 10.1708 seconds (549.114 MB, 2970 rounds)
+Time400 = 10.1045 seconds (549.114 MB, 2970 rounds)
+Time500 = 71.469 seconds (238.136 MB, 582749 rounds)
+Data sent = 1752.6 MB in ~706706 rounds (party 0 only; use '-v' for more details)
+Global data sent = 5245.31 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 80000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 comorbidity -pn 17850 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 comorbidity -pn 17850 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 comorbidity -pn 17850 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing comorbidity with 80000 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 6.186e-06
+Stopped timer 10 at 0.34646 (8.32 MB, 1040 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.48e-06
+Stopped timer 100 at 0.00201117 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.201e-06
+Stopped timer 200 at 43.8664 (1278.81 MB, 159507 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 4.86e-06
+Starting timer 400 at 0 (0 MB, 0 rounds) after 3.38e-06
+Stopped timer 400 at 13.5277 (732.124 MB, 3470 rounds)
+Stopped timer 300 at 13.6064 (732.124 MB, 3470 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 2.093e-06
+Stopped timer 500 at 94.6821 (317.488 MB, 776995 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 152.723 seconds 
+Time10 = 0.34646 seconds (8.32 MB, 1040 rounds)
+Time100 = 0.00201117 seconds (0 MB, 0 rounds)
+Time200 = 43.8664 seconds (1278.81 MB, 159507 rounds)
+Time300 = 13.6064 seconds (732.124 MB, 3470 rounds)
+Time400 = 13.5277 seconds (732.124 MB, 3470 rounds)
+Time500 = 94.6821 seconds (317.488 MB, 776995 rounds)
+Data sent = 2336.74 MB in ~941012 rounds (party 0 only; use '-v' for more details)
+Global data sent = 6993.58 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 100000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 comorbidity -pn 12598 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 comorbidity -pn 12598 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 comorbidity -pn 12598 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing comorbidity with 100000 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 4.296e-06
+Stopped timer 10 at 0.433807 (10.4 MB, 1300 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.481e-06
+Stopped timer 100 at 0.00258128 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.107e-06
+Stopped timer 200 at 53.7917 (1598.51 MB, 198807 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 4.864e-06
+Starting timer 400 at 0 (0 MB, 0 rounds) after 3.153e-06
+Stopped timer 400 at 17.7108 (915.215 MB, 3974 rounds)
+Stopped timer 300 at 17.8083 (915.215 MB, 3974 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 2.139e-06
+Stopped timer 500 at 117.662 (396.84 MB, 971241 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 189.957 seconds 
+Time10 = 0.433807 seconds (10.4 MB, 1300 rounds)
+Time100 = 0.00258128 seconds (0 MB, 0 rounds)
+Time200 = 53.7917 seconds (1598.51 MB, 198807 rounds)
+Time300 = 17.8083 seconds (915.215 MB, 3974 rounds)
+Time400 = 17.7108 seconds (915.215 MB, 3974 rounds)
+Time500 = 117.662 seconds (396.84 MB, 971241 rounds)
+Data sent = 2920.96 MB in ~1175322 rounds (party 0 only; use '-v' for more details)
+Global data sent = 8742.08 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 200000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 comorbidity -pn 15754 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 comorbidity -pn 15754 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 comorbidity -pn 15754 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing comorbidity with 200000 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 5.044e-06
+Stopped timer 10 at 0.873143 (20.8 MB, 2600 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.655e-06
+Stopped timer 100 at 0.00510296 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.6e-06
+Stopped timer 200 at 100.002 (3196.93 MB, 395303 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 4.796e-06
+Starting timer 400 at 0 (0 MB, 0 rounds) after 3.24e-06
+Stopped timer 400 at 29.4405 (1830.43 MB, 6482 rounds)
+Stopped timer 300 at 29.6253 (1830.43 MB, 6482 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 2.295e-06
+Stopped timer 500 at 232.576 (793.681 MB, 1942482 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 363.551 seconds 
+Time10 = 0.873143 seconds (20.8 MB, 2600 rounds)
+Time100 = 0.00510296 seconds (0 MB, 0 rounds)
+Time200 = 100.002 seconds (3196.93 MB, 395303 rounds)
+Time300 = 29.6253 seconds (1830.43 MB, 6482 rounds)
+Time400 = 29.4405 seconds (1830.43 MB, 6482 rounds)
+Time500 = 232.576 seconds (793.681 MB, 1942482 rounds)
+Data sent = 5841.83 MB in ~2346867 rounds (party 0 only; use '-v' for more details)
+Global data sent = 17483.9 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 400000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 comorbidity -pn 14502 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 comorbidity -pn 14502 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 comorbidity -pn 14502 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing comorbidity with 400000 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 6.465e-06
+Stopped timer 10 at 2.02523 (41.6 MB, 5200 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 2.446e-06
+Stopped timer 100 at 0.0176618 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 2.842e-06
+Stopped timer 200 at 197.619 (6393.76 MB, 788295 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 3.649e-06
+Starting timer 400 at 0 (0 MB, 0 rounds) after 2.845e-06
+Stopped timer 400 at 58.9581 (3660.85 MB, 11498 rounds)
+Stopped timer 300 at 59.2262 (3660.85 MB, 11498 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.584e-06
+Stopped timer 500 at 459.648 (1587.36 MB, 3884964 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 719.454 seconds 
+Time10 = 2.02523 seconds (41.6 MB, 5200 rounds)
+Time100 = 0.0176618 seconds (0 MB, 0 rounds)
+Time200 = 197.619 seconds (6393.76 MB, 788295 rounds)
+Time300 = 59.2262 seconds (3660.85 MB, 11498 rounds)
+Time400 = 58.9581 seconds (3660.85 MB, 11498 rounds)
+Time500 = 459.648 seconds (1587.36 MB, 3884964 rounds)
+Data sent = 11683.6 MB in ~4689957 rounds (party 0 only; use '-v' for more details)
+Global data sent = 34967.5 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 600000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 comorbidity -pn 18087 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 comorbidity -pn 18087 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 comorbidity -pn 18087 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing comorbidity with 600000 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 6.918e-06
+Stopped timer 10 at 2.59538 (62.4 MB, 7800 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 2.498e-06
+Stopped timer 100 at 0.0148105 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.224e-06
+Stopped timer 200 at 301.248 (9590.68 MB, 1181291 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 4.555e-06
+Starting timer 400 at 0 (0 MB, 0 rounds) after 3.066e-06
+Stopped timer 400 at 88.7308 (5491.27 MB, 16514 rounds)
+Stopped timer 300 at 89.1314 (5491.27 MB, 16514 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.46e-06
+Stopped timer 500 at 704.212 (2380.96 MB, 5827442 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 1098.45 seconds 
+Time10 = 2.59538 seconds (62.4 MB, 7800 rounds)
+Time100 = 0.0148105 seconds (0 MB, 0 rounds)
+Time200 = 301.248 seconds (9590.68 MB, 1181291 rounds)
+Time300 = 89.1314 seconds (5491.27 MB, 16514 rounds)
+Time400 = 88.7308 seconds (5491.27 MB, 16514 rounds)
+Time500 = 704.212 seconds (2380.96 MB, 5827442 rounds)
+Data sent = 17525.3 MB in ~7033047 rounds (party 0 only; use '-v' for more details)
+Global data sent = 52451.1 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 800000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 comorbidity -pn 12702 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 comorbidity -pn 12702 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 comorbidity -pn 12702 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing comorbidity with 800000 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 6.501e-06
+Stopped timer 10 at 3.49474 (83.2 MB, 10400 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.558e-06
+Stopped timer 100 at 0.0202055 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.246e-06
+Stopped timer 200 at 395.791 (12787.5 MB, 1574283 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 7.618e-06
+Starting timer 400 at 0 (0 MB, 0 rounds) after 6.417e-06
+Stopped timer 400 at 117.131 (7321.69 MB, 21530 rounds)
+Stopped timer 300 at 117.664 (7321.69 MB, 21530 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.605e-06
+Stopped timer 500 at 940.401 (3174.64 MB, 7769924 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 1458.97 seconds 
+Time10 = 3.49474 seconds (83.2 MB, 10400 rounds)
+Time100 = 0.0202055 seconds (0 MB, 0 rounds)
+Time200 = 395.791 seconds (12787.5 MB, 1574283 rounds)
+Time300 = 117.664 seconds (7321.69 MB, 21530 rounds)
+Time400 = 117.131 seconds (7321.69 MB, 21530 rounds)
+Time500 = 940.401 seconds (3174.64 MB, 7769924 rounds)
+Data sent = 23367.1 MB in ~9376137 rounds (party 0 only; use '-v' for more details)
+Global data sent = 69934.8 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 1000000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 comorbidity -pn 15291 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 comorbidity -pn 15291 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 comorbidity -pn 15291 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing comorbidity with 1000000 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 5.548e-06
+Stopped timer 10 at 4.38186 (104 MB, 13000 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.846e-06
+Stopped timer 100 at 0.0252929 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.251e-06
+Stopped timer 200 at 496.156 (15984.4 MB, 1967279 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 4.452e-06
+Starting timer 400 at 0 (0 MB, 0 rounds) after 3.08e-06
+Stopped timer 400 at 146.202 (9152.03 MB, 26542 rounds)
+Stopped timer 300 at 146.872 (9152.03 MB, 26542 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.52e-06
+Stopped timer 500 at 1164.47 (3968.32 MB, 9712406 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 1813.85 seconds 
+Time10 = 4.38186 seconds (104 MB, 13000 rounds)
+Time100 = 0.0252929 seconds (0 MB, 0 rounds)
+Time200 = 496.156 seconds (15984.4 MB, 1967279 rounds)
+Time300 = 146.872 seconds (9152.03 MB, 26542 rounds)
+Time400 = 146.202 seconds (9152.03 MB, 26542 rounds)
+Time500 = 1164.47 seconds (3968.32 MB, 9712406 rounds)
+Data sent = 29208.8 MB in ~11719227 rounds (party 0 only; use '-v' for more details)
+Global data sent = 87418.4 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
