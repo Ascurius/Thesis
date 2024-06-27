@@ -23,13 +23,14 @@ def sort_by_two_cols(matrix: sint.Matrix, key1: int, key2: int):
 
     radix_sort_from_matrix(bs, matrix)
 
-def select_columns(matrix: sint.Matrix, keys: list) -> sint.Matrix:
-    keys.sort()
+def select_columns(matrix: sint.Matrix, keys: sint.Array) -> sint.Matrix:
+    # keys.sort()
     result = sint.Matrix(
         rows=matrix.shape[0],
         columns=len(keys)
     )
-    for i in range(len(keys)):
+    @for_range_opt(keys.length)
+    def _(i):
         result.set_column(
             i,
             matrix.get_column(keys[i])
@@ -99,15 +100,16 @@ def limit(matrix: sint.Matrix, maximum: int, relevancy_col: int) -> sint.Matrix:
         count.update(next_count)
     return result
 
-max_rows = 2000
+max_rows = 100
 print_ln("Executing comorbidity with %s rows", max_rows)
 start_timer(10)
 a = sint.Matrix(max_rows, 13)
 a.input_from(0)
 stop_timer(10)
 
+keys = Array.create_from(regint([1]))
 start_timer(100)
-s = select_columns(a, [1])
+s = select_columns(a, keys)
 stop_timer(100)
 
 start_timer(200)
