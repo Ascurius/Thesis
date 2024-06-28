@@ -43,13 +43,7 @@ def join_nested_loop(
     def _(left_row):
         @for_range_opt(right.shape[0])
         def _(right_row):
-            new_row = sint.Array(result.shape[1])
-            @for_range_opt(left.shape[1])
-            def _(left_col):
-                new_row[left_col] = left[left_row][left_col]
-            @for_range_opt(right.shape[1])
-            def _(right_col):
-                new_row[left.shape[1]+right_col] = right[right_row][right_col]
+            new_row = left[left_row].concat(right[right_row])
             result[current_idx].assign(new_row)
             result[current_idx][-1] = (
                 (left[left_row][left_key] == right[right_row][right_key]) &
@@ -82,7 +76,7 @@ def where_less_then(matrix: sint.Matrix, col_1: int, col_2: int) -> sint.Matrix:
         ).if_else(1,0)
     return result
 
-max_rows = 4000
+max_rows = 50
 print_ln("Executing aspirin_count with %s rows", max_rows)
 start_timer(10)
 a = sint.Matrix(max_rows, 13)
