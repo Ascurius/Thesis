@@ -121,13 +121,13 @@ start_timer(500)
 select = select_distinct(join, 0, condition=distinct_condition)
 stop_timer(500)
 
-# count = regint(0)
-# start_timer(700)
-# @for_range_opt(select.shape[0])
-# def _(i):
-#     dbit_5 = (select[i][-1] == 1).if_else(1,0) # select distinct
-#     @if_(dbit_5.reveal())
-#     def _():
-#         count.update(count + 1)
-# stop_timer(700)
-# print_ln("%s", count)
+count = regint(0)
+start_timer(700)
+@for_range_opt(select.shape[0])
+def _(i):
+    dbit_5 = (select[i][-1] == 1).if_else(1,0) # select distinct
+    @if_(dbit_5.reveal())
+    def _():
+        count.update(count + 1)
+stop_timer(700)
+print_ln("%s", count)
