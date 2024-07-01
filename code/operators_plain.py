@@ -76,6 +76,30 @@ def hash_join(left, right, left_key, right_key, condition: lambda left, right: T
     
     return result
 
+def sort_merge_join(left, right, l_key, r_key):
+    left.sort(key=lambda row: row[l_key])
+    right.sort(key=lambda row: row[r_key])
+
+    n = len(left)
+    m = len(right)
+    result = [[0 for _ in range(n + m)] for _ in range(n * m)]
+    # result = []
+
+    i, j, cnt = 0,0,0
+
+    while (i < len(right)) & (j < len(left)):
+        if right[i][r_key] > left[j][l_key]:
+            j = j + 1
+        elif right[i][r_key] < left[j][l_key]:
+            i = i + 1
+        else:
+            result[cnt] = left[j] + right[i]
+            # result.append(left[j] + right[i])
+            i = i + 1
+            j = j + 1
+            cnt = cnt + 1
+    return result
+
 def select_distinct(
         matrix: List[List[int]], 
         column: int,
