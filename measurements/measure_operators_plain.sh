@@ -8,7 +8,7 @@ fi
 path=$(pwd)
 query=$1
 start_max_rows=$2
-join_type="n"
+join_type="h"
 query_path="$path/code/queries/plain/$query.py"
 num_tests=5
 out_file="$path/measurements/results/${query}_plain_${join_type}.txt"
@@ -20,24 +20,9 @@ fi
 
 echo "Running performance test for plain query: $query"
 
-# Write column headers to output file depending on query
-if [ $query = "aspirin_count" ]; then
-    header="rows,first_filter,second_filter,join,third_filter,distinct,distinct_sort,count,total"
-elif [ $query = "cdiff" ]; then
-    header="rows,first_filter,sort,partition_by,join,distinct,distinct_sort,total"
-elif [ $query = "comorbidity" ]; then
-    header="rows,group_by,order_by,limit,total"
-elif [ $query = "plaintext_comorbidity" ]; then
-    header="rows,union_all,group_by,group_by_sort,order_by,limit,total"
-elif [ $query = "plaintext_aspirin_count" ]; then
-    header="rows,union_all,first_filter,second_filter,join,third_filter,distinct,distinct_sort,count,total"#
-elif [ $query = "plaintext_cdiff" ]; then
-    header="rows,union_all,first_filter,sort,partition_by,join,distinct,distinct_sort,count,total"
-fi
-echo $header >> $out_file
-
-# rows=(1000 2000 4000 6000 8000 10000 20000 40000 60000 80000 100000 200000 400000 600000 800000 1000000)
-rows=(50 100 150 200 250 300 350 400 450 500)
+rows=(1000 2000 4000 6000 8000 10000 20000 40000 60000 80000 100000 200000 400000 600000 800000 1000000) # Complete Benchmarks
+# rows=(50 100 150 200 250 300 350 400 450 500) # Microbenchmarks
+# rows=(100) # Testing purposes
 # Set default start_max_rows if not specified
 if [ -z "$start_max_rows" ]; then
     start_max_rows=${rows[0]}
@@ -63,9 +48,25 @@ echo "Generating test data..."
 populate_script="$path/code/populate.py"
 python3 "$populate_script" "secure" "1000000"
 
+# Write column headers to output file depending on query
+if [ $query = "aspirin_count" ]; then
+    header="rows,first_filter,second_filter,join,third_filter,distinct,distinct_sort,count,total"
+elif [ $query = "cdiff" ]; then
+    header="rows,first_filter,sort,partition_by,join,distinct,distinct_sort,total"
+elif [ $query = "comorbidity" ]; then
+    header="rows,group_by,order_by,limit,total"
+elif [ $query = "plaintext_comorbidity" ]; then
+    header="rows,union_all,group_by,group_by_sort,order_by,limit,total"
+elif [ $query = "plaintext_aspirin_count" ]; then
+    header="rows,union_all,first_filter,second_filter,join,third_filter,distinct,distinct_sort,count,total"#
+elif [ $query = "plaintext_cdiff" ]; then
+    header="rows,union_all,first_filter,sort,partition_by,join,distinct,distinct_sort,count,total"
+fi
+echo $header #>> $out_file
+
 for ((i=start_index; i<${#rows[@]}; i++)); do
     max_rows=${rows[i]}
-    echo "Performance test for $max_rows rows"
+    # echo "Performance test for $max_rows rows"
 
     total_execution_time=0.0
     total_times=()
@@ -96,7 +97,5 @@ for ((i=start_index; i<${#rows[@]}; i++)); do
     for ((index=0; index<${#average_times[@]}; index++)); do
         output_line+=",${average_times[index]}"
     done
-    echo "$output_line" >> $out_file
-
-    echo "Done"
+    echo "$output_line"
 done
