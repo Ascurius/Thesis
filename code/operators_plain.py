@@ -80,24 +80,58 @@ def sort_merge_join(left, right, l_key, r_key):
     left.sort(key=lambda row: row[l_key])
     right.sort(key=lambda row: row[r_key])
 
-    n = len(left)
-    m = len(right)
-    result = [[0 for _ in range(n + m)] for _ in range(n * m)]
-    # result = []
+    result = []
 
     i, j, cnt = 0,0,0
+    mark = None
 
-    while (i < len(right)) & (j < len(left)):
-        if right[i][r_key] > left[j][l_key]:
-            j = j + 1
-        elif right[i][r_key] < left[j][l_key]:
-            i = i + 1
+    while i < len(left) and j < len(right)+1:
+        if j >= len(right):
+            j = mark
+            i += 1
+            mark = None
+            if not i < len(left):
+                break
+        if mark is None:
+            while left[i][l_key] < right[j][l_key]:
+                i += 1
+            while left[i][l_key] > right[j][l_key]:
+                j += 1
+            mark = j
+        if left[i][l_key] == right[j][l_key]:
+            result.append([left[i], right[j]])
+            j += 1
         else:
-            result[cnt] = left[j] + right[i]
-            # result.append(left[j] + right[i])
-            i = i + 1
-            j = j + 1
-            cnt = cnt + 1
+            j = mark
+            i += 1
+            mark = None
+
+    # while i < len(left) and j < len(right):
+    #     current_key_left = left[i][l_key]
+    #     current_key_right = right[j][l_key]
+        
+    #     if current_key_left < current_key_right:
+    #         i += 1
+    #     elif current_key_left > current_key_right:
+    #         j += 1
+    #     else:
+    #         # Merge all matching pairs directly
+    #         original_i = i
+    #         original_j = j
+            
+    #         while i < len(left) and left[i][l_key] == current_key_left:
+    #             while j < len(right) and right[j][l_key] == current_key_right:
+    #                 result.append(left[i] + right[j])
+    #                 j += 1
+    #             i += 1
+    #             j = original_j
+            
+    #         j = original_j
+    #         while j < len(right) and right[j][l_key] == current_key_right:
+    #             j += 1
+            
+    #         i = original_i
+
     return result
 
 def select_distinct(
