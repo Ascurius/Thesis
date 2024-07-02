@@ -82,7 +82,7 @@ def sort_merge_join(left, right, l_key, r_key):
 
     result = []
 
-    i, j, cnt = 0,0,0
+    i, j = 0,0
     mark = None
 
     while i < len(left) and j < len(right)+1:
