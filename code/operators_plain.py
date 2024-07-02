@@ -58,7 +58,13 @@ def order_by(matrix: List[List[int]], order_key: int,
 def limit(matrix: List[List[int]], maximum) -> List[List[int]]:
     return matrix[:maximum]
 
-def hash_join(left, right, left_key, right_key, condition: lambda left, right: True):
+def hash_join(
+        left: List[List[int]], 
+        right: List[List[int]], 
+        left_key: int, 
+        right_key: int, 
+        condition: Callable[[List[int], List[int]], bool] = lambda left, right: True
+    ) -> List[List[int]]:
     hash_map = defaultdict(list)
 
     # Hash phase
@@ -76,7 +82,13 @@ def hash_join(left, right, left_key, right_key, condition: lambda left, right: T
     
     return result
 
-def sort_merge_join(left, right, l_key, r_key):
+def sort_merge_join(
+        left: List[List[int]], 
+        right: List[List[int]], 
+        l_key: int, 
+        r_key: int, 
+        condition: Callable[[List[int], List[int]], bool] = lambda left, right: True
+    ) -> List[List[int]]:
     left.sort(key=lambda row: row[l_key])
     right.sort(key=lambda row: row[r_key])
 
@@ -98,7 +110,7 @@ def sort_merge_join(left, right, l_key, r_key):
             while left[i][l_key] > right[j][l_key]:
                 j += 1
             mark = j
-        if left[i][l_key] == right[j][l_key]:
+        if left[i][l_key] == right[j][l_key] and condition(left[i], right[j]):
             result.append([left[i], right[j]])
             j += 1
         else:
