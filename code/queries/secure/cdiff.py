@@ -34,45 +34,29 @@ def where(matrix: sint.Matrix, key: int, value: int) -> sint.Matrix:
         result[i][-1] = (matrix[i][key] == value).if_else(1,0)
     return result
 
-def sort_merge_join(
+def join_nested_loop(
         left: sint.Matrix, 
         right: sint.Matrix, 
-        l_key: int, 
-        r_key: int,
+        left_key: int, 
+        right_key: int,
         condition: Callable[[sint.Array, sint.Array], bool] = lambda left, right: True
     ) -> sint.Matrix:
-    left.sort((l_key,))
-    right.sort((r_key,))
-
     result = sint.Matrix(
         rows=left.shape[0] * right.shape[0],
-        columns=left.shape[1] + right.shape[1]
+        columns=left.shape[1] + right.shape[1] + 1
     )
-    result.assign_all(0)
-
-    i = regint(0)
-    j = regint(0)
-    cnt = regint(0)
-
-    @while_do( (lambda: (i < right.shape[0]) & (j < left.shape[0])) )
-    def _():
-        j_adder = (right[i][r_key] > left[j][l_key]).if_else(1,0)
-        i_adder = (right[i][r_key] < left[j][l_key]).if_else(1,0)
-
-        result[cnt] = (
-            (right[i][r_key] == left[j][l_key]) &
-            condition(left[j], right[i])
-        ).if_else(
-            left[j].concat(right[i]), result[cnt]
-        )
-
-        j_adder = (right[i][r_key] == left[j][l_key]).if_else(1, j_adder)
-        i_adder = (right[i][r_key] == left[j][l_key]).if_else(1, i_adder)
-        cnt_adder = (right[i][r_key] == left[j][l_key]).if_else((cnt+1),cnt)
-
-        i.update(i + i_adder.reveal())
-        j.update(j + j_adder.reveal())
-        cnt.update(cnt_adder.reveal())
+    current_idx = regint(0)
+    @for_range_opt(left.shape[0])
+    def _(left_row):
+        @for_range_opt(right.shape[0])
+        def _(right_row):
+            new_row = left[left_row].concat(right[right_row])
+            result[current_idx].assign(new_row)
+            result[current_idx][-1] = (
+                (left[left_row][left_key] == right[right_row][right_key]) &
+                condition(left[left_row], right[right_row])
+            ).if_else(sint(1),sint(0))
+            current_idx.update(current_idx + regint(1))
     return result
 
 def row_number_over_partition_by(
@@ -129,7 +113,7 @@ def select_distinct(
         prev_value.update(new_value)
     return result
 
-max_rows = 100
+max_rows = 2000
 print_ln("Executing cdiff with %s rows", max_rows)
 start_timer(10)
 a = sint.Matrix(max_rows, 13)
