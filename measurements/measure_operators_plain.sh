@@ -10,7 +10,7 @@ query=$1
 start_max_rows=$2
 join_type="h"
 query_path="$path/code/queries/plain/$query.py"
-num_tests=5
+num_tests=1
 out_file="$path/measurements/results/${query}_plain_${join_type}.txt"
 
 if [ ! -f "$query_path" ]; then
@@ -18,9 +18,9 @@ if [ ! -f "$query_path" ]; then
     exit 1
 fi
 
-echo "Running performance test for plain query: $query"
+echo "Running performance test for plain query $query on $(hostname)"
 
-rows=(1000 2000 4000 6000 8000 10000 20000 40000 60000 80000 100000 200000 400000 600000 800000 1000000) # Complete Benchmarks
+rows=(100 200 300 400 500 600 700 800 900 1000 2000 4000 6000 8000 10000 20000 40000 60000 80000 100000 200000 400000 600000 800000 1000000) # Complete Benchmarks
 # rows=(50 100 150 200 250 300 350 400 450 500) # Microbenchmarks
 # rows=(100) # Testing purposes
 # Set default start_max_rows if not specified
