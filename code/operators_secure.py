@@ -45,6 +45,59 @@ def join_nested_loop(
             current_idx.update(current_idx + regint(1))
     return result
 
+def sort_merge_join(
+        left: sint.Matrix, 
+        right: sint.Matrix, 
+        l_key: int, 
+        r_key: int
+    ) -> sint.Matrix:
+    left.sort((l_key,))
+    right.sort((r_key))
+
+    result = sint.Matrix(
+        rows=left.shape[0]*right.shape[0],
+        columns=left.shape[1] + right.shape[1]
+    )
+    result.assign_all(0)
+
+    i = regint(0)
+    j = regint(0)
+    mark = regint(-1)
+    cnt = regint(0)
+
+    @while_do(lambda: (i < left.shape[0]) & (j < right.shape[0]+1))
+    def _():
+        @if_(j >= right.shape[0])
+        def _():
+            j.update(mark)
+            i.update(i+1)
+            mark.update(-1)
+            @if_(i >= len(left))
+            def _():
+                break_loop()
+        @if_(mark == -1)
+        def _():
+            @while_do(lambda: (left[i][l_key] < right[j][l_key]).if_else(1,0).reveal())
+            def _():
+                i.update(i+1)
+            @while_do(lambda: (left[i][l_key] > right[j][l_key]).if_else(1,0).reveal())
+            def _():
+                j.update(j+1)
+            mark.update(j)
+        @if_e(
+            (left[i][l_key] == right[j][l_key]).if_else(1,0).reveal()
+        )
+        def _():
+            result[cnt] = left[i].concat(right[j])
+            j.update(j+1)
+            cnt.update(cnt+1)
+        @else_
+        def _():
+            j.update(mark)
+            i.update(i+1)
+            mark.update(-1)
+    return result
+
 def order_by(matrix: sint.Matrix, order_key: int, relevance_key: int, reverse: bool = False):
     result = sint.Matrix(
         rows=matrix.shape[0],
