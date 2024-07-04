@@ -1,3 +1,5 @@
+Running performance test for plain query: cdiff on c06
+Generating test data...
 rows,first_filter,sort,partition_by,join,distinct,distinct_sort,total
 1000,.000434,.000519,.000533,.031353,.000106,.000031,.032428
 2000,.000891,.001829,.001092,.125742,.000035,.000010,.127761
