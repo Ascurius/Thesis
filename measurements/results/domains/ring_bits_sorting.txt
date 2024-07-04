@@ -1,0 +1,446 @@
+### For 64 bits
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 main -pn 18197 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 main -pn 18197 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 main -pn 18197 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Using array of length 100
+Starting timer 100 at 0 (0 MB, 0 rounds) after 5.239e-06
+Stopped timer 100 at 0.0803327 (0.666043 MB, 1461 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 0.0812344 seconds 
+Time100 = 0.0803327 seconds (0.666043 MB, 1461 rounds)
+Data sent = 0.666843 MB in ~1462 rounds (party 0 only; use '-v' for more details)
+Global data sent = 1.99893 MB (all parties)
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 main -pn 15464 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 main -pn 15464 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 main -pn 15464 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Using array of length 1000
+Starting timer 100 at 0 (0 MB, 0 rounds) after 7.427e-06
+Stopped timer 100 at 0.281054 (6.61843 MB, 1485 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 0.283682 seconds 
+Time100 = 0.281054 seconds (6.61843 MB, 1485 rounds)
+Data sent = 6.62643 MB in ~1486 rounds (party 0 only; use '-v' for more details)
+Global data sent = 19.8633 MB (all parties)
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 main -pn 12645 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 main -pn 12645 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 main -pn 12645 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Using array of length 2000
+Starting timer 100 at 0 (0 MB, 0 rounds) after 5.271e-06
+Stopped timer 100 at 0.584229 (13.2671 MB, 1509 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 0.588509 seconds 
+Time100 = 0.584229 seconds (13.2671 MB, 1509 rounds)
+Data sent = 13.2831 MB in ~1511 rounds (party 0 only; use '-v' for more details)
+Global data sent = 39.8173 MB (all parties)
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 main -pn 13924 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 main -pn 13924 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 main -pn 13924 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Using array of length 4000
+Starting timer 100 at 0 (0 MB, 0 rounds) after 5.314e-06
+Stopped timer 100 at 0.958286 (26.5297 MB, 1561 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 0.963353 seconds 
+Time100 = 0.958286 seconds (26.5297 MB, 1561 rounds)
+Data sent = 26.5617 MB in ~1565 rounds (party 0 only; use '-v' for more details)
+Global data sent = 79.6211 MB (all parties)
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 main -pn 10790 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 main -pn 10790 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 main -pn 10790 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Using array of length 6000
+Starting timer 100 at 0 (0 MB, 0 rounds) after 5.725e-06
+Stopped timer 100 at 1.39182 (39.7119 MB, 1609 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 1.40055 seconds 
+Time100 = 1.39182 seconds (39.7119 MB, 1609 rounds)
+Data sent = 39.7599 MB in ~1615 rounds (party 0 only; use '-v' for more details)
+Global data sent = 119.184 MB (all parties)
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 main -pn 17937 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 main -pn 17937 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 main -pn 17937 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Using array of length 8000
+Starting timer 100 at 0 (0 MB, 0 rounds) after 5.006e-06
+Stopped timer 100 at 2.00802 (52.9744 MB, 1661 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 2.01933 seconds 
+Time100 = 2.00802 seconds (52.9744 MB, 1661 rounds)
+Data sent = 53.0384 MB in ~1669 rounds (party 0 only; use '-v' for more details)
+Global data sent = 158.987 MB (all parties)
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 main -pn 13999 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 main -pn 13999 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 main -pn 13999 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Using array of length 10000
+Starting timer 100 at 0 (0 MB, 0 rounds) after 4.555e-06
+Stopped timer 100 at 2.62018 (66.1571 MB, 1709 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 2.62878 seconds 
+Time100 = 2.62018 seconds (66.1571 MB, 1709 rounds)
+Data sent = 66.2371 MB in ~1719 rounds (party 0 only; use '-v' for more details)
+Global data sent = 198.551 MB (all parties)
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 main -pn 11723 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 main -pn 11723 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 main -pn 11723 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Using array of length 20000
+Starting timer 100 at 0 (0 MB, 0 rounds) after 5.567e-06
+Stopped timer 100 at 5.24968 (132.31 MB, 1961 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 5.27425 seconds 
+Time100 = 5.24968 seconds (132.31 MB, 1961 rounds)
+Data sent = 132.47 MB in ~1981 rounds (party 0 only; use '-v' for more details)
+Global data sent = 397.089 MB (all parties)
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 main -pn 19818 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 main -pn 19818 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 main -pn 19818 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Using array of length 40000
+Starting timer 100 at 0 (0 MB, 0 rounds) after 6.763e-06
+Stopped timer 100 at 10.2223 (264.534 MB, 2461 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 10.2659 seconds 
+Time100 = 10.2223 seconds (264.534 MB, 2461 rounds)
+Data sent = 264.854 MB in ~2501 rounds (party 0 only; use '-v' for more details)
+Global data sent = 793.923 MB (all parties)
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 main -pn 16604 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 main -pn 16604 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 main -pn 16604 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Using array of length 60000
+Starting timer 100 at 0 (0 MB, 0 rounds) after 6.586e-06
+Stopped timer 100 at 12.3021 (396.84 MB, 2965 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 12.3609 seconds 
+Time100 = 12.3021 seconds (396.84 MB, 2965 rounds)
+Data sent = 397.32 MB in ~3025 rounds (party 0 only; use '-v' for more details)
+Global data sent = 1191 MB (all parties)
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 main -pn 18712 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 main -pn 18712 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 main -pn 18712 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Using array of length 80000
+Starting timer 100 at 0 (0 MB, 0 rounds) after 7.663e-06
+Stopped timer 100 at 15.4205 (529.065 MB, 3465 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 15.4957 seconds 
+Time100 = 15.4205 seconds (529.065 MB, 3465 rounds)
+Data sent = 529.705 MB in ~3545 rounds (party 0 only; use '-v' for more details)
+Global data sent = 1587.83 MB (all parties)
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 main -pn 15388 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 main -pn 15388 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 main -pn 15388 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Using array of length 100000
+Starting timer 100 at 0 (0 MB, 0 rounds) after 6.102e-06
+Stopped timer 100 at 18.0675 (661.29 MB, 3965 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 18.1425 seconds 
+Time100 = 18.0675 seconds (661.29 MB, 3965 rounds)
+Data sent = 662.09 MB in ~4065 rounds (party 0 only; use '-v' for more details)
+Global data sent = 1984.67 MB (all parties)
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 main -pn 13093 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 main -pn 13093 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 main -pn 13093 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Using array of length 200000
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.0327e-05
+Stopped timer 100 at 33.115 (1322.58 MB, 6473 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 33.2603 seconds 
+Time100 = 33.115 seconds (1322.58 MB, 6473 rounds)
+Data sent = 1324.18 MB in ~6673 rounds (party 0 only; use '-v' for more details)
+Global data sent = 3969.33 MB (all parties)
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 main -pn 18518 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 main -pn 18518 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 main -pn 18518 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Using array of length 400000
+Starting timer 100 at 0 (0 MB, 0 rounds) after 8.834e-06
+Stopped timer 100 at 56.4777 (2645.15 MB, 11489 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 56.7192 seconds 
+Time100 = 56.4777 seconds (2645.15 MB, 11489 rounds)
+Data sent = 2648.35 MB in ~11889 rounds (party 0 only; use '-v' for more details)
+Global data sent = 7938.64 MB (all parties)
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 main -pn 14339 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 main -pn 14339 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 main -pn 14339 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Using array of length 600000
+Starting timer 100 at 0 (0 MB, 0 rounds) after 8.43e-06
+Stopped timer 100 at 80.2071 (3967.72 MB, 16505 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 80.5719 seconds 
+Time100 = 80.2071 seconds (3967.72 MB, 16505 rounds)
+Data sent = 3972.52 MB in ~17105 rounds (party 0 only; use '-v' for more details)
+Global data sent = 11908 MB (all parties)
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 main -pn 16290 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 main -pn 16290 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 main -pn 16290 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Using array of length 800000
+Starting timer 100 at 0 (0 MB, 0 rounds) after 8.54e-06
+Stopped timer 100 at 108.057 (5290.29 MB, 21521 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 108.506 seconds 
+Time100 = 108.057 seconds (5290.29 MB, 21521 rounds)
+Data sent = 5296.69 MB in ~22321 rounds (party 0 only; use '-v' for more details)
+Global data sent = 15877.3 MB (all parties)
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 main -pn 18043 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 main -pn 18043 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 main -pn 18043 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Using array of length 1000000
+Starting timer 100 at 0 (0 MB, 0 rounds) after 7.141e-06
+Stopped timer 100 at 140.99 (6612.86 MB, 26537 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 141.647 seconds 
+Time100 = 140.99 seconds (6612.86 MB, 26537 rounds)
+Data sent = 6620.86 MB in ~27537 rounds (party 0 only; use '-v' for more details)
+Global data sent = 19846.6 MB (all parties)
+#################
+### For 128 bits
+#################
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 main -pn 16958 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 main -pn 16958 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 main -pn 16958 -h localhost
+Using statistical security parameter 40
+Trying to run 128-bit computation
+Using array of length 100
+Starting timer 100 at 0 (0 MB, 0 rounds) after 8.081e-06
+Stopped timer 100 at 0.417137 (2.66633 MB, 2938 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 0.419278 seconds 
+Time100 = 0.417137 seconds (2.66633 MB, 2938 rounds)
+Data sent = 2.66793 MB in ~2939 rounds (party 0 only; use '-v' for more details)
+Global data sent = 8.00058 MB (all parties)
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 main -pn 15591 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 main -pn 15591 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 main -pn 15591 -h localhost
+Using statistical security parameter 40
+Trying to run 128-bit computation
+Using array of length 1000
+Starting timer 100 at 0 (0 MB, 0 rounds) after 6.269e-06
+Stopped timer 100 at 1.30048 (26.623 MB, 2982 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 1.30669 seconds 
+Time100 = 1.30048 seconds (26.623 MB, 2982 rounds)
+Data sent = 26.639 MB in ~2983 rounds (party 0 only; use '-v' for more details)
+Global data sent = 79.8849 MB (all parties)
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 main -pn 10095 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 main -pn 10095 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 main -pn 10095 -h localhost
+Using statistical security parameter 40
+Trying to run 128-bit computation
+Using array of length 2000
+Starting timer 100 at 0 (0 MB, 0 rounds) after 9.433e-06
+Stopped timer 100 at 2.23562 (53.2378 MB, 3034 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 2.24452 seconds 
+Time100 = 2.23562 seconds (53.2378 MB, 3034 rounds)
+Data sent = 53.2698 MB in ~3036 rounds (party 0 only; use '-v' for more details)
+Global data sent = 159.745 MB (all parties)
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 main -pn 12055 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 main -pn 12055 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 main -pn 12055 -h localhost
+Using statistical security parameter 40
+Trying to run 128-bit computation
+Using array of length 4000
+Starting timer 100 at 0 (0 MB, 0 rounds) after 6.097e-06
+Stopped timer 100 at 4.35131 (106.306 MB, 3134 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 4.37102 seconds 
+Time100 = 4.35131 seconds (106.306 MB, 3134 rounds)
+Data sent = 106.37 MB in ~3138 rounds (party 0 only; use '-v' for more details)
+Global data sent = 318.981 MB (all parties)
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 main -pn 12759 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 main -pn 12759 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 main -pn 12759 -h localhost
+Using statistical security parameter 40
+Trying to run 128-bit computation
+Using array of length 6000
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.0582e-05
+Stopped timer 100 at 5.89141 (159.373 MB, 3234 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 5.91602 seconds 
+Time100 = 5.89141 seconds (159.373 MB, 3234 rounds)
+Data sent = 159.469 MB in ~3240 rounds (party 0 only; use '-v' for more details)
+Global data sent = 478.216 MB (all parties)
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 main -pn 19313 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 main -pn 19313 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 main -pn 19313 -h localhost
+Using statistical security parameter 40
+Trying to run 128-bit computation
+Using array of length 8000
+Starting timer 100 at 0 (0 MB, 0 rounds) after 7.846e-06
+Stopped timer 100 at 7.83201 (212.602 MB, 3338 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 7.8605 seconds 
+Time100 = 7.83201 seconds (212.602 MB, 3338 rounds)
+Data sent = 212.73 MB in ~3346 rounds (party 0 only; use '-v' for more details)
+Global data sent = 637.934 MB (all parties)
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 main -pn 12090 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 main -pn 12090 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 main -pn 12090 -h localhost
+Using statistical security parameter 40
+Trying to run 128-bit computation
+Using array of length 10000
+Starting timer 100 at 0 (0 MB, 0 rounds) after 8.419e-06
+Stopped timer 100 at 10.9731 (265.671 MB, 3438 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 11.0064 seconds 
+Time100 = 10.9731 seconds (265.671 MB, 3438 rounds)
+Data sent = 265.831 MB in ~3448 rounds (party 0 only; use '-v' for more details)
+Global data sent = 797.173 MB (all parties)
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 main -pn 13356 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 main -pn 13356 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 main -pn 13356 -h localhost
+Using statistical security parameter 40
+Trying to run 128-bit computation
+Using array of length 20000
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.0682e-05
+Stopped timer 100 at 18.9114 (531.172 MB, 3942 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 18.9576 seconds 
+Time100 = 18.9114 seconds (531.172 MB, 3942 rounds)
+Data sent = 531.492 MB in ~3962 rounds (party 0 only; use '-v' for more details)
+Global data sent = 1593.84 MB (all parties)
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 main -pn 12147 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 main -pn 12147 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 main -pn 12147 -h localhost
+Using statistical security parameter 40
+Trying to run 128-bit computation
+Using array of length 40000
+Starting timer 100 at 0 (0 MB, 0 rounds) after 8.447e-06
+Stopped timer 100 at 34.4004 (1062.33 MB, 4954 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 34.483 seconds 
+Time100 = 34.4004 seconds (1062.33 MB, 4954 rounds)
+Data sent = 1062.97 MB in ~4994 rounds (party 0 only; use '-v' for more details)
+Global data sent = 3187.64 MB (all parties)
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 main -pn 10111 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 main -pn 10111 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 main -pn 10111 -h localhost
+Using statistical security parameter 40
+Trying to run 128-bit computation
+Using array of length 60000
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.2222e-05
+Stopped timer 100 at 49.7403 (1593.5 MB, 5966 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 49.8579 seconds 
+Time100 = 49.7403 seconds (1593.5 MB, 5966 rounds)
+Data sent = 1594.46 MB in ~6026 rounds (party 0 only; use '-v' for more details)
+Global data sent = 4781.46 MB (all parties)
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 main -pn 15228 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 main -pn 15228 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 main -pn 15228 -h localhost
+Using statistical security parameter 40
+Trying to run 128-bit computation
+Using array of length 80000
+Starting timer 100 at 0 (0 MB, 0 rounds) after 8.147e-06
+Stopped timer 100 at 64.6537 (2124.66 MB, 6978 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 64.8037 seconds 
+Time100 = 64.6537 seconds (2124.66 MB, 6978 rounds)
+Data sent = 2125.94 MB in ~7058 rounds (party 0 only; use '-v' for more details)
+Global data sent = 6375.26 MB (all parties)
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 main -pn 17774 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 main -pn 17774 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 main -pn 17774 -h localhost
+Using statistical security parameter 40
+Trying to run 128-bit computation
+Using array of length 100000
+Starting timer 100 at 0 (0 MB, 0 rounds) after 8.651e-06
+Stopped timer 100 at 80.6115 (2655.66 MB, 7986 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 80.7801 seconds 
+Time100 = 80.6115 seconds (2655.66 MB, 7986 rounds)
+Data sent = 2657.26 MB in ~8086 rounds (party 0 only; use '-v' for more details)
+Global data sent = 7968.59 MB (all parties)
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 main -pn 16961 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 main -pn 16961 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 main -pn 16961 -h localhost
+Using statistical security parameter 40
+Trying to run 128-bit computation
+Using array of length 200000
+Starting timer 100 at 0 (0 MB, 0 rounds) after 8.274e-06
+Stopped timer 100 at 134.843 (5311.32 MB, 13042 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 135.101 seconds 
+Time100 = 134.843 seconds (5311.32 MB, 13042 rounds)
+Data sent = 5314.52 MB in ~13242 rounds (party 0 only; use '-v' for more details)
+Global data sent = 15937.2 MB (all parties)
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 main -pn 16834 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 main -pn 16834 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 main -pn 16834 -h localhost
+Using statistical security parameter 40
+Trying to run 128-bit computation
+Using array of length 400000
+Starting timer 100 at 0 (0 MB, 0 rounds) after 7.98e-06
+Stopped timer 100 at 271.754 (10622.6 MB, 23154 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 272.236 seconds 
+Time100 = 271.754 seconds (10622.6 MB, 23154 rounds)
+Data sent = 10629 MB in ~23554 rounds (party 0 only; use '-v' for more details)
+Global data sent = 31874.3 MB (all parties)
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 main -pn 14018 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 main -pn 14018 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 main -pn 14018 -h localhost
+Using statistical security parameter 40
+Trying to run 128-bit computation
+Using array of length 600000
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.0006e-05
+Stopped timer 100 at 436.93 (15933.9 MB, 33266 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 437.7 seconds 
+Time100 = 436.93 seconds (15933.9 MB, 33266 rounds)
+Data sent = 15943.5 MB in ~33866 rounds (party 0 only; use '-v' for more details)
+Global data sent = 47811.4 MB (all parties)
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 main -pn 19412 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 main -pn 19412 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 main -pn 19412 -h localhost
+Using statistical security parameter 40
+Trying to run 128-bit computation
+Using array of length 800000
+Starting timer 100 at 0 (0 MB, 0 rounds) after 7.069e-06
+Stopped timer 100 at 557.406 (21245.3 MB, 43378 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 558.46 seconds 
+Time100 = 557.406 seconds (21245.3 MB, 43378 rounds)
+Data sent = 21258.1 MB in ~44178 rounds (party 0 only; use '-v' for more details)
+Global data sent = 63748.6 MB (all parties)
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 main -pn 14688 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 main -pn 14688 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 main -pn 14688 -h localhost
+Using statistical security parameter 40
+Trying to run 128-bit computation
+Using array of length 1000000
+Starting timer 100 at 0 (0 MB, 0 rounds) after 6.818e-06
+Stopped timer 100 at 729.175 (26556.6 MB, 53490 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 730.512 seconds 
+Time100 = 729.175 seconds (26556.6 MB, 53490 rounds)
+Data sent = 26572.6 MB in ~54490 rounds (party 0 only; use '-v' for more details)
+Global data sent = 79685.7 MB (all parties)
