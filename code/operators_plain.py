@@ -110,40 +110,14 @@ def sort_merge_join(
             while left[i][l_key] > right[j][l_key]:
                 j += 1
             mark = j
-        if left[i][l_key] == right[j][l_key] and condition(left[i], right[j]):
-            result.append([left[i], right[j]])
+        if left[i][l_key] == right[j][l_key]:
+            if condition(left[i], right[j]):
+                result.append(left[i] + right[j] + [1])
             j += 1
         else:
             j = mark
             i += 1
             mark = None
-
-    # while i < len(left) and j < len(right):
-    #     current_key_left = left[i][l_key]
-    #     current_key_right = right[j][l_key]
-        
-    #     if current_key_left < current_key_right:
-    #         i += 1
-    #     elif current_key_left > current_key_right:
-    #         j += 1
-    #     else:
-    #         # Merge all matching pairs directly
-    #         original_i = i
-    #         original_j = j
-            
-    #         while i < len(left) and left[i][l_key] == current_key_left:
-    #             while j < len(right) and right[j][l_key] == current_key_right:
-    #                 result.append(left[i] + right[j])
-    #                 j += 1
-    #             i += 1
-    #             j = original_j
-            
-    #         j = original_j
-    #         while j < len(right) and right[j][l_key] == current_key_right:
-    #             j += 1
-            
-    #         i = original_i
-
     return result
 
 def select_distinct(
