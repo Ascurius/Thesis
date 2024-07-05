@@ -49,14 +49,17 @@ def sort_merge_join(
         left: sint.Matrix, 
         right: sint.Matrix, 
         l_key: int, 
-        r_key: int
+        r_key: int,
+        condition: Callable[[sint.Array, sint.Array], bool] = lambda left, right: True
     ) -> sint.Matrix:
+    start_timer(1000)
     left.sort((l_key,))
     right.sort((r_key))
+    stop_timer(1000)
 
     result = sint.Matrix(
         rows=left.shape[0]*right.shape[0],
-        columns=left.shape[1] + right.shape[1]
+        columns=left.shape[1] + right.shape[1] + 1
     )
     result.assign_all(0)
 
@@ -84,13 +87,14 @@ def sort_merge_join(
             def _():
                 j.update(j+1)
             mark.update(j)
-        @if_e(
-            (left[i][l_key] == right[j][l_key]).if_else(1,0).reveal()
-        )
+        @if_e((left[i][l_key] == right[j][l_key]).if_else(1,0).reveal())
         def _():
-            result[cnt] = left[i].concat(right[j])
+            @if_(condition(left[i], right[j]).reveal())
+            def _():
+                rel = sint.Array(1).create_from(sint(1))
+                result[cnt] = left[i].concat(right[j].concat(rel))
+                cnt.update(cnt+1)
             j.update(j+1)
-            cnt.update(cnt+1)
         @else_
         def _():
             j.update(mark)

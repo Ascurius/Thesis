@@ -74,6 +74,7 @@ def hash_join(left, right, left_key, right_key, condition = lambda left, right: 
         secure_hash = r_row[right_key]
         for l_row in hash_map[secure_hash]:
             if condition(l_row, r_row):
+                print(l_row, r_row)
                 result.append(l_row + r_row)
     
     return result

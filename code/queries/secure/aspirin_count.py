@@ -27,29 +27,61 @@ def select_distinct(
         prev_value.update(new_value)
     return result
 
-def join_nested_loop(
+def sort_merge_join(
         left: sint.Matrix, 
         right: sint.Matrix, 
-        left_key: int, 
-        right_key: int,
+        l_key: int, 
+        r_key: int,
         condition: Callable[[sint.Array, sint.Array], bool] = lambda left, right: True
     ) -> sint.Matrix:
+    start_timer(1000)
+    left.sort((l_key,))
+    right.sort((r_key))
+    stop_timer(1000)
+
     result = sint.Matrix(
-        rows=left.shape[0] * right.shape[0],
+        rows=left.shape[0]*right.shape[0],
         columns=left.shape[1] + right.shape[1] + 1
     )
-    current_idx = regint(0)
-    @for_range_opt(left.shape[0])
-    def _(left_row):
-        @for_range_opt(right.shape[0])
-        def _(right_row):
-            new_row = left[left_row].concat(right[right_row])
-            result[current_idx].assign(new_row)
-            result[current_idx][-1] = (
-                (left[left_row][left_key] == right[right_row][right_key]) &
-                condition(left[left_row], right[right_row])
-            ).if_else(sint(1),sint(0))
-            current_idx.update(current_idx + regint(1))
+    result.assign_all(0)
+
+    i = regint(0)
+    j = regint(0)
+    mark = regint(-1)
+    cnt = regint(0)
+
+    @while_do(lambda: (i < left.shape[0]) & (j < right.shape[0]+1))
+    def _():
+        @if_(j >= right.shape[0])
+        def _():
+            j.update(mark)
+            i.update(i+1)
+            mark.update(-1)
+            @if_(i >= len(left))
+            def _():
+                break_loop()
+        @if_(mark == -1)
+        def _():
+            @while_do(lambda: (left[i][l_key] < right[j][l_key]).if_else(1,0).reveal())
+            def _():
+                i.update(i+1)
+            @while_do(lambda: (left[i][l_key] > right[j][l_key]).if_else(1,0).reveal())
+            def _():
+                j.update(j+1)
+            mark.update(j)
+        @if_e((left[i][l_key] == right[j][l_key]).if_else(1,0).reveal())
+        def _():
+            @if_(condition(left[i], right[j]).reveal())
+            def _():
+                rel = sint.Array(1).create_from(sint(1))
+                result[cnt] = left[i].concat(right[j].concat(rel))
+                cnt.update(cnt+1)
+            j.update(j+1)
+        @else_
+        def _():
+            j.update(mark)
+            i.update(i+1)
+            mark.update(-1)
     return result
 
 def where(matrix: sint.Matrix, key: int, value: int) -> sint.Matrix:
