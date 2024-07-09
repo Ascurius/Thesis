@@ -1,3 +1,6 @@
+####################
+### nested-loop join-nn
+####################
 Starting cmd=numactl --membind=0 --cpunodebind=0 -- measurements/measure_secure.sh cdiff
 Running performance test for secure query: cdiff
 Generating test data...
@@ -391,3 +394,852 @@ This program might benefit from some protocol options.
 Consider adding the following at the beginning of your code:
 	program.use_split(3)
 Done
+####################
+### sort-merge join-nn
+####################
+Starting cmd=numactl --membind=0 --cpunodebind=0 -- measurements/measure_secure.sh cdiff
+Running performance test for secure query: cdiff
+Generating test data...
+Measure performance for 100 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 cdiff -pn 13874 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 cdiff -pn 13874 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 cdiff -pn 13874 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing cdiff with 100 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 5.461e-06
+Stopped timer 10 at 0.000481631 (0.0104 MB, 2 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.346e-06
+Stopped timer 100 at 0.00487467 (0.1308 MB, 60 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.47e-06
+Stopped timer 200 at 0.0729274 (1.42301 MB, 2376 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.583e-06
+Stopped timer 300 at 0.0930481 (1.14882 MB, 3113 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.653e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 1.033e-06
+Stopped timer 1000 at 0.0934926 (1.85691 MB, 3056 rounds)
+Stopped timer 400 at 1.36701 (11.0654 MB, 44797 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.875e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.202e-06
+Stopped timer 600 at 0.843492 (96.0297 MB, 1858 rounds)
+Stopped timer 500 at 6.64901 (146.795 MB, 193110 rounds)
+10
+The following benchmarks are including preprocessing (offline phase).
+Time = 10.5397 seconds 
+Time10 = 0.000481631 seconds (0.0104 MB, 2 rounds)
+Time100 = 0.00487467 seconds (0.1308 MB, 60 rounds)
+Time200 = 0.0729274 seconds (1.42301 MB, 2376 rounds)
+Time300 = 0.0930481 seconds (1.14882 MB, 3113 rounds)
+Time400 = 1.36701 seconds (11.0654 MB, 44797 rounds)
+Time500 = 6.64901 seconds (146.795 MB, 193110 rounds)
+Time600 = 0.843492 seconds (96.0297 MB, 1858 rounds)
+Time1000 = 0.0934926 seconds (1.85691 MB, 3056 rounds)
+Data sent = 170.758 MB in ~323711 rounds (party 0 only; use '-v' for more details)
+Global data sent = 512.255 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 200 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 cdiff -pn 19585 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 cdiff -pn 19585 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 cdiff -pn 19585 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing cdiff with 200 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 5.547e-06
+Stopped timer 10 at 0.000858146 (0.0208 MB, 3 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.322e-06
+Stopped timer 100 at 0.00803011 (0.2616 MB, 120 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.538e-06
+Stopped timer 200 at 0.0837534 (2.83941 MB, 2380 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.453e-06
+Stopped timer 300 at 0.148521 (2.21402 MB, 4717 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.692e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 1.019e-06
+Stopped timer 1000 at 0.111252 (3.78571 MB, 3064 rounds)
+Stopped timer 400 at 4.55798 (37.1315 MB, 152687 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 2.106e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.038e-06
+Stopped timer 600 at 3.36558 (384.025 MB, 2610 rounds)
+Stopped timer 500 at 26.5483 (587.247 MB, 767626 rounds)
+10
+The following benchmarks are including preprocessing (offline phase).
+Time = 40.5048 seconds 
+Time10 = 0.000858146 seconds (0.0208 MB, 3 rounds)
+Time100 = 0.00803011 seconds (0.2616 MB, 120 rounds)
+Time200 = 0.0837534 seconds (2.83941 MB, 2380 rounds)
+Time300 = 0.148521 seconds (2.21402 MB, 4717 rounds)
+Time400 = 4.55798 seconds (37.1315 MB, 152687 rounds)
+Time500 = 26.5483 seconds (587.247 MB, 767626 rounds)
+Time600 = 3.36558 seconds (384.025 MB, 2610 rounds)
+Time1000 = 0.111252 seconds (3.78571 MB, 3064 rounds)
+Data sent = 670.374 MB in ~1248538 rounds (party 0 only; use '-v' for more details)
+Global data sent = 2011.08 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 300 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 cdiff -pn 12175 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 cdiff -pn 12175 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 cdiff -pn 12175 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing cdiff with 300 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 4.917e-06
+Stopped timer 10 at 0.00114092 (0.0312 MB, 4 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.204e-06
+Stopped timer 100 at 0.0107828 (0.312 MB, 176 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.6e-06
+Stopped timer 200 at 0.0987321 (4.25581 MB, 2384 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.486e-06
+Stopped timer 300 at 0.212878 (3.44002 MB, 6329 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.642e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 1.071e-06
+Stopped timer 1000 at 0.123764 (5.63411 MB, 3068 rounds)
+Stopped timer 400 at 9.93025 (79.1942 MB, 331579 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.795e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.063e-06
+Stopped timer 600 at 7.56838 (864.071 MB, 3866 rounds)
+Stopped timer 500 at 59.6006 (1321.28 MB, 1725150 rounds)
+10
+The following benchmarks are including preprocessing (offline phase).
+Time = 90.6796 seconds 
+Time10 = 0.00114092 seconds (0.0312 MB, 4 rounds)
+Time100 = 0.0107828 seconds (0.312 MB, 176 rounds)
+Time200 = 0.0987321 seconds (4.25581 MB, 2384 rounds)
+Time300 = 0.212878 seconds (3.44002 MB, 6329 rounds)
+Time400 = 9.93025 seconds (79.1942 MB, 331579 rounds)
+Time500 = 59.6006 seconds (1321.28 MB, 1725150 rounds)
+Time600 = 7.56838 seconds (864.071 MB, 3866 rounds)
+Time1000 = 0.123764 seconds (5.63411 MB, 3068 rounds)
+Data sent = 1499.94 MB in ~2787879 rounds (party 0 only; use '-v' for more details)
+Global data sent = 4499.75 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 400 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 cdiff -pn 11490 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 cdiff -pn 11490 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 cdiff -pn 11490 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing cdiff with 400 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 4.367e-06
+Stopped timer 10 at 0.00158082 (0.0416 MB, 6 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.039e-06
+Stopped timer 100 at 0.0130396 (0.4428 MB, 229 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.418e-06
+Stopped timer 200 at 0.106763 (5.67221 MB, 2388 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.574e-06
+Stopped timer 300 at 0.264831 (4.58562 MB, 7937 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.468e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 9.71e-07
+Stopped timer 1000 at 0.13903 (7.48251 MB, 3072 rounds)
+Stopped timer 400 at 16.9008 (138.333 MB, 585767 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 2.222e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.174e-06
+Stopped timer 600 at 13.8547 (1536.01 MB, 5618 rounds)
+Stopped timer 500 at 105.179 (2348.89 MB, 3065682 rounds)
+10
+The following benchmarks are including preprocessing (offline phase).
+Time = 158.87 seconds 
+Time10 = 0.00158082 seconds (0.0416 MB, 6 rounds)
+Time100 = 0.0130396 seconds (0.4428 MB, 229 rounds)
+Time200 = 0.106763 seconds (5.67221 MB, 2388 rounds)
+Time300 = 0.264831 seconds (4.58562 MB, 7937 rounds)
+Time400 = 16.9008 seconds (138.333 MB, 585767 rounds)
+Time500 = 105.179 seconds (2348.89 MB, 3065682 rounds)
+Time600 = 13.8547 seconds (1536.01 MB, 5618 rounds)
+Time1000 = 0.13903 seconds (7.48251 MB, 3072 rounds)
+Data sent = 2660.53 MB in ~4946022 rounds (party 0 only; use '-v' for more details)
+Global data sent = 7981.5 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 500 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 cdiff -pn 10874 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 cdiff -pn 10874 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 cdiff -pn 10874 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing cdiff with 500 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 8.001e-06
+Stopped timer 10 at 0.00188693 (0.052 MB, 7 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.29e-06
+Stopped timer 100 at 0.0166667 (0.5736 MB, 289 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.541e-06
+Stopped timer 200 at 0.123027 (7.08861 MB, 2392 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.675e-06
+Stopped timer 300 at 0.320112 (5.65082 MB, 9541 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.508e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 1.026e-06
+Stopped timer 1000 at 0.154744 (9.33091 MB, 3076 rounds)
+Stopped timer 400 at 27.2039 (213.795 MB, 912106 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.787e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.118e-06
+Stopped timer 600 at 21.3405 (2400.07 MB, 7878 rounds)
+Stopped timer 500 at 165.348 (3670.17 MB, 4789226 rounds)
+10
+The following benchmarks are including preprocessing (offline phase).
+Time = 251.125 seconds 
+Time10 = 0.00188693 seconds (0.052 MB, 7 rounds)
+Time100 = 0.0166667 seconds (0.5736 MB, 289 rounds)
+Time200 = 0.123027 seconds (7.08861 MB, 2392 rounds)
+Time300 = 0.320112 seconds (5.65082 MB, 9541 rounds)
+Time400 = 27.2039 seconds (213.795 MB, 912106 rounds)
+Time500 = 165.348 seconds (3670.17 MB, 4789226 rounds)
+Time600 = 21.3405 seconds (2400.07 MB, 7878 rounds)
+Time1000 = 0.154744 seconds (9.33091 MB, 3076 rounds)
+Data sent = 4151.39 MB in ~7719834 rounds (party 0 only; use '-v' for more details)
+Global data sent = 12454.1 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 600 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 cdiff -pn 12502 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 cdiff -pn 12502 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 cdiff -pn 12502 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing cdiff with 600 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 7.212e-06
+Stopped timer 10 at 0.00210055 (0.0624 MB, 8 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 9.45e-07
+Stopped timer 100 at 0.0199165 (0.624 MB, 345 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 2.027e-06
+Stopped timer 200 at 0.132498 (8.50501 MB, 2396 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.562e-06
+Stopped timer 300 at 0.359651 (6.87682 MB, 11153 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.705e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 9.54e-07
+Stopped timer 1000 at 0.159149 (11.1793 MB, 3080 rounds)
+Stopped timer 400 at 38.6922 (304.557 MB, 1306164 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 2.038e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.138e-06
+Stopped timer 600 at 35.6115 (3456.03 MB, 10634 rounds)
+Stopped timer 500 at 239.119 (5285.02 MB, 6895778 rounds)
+10
+The following benchmarks are including preprocessing (offline phase).
+Time = 361.574 seconds 
+Time10 = 0.00210055 seconds (0.0624 MB, 8 rounds)
+Time100 = 0.0199165 seconds (0.624 MB, 345 rounds)
+Time200 = 0.132498 seconds (8.50501 MB, 2396 rounds)
+Time300 = 0.359651 seconds (6.87682 MB, 11153 rounds)
+Time400 = 38.6922 seconds (304.557 MB, 1306164 rounds)
+Time500 = 239.119 seconds (5285.02 MB, 6895778 rounds)
+Time600 = 35.6115 seconds (3456.03 MB, 10634 rounds)
+Time1000 = 0.159149 seconds (11.1793 MB, 3080 rounds)
+Data sent = 5971.43 MB in ~11104873 rounds (party 0 only; use '-v' for more details)
+Global data sent = 17914.2 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 700 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 cdiff -pn 15790 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 cdiff -pn 15790 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 cdiff -pn 15790 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing cdiff with 700 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 4.595e-06
+Stopped timer 10 at 0.00273703 (0.0728 MB, 10 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.247e-06
+Stopped timer 100 at 0.0211333 (0.7548 MB, 398 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.436e-06
+Stopped timer 200 at 0.147694 (9.92141 MB, 2400 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.638e-06
+Stopped timer 300 at 0.429354 (7.94202 MB, 12757 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.487e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 9.22e-07
+Stopped timer 1000 at 0.177366 (13.1081 MB, 3088 rounds)
+Stopped timer 400 at 53.9723 (410.336 MB, 1766452 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 2.103e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.054e-06
+Stopped timer 600 at 51.5457 (4704.11 MB, 13898 rounds)
+Stopped timer 500 at 345.579 (7193.54 MB, 9385342 rounds)
+9
+The following benchmarks are including preprocessing (offline phase).
+Time = 514.504 seconds 
+Time10 = 0.00273703 seconds (0.0728 MB, 10 rounds)
+Time100 = 0.0211333 seconds (0.7548 MB, 398 rounds)
+Time200 = 0.147694 seconds (9.92141 MB, 2400 rounds)
+Time300 = 0.429354 seconds (7.94202 MB, 12757 rounds)
+Time400 = 53.9723 seconds (410.336 MB, 1766452 rounds)
+Time500 = 345.579 seconds (7193.54 MB, 9385342 rounds)
+Time600 = 51.5457 seconds (4704.11 MB, 13898 rounds)
+Time1000 = 0.177366 seconds (13.1081 MB, 3088 rounds)
+Data sent = 8120.43 MB in ~15099648 rounds (party 0 only; use '-v' for more details)
+Global data sent = 24361.2 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 800 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 cdiff -pn 11000 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 cdiff -pn 11000 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 cdiff -pn 11000 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing cdiff with 800 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 4.825e-06
+Stopped timer 10 at 0.0030721 (0.0832 MB, 11 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.261e-06
+Stopped timer 100 at 0.0248599 (0.8856 MB, 458 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.627e-06
+Stopped timer 200 at 0.164628 (11.2574 MB, 2400 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.827e-06
+Stopped timer 300 at 0.498824 (9.16802 MB, 14369 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.675e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 1.046e-06
+Stopped timer 1000 at 0.206839 (14.9565 MB, 3092 rounds)
+Stopped timer 400 at 68.3824 (533.736 MB, 2304791 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.768e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.056e-06
+Stopped timer 600 at 66.5897 (6144.09 MB, 17658 rounds)
+Stopped timer 500 at 434.953 (9395.64 MB, 12257914 rounds)
+9
+The following benchmarks are including preprocessing (offline phase).
+Time = 650.965 seconds 
+Time10 = 0.0030721 seconds (0.0832 MB, 11 rounds)
+Time100 = 0.0248599 seconds (0.8856 MB, 458 rounds)
+Time200 = 0.164628 seconds (11.2574 MB, 2400 rounds)
+Time300 = 0.498824 seconds (9.16802 MB, 14369 rounds)
+Time400 = 68.3824 seconds (533.736 MB, 2304791 rounds)
+Time500 = 434.953 seconds (9395.64 MB, 12257914 rounds)
+Time600 = 66.5897 seconds (6144.09 MB, 17658 rounds)
+Time1000 = 0.206839 seconds (14.9565 MB, 3092 rounds)
+Data sent = 10601 MB in ~19715992 rounds (party 0 only; use '-v' for more details)
+Global data sent = 31802.9 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 900 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 cdiff -pn 13584 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 cdiff -pn 13584 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 cdiff -pn 13584 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing cdiff with 900 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 5.295e-06
+Stopped timer 10 at 0.00298243 (0.0936 MB, 12 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.045e-06
+Stopped timer 100 at 0.0262383 (0.936 MB, 514 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.489e-06
+Stopped timer 200 at 0.17065 (12.7542 MB, 2408 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.599e-06
+Stopped timer 300 at 0.557016 (10.2332 MB, 15973 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 2.221e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 1.553e-06
+Stopped timer 1000 at 0.224836 (16.8049 MB, 3096 rounds)
+Stopped timer 400 at 86.0217 (671.276 MB, 2905356 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 2.556e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.175e-06
+Stopped timer 600 at 84.0924 (7776.12 MB, 21922 rounds)
+Stopped timer 500 at 549.158 (11891.3 MB, 15513494 rounds)
+7
+The following benchmarks are including preprocessing (offline phase).
+Time = 823.76 seconds 
+Time10 = 0.00298243 seconds (0.0936 MB, 12 rounds)
+Time100 = 0.0262383 seconds (0.936 MB, 514 rounds)
+Time200 = 0.17065 seconds (12.7542 MB, 2408 rounds)
+Time300 = 0.557016 seconds (10.2332 MB, 15973 rounds)
+Time400 = 86.0217 seconds (671.276 MB, 2905356 rounds)
+Time500 = 549.158 seconds (11891.3 MB, 15513494 rounds)
+Time600 = 84.0924 seconds (7776.12 MB, 21922 rounds)
+Time1000 = 0.224836 seconds (16.8049 MB, 3096 rounds)
+Data sent = 13409.7 MB in ~24938074 rounds (party 0 only; use '-v' for more details)
+Global data sent = 40228.8 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 1000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 cdiff -pn 16880 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 cdiff -pn 16880 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 cdiff -pn 16880 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing cdiff with 1000 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 7.955e-06
+Stopped timer 10 at 0.00338086 (0.104 MB, 13 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.071e-06
+Stopped timer 100 at 0.0409558 (1.0668 MB, 567 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.612e-06
+Stopped timer 200 at 0.182752 (14.1706 MB, 2412 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.648e-06
+Stopped timer 300 at 0.594864 (11.3788 MB, 17581 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.793e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 9.99e-07
+Stopped timer 1000 at 0.235043 (18.6533 MB, 3100 rounds)
+Stopped timer 400 at 106.657 (826.025 MB, 3582195 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.857e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.151e-06
+Stopped timer 600 at 103.034 (9600.11 MB, 26686 rounds)
+Stopped timer 500 at 673.846 (14680.6 MB, 19152082 rounds)
+6
+The following benchmarks are including preprocessing (offline phase).
+Time = 1012.73 seconds 
+Time10 = 0.00338086 seconds (0.104 MB, 13 rounds)
+Time100 = 0.0409558 seconds (1.0668 MB, 567 rounds)
+Time200 = 0.182752 seconds (14.1706 MB, 2412 rounds)
+Time300 = 0.594864 seconds (11.3788 MB, 17581 rounds)
+Time400 = 106.657 seconds (826.025 MB, 3582195 rounds)
+Time500 = 673.846 seconds (14680.6 MB, 19152082 rounds)
+Time600 = 103.034 seconds (9600.11 MB, 26686 rounds)
+Time1000 = 0.235043 seconds (18.6533 MB, 3100 rounds)
+Data sent = 16549.4 MB in ~30779931 rounds (party 0 only; use '-v' for more details)
+Global data sent = 49648.1 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 1100 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 cdiff -pn 15976 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 cdiff -pn 15976 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 cdiff -pn 15976 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing cdiff with 1100 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 5.722e-06
+Stopped timer 10 at 0.00362067 (0.1144 MB, 15 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.007e-06
+Stopped timer 100 at 0.0312916 (1.1172 MB, 623 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.502e-06
+Stopped timer 200 at 0.195843 (15.587 MB, 2416 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.712e-06
+Stopped timer 300 at 0.647857 (12.5244 MB, 19189 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.449e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 9.41e-07
+Stopped timer 1000 at 0.240687 (20.5821 MB, 3108 rounds)
+Stopped timer 400 at 126.457 (996.99 MB, 4330415 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.887e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 9.94e-07
+Stopped timer 600 at 126.838 (11616.1 MB, 31950 rounds)
+Stopped timer 500 at 822.118 (17763.5 MB, 23173682 rounds)
+6
+The following benchmarks are including preprocessing (offline phase).
+Time = 1229.74 seconds 
+Time10 = 0.00362067 seconds (0.1144 MB, 15 rounds)
+Time100 = 0.0312916 seconds (1.1172 MB, 623 rounds)
+Time200 = 0.195843 seconds (15.587 MB, 2416 rounds)
+Time300 = 0.647857 seconds (12.5244 MB, 19189 rounds)
+Time400 = 126.457 seconds (996.99 MB, 4330415 rounds)
+Time500 = 822.118 seconds (17763.5 MB, 23173682 rounds)
+Time600 = 126.838 seconds (11616.1 MB, 31950 rounds)
+Time1000 = 0.240687 seconds (20.5821 MB, 3108 rounds)
+Data sent = 20019.3 MB in ~37236689 rounds (party 0 only; use '-v' for more details)
+Global data sent = 60057.8 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 1200 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 cdiff -pn 19983 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 cdiff -pn 19983 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 cdiff -pn 19983 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing cdiff with 1200 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 5.707e-06
+Stopped timer 10 at 0.0039342 (0.1248 MB, 16 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.119e-06
+Stopped timer 100 at 0.0342756 (1.248 MB, 683 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.368e-06
+Stopped timer 200 at 0.207743 (17.0034 MB, 2420 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.568e-06
+Stopped timer 300 at 0.704616 (13.67 MB, 20797 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.706e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 1.083e-06
+Stopped timer 1000 at 0.266824 (22.4305 MB, 3112 rounds)
+Stopped timer 400 at 149.681 (1182.22 MB, 5142342 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.74e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.077e-06
+Stopped timer 600 at 147.1 (13824.2 MB, 37722 rounds)
+Stopped timer 500 at 966.014 (21140.1 MB, 27578294 rounds)
+4
+The following benchmarks are including preprocessing (offline phase).
+Time = 1448.71 seconds 
+Time10 = 0.0039342 seconds (0.1248 MB, 16 rounds)
+Time100 = 0.0342756 seconds (1.248 MB, 683 rounds)
+Time200 = 0.207743 seconds (17.0034 MB, 2420 rounds)
+Time300 = 0.704616 seconds (13.67 MB, 20797 rounds)
+Time400 = 149.681 seconds (1182.22 MB, 5142342 rounds)
+Time500 = 966.014 seconds (21140.1 MB, 27578294 rounds)
+Time600 = 147.1 seconds (13824.2 MB, 37722 rounds)
+Time1000 = 0.266824 seconds (22.4305 MB, 3112 rounds)
+Data sent = 23817.6 MB in ~44300669 rounds (party 0 only; use '-v' for more details)
+Global data sent = 71452.4 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 1300 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 cdiff -pn 19483 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 cdiff -pn 19483 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 cdiff -pn 19483 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing cdiff with 1300 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 4.87e-06
+Stopped timer 10 at 0.0041801 (0.1352 MB, 17 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.141e-06
+Stopped timer 100 at 0.0366892 (1.3788 MB, 736 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.445e-06
+Stopped timer 200 at 0.219507 (18.4198 MB, 2424 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.648e-06
+Stopped timer 300 at 0.755315 (14.7352 MB, 22401 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.56e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 1.073e-06
+Stopped timer 1000 at 0.278639 (24.2789 MB, 3116 rounds)
+Stopped timer 400 at 176.517 (1384.99 MB, 6031172 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.831e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.034e-06
+Stopped timer 600 at 176.563 (16224.2 MB, 43990 rounds)
+Stopped timer 500 at 1138.39 (24810.2 MB, 32365914 rounds)
+1
+The following benchmarks are including preprocessing (offline phase).
+Time = 1704.04 seconds 
+Time10 = 0.0041801 seconds (0.1352 MB, 17 rounds)
+Time100 = 0.0366892 seconds (1.3788 MB, 736 rounds)
+Time200 = 0.219507 seconds (18.4198 MB, 2424 rounds)
+Time300 = 0.755315 seconds (14.7352 MB, 22401 rounds)
+Time400 = 176.517 seconds (1384.99 MB, 6031172 rounds)
+Time500 = 1138.39 seconds (24810.2 MB, 32365914 rounds)
+Time600 = 176.563 seconds (16224.2 MB, 43990 rounds)
+Time1000 = 0.278639 seconds (24.2789 MB, 3116 rounds)
+Data sent = 27947.1 MB in ~51985049 rounds (party 0 only; use '-v' for more details)
+Global data sent = 83841 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 1400 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 cdiff -pn 14647 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 cdiff -pn 14647 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 cdiff -pn 14647 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing cdiff with 1400 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 5.765e-06
+Stopped timer 10 at 0.00447591 (0.1456 MB, 19 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.02e-06
+Stopped timer 100 at 0.0394039 (1.4292 MB, 792 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.364e-06
+Stopped timer 200 at 0.23315 (19.8362 MB, 2428 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.638e-06
+Stopped timer 300 at 0.819748 (15.9612 MB, 24013 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.82e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 1.051e-06
+Stopped timer 1000 at 0.29848 (26.1273 MB, 3120 rounds)
+Stopped timer 400 at 205.946 (1603.62 MB, 6990563 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.847e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.158e-06
+Stopped timer 600 at 206.972 (18816.2 MB, 50762 rounds)
+Stopped timer 500 at 1331.3 (28774 MB, 37536542 rounds)
+1
+The following benchmarks are including preprocessing (offline phase).
+Time = 1993.15 seconds 
+Time10 = 0.00447591 seconds (0.1456 MB, 19 rounds)
+Time100 = 0.0394039 seconds (1.4292 MB, 792 rounds)
+Time200 = 0.23315 seconds (19.8362 MB, 2428 rounds)
+Time300 = 0.819748 seconds (15.9612 MB, 24013 rounds)
+Time400 = 205.946 seconds (1603.62 MB, 6990563 rounds)
+Time500 = 1331.3 seconds (28774 MB, 37536542 rounds)
+Time600 = 206.972 seconds (18816.2 MB, 50762 rounds)
+Time1000 = 0.29848 seconds (26.1273 MB, 3120 rounds)
+Data sent = 32406.5 MB in ~60283514 rounds (party 0 only; use '-v' for more details)
+Global data sent = 97219.3 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 1500 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 cdiff -pn 13149 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 cdiff -pn 13149 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 cdiff -pn 13149 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing cdiff with 1500 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 7.732e-06
+Stopped timer 10 at 0.00450591 (0.156 MB, 20 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.046e-06
+Stopped timer 100 at 0.0539318 (1.56 MB, 852 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.491e-06
+Stopped timer 200 at 0.244852 (21.2526 MB, 2432 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.724e-06
+Stopped timer 300 at 0.868712 (17.0264 MB, 25617 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.663e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 1.043e-06
+Stopped timer 1000 at 0.316643 (28.0561 MB, 3128 rounds)
+Stopped timer 400 at 233.361 (1839.37 MB, 8024940 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.734e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.051e-06
+Stopped timer 600 at 262.167 (21600.2 MB, 58034 rounds)
+Stopped timer 500 at 1553.23 (33031.3 MB, 43090178 rounds)
+1
+The following benchmarks are including preprocessing (offline phase).
+Time = 2307.81 seconds 
+Time10 = 0.00450591 seconds (0.156 MB, 20 rounds)
+Time100 = 0.0539318 seconds (1.56 MB, 852 rounds)
+Time200 = 0.244852 seconds (21.2526 MB, 2432 rounds)
+Time300 = 0.868712 seconds (17.0264 MB, 25617 rounds)
+Time400 = 233.361 seconds (1839.37 MB, 8024940 rounds)
+Time500 = 1553.23 seconds (33031.3 MB, 43090178 rounds)
+Time600 = 262.167 seconds (21600.2 MB, 58034 rounds)
+Time1000 = 0.316643 seconds (28.0561 MB, 3128 rounds)
+Data sent = 37196.9 MB in ~69200472 rounds (party 0 only; use '-v' for more details)
+Global data sent = 111591 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 1600 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 cdiff -pn 19034 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 cdiff -pn 19034 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 cdiff -pn 19034 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing cdiff with 1600 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 7.169e-06
+Stopped timer 10 at 0.00512454 (0.1664 MB, 21 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.294e-06
+Stopped timer 100 at 0.0454202 (1.6908 MB, 912 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.432e-06
+Stopped timer 200 at 0.2554 (22.5886 MB, 2432 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.59e-06
+Stopped timer 300 at 0.927951 (18.2524 MB, 27229 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.883e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 1.106e-06
+Stopped timer 1000 at 0.329265 (29.9045 MB, 3132 rounds)
+Stopped timer 400 at 269.861 (2087.74 MB, 9115871 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.931e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.128e-06
+Stopped timer 600 at 293.827 (24576.3 MB, 65810 rounds)
+Stopped timer 500 at 1757.18 (37582.4 MB, 49026830 rounds)
+1
+The following benchmarks are including preprocessing (offline phase).
+Time = 2618.45 seconds 
+Time10 = 0.00512454 seconds (0.1664 MB, 21 rounds)
+Time100 = 0.0454202 seconds (1.6908 MB, 912 rounds)
+Time200 = 0.2554 seconds (22.5886 MB, 2432 rounds)
+Time300 = 0.927951 seconds (18.2524 MB, 27229 rounds)
+Time400 = 269.861 seconds (2087.74 MB, 9115871 rounds)
+Time500 = 1757.18 seconds (37582.4 MB, 49026830 rounds)
+Time600 = 293.827 seconds (24576.3 MB, 65810 rounds)
+Time1000 = 0.329265 seconds (29.9045 MB, 3132 rounds)
+Data sent = 42314 MB in ~78717500 rounds (party 0 only; use '-v' for more details)
+Global data sent = 126942 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 1700 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 cdiff -pn 14281 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 cdiff -pn 14281 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 cdiff -pn 14281 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing cdiff with 1700 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 9.032e-06
+Stopped timer 10 at 0.00489676 (0.1768 MB, 23 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.47e-06
+Stopped timer 100 at 0.0905064 (1.7412 MB, 961 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.593e-06
+Stopped timer 200 at 0.271405 (24.0854 MB, 2440 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.612e-06
+Stopped timer 300 at 0.989676 (19.3176 MB, 28833 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.611e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 1.066e-06
+Stopped timer 1000 at 0.344674 (31.7529 MB, 3136 rounds)
+Stopped timer 400 at 299.639 (2353.25 MB, 10282028 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.766e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 9.82e-07
+Stopped timer 600 at 328.963 (27744.3 MB, 74086 rounds)
+Stopped timer 500 at 1975.13 (42426.9 MB, 55346486 rounds)
+1
+The following benchmarks are including preprocessing (offline phase).
+Time = 2940.54 seconds 
+Time10 = 0.00489676 seconds (0.1768 MB, 23 rounds)
+Time100 = 0.0905064 seconds (1.7412 MB, 961 rounds)
+Time200 = 0.271405 seconds (24.0854 MB, 2440 rounds)
+Time300 = 0.989676 seconds (19.3176 MB, 28833 rounds)
+Time400 = 299.639 seconds (2353.25 MB, 10282028 rounds)
+Time500 = 1975.13 seconds (42426.9 MB, 55346486 rounds)
+Time600 = 328.963 seconds (27744.3 MB, 74086 rounds)
+Time1000 = 0.344674 seconds (31.7529 MB, 3136 rounds)
+Data sent = 47762 MB in ~88853252 rounds (party 0 only; use '-v' for more details)
+Global data sent = 143286 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 1800 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 cdiff -pn 14338 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 cdiff -pn 14338 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 cdiff -pn 14338 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing cdiff with 1800 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 4.638e-06
+Stopped timer 10 at 0.00566578 (0.1872 MB, 24 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.114e-06
+Stopped timer 100 at 0.05076 (1.872 MB, 1021 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.352e-06
+Stopped timer 200 at 0.281213 (25.5018 MB, 2444 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.633e-06
+Stopped timer 300 at 1.03667 (20.4632 MB, 30441 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.667e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 1.073e-06
+Stopped timer 1000 at 0.362466 (33.6013 MB, 3140 rounds)
+Stopped timer 400 at 338.109 (2632.51 MB, 11509332 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.785e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.026e-06
+Stopped timer 600 at 364.513 (31104.3 MB, 82862 rounds)
+Stopped timer 500 at 2217.42 (47565.2 MB, 62049154 rounds)
+1
+The following benchmarks are including preprocessing (offline phase).
+Time = 3301.07 seconds 
+Time10 = 0.00566578 seconds (0.1872 MB, 24 rounds)
+Time100 = 0.05076 seconds (1.872 MB, 1021 rounds)
+Time200 = 0.281213 seconds (25.5018 MB, 2444 rounds)
+Time300 = 1.03667 seconds (20.4632 MB, 30441 rounds)
+Time400 = 338.109 seconds (2632.51 MB, 11509332 rounds)
+Time500 = 2217.42 seconds (47565.2 MB, 62049154 rounds)
+Time600 = 364.513 seconds (31104.3 MB, 82862 rounds)
+Time1000 = 0.362466 seconds (33.6013 MB, 3140 rounds)
+Data sent = 53537.8 MB in ~99593673 rounds (party 0 only; use '-v' for more details)
+Global data sent = 160613 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 1900 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 cdiff -pn 17005 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 cdiff -pn 17005 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 cdiff -pn 17005 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing cdiff with 1900 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 7.863e-06
+Stopped timer 10 at 0.00577254 (0.1976 MB, 25 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.148e-06
+Stopped timer 100 at 0.0527287 (1.9224 MB, 1077 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.425e-06
+Stopped timer 200 at 0.293492 (26.9182 MB, 2448 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.592e-06
+Stopped timer 300 at 1.09018 (21.6088 MB, 32049 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.643e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 1.015e-06
+Stopped timer 1000 at 0.359123 (35.5301 MB, 3148 rounds)
+Stopped timer 400 at 375.722 (2926.76 MB, 12802739 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 2.853e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.965e-06
+Stopped timer 600 at 403.316 (34656.3 MB, 92142 rounds)
+Stopped timer 500 at 2463.47 (52997 MB, 69134830 rounds)
+1
+The following benchmarks are including preprocessing (offline phase).
+Time = 3673.31 seconds 
+Time10 = 0.00577254 seconds (0.1976 MB, 25 rounds)
+Time100 = 0.0527287 seconds (1.9224 MB, 1077 rounds)
+Time200 = 0.293492 seconds (26.9182 MB, 2448 rounds)
+Time300 = 1.09018 seconds (21.6088 MB, 32049 rounds)
+Time400 = 375.722 seconds (2926.76 MB, 12802739 rounds)
+Time500 = 2463.47 seconds (52997 MB, 69134830 rounds)
+Time600 = 403.316 seconds (34656.3 MB, 92142 rounds)
+Time1000 = 0.359123 seconds (35.5301 MB, 3148 rounds)
+Data sent = 59642.5 MB in ~110943705 rounds (party 0 only; use '-v' for more details)
+Global data sent = 178927 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 2000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 cdiff -pn 12654 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 cdiff -pn 12654 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 cdiff -pn 12654 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing cdiff with 2000 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 5.082e-06
+Stopped timer 10 at 0.00591305 (0.208 MB, 26 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.093e-06
+Stopped timer 100 at 0.0566198 (2.0532 MB, 1130 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.423e-06
+Stopped timer 200 at 0.295794 (28.3346 MB, 2452 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.533e-06
+Stopped timer 300 at 1.12711 (22.7544 MB, 33657 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.695e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 1.045e-06
+Stopped timer 1000 at 0.398235 (37.3785 MB, 3152 rounds)
+Stopped timer 400 at 411.383 (3240.7 MB, 14183203 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.872e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.225e-06
+Stopped timer 600 at 446.246 (38400.4 MB, 101922 rounds)
+Stopped timer 500 at 2727.98 (58722.4 MB, 76603514 rounds)
+1
+The following benchmarks are including preprocessing (offline phase).
+Time = 4063.15 seconds 
+Time10 = 0.00591305 seconds (0.208 MB, 26 rounds)
+Time100 = 0.0566198 seconds (2.0532 MB, 1130 rounds)
+Time200 = 0.295794 seconds (28.3346 MB, 2452 rounds)
+Time300 = 1.12711 seconds (22.7544 MB, 33657 rounds)
+Time400 = 411.383 seconds (3240.7 MB, 14183203 rounds)
+Time500 = 2727.98 seconds (58722.4 MB, 76603514 rounds)
+Time600 = 446.246 seconds (38400.4 MB, 101922 rounds)
+Time1000 = 0.398235 seconds (37.3785 MB, 3152 rounds)
+Data sent = 66080.8 MB in ~122924303 rounds (party 0 only; use '-v' for more details)
+Global data sent = 198242 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+####################
+### sort-merge join-un
+####################
