@@ -1,0 +1,687 @@
+Starting cmd=numactl --membind=0 --cpunodebind=0 -- measurements/measure_secure.sh test
+Running performance test for secure query: test
+Generating test data...
+Measure performance for 100 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 17977 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 17977 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 17977 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Rows: 100
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 3.947e-06
+Stopped timer 1000 at 0.104043 (1.93085 MB, 3040 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 0.185855 seconds 
+Time1000 = 0.104043 seconds (1.93085 MB, 3040 rounds)
+Data sent = 2.25942 MB in ~5385 rounds (party 0 only; use '-v' for more details)
+Global data sent = 6.76785 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 200 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 11677 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 11677 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 11677 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Rows: 200
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 4.028e-06
+Stopped timer 1000 at 0.124955 (3.77285 MB, 3044 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 0.270147 seconds 
+Time1000 = 0.124955 seconds (3.77285 MB, 3044 rounds)
+Data sent = 4.49251 MB in ~7518 rounds (party 0 only; use '-v' for more details)
+Global data sent = 13.4567 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 300 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 15770 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 15770 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 15770 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Rows: 300
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 5.311e-06
+Stopped timer 1000 at 0.139261 (5.61485 MB, 3048 rounds)
+Significant amount of unused dabits of replicated Z2^64 distorting the benchmark. For more accurate benchmarks, consider reducing the batch size with --batch-size.
+The following benchmarks are including preprocessing (offline phase).
+Time = 0.307308 seconds 
+Time1000 = 0.139261 seconds (5.61485 MB, 3048 rounds)
+Data sent = 6.46294 MB in ~7920 rounds (party 0 only; use '-v' for more details)
+Global data sent = 19.3576 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 400 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 13426 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 13426 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 13426 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Rows: 400
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 4.869e-06
+Stopped timer 1000 at 0.156633 (7.53725 MB, 3056 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 0.358006 seconds 
+Time1000 = 0.156633 seconds (7.53725 MB, 3056 rounds)
+Data sent = 8.52368 MB in ~9196 rounds (party 0 only; use '-v' for more details)
+Global data sent = 25.5294 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 500 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 18806 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 18806 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 18806 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Rows: 500
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 3.93e-06
+Stopped timer 1000 at 0.176878 (9.37925 MB, 3060 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 0.42581 seconds 
+Time1000 = 0.176878 seconds (9.37925 MB, 3060 rounds)
+Data sent = 10.5633 MB in ~10300 rounds (party 0 only; use '-v' for more details)
+Global data sent = 31.638 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 600 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 10879 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 10879 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 10879 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Rows: 600
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 3.897e-06
+Stopped timer 1000 at 0.197233 (11.2212 MB, 3064 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 0.521793 seconds 
+Time1000 = 0.197233 seconds (11.2212 MB, 3064 rounds)
+Data sent = 12.7835 MB in ~12322 rounds (party 0 only; use '-v' for more details)
+Global data sent = 38.288 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 700 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 18130 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 18130 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 18130 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Rows: 700
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 4.516e-06
+Stopped timer 1000 at 0.210489 (13.0632 MB, 3068 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 0.657425 seconds 
+Time1000 = 0.210489 seconds (13.0632 MB, 3068 rounds)
+Data sent = 15.2858 MB in ~16230 rounds (party 0 only; use '-v' for more details)
+Global data sent = 45.7847 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 800 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 13087 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 13087 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 13087 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Rows: 800
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 4.007e-06
+Stopped timer 1000 at 0.228773 (14.9856 MB, 3076 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 0.768739 seconds 
+Time1000 = 0.228773 seconds (14.9856 MB, 3076 rounds)
+Data sent = 17.67 MB in ~19836 rounds (party 0 only; use '-v' for more details)
+Global data sent = 52.9269 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 900 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 15437 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 15437 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 15437 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Rows: 900
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 4.4e-06
+Stopped timer 1000 at 0.259257 (16.8276 MB, 3080 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 0.673504 seconds 
+Time1000 = 0.259257 seconds (16.8276 MB, 3080 rounds)
+Data sent = 18.8747 MB in ~15362 rounds (party 0 only; use '-v' for more details)
+Global data sent = 56.5306 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 1000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 15587 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 15587 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 15587 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Rows: 1000
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 4.478e-06
+Stopped timer 1000 at 0.266766 (18.6696 MB, 3084 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 0.931632 seconds 
+Time1000 = 0.266766 seconds (18.6696 MB, 3084 rounds)
+Data sent = 21.9454 MB in ~23058 rounds (party 0 only; use '-v' for more details)
+Global data sent = 65.7321 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 1100 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 11343 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 11343 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 11343 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Rows: 1100
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 4.355e-06
+Stopped timer 1000 at 0.285379 (20.5116 MB, 3088 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 1.10224 seconds 
+Time1000 = 0.285379 seconds (20.5116 MB, 3088 rounds)
+Data sent = 24.4668 MB in ~27166 rounds (party 0 only; use '-v' for more details)
+Global data sent = 73.286 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 1200 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 15085 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 15085 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 15085 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Rows: 1200
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 4.219e-06
+Stopped timer 1000 at 0.29243 (22.434 MB, 3096 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 0.928364 seconds 
+Time1000 = 0.29243 seconds (22.434 MB, 3096 rounds)
+Data sent = 25.5136 MB in ~22023 rounds (party 0 only; use '-v' for more details)
+Global data sent = 76.4161 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 1300 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 19865 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 19865 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 19865 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Rows: 1300
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 4.349e-06
+Stopped timer 1000 at 0.337339 (24.276 MB, 3100 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 0.969747 seconds 
+Time1000 = 0.337339 seconds (24.276 MB, 3100 rounds)
+Data sent = 27.3787 MB in ~22215 rounds (party 0 only; use '-v' for more details)
+Global data sent = 82.001 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 1400 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 11910 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 11910 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 11910 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Rows: 1400
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 5.059e-06
+Stopped timer 1000 at 0.355595 (26.118 MB, 3104 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 1.00234 seconds 
+Time1000 = 0.355595 seconds (26.118 MB, 3104 rounds)
+Data sent = 29.3177 MB in ~22385 rounds (party 0 only; use '-v' for more details)
+Global data sent = 87.8076 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 1500 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 16945 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 16945 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 16945 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Rows: 1500
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 4.485e-06
+Stopped timer 1000 at 0.367601 (27.96 MB, 3108 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 1.11112 seconds 
+Time1000 = 0.367601 seconds (27.96 MB, 3108 rounds)
+Data sent = 31.6389 MB in ~25392 rounds (party 0 only; use '-v' for more details)
+Global data sent = 94.7607 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 1600 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 14935 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 14935 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 14935 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Rows: 1600
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 5.534e-06
+Stopped timer 1000 at 0.386178 (29.8824 MB, 3116 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 1.3992 seconds 
+Time1000 = 0.386178 seconds (29.8824 MB, 3116 rounds)
+Data sent = 34.7481 MB in ~32732 rounds (party 0 only; use '-v' for more details)
+Global data sent = 104.078 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 1700 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 18582 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 18582 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 18582 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Rows: 1700
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 4.577e-06
+Stopped timer 1000 at 0.393733 (31.7244 MB, 3120 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 1.41717 seconds 
+Time1000 = 0.393733 seconds (31.7244 MB, 3120 rounds)
+Data sent = 36.8525 MB in ~34372 rounds (party 0 only; use '-v' for more details)
+Global data sent = 110.381 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 1800 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 10809 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 10809 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 10809 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Rows: 1800
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 4.517e-06
+Stopped timer 1000 at 0.41974 (33.5664 MB, 3124 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 1.6387 seconds 
+Time1000 = 0.41974 seconds (33.5664 MB, 3124 rounds)
+Data sent = 39.5486 MB in ~39342 rounds (party 0 only; use '-v' for more details)
+Global data sent = 118.459 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 1900 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 19914 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 19914 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 19914 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Rows: 1900
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 4.74e-06
+Stopped timer 1000 at 0.425707 (35.4084 MB, 3128 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 1.34787 seconds 
+Time1000 = 0.425707 seconds (35.4084 MB, 3128 rounds)
+Data sent = 40.0141 MB in ~30979 rounds (party 0 only; use '-v' for more details)
+Global data sent = 119.845 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 2000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 19925 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 19925 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 19925 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Rows: 2000
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 4.289e-06
+Stopped timer 1000 at 0.441138 (37.3308 MB, 3136 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 1.72034 seconds 
+Time1000 = 0.441138 seconds (37.3308 MB, 3136 rounds)
+Data sent = 43.6275 MB in ~41494 rounds (party 0 only; use '-v' for more details)
+Global data sent = 130.674 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Starting cmd=numactl --membind=0 --cpunodebind=0 -- measurements/measure_secure.sh test
+Running performance test for secure query: test
+Generating test data...
+Measure performance for 4000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 15016 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 15016 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 15016 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Rows: 4000
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 5.281e-06
+Stopped timer 1000 at 0.783266 (74.5728 MB, 3236 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 2.82463 seconds 
+Time1000 = 0.783266 seconds (74.5728 MB, 3236 rounds)
+Data sent = 84.9731 MB in ~66488 rounds (party 0 only; use '-v' for more details)
+Global data sent = 254.503 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 6000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 10040 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 10040 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 10040 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Rows: 6000
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 5.38e-06
+Stopped timer 1000 at 1.17324 (111.815 MB, 3336 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 4.33178 seconds 
+Time1000 = 1.17324 seconds (111.815 MB, 3336 rounds)
+Data sent = 127.495 MB in ~98682 rounds (party 0 only; use '-v' for more details)
+Global data sent = 381.862 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 8000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 11320 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 11320 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 11320 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Rows: 8000
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 5.427e-06
+Stopped timer 1000 at 1.51111 (149.057 MB, 3436 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 5.64893 seconds 
+Time1000 = 1.51111 seconds (149.057 MB, 3436 rounds)
+Data sent = 169.997 MB in ~130625 rounds (party 0 only; use '-v' for more details)
+Global data sent = 509.16 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 10000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 19747 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 19747 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 19747 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Rows: 10000
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 5.17e-06
+Stopped timer 1000 at 1.90847 (186.299 MB, 3536 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 9.17852 seconds 
+Time1000 = 1.90847 seconds (186.299 MB, 3536 rounds)
+Data sent = 222.762 MB in ~225179 rounds (party 0 only; use '-v' for more details)
+Global data sent = 667.247 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 20000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 11911 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 11911 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 11911 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Rows: 20000
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 6.435e-06
+Stopped timer 1000 at 3.84845 (372.509 MB, 4036 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 15.3788 seconds 
+Time1000 = 3.84845 seconds (372.509 MB, 4036 rounds)
+Data sent = 430.585 MB in ~356687 rounds (party 0 only; use '-v' for more details)
+Global data sent = 1289.67 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 40000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 17376 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 17376 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 17376 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Rows: 40000
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 5.208e-06
+Stopped timer 1000 at 7.83577 (745.009 MB, 5040 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 29.9397 seconds 
+Time1000 = 7.83577 seconds (745.009 MB, 5040 rounds)
+Data sent = 855.583 MB in ~676683 rounds (party 0 only; use '-v' for more details)
+Global data sent = 2562.59 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 60000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 15840 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 15840 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 15840 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Rows: 60000
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 6.104e-06
+Stopped timer 1000 at 11.4963 (1117.51 MB, 6044 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 39.1644 seconds 
+Time1000 = 11.4963 seconds (1117.51 MB, 6044 rounds)
+Data sent = 1256.17 MB in ~847065 rounds (party 0 only; use '-v' for more details)
+Global data sent = 3762.27 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 80000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 10344 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 10344 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 10344 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Rows: 80000
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 6.969e-06
+Stopped timer 1000 at 16.0551 (1490.01 MB, 7048 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 55.3558 seconds 
+Time1000 = 16.0551 seconds (1490.01 MB, 7048 rounds)
+Data sent = 1687.04 MB in ~1203051 rounds (party 0 only; use '-v' for more details)
+Global data sent = 5052.79 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 100000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 15304 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 15304 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 15304 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Rows: 100000
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 6.462e-06
+Stopped timer 1000 at 19.7546 (1862.43 MB, 8048 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 80.692 seconds 
+Time1000 = 19.7546 seconds (1862.43 MB, 8048 rounds)
+Data sent = 2167.62 MB in ~1861574 rounds (party 0 only; use '-v' for more details)
+Global data sent = 6492.45 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 200000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 18280 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 18280 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 18280 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Rows: 200000
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 7.546e-06
+Stopped timer 1000 at 40.4483 (3724.85 MB, 13064 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 139.042 seconds 
+Time1000 = 40.4483 seconds (3724.85 MB, 13064 rounds)
+Data sent = 4216.11 MB in ~2993169 rounds (party 0 only; use '-v' for more details)
+Global data sent = 12627.5 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 400000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 14106 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 14106 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 14106 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Rows: 400000
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 7.11e-06
+Stopped timer 1000 at 88.7155 (7449.69 MB, 23096 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 356.204 seconds 
+Time1000 = 88.7155 seconds (7449.69 MB, 23096 rounds)
+Data sent = 8786.97 MB in ~8146008 rounds (party 0 only; use '-v' for more details)
+Global data sent = 26319.3 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 600000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 17408 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 17408 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 17408 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Rows: 600000
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 7.355e-06
+Stopped timer 1000 at 143.761 (11174.5 MB, 33128 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 452.661 seconds 
+Time1000 = 143.761 seconds (11174.5 MB, 33128 rounds)
+Data sent = 12825.9 MB in ~10056289 rounds (party 0 only; use '-v' for more details)
+Global data sent = 38415.4 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 800000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 12457 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 12457 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 12457 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Rows: 800000
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 3.849e-06
+Stopped timer 1000 at 183.068 (14899.4 MB, 43160 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 715.411 seconds 
+Time1000 = 183.068 seconds (14899.4 MB, 43160 rounds)
+Data sent = 17574.2 MB in ~16290928 rounds (party 0 only; use '-v' for more details)
+Global data sent = 52639.4 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 1000000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 15072 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 15072 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 15072 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Rows: 1000000
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 7.684e-06
+Stopped timer 1000 at 235.26 (18624.2 MB, 53192 rounds)
+The following benchmarks are including preprocessing (offline phase).
+Time = 753.447 seconds 
+Time1000 = 235.26 seconds (18624.2 MB, 53192 rounds)
+Data sent = 21227.9 MB in ~15851742 rounds (party 0 only; use '-v' for more details)
+Global data sent = 63579.6 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
