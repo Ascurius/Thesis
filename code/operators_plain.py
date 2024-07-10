@@ -94,30 +94,35 @@ def sort_merge_join_nn(
 
     result = []
 
-    i, j = 0,0
-    mark = None
+    i, j = 0, 0
 
-    while i < len(left) and j < len(right)+1:
-        if j >= len(right):
-            j = mark
+    while i < len(left) and j < len(right):
+        l_value = left[i][l_key]
+        r_value = right[j][r_key]
+
+        if l_value < r_value:
             i += 1
-            mark = None
-            if not i < len(left):
-                break
-        if mark is None:
-            while left[i][l_key] < right[j][l_key]:
-                i += 1
-            while left[i][l_key] > right[j][l_key]:
-                j += 1
-            mark = j
-        if left[i][l_key] == right[j][l_key]:
-            if condition(left[i], right[j]):
-                result.append(left[i] + right[j])
+        elif l_value > r_value:
             j += 1
         else:
-            j = mark
-            i += 1
-            mark = None
+            # Collect all rows from left that match l_value
+            left_rows = []
+            while i < len(left) and left[i][l_key] == l_value:
+                left_rows.append(left[i])
+                i += 1
+            
+            # Collect all rows from right that match r_value
+            right_rows = []
+            while j < len(right) and right[j][r_key] == r_value:
+                right_rows.append(right[j])
+                j += 1
+            
+            # Append all combinations of left_rows and right_rows to result
+            for l_row in left_rows:
+                for r_row in right_rows:
+                    if condition(l_row, r_row):
+                        result.append(l_row + r_row)
+
     return result
 
 def sort_merge_join_un(
