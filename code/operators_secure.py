@@ -167,15 +167,14 @@ def sort_merge_join_un(
             def _():
                 @if_e(j < right_sorted.shape[0])
                 def _():
-                    @if_e(
-                        (right_sorted[j][r_key] == left_value).if_else(1,0).reveal() &
-                        condition(left_row, right_sorted[j][r_key]).reveal()
-                    )
+                    @if_e((right_sorted[j][r_key] == left_value).if_else(1,0).reveal())
                     def _():
-                        rel = sint.Array(1).create_from(sint(1))
-                        result[cnt] = left_sorted[i].concat(right_sorted[j].concat(rel))
+                        @if_(condition(left_row, right_sorted[j]).reveal())
+                        def _():
+                            rel = sint.Array(1).create_from(sint(1))
+                            result[cnt] = left_sorted[i].concat(right_sorted[j].concat(rel))
+                            cnt.update(cnt+1)
                         j.update(j+1)
-                        cnt.update(cnt+1)
                     @else_
                     def _():
                         break_loop()
