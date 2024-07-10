@@ -59,6 +59,50 @@ def nested_loop_join(
     return result
 
 @measure_time
+def sort_merge_join(
+        left: List[List[int]], 
+        right: List[List[int]], 
+        l_key: int, 
+        r_key: int, 
+        condition: Callable[[List[int], List[int]], bool] = lambda left, right: True
+    ) -> List[List[int]]:
+    left = sorted(left, key=lambda row: row[l_key])
+    right = sorted(right, key=lambda row: row[r_key])
+
+    result = []
+
+    i, j = 0, 0
+
+    while i < len(left) and j < len(right):
+        l_value = left[i][l_key]
+        r_value = right[j][r_key]
+
+        if l_value < r_value:
+            i += 1
+        elif l_value > r_value:
+            j += 1
+        else:
+            # Collect all rows from left that match l_value
+            left_rows = []
+            while i < len(left) and left[i][l_key] == l_value:
+                left_rows.append(left[i])
+                i += 1
+            
+            # Collect all rows from right that match r_value
+            right_rows = []
+            while j < len(right) and right[j][r_key] == r_value:
+                right_rows.append(right[j])
+                j += 1
+            
+            # Append all combinations of left_rows and right_rows to result
+            for l_row in left_rows:
+                for r_row in right_rows:
+                    if condition(l_row, r_row):
+                        result.append(l_row + r_row)
+
+    return result
+
+@measure_time
 def hash_join(left, right, left_key, right_key, condition = lambda left, right: True):
     hash_map = defaultdict(list)
 
@@ -125,13 +169,16 @@ def union_all(left: List[List[int]], right: List[List[int]]) -> List[List[int]]:
     return left + right
 
 
-def plaintext_cdiff(a, b, join_type):
+def plaintext_cdiff(a, b, join_type, l_key, r_key):
     if join_type == "h":
         join_function = hash_join
         dist_cond = lambda row: row[13] == row[-2] == 1
     elif join_type == "n":
         join_function = nested_loop_join
         dist_cond = lambda row: row[13] == row[-1] == row[-3] == 1
+    elif join_type == "s":
+        join_function = sort_merge_join
+        dist_cond = lambda row: row[13] == row[-2] == 1
     else:
         print(f"Unknown join type: {join_type}")
         exit()
@@ -142,7 +189,7 @@ def plaintext_cdiff(a, b, join_type):
     print(f"correctness_sort: {time.time() - st:.6f}")
     m = row_number_over_partition_by(m, 1, condition=lambda row: row[13] == 1)
     m = join_function(
-        m, m, 1, 1, 
+        m, m, l_key, r_key, 
         condition=lambda left, right: (abs(left[2] - right[2]) >= 15) and \
                                     (abs(left[2] - right[2]) <= 56) and \
                                     (left[14]+1 == right[14])
@@ -152,16 +199,20 @@ def plaintext_cdiff(a, b, join_type):
     )
     result = []
     # c = 0
-    # for row in m[0]:
+    # for row in m:
     #     if row[-1]:
-    #         result.append(row[1])
+    #         # result.append(row[1])
     #         c += 1
+    # print(c)
     return result
 
 if __name__ == "__main__":
     max_rows = int(sys.argv[1])
+    left_key = int(sys.argv[3])
+    right_key = int(sys.argv[4])
+
     a = preprocess("./MP-SPDZ/Player-Data/Input-P0-0", max_rows)
     b = preprocess("./MP-SPDZ/Player-Data/Input-P1-0", max_rows)
 
-    _ = plaintext_cdiff(a, b, sys.argv[2])
+    _ = plaintext_cdiff(a, b, sys.argv[2], left_key, right_key)
     print(f"total: {TOTAL_EXECUTION_TIME:.6f}")
