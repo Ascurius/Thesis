@@ -82,15 +82,15 @@ def hash_join(
     
     return result
 
-def sort_merge_join(
+def sort_merge_join_nn(
         left: List[List[int]], 
         right: List[List[int]], 
         l_key: int, 
         r_key: int, 
         condition: Callable[[List[int], List[int]], bool] = lambda left, right: True
     ) -> List[List[int]]:
-    left.sort(key=lambda row: row[l_key])
-    right.sort(key=lambda row: row[r_key])
+    left = sorted(left, key=lambda row: row[l_key])
+    right = sorted(right, key=lambda row: row[r_key])
 
     result = []
 
@@ -118,6 +118,43 @@ def sort_merge_join(
             j = mark
             i += 1
             mark = None
+    return result
+
+def sort_merge_join_un(
+        left: List[List[int]], 
+        right: List[List[int]], 
+        l_key: int, 
+        r_key: int
+    ) -> List[List[int]]:
+    left = sorted(left, key=lambda row: row[l_key])
+    right = sorted(right, key=lambda row: row[r_key])
+
+    # result = []
+    n_rows = len(right)
+    n_cols = len(left[0]) + len(right[0])
+    result = [[0 for _ in range(n_cols)] for _ in range(n_rows)]
+
+    i, j, cnt = 0,0,0
+
+    while i < len(left) and j < len(right):
+        left_value = left[i][l_key]
+
+        lt = 1 if left[i][l_key] < right[j][r_key] else 0
+        gt = 1 if left[i][l_key] > right[j][r_key] else 0
+        eq = 1 if left[i][l_key] == right[j][r_key] else 0
+
+        if lt:
+            i += 1
+        if gt:
+            j += 1
+        if eq:
+            # Collect all matches from the right table
+            while j < len(right) and right[j][r_key] == left_value:
+                result[cnt] = left[i] + right[j]
+                j += 1
+                cnt += 1
+            # Move to the next element in the left table
+            i += 1
     return result
 
 def select_distinct(
