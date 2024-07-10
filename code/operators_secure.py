@@ -106,7 +106,8 @@ def sort_merge_join_un(
         left: sint.Matrix, 
         right: sint.Matrix, 
         l_key: int, 
-        r_key: int
+        r_key: int,
+        condition: Callable[[sint.Array, sint.Array], bool] = lambda left, right: True
     ) -> sint.Matrix:
     start_timer(1000)
     left.sort((l_key,))
@@ -143,7 +144,10 @@ def sort_merge_join_un(
             def _():
                 @if_e(j < right.shape[0])
                 def _():
-                    @if_e((right[j][r_key] == left_value).if_else(1,0).reveal())
+                    @if_e(
+                        (right[j][r_key] == left_value).if_else(1,0).reveal() &
+                        condition(left_value, right[j][r_key]).reveal()
+                    )
                     def _():
                         result[cnt] = left[i].concat(right[j])
                         j.update(j+1)
