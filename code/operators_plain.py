@@ -112,7 +112,7 @@ def sort_merge_join_nn(
             mark = j
         if left[i][l_key] == right[j][l_key]:
             if condition(left[i], right[j]):
-                result.append(left[i] + right[j] + [1])
+                result.append(left[i] + right[j])
             j += 1
         else:
             j = mark
