@@ -124,7 +124,8 @@ def sort_merge_join_un(
         left: List[List[int]], 
         right: List[List[int]], 
         l_key: int, 
-        r_key: int
+        r_key: int,
+        condition: Callable[[List[List[int]], List[List[int]]], bool] = lambda left, right: True
     ) -> List[List[int]]:
     left = sorted(left, key=lambda row: row[l_key])
     right = sorted(right, key=lambda row: row[r_key])
@@ -150,7 +151,8 @@ def sort_merge_join_un(
         if eq:
             # Collect all matches from the right table
             while j < len(right) and right[j][r_key] == left_value:
-                result[cnt] = left[i] + right[j]
+                if condition(left[i], right[j]):
+                    result[cnt] = left[i] + right[j]
                 j += 1
                 cnt += 1
             # Move to the next element in the left table
