@@ -1,6 +1,6 @@
-####################
+####################################################################################################
 ### nested-loop join
-####################
+####################################################################################################
 Starting cmd=numactl --membind=0 --cpunodebind=0 -- measurements/measure_secure.sh aspirin_count
 Running performance test for secure query: aspirin_count
 Generating test data...
@@ -704,9 +704,9 @@ Global data sent = 200182 MB (all parties)
 This program might benefit from some protocol options.
 Consider adding the following at the beginning of your code:
 	program.use_split(3)
-####################
+####################################################################################################
 ### sort-merge join-nn
-####################
+####################################################################################################
 Starting cmd=numactl --membind=0 --cpunodebind=0 -- measurements/measure_secure.sh aspirin_count
 Running performance test for secure query: aspirin_count
 Generating test data...
@@ -1546,6 +1546,1440 @@ Time700 = 916.304 seconds (4064.35 MB, 32100316 rounds)
 Time1000 = 0.391641 seconds (37.3145 MB, 3142 rounds)
 Data sent = 63707.6 MB in ~115584718 rounds (party 0 only; use '-v' for more details)
 Global data sent = 191123 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+####################################################################################################
+### sort-merge join-un
+####################################################################################################
+Starting cmd=numactl --membind=0 --cpunodebind=0 -- measurements/measure_secure.sh aspirin_count
+Running performance test for secure query: aspirin_count
+Generating test data...
+Measure performance for 100 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 aspirin_count -pn 19410 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 aspirin_count -pn 19410 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 aspirin_count -pn 19410 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing aspirin_count with 100 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 4.241e-06
+Stopped timer 10 at 0.00046796 (0.0104 MB, 4 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.25e-06
+Stopped timer 100 at 0.00472989 (0.130784 MB, 58 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.394e-06
+Stopped timer 200 at 0.00300254 (0.130784 MB, 58 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.265e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 1.282e-06
+Stopped timer 1000 at 0.0922012 (1.85366 MB, 3044 rounds)
+Stopped timer 300 at 0.147281 (2.25923 MB, 4848 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.654e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.173e-06
+Stopped timer 600 at 0.0463089 (0.991264 MB, 1598 rounds)
+Stopped timer 500 at 0.10466 (1.48842 MB, 3504 rounds)
+Starting timer 700 at 0 (0 MB, 0 rounds) after 1.687e-06
+Stopped timer 700 at 0.022537 (0.0512 MB, 800 rounds)
+27
+The following benchmarks are including preprocessing (offline phase).
+Time = 0.283348 seconds 
+Time10 = 0.00046796 seconds (0.0104 MB, 4 rounds)
+Time100 = 0.00472989 seconds (0.130784 MB, 58 rounds)
+Time200 = 0.00300254 seconds (0.130784 MB, 58 rounds)
+Time300 = 0.147281 seconds (2.25923 MB, 4848 rounds)
+Time500 = 0.10466 seconds (1.48842 MB, 3504 rounds)
+Time600 = 0.0463089 seconds (0.991264 MB, 1598 rounds)
+Time700 = 0.022537 seconds (0.0512 MB, 800 rounds)
+Time1000 = 0.0922012 seconds (1.85366 MB, 3044 rounds)
+Data sent = 4.07082 MB in ~9272 rounds (party 0 only; use '-v' for more details)
+Global data sent = 12.202 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 200 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 aspirin_count -pn 18964 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 aspirin_count -pn 18964 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 aspirin_count -pn 18964 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing aspirin_count with 200 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 3.59e-06
+Stopped timer 10 at 0.000783494 (0.0208 MB, 6 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.27e-06
+Stopped timer 100 at 0.0077395 (0.261568 MB, 116 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.602e-06
+Stopped timer 200 at 0.00513719 (0.181184 MB, 114 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.401e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 1.365e-06
+Stopped timer 1000 at 0.107458 (3.77923 MB, 3048 rounds)
+Stopped timer 300 at 0.212612 (4.50998 MB, 6654 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.539e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.266e-06
+Stopped timer 600 at 0.0559364 (1.97805 MB, 1600 rounds)
+Stopped timer 500 at 0.169731 (2.97235 MB, 5412 rounds)
+Starting timer 700 at 0 (0 MB, 0 rounds) after 1.728e-06
+Stopped timer 700 at 0.0480468 (0.182784 MB, 1602 rounds)
+47
+The following benchmarks are including preprocessing (offline phase).
+Time = 0.444755 seconds 
+Time10 = 0.000783494 seconds (0.0208 MB, 6 rounds)
+Time100 = 0.0077395 seconds (0.261568 MB, 116 rounds)
+Time200 = 0.00513719 seconds (0.181184 MB, 114 rounds)
+Time300 = 0.212612 seconds (4.50998 MB, 6654 rounds)
+Time500 = 0.169731 seconds (2.97235 MB, 5412 rounds)
+Time600 = 0.0559364 seconds (1.97805 MB, 1600 rounds)
+Time700 = 0.0480468 seconds (0.182784 MB, 1602 rounds)
+Time1000 = 0.107458 seconds (3.77923 MB, 3048 rounds)
+Data sent = 8.12867 MB in ~13904 rounds (party 0 only; use '-v' for more details)
+Global data sent = 24.3652 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 300 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 aspirin_count -pn 12405 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 aspirin_count -pn 12405 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 aspirin_count -pn 12405 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing aspirin_count with 300 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 4.046e-06
+Stopped timer 10 at 0.00111236 (0.0312 MB, 8 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.392e-06
+Stopped timer 100 at 0.0101872 (0.311968 MB, 172 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.575e-06
+Stopped timer 200 at 0.00808201 (0.311968 MB, 172 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.352e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 1.381e-06
+Stopped timer 1000 at 0.12524 (5.62442 MB, 3050 rounds)
+Stopped timer 300 at 0.292328 (6.84112 MB, 8462 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.673e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.224e-06
+Stopped timer 600 at 0.0646719 (2.88445 MB, 1600 rounds)
+Stopped timer 500 at 0.238995 (4.3759 MB, 7318 rounds)
+Starting timer 700 at 0 (0 MB, 0 rounds) after 1.625e-06
+Stopped timer 700 at 0.0699909 (0.314368 MB, 2404 rounds)
+69
+The following benchmarks are including preprocessing (offline phase).
+Time = 0.621493 seconds 
+Time10 = 0.00111236 seconds (0.0312 MB, 8 rounds)
+Time100 = 0.0101872 seconds (0.311968 MB, 172 rounds)
+Time200 = 0.00808201 seconds (0.311968 MB, 172 rounds)
+Time300 = 0.292328 seconds (6.84112 MB, 8462 rounds)
+Time500 = 0.238995 seconds (4.3759 MB, 7318 rounds)
+Time600 = 0.0646719 seconds (2.88445 MB, 1600 rounds)
+Time700 = 0.0699909 seconds (0.314368 MB, 2404 rounds)
+Time1000 = 0.12524 seconds (5.62442 MB, 3050 rounds)
+Data sent = 12.1865 MB in ~18536 rounds (party 0 only; use '-v' for more details)
+Global data sent = 36.5284 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 400 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 aspirin_count -pn 16441 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 aspirin_count -pn 16441 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 aspirin_count -pn 16441 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing aspirin_count with 400 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 4.08e-06
+Stopped timer 10 at 0.0013667 (0.0416 MB, 12 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.459e-06
+Stopped timer 100 at 0.0130018 (0.442752 MB, 223 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.486e-06
+Stopped timer 200 at 0.0112652 (0.442752 MB, 223 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.528e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 2.323e-06
+Stopped timer 1000 at 0.140022 (7.4696 MB, 3052 rounds)
+Stopped timer 300 at 0.360779 (9.01149 MB, 10266 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.733e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.308e-06
+Stopped timer 600 at 0.0727694 (3.87123 MB, 1602 rounds)
+Stopped timer 500 at 0.308869 (5.85984 MB, 9226 rounds)
+Starting timer 700 at 0 (0 MB, 0 rounds) after 1.82e-06
+Stopped timer 700 at 0.096542 (0.445952 MB, 3206 rounds)
+92
+The following benchmarks are including preprocessing (offline phase).
+Time = 0.79267 seconds 
+Time10 = 0.0013667 seconds (0.0416 MB, 12 rounds)
+Time100 = 0.0130018 seconds (0.442752 MB, 223 rounds)
+Time200 = 0.0112652 seconds (0.442752 MB, 223 rounds)
+Time300 = 0.360779 seconds (9.01149 MB, 10266 rounds)
+Time500 = 0.308869 seconds (5.85984 MB, 9226 rounds)
+Time600 = 0.0727694 seconds (3.87123 MB, 1602 rounds)
+Time700 = 0.096542 seconds (0.445952 MB, 3206 rounds)
+Time1000 = 0.140022 seconds (7.4696 MB, 3052 rounds)
+Data sent = 16.2444 MB in ~23156 rounds (party 0 only; use '-v' for more details)
+Global data sent = 48.6916 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 500 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 aspirin_count -pn 14621 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 aspirin_count -pn 14621 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 aspirin_count -pn 14621 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing aspirin_count with 500 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 4.574e-06
+Stopped timer 10 at 0.00176018 (0.052 MB, 14 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.337e-06
+Stopped timer 100 at 0.0159597 (0.573536 MB, 281 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.559e-06
+Stopped timer 200 at 0.0127661 (0.493152 MB, 279 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.377e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 1.547e-06
+Stopped timer 1000 at 0.150309 (9.31478 MB, 3054 rounds)
+Stopped timer 300 at 0.415319 (11.3426 MB, 12074 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.822e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.381e-06
+Stopped timer 600 at 0.0794702 (4.77763 MB, 1602 rounds)
+Stopped timer 500 at 0.362843 (7.26339 MB, 11132 rounds)
+Starting timer 700 at 0 (0 MB, 0 rounds) after 1.927e-06
+Stopped timer 700 at 0.116266 (0.497152 MB, 4006 rounds)
+116
+The following benchmarks are including preprocessing (offline phase).
+Time = 0.925832 seconds 
+Time10 = 0.00176018 seconds (0.052 MB, 14 rounds)
+Time100 = 0.0159597 seconds (0.573536 MB, 281 rounds)
+Time200 = 0.0127661 seconds (0.493152 MB, 279 rounds)
+Time300 = 0.415319 seconds (11.3426 MB, 12074 rounds)
+Time500 = 0.362843 seconds (7.26339 MB, 11132 rounds)
+Time600 = 0.0794702 seconds (4.77763 MB, 1602 rounds)
+Time700 = 0.116266 seconds (0.497152 MB, 4006 rounds)
+Time1000 = 0.150309 seconds (9.31478 MB, 3054 rounds)
+Data sent = 20.2219 MB in ~27786 rounds (party 0 only; use '-v' for more details)
+Global data sent = 60.6136 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 600 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 aspirin_count -pn 12493 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 aspirin_count -pn 12493 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 aspirin_count -pn 12493 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing aspirin_count with 600 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 4.271e-06
+Stopped timer 10 at 0.00205523 (0.0624 MB, 16 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.433e-06
+Stopped timer 100 at 0.0183524 (0.623936 MB, 337 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.509e-06
+Stopped timer 200 at 0.0157052 (0.623936 MB, 337 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.52e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 1.594e-06
+Stopped timer 1000 at 0.171936 (11.2404 MB, 3058 rounds)
+Stopped timer 300 at 0.505911 (13.5934 MB, 13880 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 2.206e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.374e-06
+Stopped timer 600 at 0.0874327 (5.76442 MB, 1604 rounds)
+Stopped timer 500 at 0.433992 (8.82771 MB, 13042 rounds)
+Starting timer 700 at 0 (0 MB, 0 rounds) after 1.889e-06
+Stopped timer 700 at 0.140609 (0.548352 MB, 4806 rounds)
+141
+The following benchmarks are including preprocessing (offline phase).
+Time = 1.11755 seconds 
+Time10 = 0.00205523 seconds (0.0624 MB, 16 rounds)
+Time100 = 0.0183524 seconds (0.623936 MB, 337 rounds)
+Time200 = 0.0157052 seconds (0.623936 MB, 337 rounds)
+Time300 = 0.505911 seconds (13.5934 MB, 13880 rounds)
+Time500 = 0.433992 seconds (8.82771 MB, 13042 rounds)
+Time600 = 0.0874327 seconds (5.76442 MB, 1604 rounds)
+Time700 = 0.140609 seconds (0.548352 MB, 4806 rounds)
+Time1000 = 0.171936 seconds (11.2404 MB, 3058 rounds)
+Data sent = 24.2797 MB in ~32418 rounds (party 0 only; use '-v' for more details)
+Global data sent = 72.7767 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 700 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 aspirin_count -pn 13102 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 aspirin_count -pn 13102 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 aspirin_count -pn 13102 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing aspirin_count with 700 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 3.333e-06
+Stopped timer 10 at 0.00234728 (0.0728 MB, 20 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.231e-06
+Stopped timer 100 at 0.0212213 (0.75472 MB, 388 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.579e-06
+Stopped timer 200 at 0.0179248 (0.674336 MB, 386 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.342e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 1.61e-06
+Stopped timer 1000 at 0.186776 (13.0855 MB, 3060 rounds)
+Stopped timer 300 at 0.550393 (15.8441 MB, 15686 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 2.069e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.368e-06
+Stopped timer 600 at 0.0955498 (6.7512 MB, 1606 rounds)
+Stopped timer 500 at 0.491055 (10.3116 MB, 14950 rounds)
+Starting timer 700 at 0 (0 MB, 0 rounds) after 1.624e-06
+Stopped timer 700 at 0.159632 (0.679936 MB, 5608 rounds)
+161
+The following benchmarks are including preprocessing (offline phase).
+Time = 1.24355 seconds 
+Time10 = 0.00234728 seconds (0.0728 MB, 20 rounds)
+Time100 = 0.0212213 seconds (0.75472 MB, 388 rounds)
+Time200 = 0.0179248 seconds (0.674336 MB, 386 rounds)
+Time300 = 0.550393 seconds (15.8441 MB, 15686 rounds)
+Time500 = 0.491055 seconds (10.3116 MB, 14950 rounds)
+Time600 = 0.0955498 seconds (6.7512 MB, 1606 rounds)
+Time700 = 0.159632 seconds (0.679936 MB, 5608 rounds)
+Time1000 = 0.186776 seconds (13.0855 MB, 3060 rounds)
+Data sent = 28.3376 MB in ~37038 rounds (party 0 only; use '-v' for more details)
+Global data sent = 84.9399 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 800 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 aspirin_count -pn 16096 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 aspirin_count -pn 16096 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 aspirin_count -pn 16096 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing aspirin_count with 800 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 4.634e-06
+Stopped timer 10 at 0.00260562 (0.0832 MB, 22 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.197e-06
+Stopped timer 100 at 0.0251146 (0.885504 MB, 446 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.573e-06
+Stopped timer 200 at 0.0217346 (0.80512 MB, 444 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.497e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 1.895e-06
+Stopped timer 1000 at 0.194184 (14.9307 MB, 3062 rounds)
+Stopped timer 300 at 0.621689 (18.0949 MB, 17492 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.49e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.2e-06
+Stopped timer 600 at 0.0980321 (7.6576 MB, 1606 rounds)
+Stopped timer 500 at 0.551382 (11.7152 MB, 16856 rounds)
+Starting timer 700 at 0 (0 MB, 0 rounds) after 2.537e-06
+Stopped timer 700 at 0.1809 (0.81152 MB, 6410 rounds)
+184
+The following benchmarks are including preprocessing (offline phase).
+Time = 1.40451 seconds 
+Time10 = 0.00260562 seconds (0.0832 MB, 22 rounds)
+Time100 = 0.0251146 seconds (0.885504 MB, 446 rounds)
+Time200 = 0.0217346 seconds (0.80512 MB, 444 rounds)
+Time300 = 0.621689 seconds (18.0949 MB, 17492 rounds)
+Time500 = 0.551382 seconds (11.7152 MB, 16856 rounds)
+Time600 = 0.0980321 seconds (7.6576 MB, 1606 rounds)
+Time700 = 0.1809 seconds (0.81152 MB, 6410 rounds)
+Time1000 = 0.194184 seconds (14.9307 MB, 3062 rounds)
+Data sent = 32.3954 MB in ~41670 rounds (party 0 only; use '-v' for more details)
+Global data sent = 97.1031 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 900 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 aspirin_count -pn 10933 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 aspirin_count -pn 10933 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 aspirin_count -pn 10933 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing aspirin_count with 900 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 4.122e-06
+Stopped timer 10 at 0.00289023 (0.0936 MB, 24 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.441e-06
+Stopped timer 100 at 0.0265184 (0.935904 MB, 502 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.627e-06
+Stopped timer 200 at 0.0237175 (0.935904 MB, 502 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.37e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 1.76e-06
+Stopped timer 1000 at 0.217565 (16.7759 MB, 3064 rounds)
+Stopped timer 300 at 0.714451 (20.3456 MB, 19298 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.73e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.331e-06
+Stopped timer 600 at 0.112506 (8.64438 MB, 1608 rounds)
+Stopped timer 500 at 0.636381 (13.1991 MB, 18764 rounds)
+Starting timer 700 at 0 (0 MB, 0 rounds) after 2.032e-06
+Stopped timer 700 at 0.211297 (0.943104 MB, 7212 rounds)
+203
+The following benchmarks are including preprocessing (offline phase).
+Time = 1.61627 seconds 
+Time10 = 0.00289023 seconds (0.0936 MB, 24 rounds)
+Time100 = 0.0265184 seconds (0.935904 MB, 502 rounds)
+Time200 = 0.0237175 seconds (0.935904 MB, 502 rounds)
+Time300 = 0.714451 seconds (20.3456 MB, 19298 rounds)
+Time500 = 0.636381 seconds (13.1991 MB, 18764 rounds)
+Time600 = 0.112506 seconds (8.64438 MB, 1608 rounds)
+Time700 = 0.211297 seconds (0.943104 MB, 7212 rounds)
+Time1000 = 0.217565 seconds (16.7759 MB, 3064 rounds)
+Data sent = 36.4533 MB in ~46302 rounds (party 0 only; use '-v' for more details)
+Global data sent = 109.266 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 1000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 aspirin_count -pn 14452 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 aspirin_count -pn 14452 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 aspirin_count -pn 14452 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing aspirin_count with 1000 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 3.198e-06
+Stopped timer 10 at 0.00305956 (0.104 MB, 26 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.471e-06
+Stopped timer 100 at 0.0294979 (1.06669 MB, 553 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.519e-06
+Stopped timer 200 at 0.0255064 (0.986304 MB, 551 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.273e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 1.917e-06
+Stopped timer 1000 at 0.237796 (18.7015 MB, 3068 rounds)
+Stopped timer 300 at 0.775365 (22.6768 MB, 21106 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.628e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.243e-06
+Stopped timer 600 at 0.11437 (9.55078 MB, 1608 rounds)
+Stopped timer 500 at 0.67121 (14.6027 MB, 20670 rounds)
+Starting timer 700 at 0 (0 MB, 0 rounds) after 1.643e-06
+Stopped timer 700 at 0.233244 (0.994304 MB, 8012 rounds)
+231
+The following benchmarks are including preprocessing (offline phase).
+Time = 1.73908 seconds 
+Time10 = 0.00305956 seconds (0.104 MB, 26 rounds)
+Time100 = 0.0294979 seconds (1.06669 MB, 553 rounds)
+Time200 = 0.0255064 seconds (0.986304 MB, 551 rounds)
+Time300 = 0.775365 seconds (22.6768 MB, 21106 rounds)
+Time500 = 0.67121 seconds (14.6027 MB, 20670 rounds)
+Time600 = 0.11437 seconds (9.55078 MB, 1608 rounds)
+Time700 = 0.233244 seconds (0.994304 MB, 8012 rounds)
+Time1000 = 0.237796 seconds (18.7015 MB, 3068 rounds)
+Data sent = 40.4308 MB in ~50918 rounds (party 0 only; use '-v' for more details)
+Global data sent = 121.188 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 1100 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 aspirin_count -pn 14096 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 aspirin_count -pn 14096 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 aspirin_count -pn 14096 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing aspirin_count with 1100 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 3.386e-06
+Stopped timer 10 at 0.00338486 (0.1144 MB, 30 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.055e-06
+Stopped timer 100 at 0.031728 (1.11709 MB, 609 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.383e-06
+Stopped timer 200 at 0.0284383 (1.11709 MB, 609 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.146e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 2.062e-06
+Stopped timer 1000 at 0.243279 (20.5467 MB, 3070 rounds)
+Stopped timer 300 at 0.845487 (24.9275 MB, 22912 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 2.573e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.354e-06
+Stopped timer 600 at 0.129955 (10.5376 MB, 1610 rounds)
+Stopped timer 500 at 0.766856 (16.0866 MB, 22578 rounds)
+Starting timer 700 at 0 (0 MB, 0 rounds) after 2.111e-06
+Stopped timer 700 at 0.257094 (1.12589 MB, 8814 rounds)
+251
+The following benchmarks are including preprocessing (offline phase).
+Time = 1.93432 seconds 
+Time10 = 0.00338486 seconds (0.1144 MB, 30 rounds)
+Time100 = 0.031728 seconds (1.11709 MB, 609 rounds)
+Time200 = 0.0284383 seconds (1.11709 MB, 609 rounds)
+Time300 = 0.845487 seconds (24.9275 MB, 22912 rounds)
+Time500 = 0.766856 seconds (16.0866 MB, 22578 rounds)
+Time600 = 0.129955 seconds (10.5376 MB, 1610 rounds)
+Time700 = 0.257094 seconds (1.12589 MB, 8814 rounds)
+Time1000 = 0.243279 seconds (20.5467 MB, 3070 rounds)
+Data sent = 44.4886 MB in ~55552 rounds (party 0 only; use '-v' for more details)
+Global data sent = 133.351 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 1200 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 aspirin_count -pn 16186 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 aspirin_count -pn 16186 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 aspirin_count -pn 16186 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing aspirin_count with 1200 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 3.561e-06
+Stopped timer 10 at 0.00580414 (0.1248 MB, 32 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 2.08e-06
+Stopped timer 100 at 0.0383112 (1.24787 MB, 667 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 2.195e-06
+Stopped timer 200 at 0.0293147 (1.24787 MB, 667 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.251e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 1.949e-06
+Stopped timer 1000 at 0.247395 (22.3918 MB, 3072 rounds)
+Stopped timer 300 at 0.867195 (27.0979 MB, 24716 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.848e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.225e-06
+Stopped timer 600 at 0.131127 (11.5244 MB, 1612 rounds)
+Stopped timer 500 at 0.815445 (17.6509 MB, 24488 rounds)
+Starting timer 700 at 0 (0 MB, 0 rounds) after 1.659e-06
+Stopped timer 700 at 0.263595 (1.17709 MB, 9614 rounds)
+277
+The following benchmarks are including preprocessing (offline phase).
+Time = 2.02096 seconds 
+Time10 = 0.00580414 seconds (0.1248 MB, 32 rounds)
+Time100 = 0.0383112 seconds (1.24787 MB, 667 rounds)
+Time200 = 0.0293147 seconds (1.24787 MB, 667 rounds)
+Time300 = 0.867195 seconds (27.0979 MB, 24716 rounds)
+Time500 = 0.815445 seconds (17.6509 MB, 24488 rounds)
+Time600 = 0.131127 seconds (11.5244 MB, 1612 rounds)
+Time700 = 0.263595 seconds (1.17709 MB, 9614 rounds)
+Time1000 = 0.247395 seconds (22.3918 MB, 3072 rounds)
+Data sent = 48.5465 MB in ~60184 rounds (party 0 only; use '-v' for more details)
+Global data sent = 145.515 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 1300 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 aspirin_count -pn 18211 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 aspirin_count -pn 18211 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 aspirin_count -pn 18211 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing aspirin_count with 1300 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 4.425e-06
+Stopped timer 10 at 0.00400073 (0.1352 MB, 34 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.231e-06
+Stopped timer 100 at 0.0380026 (1.37866 MB, 718 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.502e-06
+Stopped timer 200 at 0.0336181 (1.29827 MB, 716 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.369e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 1.739e-06
+Stopped timer 1000 at 0.283664 (24.237 MB, 3074 rounds)
+Stopped timer 300 at 0.946927 (29.429 MB, 26524 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 2.061e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.257e-06
+Stopped timer 600 at 0.134697 (12.4308 MB, 1612 rounds)
+Stopped timer 500 at 0.854413 (19.0545 MB, 26394 rounds)
+Starting timer 700 at 0 (0 MB, 0 rounds) after 1.746e-06
+Stopped timer 700 at 0.286728 (1.30867 MB, 10416 rounds)
+298
+The following benchmarks are including preprocessing (offline phase).
+Time = 2.16513 seconds 
+Time10 = 0.00400073 seconds (0.1352 MB, 34 rounds)
+Time100 = 0.0380026 seconds (1.37866 MB, 718 rounds)
+Time200 = 0.0336181 seconds (1.29827 MB, 716 rounds)
+Time300 = 0.946927 seconds (29.429 MB, 26524 rounds)
+Time500 = 0.854413 seconds (19.0545 MB, 26394 rounds)
+Time600 = 0.134697 seconds (12.4308 MB, 1612 rounds)
+Time700 = 0.286728 seconds (1.30867 MB, 10416 rounds)
+Time1000 = 0.283664 seconds (24.237 MB, 3074 rounds)
+Data sent = 52.6043 MB in ~64802 rounds (party 0 only; use '-v' for more details)
+Global data sent = 157.678 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 1400 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 aspirin_count -pn 17827 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 aspirin_count -pn 17827 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 aspirin_count -pn 17827 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing aspirin_count with 1400 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 3.429e-06
+Stopped timer 10 at 0.00431705 (0.1456 MB, 38 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.225e-06
+Stopped timer 100 at 0.0410101 (1.42906 MB, 774 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.566e-06
+Stopped timer 200 at 0.036017 (1.42906 MB, 774 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.257e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 1.818e-06
+Stopped timer 1000 at 0.299454 (26.1626 MB, 3078 rounds)
+Stopped timer 300 at 1.05887 (31.6798 MB, 28330 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 2.01e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.349e-06
+Stopped timer 600 at 0.152383 (13.4175 MB, 1614 rounds)
+Stopped timer 500 at 0.940589 (20.5384 MB, 28302 rounds)
+Starting timer 700 at 0 (0 MB, 0 rounds) after 1.702e-06
+Stopped timer 700 at 0.3093 (1.44026 MB, 11218 rounds)
+321
+The following benchmarks are including preprocessing (offline phase).
+Time = 2.39153 seconds 
+Time10 = 0.00431705 seconds (0.1456 MB, 38 rounds)
+Time100 = 0.0410101 seconds (1.42906 MB, 774 rounds)
+Time200 = 0.036017 seconds (1.42906 MB, 774 rounds)
+Time300 = 1.05887 seconds (31.6798 MB, 28330 rounds)
+Time500 = 0.940589 seconds (20.5384 MB, 28302 rounds)
+Time600 = 0.152383 seconds (13.4175 MB, 1614 rounds)
+Time700 = 0.3093 seconds (1.44026 MB, 11218 rounds)
+Time1000 = 0.299454 seconds (26.1626 MB, 3078 rounds)
+Data sent = 56.6622 MB in ~69436 rounds (party 0 only; use '-v' for more details)
+Global data sent = 169.841 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 1500 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 aspirin_count -pn 18213 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 aspirin_count -pn 18213 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 aspirin_count -pn 18213 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing aspirin_count with 1500 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 4.327e-06
+Stopped timer 10 at 0.0047268 (0.156 MB, 40 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.5e-06
+Stopped timer 100 at 0.0435122 (1.55984 MB, 832 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.55e-06
+Stopped timer 200 at 0.037815 (1.47946 MB, 830 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.389e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 2.029e-06
+Stopped timer 1000 at 0.304241 (28.0078 MB, 3080 rounds)
+Stopped timer 300 at 1.11153 (34.0109 MB, 30138 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.694e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.283e-06
+Stopped timer 600 at 0.158901 (14.3239 MB, 1614 rounds)
+Stopped timer 500 at 1.0327 (21.942 MB, 30208 rounds)
+Starting timer 700 at 0 (0 MB, 0 rounds) after 1.658e-06
+Stopped timer 700 at 0.356247 (1.49146 MB, 12018 rounds)
+345
+The following benchmarks are including preprocessing (offline phase).
+Time = 2.58822 seconds 
+Time10 = 0.0047268 seconds (0.156 MB, 40 rounds)
+Time100 = 0.0435122 seconds (1.55984 MB, 832 rounds)
+Time200 = 0.037815 seconds (1.47946 MB, 830 rounds)
+Time300 = 1.11153 seconds (34.0109 MB, 30138 rounds)
+Time500 = 1.0327 seconds (21.942 MB, 30208 rounds)
+Time600 = 0.158901 seconds (14.3239 MB, 1614 rounds)
+Time700 = 0.356247 seconds (1.49146 MB, 12018 rounds)
+Time1000 = 0.304241 seconds (28.0078 MB, 3080 rounds)
+Data sent = 60.6396 MB in ~74066 rounds (party 0 only; use '-v' for more details)
+Global data sent = 181.763 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 1600 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 aspirin_count -pn 11976 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 aspirin_count -pn 11976 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 aspirin_count -pn 11976 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing aspirin_count with 1600 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 3.304e-06
+Stopped timer 10 at 0.00480048 (0.1664 MB, 42 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.294e-06
+Stopped timer 100 at 0.0466101 (1.69062 MB, 890 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.428e-06
+Stopped timer 200 at 0.0413942 (1.61024 MB, 888 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.288e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 2.042e-06
+Stopped timer 1000 at 0.32795 (29.853 MB, 3082 rounds)
+Stopped timer 300 at 1.20405 (36.1813 MB, 31942 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.711e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.37e-06
+Stopped timer 600 at 0.165545 (15.3107 MB, 1616 rounds)
+Stopped timer 500 at 1.08875 (23.4259 MB, 32116 rounds)
+Starting timer 700 at 0 (0 MB, 0 rounds) after 2.023e-06
+Stopped timer 700 at 0.388511 (1.62304 MB, 12820 rounds)
+375
+The following benchmarks are including preprocessing (offline phase).
+Time = 2.77559 seconds 
+Time10 = 0.00480048 seconds (0.1664 MB, 42 rounds)
+Time100 = 0.0466101 seconds (1.69062 MB, 890 rounds)
+Time200 = 0.0413942 seconds (1.61024 MB, 888 rounds)
+Time300 = 1.20405 seconds (36.1813 MB, 31942 rounds)
+Time500 = 1.08875 seconds (23.4259 MB, 32116 rounds)
+Time600 = 0.165545 seconds (15.3107 MB, 1616 rounds)
+Time700 = 0.388511 seconds (1.62304 MB, 12820 rounds)
+Time1000 = 0.32795 seconds (29.853 MB, 3082 rounds)
+Data sent = 64.6975 MB in ~78698 rounds (party 0 only; use '-v' for more details)
+Global data sent = 193.926 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 1700 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 aspirin_count -pn 10363 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 aspirin_count -pn 10363 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 aspirin_count -pn 10363 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing aspirin_count with 1700 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 3.106e-06
+Stopped timer 10 at 0.00807793 (0.1768 MB, 46 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.818e-06
+Stopped timer 100 at 0.05575 (1.74102 MB, 939 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 2.145e-06
+Stopped timer 200 at 0.0477931 (1.74102 MB, 939 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.841e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 2.661e-06
+Stopped timer 1000 at 0.338307 (31.6981 MB, 3084 rounds)
+Stopped timer 300 at 1.27809 (38.432 MB, 33748 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.725e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.252e-06
+Stopped timer 600 at 0.168815 (16.2975 MB, 1618 rounds)
+Stopped timer 500 at 1.16346 (24.9099 MB, 34024 rounds)
+Starting timer 700 at 0 (0 MB, 0 rounds) after 1.87e-06
+Stopped timer 700 at 0.383495 (1.75462 MB, 13622 rounds)
+394
+The following benchmarks are including preprocessing (offline phase).
+Time = 2.9382 seconds 
+Time10 = 0.00807793 seconds (0.1768 MB, 46 rounds)
+Time100 = 0.05575 seconds (1.74102 MB, 939 rounds)
+Time200 = 0.0477931 seconds (1.74102 MB, 939 rounds)
+Time300 = 1.27809 seconds (38.432 MB, 33748 rounds)
+Time500 = 1.16346 seconds (24.9099 MB, 34024 rounds)
+Time600 = 0.168815 seconds (16.2975 MB, 1618 rounds)
+Time700 = 0.383495 seconds (1.75462 MB, 13622 rounds)
+Time1000 = 0.338307 seconds (31.6981 MB, 3084 rounds)
+Data sent = 68.7554 MB in ~83318 rounds (party 0 only; use '-v' for more details)
+Global data sent = 206.089 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 1800 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 aspirin_count -pn 15225 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 aspirin_count -pn 15225 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 aspirin_count -pn 15225 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing aspirin_count with 1800 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 3.332e-06
+Stopped timer 10 at 0.00528463 (0.1872 MB, 48 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.2914e-05
+Stopped timer 100 at 0.0528168 (1.87181 MB, 997 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.548e-06
+Stopped timer 200 at 0.0457595 (1.79142 MB, 995 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.363e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 2.211e-06
+Stopped timer 1000 at 0.356079 (33.6237 MB, 3088 rounds)
+Stopped timer 300 at 1.33648 (40.7632 MB, 35556 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 2.165e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.28e-06
+Stopped timer 600 at 0.182325 (17.2039 MB, 1618 rounds)
+Stopped timer 500 at 1.17484 (26.3938 MB, 35932 rounds)
+Starting timer 700 at 0 (0 MB, 0 rounds) after 1.58e-06
+Stopped timer 700 at 0.412777 (1.80582 MB, 14422 rounds)
+425
+The following benchmarks are including preprocessing (offline phase).
+Time = 3.0296 seconds 
+Time10 = 0.00528463 seconds (0.1872 MB, 48 rounds)
+Time100 = 0.0528168 seconds (1.87181 MB, 997 rounds)
+Time200 = 0.0457595 seconds (1.79142 MB, 995 rounds)
+Time300 = 1.33648 seconds (40.7632 MB, 35556 rounds)
+Time500 = 1.17484 seconds (26.3938 MB, 35932 rounds)
+Time600 = 0.182325 seconds (17.2039 MB, 1618 rounds)
+Time700 = 0.412777 seconds (1.80582 MB, 14422 rounds)
+Time1000 = 0.356079 seconds (33.6237 MB, 3088 rounds)
+Data sent = 72.8132 MB in ~87950 rounds (party 0 only; use '-v' for more details)
+Global data sent = 218.252 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 1900 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 aspirin_count -pn 19505 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 aspirin_count -pn 19505 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 aspirin_count -pn 19505 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing aspirin_count with 1900 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 3.194e-06
+Stopped timer 10 at 0.00567849 (0.1976 MB, 50 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.495e-06
+Stopped timer 100 at 0.0550774 (1.92221 MB, 1053 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.528e-06
+Stopped timer 200 at 0.0485568 (1.92221 MB, 1053 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.297e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 2.086e-06
+Stopped timer 1000 at 0.374928 (35.4689 MB, 3090 rounds)
+Stopped timer 300 at 1.40185 (43.0139 MB, 37362 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.762e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.671e-06
+Stopped timer 600 at 0.189338 (18.1907 MB, 1620 rounds)
+Stopped timer 500 at 1.25738 (27.8777 MB, 37840 rounds)
+Starting timer 700 at 0 (0 MB, 0 rounds) after 1.891e-06
+Stopped timer 700 at 0.419444 (1.93741 MB, 15224 rounds)
+450
+The following benchmarks are including preprocessing (offline phase).
+Time = 3.1898 seconds 
+Time10 = 0.00567849 seconds (0.1976 MB, 50 rounds)
+Time100 = 0.0550774 seconds (1.92221 MB, 1053 rounds)
+Time200 = 0.0485568 seconds (1.92221 MB, 1053 rounds)
+Time300 = 1.40185 seconds (43.0139 MB, 37362 rounds)
+Time500 = 1.25738 seconds (27.8777 MB, 37840 rounds)
+Time600 = 0.189338 seconds (18.1907 MB, 1620 rounds)
+Time700 = 0.419444 seconds (1.93741 MB, 15224 rounds)
+Time1000 = 0.374928 seconds (35.4689 MB, 3090 rounds)
+Data sent = 76.8711 MB in ~92582 rounds (party 0 only; use '-v' for more details)
+Global data sent = 230.416 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 2000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 aspirin_count -pn 12337 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 aspirin_count -pn 12337 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 aspirin_count -pn 12337 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing aspirin_count with 2000 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 4.662e-06
+Stopped timer 10 at 0.00582123 (0.208 MB, 52 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.323e-06
+Stopped timer 100 at 0.0572423 (2.05299 MB, 1104 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.434e-06
+Stopped timer 200 at 0.0513088 (2.05299 MB, 1104 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.32e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 2.044e-06
+Stopped timer 1000 at 0.38184 (37.3141 MB, 3092 rounds)
+Stopped timer 300 at 1.44672 (45.2647 MB, 39168 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.729e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.349e-06
+Stopped timer 600 at 0.196717 (19.0971 MB, 1620 rounds)
+Stopped timer 500 at 1.34702 (29.2813 MB, 39746 rounds)
+Starting timer 700 at 0 (0 MB, 0 rounds) after 1.957e-06
+Stopped timer 700 at 0.4769 (1.98861 MB, 16024 rounds)
+483
+The following benchmarks are including preprocessing (offline phase).
+Time = 3.38697 seconds 
+Time10 = 0.00582123 seconds (0.208 MB, 52 rounds)
+Time100 = 0.0572423 seconds (2.05299 MB, 1104 rounds)
+Time200 = 0.0513088 seconds (2.05299 MB, 1104 rounds)
+Time300 = 1.44672 seconds (45.2647 MB, 39168 rounds)
+Time500 = 1.34702 seconds (29.2813 MB, 39746 rounds)
+Time600 = 0.196717 seconds (19.0971 MB, 1620 rounds)
+Time700 = 0.4769 seconds (1.98861 MB, 16024 rounds)
+Time1000 = 0.38184 seconds (37.3141 MB, 3092 rounds)
+Data sent = 80.8485 MB in ~97198 rounds (party 0 only; use '-v' for more details)
+Global data sent = 242.338 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 4000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 aspirin_count -pn 11572 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 aspirin_count -pn 11572 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 aspirin_count -pn 11572 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing aspirin_count with 4000 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 4.533e-06
+Stopped timer 10 at 0.0112476 (0.416 MB, 104 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.24e-06
+Stopped timer 100 at 0.113562 (4.10598 MB, 2208 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.542e-06
+Stopped timer 200 at 0.102718 (4.0256 MB, 2206 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.59e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 1.909e-06
+Stopped timer 1000 at 0.708027 (74.6197 MB, 3142 rounds)
+Stopped timer 300 at 2.76716 (90.5209 MB, 75294 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.582e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.291e-06
+Stopped timer 600 at 0.331709 (38.2701 MB, 1646 rounds)
+Stopped timer 500 at 2.60533 (58.5581 MB, 77896 rounds)
+Starting timer 700 at 0 (0 MB, 0 rounds) after 2.119e-06
+Stopped timer 700 at 0.915415 (4.0576 MB, 32050 rounds)
+1020
+The following benchmarks are including preprocessing (offline phase).
+Time = 6.5183 seconds 
+Time10 = 0.0112476 seconds (0.416 MB, 104 rounds)
+Time100 = 0.113562 seconds (4.10598 MB, 2208 rounds)
+Time200 = 0.102718 seconds (4.0256 MB, 2206 rounds)
+Time300 = 2.76716 seconds (90.5209 MB, 75294 rounds)
+Time500 = 2.60533 seconds (58.5581 MB, 77896 rounds)
+Time600 = 0.331709 seconds (38.2701 MB, 1646 rounds)
+Time700 = 0.915415 seconds (4.0576 MB, 32050 rounds)
+Time1000 = 0.708027 seconds (74.6197 MB, 3142 rounds)
+Data sent = 161.684 MB in ~189758 rounds (party 0 only; use '-v' for more details)
+Global data sent = 484.636 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 6000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 aspirin_count -pn 18031 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 aspirin_count -pn 18031 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 aspirin_count -pn 18031 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing aspirin_count with 6000 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 4.486e-06
+Stopped timer 10 at 0.0169321 (0.624 MB, 156 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.386e-06
+Stopped timer 100 at 0.17101 (6.07859 MB, 3310 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.639e-06
+Stopped timer 200 at 0.148238 (6.07859 MB, 3310 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.561e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 2.593e-06
+Stopped timer 1000 at 0.996787 (111.925 MB, 3192 rounds)
+Stopped timer 300 at 4.28687 (135.777 MB, 111420 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 2.034e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.347e-06
+Stopped timer 600 at 0.553162 (57.4431 MB, 1672 rounds)
+Stopped timer 500 at 4.06975 (87.9153 MB, 116048 rounds)
+Starting timer 700 at 0 (0 MB, 0 rounds) after 2.072e-06
+Stopped timer 700 at 1.4036 (6.04621 MB, 48074 rounds)
+1532
+The following benchmarks are including preprocessing (offline phase).
+Time = 10.1002 seconds 
+Time10 = 0.0169321 seconds (0.624 MB, 156 rounds)
+Time100 = 0.17101 seconds (6.07859 MB, 3310 rounds)
+Time200 = 0.148238 seconds (6.07859 MB, 3310 rounds)
+Time300 = 4.28687 seconds (135.777 MB, 111420 rounds)
+Time500 = 4.06975 seconds (87.9153 MB, 116048 rounds)
+Time600 = 0.553162 seconds (57.4431 MB, 1672 rounds)
+Time700 = 1.4036 seconds (6.04621 MB, 48074 rounds)
+Time1000 = 0.996787 seconds (111.925 MB, 3192 rounds)
+Data sent = 242.52 MB in ~282318 rounds (party 0 only; use '-v' for more details)
+Global data sent = 726.935 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 8000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 aspirin_count -pn 19590 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 aspirin_count -pn 19590 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 aspirin_count -pn 19590 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing aspirin_count with 8000 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 5.43e-06
+Stopped timer 10 at 0.0219364 (0.832 MB, 208 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.128e-06
+Stopped timer 100 at 0.22607 (8.13158 MB, 4414 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.519e-06
+Stopped timer 200 at 0.19998 (8.0512 MB, 4412 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.516e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 3.109e-06
+Stopped timer 1000 at 1.32965 (149.231 MB, 3242 rounds)
+Stopped timer 300 at 5.56919 (181.033 MB, 147546 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 2.486e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.584e-06
+Stopped timer 600 at 0.658318 (76.5357 MB, 1696 rounds)
+Stopped timer 500 at 5.17789 (117.192 MB, 154198 rounds)
+Starting timer 700 at 0 (0 MB, 0 rounds) after 2.89e-06
+Stopped timer 700 at 1.80039 (8.1152 MB, 64100 rounds)
+2017
+The following benchmarks are including preprocessing (offline phase).
+Time = 12.9999 seconds 
+Time10 = 0.0219364 seconds (0.832 MB, 208 rounds)
+Time100 = 0.22607 seconds (8.13158 MB, 4414 rounds)
+Time200 = 0.19998 seconds (8.0512 MB, 4412 rounds)
+Time300 = 5.56919 seconds (181.033 MB, 147546 rounds)
+Time500 = 5.17789 seconds (117.192 MB, 154198 rounds)
+Time600 = 0.658318 seconds (76.5357 MB, 1696 rounds)
+Time700 = 1.80039 seconds (8.1152 MB, 64100 rounds)
+Time1000 = 1.32965 seconds (149.231 MB, 3242 rounds)
+Data sent = 323.355 MB in ~374878 rounds (party 0 only; use '-v' for more details)
+Global data sent = 969.234 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 10000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 aspirin_count -pn 18962 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 aspirin_count -pn 18962 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 aspirin_count -pn 18962 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing aspirin_count with 10000 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 4.71e-06
+Stopped timer 10 at 0.0271644 (1.04 MB, 260 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.071e-06
+Stopped timer 100 at 0.287603 (10.1042 MB, 5964 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.625e-06
+Stopped timer 200 at 0.266774 (10.1042 MB, 5964 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.568e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 2.42e-06
+Stopped timer 1000 at 1.63966 (186.536 MB, 3292 rounds)
+Stopped timer 300 at 6.87605 (226.289 MB, 183672 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 2.095e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.147e-06
+Stopped timer 600 at 0.813306 (95.7087 MB, 1722 rounds)
+Stopped timer 500 at 6.40928 (146.549 MB, 192350 rounds)
+Starting timer 700 at 0 (0 MB, 0 rounds) after 1.84e-06
+Stopped timer 700 at 2.25039 (10.1038 MB, 80124 rounds)
+2528
+The following benchmarks are including preprocessing (offline phase).
+Time = 16.1256 seconds 
+Time10 = 0.0271644 seconds (1.04 MB, 260 rounds)
+Time100 = 0.287603 seconds (10.1042 MB, 5964 rounds)
+Time200 = 0.266774 seconds (10.1042 MB, 5964 rounds)
+Time300 = 6.87605 seconds (226.289 MB, 183672 rounds)
+Time500 = 6.40928 seconds (146.549 MB, 192350 rounds)
+Time600 = 0.813306 seconds (95.7087 MB, 1722 rounds)
+Time700 = 2.25039 seconds (10.1038 MB, 80124 rounds)
+Time1000 = 1.63966 seconds (186.536 MB, 3292 rounds)
+Data sent = 404.191 MB in ~468334 rounds (party 0 only; use '-v' for more details)
+Global data sent = 1211.53 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 20000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 aspirin_count -pn 15801 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 aspirin_count -pn 15801 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 aspirin_count -pn 15801 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing aspirin_count with 20000 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 4.723e-06
+Stopped timer 10 at 0.0515681 (2.08 MB, 520 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.161e-06
+Stopped timer 100 at 0.576992 (20.2084 MB, 11921 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 2.074e-06
+Stopped timer 200 at 0.531829 (20.128 MB, 11919 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.64e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 2.844e-06
+Stopped timer 1000 at 3.26447 (373.145 MB, 3544 rounds)
+Stopped timer 300 at 13.8863 (452.651 MB, 364304 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.968e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.324e-06
+Stopped timer 600 at 1.60136 (191.413 MB, 1848 rounds)
+Stopped timer 500 at 12.8592 (293.014 MB, 383102 rounds)
+Starting timer 700 at 0 (0 MB, 0 rounds) after 2.123e-06
+Stopped timer 700 at 4.63582 (20.288 MB, 160250 rounds)
+5054
+The following benchmarks are including preprocessing (offline phase).
+Time = 32.5556 seconds 
+Time10 = 0.0515681 seconds (2.08 MB, 520 rounds)
+Time100 = 0.576992 seconds (20.2084 MB, 11921 rounds)
+Time200 = 0.531829 seconds (20.128 MB, 11919 rounds)
+Time300 = 13.8863 seconds (452.651 MB, 364304 rounds)
+Time500 = 12.8592 seconds (293.014 MB, 383102 rounds)
+Time600 = 1.60136 seconds (191.413 MB, 1848 rounds)
+Time700 = 4.63582 seconds (20.288 MB, 160250 rounds)
+Time1000 = 3.26447 seconds (373.145 MB, 3544 rounds)
+Data sent = 808.369 MB in ~932016 rounds (party 0 only; use '-v' for more details)
+Global data sent = 2423.03 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 40000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 aspirin_count -pn 17163 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 aspirin_count -pn 17163 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 aspirin_count -pn 17163 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing aspirin_count with 40000 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 4.912e-06
+Stopped timer 10 at 0.120368 (4.16 MB, 1040 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.101e-06
+Stopped timer 100 at 1.07618 (40.3364 MB, 23840 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.669e-06
+Stopped timer 200 at 1.03071 (40.3364 MB, 23840 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.577e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 3.297e-06
+Stopped timer 1000 at 6.31874 (746.281 MB, 4046 rounds)
+Stopped timer 300 at 27.8466 (905.293 MB, 725566 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.652e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.221e-06
+Stopped timer 600 at 3.20065 (382.741 MB, 2098 rounds)
+Stopped timer 500 at 26.4048 (585.942 MB, 764606 rounds)
+Starting timer 700 at 0 (0 MB, 0 rounds) after 2.015e-06
+Stopped timer 700 at 9.50058 (40.6564 MB, 320502 rounds)
+10058
+The following benchmarks are including preprocessing (offline phase).
+Time = 66.0027 seconds 
+Time10 = 0.120368 seconds (4.16 MB, 1040 rounds)
+Time100 = 1.07618 seconds (40.3364 MB, 23840 rounds)
+Time200 = 1.03071 seconds (40.3364 MB, 23840 rounds)
+Time300 = 27.8466 seconds (905.293 MB, 725566 rounds)
+Time500 = 26.4048 seconds (585.942 MB, 764606 rounds)
+Time600 = 3.20065 seconds (382.741 MB, 2098 rounds)
+Time700 = 9.50058 seconds (40.6564 MB, 320502 rounds)
+Time1000 = 6.31874 seconds (746.281 MB, 4046 rounds)
+Data sent = 1616.72 MB in ~1859394 rounds (party 0 only; use '-v' for more details)
+Global data sent = 4846.01 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 60000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 aspirin_count -pn 15274 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 aspirin_count -pn 15274 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 aspirin_count -pn 15274 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing aspirin_count with 60000 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 4.413e-06
+Stopped timer 10 at 0.207228 (6.24 MB, 1560 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.178e-06
+Stopped timer 100 at 1.7139 (60.5448 MB, 35754 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.691e-06
+Stopped timer 200 at 1.5807 (60.4644 MB, 35752 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.599e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 2.942e-06
+Stopped timer 1000 at 9.43101 (1119.34 MB, 4546 rounds)
+Stopped timer 300 at 41.8455 (1357.94 MB, 1086828 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 2.528e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.653e-06
+Stopped timer 600 at 4.74493 (574.069 MB, 2348 rounds)
+Stopped timer 500 at 38.698 (878.871 MB, 1146110 rounds)
+Starting timer 700 at 0 (0 MB, 0 rounds) after 1.668e-06
+Stopped timer 700 at 13.9168 (60.9444 MB, 480752 rounds)
+14981
+The following benchmarks are including preprocessing (offline phase).
+Time = 97.9955 seconds 
+Time10 = 0.207228 seconds (6.24 MB, 1560 rounds)
+Time100 = 1.7139 seconds (60.5448 MB, 35754 rounds)
+Time200 = 1.5807 seconds (60.4644 MB, 35752 rounds)
+Time300 = 41.8455 seconds (1357.94 MB, 1086828 rounds)
+Time500 = 38.698 seconds (878.871 MB, 1146110 rounds)
+Time600 = 4.74493 seconds (574.069 MB, 2348 rounds)
+Time700 = 13.9168 seconds (60.9444 MB, 480752 rounds)
+Time1000 = 9.43101 seconds (1119.34 MB, 4546 rounds)
+Data sent = 2425 MB in ~2786756 rounds (party 0 only; use '-v' for more details)
+Global data sent = 7268.76 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 80000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 aspirin_count -pn 10547 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 aspirin_count -pn 10547 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 aspirin_count -pn 10547 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing aspirin_count with 80000 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 4.754e-06
+Stopped timer 10 at 0.320267 (8.32 MB, 2080 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.216e-06
+Stopped timer 100 at 2.18258 (80.6728 MB, 47673 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.607e-06
+Stopped timer 200 at 1.99944 (80.6728 MB, 47673 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.474e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 3.469e-06
+Stopped timer 1000 at 12.7446 (1492.47 MB, 5048 rounds)
+Stopped timer 300 at 56.1171 (1810.58 MB, 1448090 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.879e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.394e-06
+Stopped timer 600 at 6.49033 (765.397 MB, 2598 rounds)
+Stopped timer 500 at 51.2324 (1171.8 MB, 1527614 rounds)
+Starting timer 700 at 0 (0 MB, 0 rounds) after 1.993e-06
+Stopped timer 700 at 17.7554 (81.3128 MB, 641004 rounds)
+19968
+The following benchmarks are including preprocessing (offline phase).
+Time = 129.651 seconds 
+Time10 = 0.320267 seconds (8.32 MB, 2080 rounds)
+Time100 = 2.18258 seconds (80.6728 MB, 47673 rounds)
+Time200 = 1.99944 seconds (80.6728 MB, 47673 rounds)
+Time300 = 56.1171 seconds (1810.58 MB, 1448090 rounds)
+Time500 = 51.2324 seconds (1171.8 MB, 1527614 rounds)
+Time600 = 6.49033 seconds (765.397 MB, 2598 rounds)
+Time700 = 17.7554 seconds (81.3128 MB, 641004 rounds)
+Time1000 = 12.7446 seconds (1492.47 MB, 5048 rounds)
+Data sent = 3233.36 MB in ~3714134 rounds (party 0 only; use '-v' for more details)
+Global data sent = 9691.75 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 100000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 aspirin_count -pn 11069 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 aspirin_count -pn 11069 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 aspirin_count -pn 11069 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing aspirin_count with 100000 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 4.937e-06
+Stopped timer 10 at 0.380367 (10.4 MB, 2600 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.221e-06
+Stopped timer 100 at 2.8125 (100.801 MB, 59592 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.474e-06
+Stopped timer 200 at 2.56436 (100.801 MB, 59592 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.932e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 3.089e-06
+Stopped timer 1000 at 15.7344 (1865.61 MB, 5550 rounds)
+Stopped timer 300 at 68.4751 (2263.22 MB, 1809352 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 2.354e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 2.252e-06
+Stopped timer 600 at 8.01617 (956.805 MB, 2850 rounds)
+Stopped timer 500 at 65.0036 (1464.81 MB, 1909120 rounds)
+Starting timer 700 at 0 (0 MB, 0 rounds) after 1.744e-06
+Stopped timer 700 at 22.8298 (101.601 MB, 801254 rounds)
+24831
+The following benchmarks are including preprocessing (offline phase).
+Time = 162.12 seconds 
+Time10 = 0.380367 seconds (10.4 MB, 2600 rounds)
+Time100 = 2.8125 seconds (100.801 MB, 59592 rounds)
+Time200 = 2.56436 seconds (100.801 MB, 59592 rounds)
+Time300 = 68.4751 seconds (2263.22 MB, 1809352 rounds)
+Time500 = 65.0036 seconds (1464.81 MB, 1909120 rounds)
+Time600 = 8.01617 seconds (956.805 MB, 2850 rounds)
+Time700 = 22.8298 seconds (101.601 MB, 801254 rounds)
+Time1000 = 15.7344 seconds (1865.61 MB, 5550 rounds)
+Data sent = 4041.63 MB in ~4641510 rounds (party 0 only; use '-v' for more details)
+Global data sent = 12114.5 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 200000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 aspirin_count -pn 17085 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 aspirin_count -pn 17085 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 aspirin_count -pn 17085 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing aspirin_count with 200000 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 8.533e-06
+Stopped timer 10 at 0.784427 (20.8 MB, 5200 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.428e-06
+Stopped timer 100 at 5.47482 (201.602 MB, 119177 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.815e-06
+Stopped timer 200 at 5.20538 (201.602 MB, 119177 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.734e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 2.918e-06
+Stopped timer 1000 at 32.6728 (3731.21 MB, 8058 rounds)
+Stopped timer 300 at 137.186 (4526.43 MB, 3615662 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.974e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.457e-06
+Stopped timer 600 at 16.4965 (1913.61 MB, 4104 rounds)
+Stopped timer 500 at 131.278 (2929.61 MB, 3816644 rounds)
+Starting timer 700 at 0 (0 MB, 0 rounds) after 1.885e-06
+Stopped timer 700 at 46.5755 (203.202 MB, 1602508 rounds)
+49818
+The following benchmarks are including preprocessing (offline phase).
+Time = 326.605 seconds 
+Time10 = 0.784427 seconds (20.8 MB, 5200 rounds)
+Time100 = 5.47482 seconds (201.602 MB, 119177 rounds)
+Time200 = 5.20538 seconds (201.602 MB, 119177 rounds)
+Time300 = 137.186 seconds (4526.43 MB, 3615662 rounds)
+Time500 = 131.278 seconds (2929.61 MB, 3816644 rounds)
+Time600 = 16.4965 seconds (1913.61 MB, 4104 rounds)
+Time700 = 46.5755 seconds (203.202 MB, 1602508 rounds)
+Time1000 = 32.6728 seconds (3731.21 MB, 8058 rounds)
+Data sent = 8083.25 MB in ~9278368 rounds (party 0 only; use '-v' for more details)
+Global data sent = 24228.9 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 400000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 aspirin_count -pn 10149 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 aspirin_count -pn 10149 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 aspirin_count -pn 10149 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing aspirin_count with 400000 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 4.551e-06
+Stopped timer 10 at 1.65004 (41.6 MB, 10400 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.32e-06
+Stopped timer 100 at 11.2962 (403.203 MB, 238354 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.903e-06
+Stopped timer 200 at 10.4467 (403.203 MB, 238354 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.479e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 3.805e-06
+Stopped timer 1000 at 76.4091 (7462.41 MB, 13074 rounds)
+Stopped timer 300 at 289.365 (9052.85 MB, 7228282 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.977e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.21e-06
+Stopped timer 600 at 39.2407 (3827.21 MB, 6612 rounds)
+Stopped timer 500 at 266.62 (5859.22 MB, 7631692 rounds)
+Starting timer 700 at 0 (0 MB, 0 rounds) after 2.343e-06
+Stopped timer 700 at 91.7483 (406.403 MB, 3205016 rounds)
+99810
+The following benchmarks are including preprocessing (offline phase).
+Time = 671.334 seconds 
+Time10 = 1.65004 seconds (41.6 MB, 10400 rounds)
+Time100 = 11.2962 seconds (403.203 MB, 238354 rounds)
+Time200 = 10.4467 seconds (403.203 MB, 238354 rounds)
+Time300 = 289.365 seconds (9052.85 MB, 7228282 rounds)
+Time500 = 266.62 seconds (5859.22 MB, 7631692 rounds)
+Time600 = 39.2407 seconds (3827.21 MB, 6612 rounds)
+Time700 = 91.7483 seconds (406.403 MB, 3205016 rounds)
+Time1000 = 76.4091 seconds (7462.41 MB, 13074 rounds)
+Data sent = 16166.5 MB in ~18552098 rounds (party 0 only; use '-v' for more details)
+Global data sent = 48457.9 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 600000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 aspirin_count -pn 12785 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 aspirin_count -pn 12785 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 aspirin_count -pn 12785 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing aspirin_count with 600000 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 5.412e-06
+Stopped timer 10 at 2.52614 (62.4 MB, 15600 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.247e-06
+Stopped timer 100 at 16.5872 (604.805 MB, 357524 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 2.546e-06
+Stopped timer 200 at 15.3002 (604.805 MB, 357524 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.747e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 4.222e-06
+Stopped timer 1000 at 118.984 (11193.6 MB, 18090 rounds)
+Stopped timer 300 at 438.241 (13579.3 MB, 10840902 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.992e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.255e-06
+Stopped timer 600 at 60.8014 (5740.73 MB, 9118 rounds)
+Stopped timer 500 at 403.677 (8788.75 MB, 11446738 rounds)
+Starting timer 700 at 0 (0 MB, 0 rounds) after 2.078e-06
+Stopped timer 700 at 138.898 (609.605 MB, 4807524 rounds)
+149883
+The following benchmarks are including preprocessing (offline phase).
+Time = 1015.55 seconds 
+Time10 = 2.52614 seconds (62.4 MB, 15600 rounds)
+Time100 = 16.5872 seconds (604.805 MB, 357524 rounds)
+Time200 = 15.3002 seconds (604.805 MB, 357524 rounds)
+Time300 = 438.241 seconds (13579.3 MB, 10840902 rounds)
+Time500 = 403.677 seconds (8788.75 MB, 11446738 rounds)
+Time600 = 60.8014 seconds (5740.73 MB, 9118 rounds)
+Time700 = 138.898 seconds (609.605 MB, 4807524 rounds)
+Time1000 = 118.984 seconds (11193.6 MB, 18090 rounds)
+Data sent = 24249.6 MB in ~27825812 rounds (party 0 only; use '-v' for more details)
+Global data sent = 72686.5 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 800000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 aspirin_count -pn 12620 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 aspirin_count -pn 12620 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 aspirin_count -pn 12620 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing aspirin_count with 800000 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 7.41e-06
+Stopped timer 10 at 3.39442 (83.2 MB, 20800 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.201e-06
+Stopped timer 100 at 22.1072 (806.406 MB, 476701 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.823e-06
+Stopped timer 200 at 20.591 (806.406 MB, 476701 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.837e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 4.468e-06
+Stopped timer 1000 at 155.614 (14924.8 MB, 23106 rounds)
+Stopped timer 300 at 579.558 (18105.6 MB, 14453520 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 2.035e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.264e-06
+Stopped timer 600 at 80.1669 (7654.41 MB, 11628 rounds)
+Stopped timer 500 at 535.38 (11718.4 MB, 15261788 rounds)
+Starting timer 700 at 0 (0 MB, 0 rounds) after 1.953e-06
+Stopped timer 700 at 185.801 (812.806 MB, 6410032 rounds)
+199621
+The following benchmarks are including preprocessing (offline phase).
+Time = 1347.24 seconds 
+Time10 = 3.39442 seconds (83.2 MB, 20800 rounds)
+Time100 = 22.1072 seconds (806.406 MB, 476701 rounds)
+Time200 = 20.591 seconds (806.406 MB, 476701 rounds)
+Time300 = 579.558 seconds (18105.6 MB, 14453520 rounds)
+Time500 = 535.38 seconds (11718.4 MB, 15261788 rounds)
+Time600 = 80.1669 seconds (7654.41 MB, 11628 rounds)
+Time700 = 185.801 seconds (812.806 MB, 6410032 rounds)
+Time1000 = 155.614 seconds (14924.8 MB, 23106 rounds)
+Data sent = 32332.9 MB in ~37099542 rounds (party 0 only; use '-v' for more details)
+Global data sent = 96915.4 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of your code:
+	program.use_split(3)
+Done
+Measure performance for 1000000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 aspirin_count -pn 11230 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 aspirin_count -pn 11230 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 aspirin_count -pn 11230 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Executing aspirin_count with 1000000 rows
+Starting timer 10 at 0 (0 MB, 0 rounds) after 7.197e-06
+Stopped timer 10 at 4.27108 (104 MB, 26000 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.311e-06
+Stopped timer 100 at 27.9625 (1008.01 MB, 595878 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 2.008e-06
+Stopped timer 200 at 25.363 (1008.01 MB, 595878 rounds)
+Starting timer 300 at 0 (0 MB, 0 rounds) after 2.12e-06
+Starting timer 1000 at 0 (0 MB, 0 rounds) after 4.342e-06
+Stopped timer 1000 at 192.025 (18656 MB, 28122 rounds)
+Stopped timer 300 at 724.625 (22632 MB, 18066140 rounds)
+Starting timer 500 at 0 (0 MB, 0 rounds) after 2.335e-06
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.667e-06
+Stopped timer 600 at 98.3461 (9568.01 MB, 14136 rounds)
+Stopped timer 500 at 672.1 (14648 MB, 19076834 rounds)
+Starting timer 700 at 0 (0 MB, 0 rounds) after 2.019e-06
+Stopped timer 700 at 231.262 (1016.01 MB, 8012540 rounds)
+249173
+The following benchmarks are including preprocessing (offline phase).
+Time = 1686.11 seconds 
+Time10 = 4.27108 seconds (104 MB, 26000 rounds)
+Time100 = 27.9625 seconds (1008.01 MB, 595878 rounds)
+Time200 = 25.363 seconds (1008.01 MB, 595878 rounds)
+Time300 = 724.625 seconds (22632 MB, 18066140 rounds)
+Time500 = 672.1 seconds (14648 MB, 19076834 rounds)
+Time600 = 98.3461 seconds (9568.01 MB, 14136 rounds)
+Time700 = 231.262 seconds (1016.01 MB, 8012540 rounds)
+Time1000 = 192.025 seconds (18656 MB, 28122 rounds)
+Data sent = 40416 MB in ~46373270 rounds (party 0 only; use '-v' for more details)
+Global data sent = 121144 MB (all parties)
 This program might benefit from some protocol options.
 Consider adding the following at the beginning of your code:
 	program.use_split(3)
