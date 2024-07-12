@@ -34,61 +34,119 @@ def where(matrix: sint.Matrix, key: int, value: int) -> sint.Matrix:
         result[i][-1] = (matrix[i][key] == value).if_else(1,0)
     return result
 
-def sort_merge_join(
-        left: sint.Matrix, 
-        right: sint.Matrix, 
+def sort_merge_join_uu(
+        left_in: sint.Matrix, 
+        right_in: sint.Matrix, 
         l_key: int, 
         r_key: int,
-        condition: Callable[[sint.Array, sint.Array], bool] = lambda left, right: True
+        condition: Callable[[sint.Array, sint.Array], bool] = lambda left, right: sint(1)
     ) -> sint.Matrix:
+    left = left_in.same_shape()
+    right = right_in.same_shape()
+
+    @for_range_opt(left_in.shape[0])
+    def _(i):
+        left[i].assign(left_in[i])
+
+    @for_range_opt(right_in.shape[0])
+    def _(i):
+        right[i].assign(right_in[i])
+
     start_timer(1000)
     left.sort((l_key,))
-    right.sort((r_key))
+    right.sort((r_key,))
     stop_timer(1000)
 
     result = sint.Matrix(
-        rows=left.shape[0]*right.shape[0],
+        rows=right.shape[0],
         columns=left.shape[1] + right.shape[1] + 1
     )
     result.assign_all(0)
 
     i = regint(0)
     j = regint(0)
-    mark = regint(-1)
+    cnt = regint(0)
+    rel = sint.Array(1).create_from(sint(1))
+
+    @while_do(lambda: (i < left.shape[0]) & (j < right.shape[0]))
+    def _():
+        lt = (left[i][l_key] < right[j][r_key]).if_else(1,0)
+        gt = (left[i][l_key] > right[j][r_key]).if_else(1,0)
+        eq = (left[i][l_key] == right[j][r_key]).if_else(1,0)
+
+        @if_(lt.reveal())
+        def _():
+            i.update(i+1)
+        @if_(gt.reveal())
+        def _():
+            j.update(j+1)
+        @if_(eq.reveal())
+        def _():
+            result[cnt] = left[i].concat(right[j]).concat(rel)
+            cnt.update(cnt+1)
+            i.update(i+1)
+            j.update(j+1)
+    return result
+
+def sort_merge_join_un(
+        left: sint.Matrix, 
+        right: sint.Matrix, 
+        l_key: int, 
+        r_key: int,
+        condition: Callable[[sint.Array, sint.Array], bool] = lambda left, right: sint(1)
+    ) -> sint.Matrix:
+    left_sorted = left.same_shape()
+    right_sorted = right.same_shape()
+
+    @for_range_opt(left.shape[0])
+    def _(i):
+        left_sorted[i].assign(left[i])
+
+    @for_range_opt(right.shape[0])
+    def _(i):
+        right_sorted[i].assign(right[i])
+
+    start_timer(1000)
+    left_sorted.sort((l_key,))
+    right_sorted.sort((r_key,))
+    stop_timer(1000)
+
+    result = sint.Matrix(
+        rows=right.shape[0],
+        columns=left.shape[1] + right.shape[1] + 1
+    )
+    result.assign_all(0)
+
+    i = regint(0)
+    j = regint(0)
     cnt = regint(0)
 
-    @while_do(lambda: (i < left.shape[0]) & (j < right.shape[0]+1))
+    @while_do(lambda: (i < left_sorted.shape[0]) & (j < right_sorted.shape[0]))
     def _():
-        @if_(j >= right.shape[0])
+        left_row = left_sorted[i]
+        left_value = left_row[l_key]
+
+        lt = (left_sorted[i][l_key] < right_sorted[j][r_key]).if_else(1,0).reveal()
+        gt = (left_sorted[i][l_key] > right_sorted[j][r_key]).if_else(1,0).reveal()
+        eq = (left_sorted[i][l_key] == right_sorted[j][r_key]).if_else(1,0).reveal()
+
+        @if_(lt)
         def _():
-            j.update(mark)
             i.update(i+1)
-            mark.update(-1)
-            @if_(i >= len(left))
-            def _():
-                break_loop()
-        @if_(mark == -1)
+        @if_(gt)
         def _():
-            @while_do(lambda: (left[i][l_key] < right[j][l_key]).if_else(1,0).reveal())
-            def _():
-                i.update(i+1)
-            @while_do(lambda: (left[i][l_key] > right[j][l_key]).if_else(1,0).reveal())
-            def _():
-                j.update(j+1)
-            mark.update(j)
-        @if_e((left[i][l_key] == right[j][l_key]).if_else(1,0).reveal())
-        def _():
-            @if_(condition(left[i], right[j]).reveal())
-            def _():
-                rel = sint.Array(1).create_from(sint(1))
-                result[cnt] = left[i].concat(right[j].concat(rel))
-                cnt.update(cnt+1)
             j.update(j+1)
-        @else_
+        @if_(eq)
         def _():
-            j.update(mark)
+            @while_do(and_(lambda: (j < right_sorted.shape[0]), lambda: (right_sorted[j][r_key] == left_value).if_else(1,0).reveal()))
+            def _():
+                @if_(condition(left_row, right_sorted[j]).reveal())
+                def _():
+                    rel = sint.Array(1).create_from(sint(1))
+                    result[cnt] = left_sorted[i].concat(right_sorted[j].concat(rel))
+                cnt.update(cnt+1)
+                j.update(j+1)
             i.update(i+1)
-            mark.update(-1)
     return result
 
 def row_number_over_partition_by(
@@ -145,7 +203,7 @@ def select_distinct(
         prev_value.update(new_value)
     return result
 
-max_rows = 100
+max_rows = 1000
 print_ln("Executing cdiff with %s rows", max_rows)
 start_timer(10)
 a = sint.Matrix(max_rows, 13)
@@ -174,8 +232,8 @@ def join_condition(left, right):
     ).if_else(1,0)
 
 start_timer(400)
-join = sort_merge_join(
-    diags, diags, 1, 1,
+join = sort_merge_join_un(
+    diags, diags, 0, 1,
     condition=join_condition
 )
 stop_timer(400)

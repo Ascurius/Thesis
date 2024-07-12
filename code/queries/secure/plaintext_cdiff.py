@@ -158,7 +158,7 @@ def union_all(left, right):
         result[left.shape[0] + j].assign_vector(right[j])
     return result
 
-max_rows = 50
+max_rows = 1400
 print_ln("Executing plaintext_cdiff with %s rows", max_rows)
 start_timer(10)
 a = sint.Matrix(max_rows, 13)
