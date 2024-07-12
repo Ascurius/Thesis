@@ -159,7 +159,7 @@ def aspirin_count(table1, table2, join_type, left_key, right_key):
         dist_cond = lambda row: row[-1] == row[-2] == row[-3] == row[13] == 1
     elif join_type == "s":
         join_function = sort_merge_join
-        dist_cond = lambda row: row[13] == row[-1] == row[-3] == 1
+        dist_cond = lambda row: row[-1] == row[-2] == row[13] == 1
     else:
         print(f"Unknown join type: {join_type}")
         exit()
