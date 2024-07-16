@@ -394,9 +394,11 @@ This program might benefit from some protocol options.
 Consider adding the following at the beginning of your code:
 	program.use_split(3)
 Done
-####################
+
+################################################################################
 ### sort-merge join-nn
-####################
+################################################################################
+
 Starting cmd=numactl --membind=0 --cpunodebind=0 -- measurements/measure_secure.sh cdiff
 Running performance test for secure query: cdiff
 Generating test data...
@@ -1244,7 +1246,6 @@ Done
 ### sort-merge join-un
 ################################################################################
 
-sort-merge join-un
 Starting cmd=numactl --membind=0 --cpunodebind=0 -- measurements/measure_secure.sh cdiff
 Running performance test for secure query: cdiff
 Generating test data...
