@@ -52,16 +52,8 @@ def sort_merge_join_uu(
         r_key: int,
         condition: Callable[[sint.Array, sint.Array], bool] = lambda left, right: sint(1)
     ) -> sint.Matrix:
-    left = left_in.same_shape()
-    right = right_in.same_shape()
-
-    @for_range_opt(left_in.shape[0])
-    def _(i):
-        left[i].assign(left_in[i])
-
-    @for_range_opt(right_in.shape[0])
-    def _(i):
-        right[i].assign(right_in[i])
+    left_sorted = Matrix.create_from(left)
+    right_sorted = Matrix.create_from(right)
 
     start_timer(1000)
     left.sort((l_key,))
@@ -106,16 +98,8 @@ def sort_merge_join_un(
         r_key: int,
         condition: Callable[[sint.Array, sint.Array], bool] = lambda left, right: sint(1)
     ) -> sint.Matrix:
-    left_sorted = left.same_shape()
-    right_sorted = right.same_shape()
-
-    @for_range_opt(left.shape[0])
-    def _(i):
-        left_sorted[i].assign(left[i])
-
-    @for_range_opt(right.shape[0])
-    def _(i):
-        right_sorted[i].assign(right[i])
+    left_sorted = Matrix.create_from(left)
+    right_sorted = Matrix.create_from(right)
 
     start_timer(1000)
     left_sorted.sort((l_key,))
