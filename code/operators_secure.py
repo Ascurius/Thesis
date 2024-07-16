@@ -165,18 +165,10 @@ def sort_merge_join_nn(
         right: sint.Matrix, 
         l_key: int, 
         r_key: int,
-        condition: Callable[[sint.Array, sint.Array], bool] = lambda left, right: True
+        condition: Callable[[sint.Array, sint.Array], bool] = lambda left, right: sintbit(1)
     ) -> sint.Matrix:
-    left_sorted = left.same_shape()
-    right_sorted = right.same_shape()
-
-    @for_range_opt(left.shape[0])
-    def _(i):
-        left_sorted[i].assign(left[i])
-
-    @for_range_opt(right.shape[0])
-    def _(i):
-        right_sorted[i].assign(right[i])
+    left_sorted = Matrix.create_from(left)
+    right_sorted = Matrix.create_from(right)
 
     start_timer(1000)
     left_sorted.sort((l_key,))
@@ -191,41 +183,26 @@ def sort_merge_join_nn(
 
     i = regint(0)
     j = regint(0)
-    mark = regint(-1)
     cnt = regint(0)
 
-    @while_do(lambda: (i < left_sorted.shape[0]) & (j < right_sorted.shape[0]+1))
-    def _():
-        @if_(j >= right_sorted.shape[0])
-        def _():
-            j.update(mark)
-            i.update(i+1)
-            mark.update(-1)
-            @if_(i >= len(left))
+    @for_range_opt(left_sorted.shape[0])
+    def _(i):
+        @for_range_opt(right_sorted.shape[0])
+        def _(j):
+            result[cnt] = (
+                (left_sorted[i][l_key] == right_sorted[j][r_key]) &
+                condition(left_sorted[i], right_sorted[j])
+            ).if_else(
+                left_sorted[i].concat(right_sorted[j]).concat(
+                    sint.Array(1).create_from(sint(1))
+                ),
+                result[cnt]
+            )
+            cnt.update(cnt+1)
+            lt = (left_sorted[i][l_key] < right_sorted[j][r_key]).if_else(1,0)
+            @if_(lt.reveal())
             def _():
                 break_loop()
-        @if_(mark == -1)
-        def _():
-            @while_do(lambda: (left_sorted[i][l_key] < right_sorted[j][l_key]).if_else(1,0).reveal())
-            def _():
-                i.update(i+1)
-            @while_do(lambda: (left_sorted[i][l_key] > right_sorted[j][l_key]).if_else(1,0).reveal())
-            def _():
-                j.update(j+1)
-            mark.update(j)
-        @if_e((left_sorted[i][l_key] == right_sorted[j][l_key]).if_else(1,0).reveal())
-        def _():
-            @if_(condition(left_sorted[i], right_sorted[j]).reveal())
-            def _():
-                rel = sint.Array(1).create_from(sint(1))
-                result[cnt] = left_sorted[i].concat(right_sorted[j].concat(rel))
-                cnt.update(cnt+1)
-            j.update(j+1)
-        @else_
-        def _():
-            j.update(mark)
-            i.update(i+1)
-            mark.update(-1)
     return result
 
 def order_by(matrix: sint.Matrix, order_key: int, relevance_key: int, reverse: bool = False):
