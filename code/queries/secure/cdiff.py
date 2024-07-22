@@ -41,16 +41,8 @@ def sort_merge_join_uu(
         r_key: int,
         condition: Callable[[sint.Array, sint.Array], bool] = lambda left, right: sint(1)
     ) -> sint.Matrix:
-    left = left_in.same_shape()
-    right = right_in.same_shape()
-
-    @for_range_opt(left_in.shape[0])
-    def _(i):
-        left[i].assign(left_in[i])
-
-    @for_range_opt(right_in.shape[0])
-    def _(i):
-        right[i].assign(right_in[i])
+    left_sorted = Matrix.create_from(left)
+    right_sorted = Matrix.create_from(right)
 
     start_timer(1000)
     left.sort((l_key,))
@@ -95,16 +87,8 @@ def sort_merge_join_un(
         r_key: int,
         condition: Callable[[sint.Array, sint.Array], bool] = lambda left, right: sint(1)
     ) -> sint.Matrix:
-    left_sorted = left.same_shape()
-    right_sorted = right.same_shape()
-
-    @for_range_opt(left.shape[0])
-    def _(i):
-        left_sorted[i].assign(left[i])
-
-    @for_range_opt(right.shape[0])
-    def _(i):
-        right_sorted[i].assign(right[i])
+    left_sorted = Matrix.create_from(left)
+    right_sorted = Matrix.create_from(right)
 
     start_timer(1000)
     left_sorted.sort((l_key,))
@@ -147,6 +131,51 @@ def sort_merge_join_un(
                 cnt.update(cnt+1)
                 j.update(j+1)
             i.update(i+1)
+    return result
+
+def sort_merge_join_nn(
+        left: sint.Matrix, 
+        right: sint.Matrix, 
+        l_key: int, 
+        r_key: int,
+        condition: Callable[[sint.Array, sint.Array], bool] = lambda left, right: sintbit(1)
+    ) -> sint.Matrix:
+    left_sorted = Matrix.create_from(left)
+    right_sorted = Matrix.create_from(right)
+
+    start_timer(1000)
+    left_sorted.sort((l_key,))
+    right_sorted.sort((r_key,))
+    stop_timer(1000)
+
+    result = sint.Matrix(
+        rows=left.shape[0]*right.shape[0],
+        columns=left.shape[1] + right.shape[1] + 1
+    )
+    result.assign_all(0)
+
+    i = regint(0)
+    j = regint(0)
+    cnt = regint(0)
+
+    @for_range_opt(left_sorted.shape[0])
+    def _(i):
+        @for_range_opt(right_sorted.shape[0])
+        def _(j):
+            result[cnt] = (
+                (left_sorted[i][l_key] == right_sorted[j][r_key]) &
+                condition(left_sorted[i], right_sorted[j])
+            ).if_else(
+                left_sorted[i].concat(right_sorted[j]).concat(
+                    sint.Array(1).create_from(sint(1))
+                ),
+                result[cnt]
+            )
+            cnt.update(cnt+1)
+            lt = (left_sorted[i][l_key] < right_sorted[j][r_key]).if_else(1,0)
+            @if_(lt.reveal())
+            def _():
+                break_loop()
     return result
 
 def row_number_over_partition_by(
@@ -203,7 +232,7 @@ def select_distinct(
         prev_value.update(new_value)
     return result
 
-max_rows = 1000
+max_rows = 1000000
 print_ln("Executing cdiff with %s rows", max_rows)
 start_timer(10)
 a = sint.Matrix(max_rows, 13)
@@ -232,8 +261,8 @@ def join_condition(left, right):
     ).if_else(1,0)
 
 start_timer(400)
-join = sort_merge_join_un(
-    diags, diags, 0, 1,
+join = sort_merge_join_uu(
+    diags, diags, 0, 0,
     condition=join_condition
 )
 stop_timer(400)
