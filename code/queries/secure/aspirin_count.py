@@ -171,6 +171,31 @@ def sort_merge_join_nn(
                 break_loop()
     return result
 
+def join_nested_loop(
+        left: sint.Matrix, 
+        right: sint.Matrix, 
+        left_key: int, 
+        right_key: int,
+        condition: Callable[[sint.Array, sint.Array], bool] = lambda left, right: True
+    ) -> sint.Matrix:
+    result = sint.Matrix(
+        rows=left.shape[0] * right.shape[0],
+        columns=left.shape[1] + right.shape[1] + 1
+    )
+    current_idx = regint(0)
+    @for_range_opt(left.shape[0])
+    def _(left_row):
+        @for_range_opt(right.shape[0])
+        def _(right_row):
+            new_row = left[left_row].concat(right[right_row])
+            result[current_idx].assign(new_row)
+            result[current_idx][-1] = (
+                (left[left_row][left_key] == right[right_row][right_key]) &
+                condition(left[left_row], right[right_row])
+            ).if_else(sint(1),sint(0))
+            current_idx.update(current_idx + regint(1))
+    return result
+
 def where(matrix: sint.Matrix, key: int, value: int) -> sint.Matrix:
     result = sint.Matrix(
         rows=matrix.shape[0],
@@ -195,7 +220,7 @@ def where_less_then(matrix: sint.Matrix, col_1: int, col_2: int) -> sint.Matrix:
         ).if_else(1,0)
     return result
 
-max_rows = 4000
+max_rows = 700
 print_ln("Executing aspirin_count with %s rows", max_rows)
 start_timer(10)
 a = sint.Matrix(max_rows, 13)
@@ -220,7 +245,7 @@ def join_condition(left, right):
     ).if_else(1,0)
 
 start_timer(300)
-join = sort_merge_join_nn(aw, bw, 1, 1, condition=join_condition)
+join = join_nested_loop(aw, bw, 1, 1, condition=join_condition)
 stop_timer(300)
 
 # start_timer(400)
@@ -240,13 +265,13 @@ start_timer(500)
 select = select_distinct(join, 0, condition=distinct_condition)
 stop_timer(500)
 
-count = regint(0)
-start_timer(700)
-@for_range_opt(select.shape[0])
-def _(i):
-    dbit_5 = (select[i][-1] == 1).if_else(1,0) # select distinct
-    @if_(dbit_5.reveal())
-    def _():
-        count.update(count + 1)
-stop_timer(700)
-print_ln("%s", count)
+# count = regint(0)
+# start_timer(700)
+# @for_range_opt(select.shape[0])
+# def _(i):
+#     dbit_5 = (select[i][-1] == 1).if_else(1,0) # select distinct
+#     @if_(dbit_5.reveal())
+#     def _():
+#         count.update(count + 1)
+# stop_timer(700)
+# print_ln("%s", count)

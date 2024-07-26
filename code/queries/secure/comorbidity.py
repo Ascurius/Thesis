@@ -40,7 +40,9 @@ def select_columns(matrix: sint.Matrix, keys: sint.Array) -> sint.Matrix:
 def group_by_count(matrix: sint.Matrix, key: int) -> sint.Matrix:
     # matrix.sort((key,2))
     # matrix.sort((key,))
+    start_timer(300)
     sort_by_two_cols(matrix, key, 2)
+    stop_timer(300)
     result = sint.Matrix(
         rows=matrix.shape[0],
         columns=matrix.shape[1] + 2
@@ -69,9 +71,9 @@ def group_by_count(matrix: sint.Matrix, key: int) -> sint.Matrix:
     return result
 
 def order_by(matrix: sint.Matrix, order_key: int, reverse: bool = False):
-    start_timer(400)
+    start_timer(500)
     matrix.sort((order_key,))
-    stop_timer(400)
+    stop_timer(500)
     if reverse:
         swap = sint.Matrix(
             rows=matrix.shape[0],
@@ -116,10 +118,10 @@ start_timer(200)
 g = group_by_count(s, 0)
 stop_timer(200)
 
-start_timer(300)
+start_timer(400)
 o = order_by(g, order_key=2, reverse=True)
-stop_timer(300)
+stop_timer(400)
 
-start_timer(500)
+start_timer(600)
 matrix = limit(o, 10, -2)
-stop_timer(500)
+stop_timer(600)

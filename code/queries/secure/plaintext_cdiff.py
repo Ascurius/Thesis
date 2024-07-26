@@ -210,14 +210,14 @@ start_timer(600)
 matrix = select_distinct(join, 1, condition=distinct_condition)
 stop_timer(600)
 
-c = sint(0)
-start_timer(800)
-@for_range(matrix.shape[0])
-def _(i):
-    dbit = (matrix[i][-1] == 1).if_else(1,0)
-    @if_(dbit.reveal())
-    def _():
-        c.update(c+1)
-stop_timer(800)
+# c = sint(0)
+# start_timer(800)
+# @for_range(matrix.shape[0])
+# def _(i):
+#     dbit = (matrix[i][-1] == 1).if_else(1,0)
+#     @if_(dbit.reveal())
+#     def _():
+#         c.update(c+1)
+# stop_timer(800)
 # print_ln("%s", c.reveal())
 

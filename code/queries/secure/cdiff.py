@@ -279,12 +279,12 @@ start_timer(500)
 selection = select_distinct(join, 1, condition=distinct_condition)
 stop_timer(500)
 
-c = sint(0)
-@for_range(selection.shape[0])
-def _(i):
-    dbit = (selection[i][-1] == 1).if_else(1,0)
-    @if_(dbit.reveal())
-    def _():
-        c.update(c+1)
-print_ln("%s", c.reveal())
+# c = sint(0)
+# @for_range(selection.shape[0])
+# def _(i):
+#     dbit = (selection[i][-1] == 1).if_else(1,0)
+#     @if_(dbit.reveal())
+#     def _():
+#         c.update(c+1)
+# print_ln("%s", c.reveal())
 

@@ -23,10 +23,24 @@ def sort_by_two_cols(matrix: sint.Matrix, key1: int, key2: int):
 
     radix_sort_from_matrix(bs, matrix)
 
+def select_columns(matrix: sint.Matrix, keys: sint.Array) -> sint.Matrix:
+    # keys.sort()
+    result = sint.Matrix(
+        rows=matrix.shape[0],
+        columns=len(keys)
+    )
+    @for_range_opt(keys.length)
+    def _(i):
+        result.set_column(
+            i,
+            matrix.get_column(keys[i])
+        )
+    return result
+
 def group_by_count(matrix: sint.Matrix, key: int) -> sint.Matrix:
-    # matrix.sort((key,2))
-    # matrix.sort((key,))
+    start_timer(400)
     sort_by_two_cols(matrix, key, 2)
+    stop_timer(400)
     result = sint.Matrix(
         rows=matrix.shape[0],
         columns=matrix.shape[1] + 2
@@ -59,7 +73,9 @@ def order_by(matrix: sint.Matrix, order_key: int, reverse: bool = False):
         rows=matrix.shape[0],
         columns=matrix.shape[1] + 1
     )
+    start_timer(600)
     result.sort((order_key,))
+    stop_timer(600)
     if reverse:
         swap = result.same_shape()
         @for_range_opt(result.shape[0] // 2)
@@ -96,7 +112,7 @@ def union_all(left, right):
         result[left.shape[0] + j].assign_vector(right[j])
     return result
 
-max_rows = 50
+max_rows = 600000
 print_ln("Executing plaintext_comorbidity with %s rows", max_rows)
 a = sint.Matrix(max_rows, 13)
 a.input_from(0)
@@ -104,17 +120,22 @@ b = sint.Matrix(max_rows, 13)
 b.input_from(1)
 
 start_timer(100)
-union = union_all(a, b)
+u = union_all(a,b)
 stop_timer(100)
 
+keys = Array.create_from(regint([1]))
 start_timer(200)
-g = group_by_count(union, 1)
+s = select_columns(a, keys)
 stop_timer(200)
 
 start_timer(300)
-o = order_by(g, order_key=-1, reverse=True)
+g = group_by_count(s, 0)
 stop_timer(300)
 
-start_timer(400)
+start_timer(500)
+o = order_by(g, order_key=2, reverse=True)
+stop_timer(500)
+
+start_timer(700)
 matrix = limit(o, 10, -2)
-stop_timer(400)
+stop_timer(700)
