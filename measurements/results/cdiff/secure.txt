@@ -1,5 +1,5 @@
 ####################
-### nested-loop join-nn
+### nested-loop join
 ####################
 Starting cmd=numactl --membind=0 --cpunodebind=0 -- measurements/measure_secure.sh cdiff
 Running performance test for secure query: cdiff
