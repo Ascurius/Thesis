@@ -1298,1260 +1298,1264 @@ Done
 
 ### binary
 
+Starting cmd=numactl --membind=0 --cpunodebind=0 -- measurements/measure_secure.sh comorbidity
+Running performance test for secure query: comorbidity
+Generating test data...
 Measure performance for 100 rows
 Compiling high-level code...
 Executing the program...
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 18835 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 18835 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 18835 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 18375 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 18375 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 18375 -h localhost
 Using statistical security parameter 40
 Executing comorbidity with 100 rows
-Starting timer 10 at 0 (0 MB, 0 rounds) after 5.705e-06
-Stopped timer 10 at 0.690896 (0 MB, 0 rounds)
-Starting timer 100 at 0 (0 MB, 0 rounds) after 1.223e-06
-Stopped timer 100 at 1.0089e-05 (0 MB, 0 rounds)
-Starting timer 200 at 0 (0 MB, 0 rounds) after 8.02e-07
-Starting timer 300 at 0 (0 MB, 0 rounds) after 8.33e-07
-Stopped timer 300 at 0.310528 (0 MB, 0 rounds)
-Stopped timer 200 at 0.363043 (0 MB, 0 rounds)
-Starting timer 400 at 0 (0 MB, 0 rounds) after 1.179e-06
-Starting timer 500 at 0 (0 MB, 0 rounds) after 9.07e-07
-Stopped timer 500 at 0.327692 (0 MB, 0 rounds)
-Stopped timer 400 at 0.327861 (0 MB, 0 rounds)
-Starting timer 600 at 0 (0 MB, 0 rounds) after 1.216e-06
-Stopped timer 600 at 0.0867865 (0 MB, 0 rounds)
-Passing around 0.11481 MB in 28929 rounds, taking 0.693709 seconds
-Receiving directly 6.4e-05 MB in 4 rounds, taking 0.000419618 seconds
-Sending directly 0.010464 MB in 6 rounds, taking 0.00048443 seconds
+Starting timer 10 at 0 (0 MB, 0 rounds) after 4.338e-06
+Stopped timer 10 at 0.690855 (0 MB, 0 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.044e-06
+Stopped timer 100 at 1.0642e-05 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 7.31e-07
+Starting timer 300 at 0 (0 MB, 0 rounds) after 7.33e-07
+Stopped timer 300 at 0.316548 (0 MB, 0 rounds)
+Stopped timer 200 at 0.370411 (0 MB, 0 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.101e-06
+Starting timer 500 at 0 (0 MB, 0 rounds) after 8.9e-07
+Stopped timer 500 at 0.332914 (0 MB, 0 rounds)
+Stopped timer 400 at 0.333059 (0 MB, 0 rounds)
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.247e-06
+Stopped timer 600 at 0.088515 (0 MB, 0 rounds)
+Passing around 0.11481 MB in 28929 rounds, taking 0.708088 seconds
+Receiving directly 6.4e-05 MB in 4 rounds, taking 0.00320185 seconds
+Sending directly 0.010464 MB in 6 rounds, taking 0.000483044 seconds
 The following benchmarks are including preprocessing (offline phase).
-Time = 1.4702 seconds 
-Time10 = 0.690896 seconds (0 MB, 0 rounds)
-Time100 = 1.0089e-05 seconds (0 MB, 0 rounds)
-Time200 = 0.363043 seconds (0 MB, 0 rounds)
-Time300 = 0.310528 seconds (0 MB, 0 rounds)
-Time400 = 0.327861 seconds (0 MB, 0 rounds)
-Time500 = 0.327692 seconds (0 MB, 0 rounds)
-Time600 = 0.0867865 seconds (0 MB, 0 rounds)
+Time = 1.48444 seconds 
+Time10 = 0.690855 seconds (0 MB, 0 rounds)
+Time100 = 1.0642e-05 seconds (0 MB, 0 rounds)
+Time200 = 0.370411 seconds (0 MB, 0 rounds)
+Time300 = 0.316548 seconds (0 MB, 0 rounds)
+Time400 = 0.333059 seconds (0 MB, 0 rounds)
+Time500 = 0.332914 seconds (0 MB, 0 rounds)
+Time600 = 0.088515 seconds (0 MB, 0 rounds)
 Data sent = 0.125274 MB in ~28940 rounds (party 0 only; use '-v' for more details)
 Global data sent = 0.355022 MB (all parties)
 Done
 Measure performance for 200 rows
 Compiling high-level code...
 Executing the program...
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 15905 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 15905 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 15905 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 16749 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 16749 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 16749 -h localhost
 Using statistical security parameter 40
 Executing comorbidity with 200 rows
-Starting timer 10 at 0 (0 MB, 0 rounds) after 3.465e-06
-Stopped timer 10 at 1.58727 (0 MB, 0 rounds)
-Starting timer 100 at 0 (0 MB, 0 rounds) after 1.108e-06
-Stopped timer 100 at 1.9846e-05 (0 MB, 0 rounds)
-Starting timer 200 at 0 (0 MB, 0 rounds) after 8.3e-07
-Starting timer 300 at 0 (0 MB, 0 rounds) after 7.93e-07
-Stopped timer 300 at 0.820553 (0 MB, 0 rounds)
-Stopped timer 200 at 0.92631 (0 MB, 0 rounds)
-Starting timer 400 at 0 (0 MB, 0 rounds) after 1.209e-06
-Starting timer 500 at 0 (0 MB, 0 rounds) after 9.44e-07
-Stopped timer 500 at 0.861831 (0 MB, 0 rounds)
-Stopped timer 400 at 0.862104 (0 MB, 0 rounds)
-Starting timer 600 at 0 (0 MB, 0 rounds) after 1.303e-06
-Stopped timer 600 at 0.175654 (0 MB, 0 rounds)
-Passing around 0.290634 MB in 72217 rounds, taking 1.74928 seconds
-Receiving directly 8e-05 MB in 5 rounds, taking 0.00277134 seconds
-Sending directly 0.02088 MB in 8 rounds, taking 0.000724005 seconds
+Starting timer 10 at 0 (0 MB, 0 rounds) after 4.356e-06
+Stopped timer 10 at 1.50273 (0 MB, 0 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.203e-06
+Stopped timer 100 at 2.2011e-05 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.011e-06
+Starting timer 300 at 0 (0 MB, 0 rounds) after 9.84e-07
+Stopped timer 300 at 0.798251 (0 MB, 0 rounds)
+Stopped timer 200 at 0.904998 (0 MB, 0 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.197e-06
+Starting timer 500 at 0 (0 MB, 0 rounds) after 9.37e-07
+Stopped timer 500 at 0.874866 (0 MB, 0 rounds)
+Stopped timer 400 at 0.875191 (0 MB, 0 rounds)
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.572e-06
+Stopped timer 600 at 0.176287 (0 MB, 0 rounds)
+Passing around 0.290634 MB in 72217 rounds, taking 1.74271 seconds
+Receiving directly 8e-05 MB in 5 rounds, taking 0.00419476 seconds
+Sending directly 0.02088 MB in 8 rounds, taking 0.000673789 seconds
 The following benchmarks are including preprocessing (offline phase).
-Time = 3.55315 seconds 
-Time10 = 1.58727 seconds (0 MB, 0 rounds)
-Time100 = 1.9846e-05 seconds (0 MB, 0 rounds)
-Time200 = 0.92631 seconds (0 MB, 0 rounds)
-Time300 = 0.820553 seconds (0 MB, 0 rounds)
-Time400 = 0.862104 seconds (0 MB, 0 rounds)
-Time500 = 0.861831 seconds (0 MB, 0 rounds)
-Time600 = 0.175654 seconds (0 MB, 0 rounds)
+Time = 3.46074 seconds 
+Time10 = 1.50273 seconds (0 MB, 0 rounds)
+Time100 = 2.2011e-05 seconds (0 MB, 0 rounds)
+Time200 = 0.904998 seconds (0 MB, 0 rounds)
+Time300 = 0.798251 seconds (0 MB, 0 rounds)
+Time400 = 0.875191 seconds (0 MB, 0 rounds)
+Time500 = 0.874866 seconds (0 MB, 0 rounds)
+Time600 = 0.176287 seconds (0 MB, 0 rounds)
 Data sent = 0.311514 MB in ~72231 rounds (party 0 only; use '-v' for more details)
 Global data sent = 0.892942 MB (all parties)
 Done
 Measure performance for 300 rows
 Compiling high-level code...
 Executing the program...
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 12382 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 12382 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 12382 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 12180 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 12180 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 12180 -h localhost
 Using statistical security parameter 40
 Executing comorbidity with 300 rows
-Starting timer 10 at 0 (0 MB, 0 rounds) after 5.616e-06
-Stopped timer 10 at 2.39673 (0 MB, 0 rounds)
-Starting timer 100 at 0 (0 MB, 0 rounds) after 1.01e-06
-Stopped timer 100 at 4.3835e-05 (0 MB, 0 rounds)
-Starting timer 200 at 0 (0 MB, 0 rounds) after 7.69e-07
-Starting timer 300 at 0 (0 MB, 0 rounds) after 7.24e-07
-Stopped timer 300 at 2.04925 (0 MB, 0 rounds)
-Stopped timer 200 at 2.2062 (0 MB, 0 rounds)
-Starting timer 400 at 0 (0 MB, 0 rounds) after 1.239e-06
-Starting timer 500 at 0 (0 MB, 0 rounds) after 9.2e-07
-Stopped timer 500 at 2.17381 (0 MB, 0 rounds)
-Stopped timer 400 at 2.17421 (0 MB, 0 rounds)
-Starting timer 600 at 0 (0 MB, 0 rounds) after 1.298e-06
-Stopped timer 600 at 0.262185 (0 MB, 0 rounds)
-Passing around 0.705818 MB in 171825 rounds, taking 4.13304 seconds
-Receiving directly 9.6e-05 MB in 6 rounds, taking 0.00122185 seconds
-Sending directly 0.031296 MB in 10 rounds, taking 0.000978706 seconds
+Starting timer 10 at 0 (0 MB, 0 rounds) after 6.4e-06
+Stopped timer 10 at 2.42103 (0 MB, 0 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.187e-06
+Stopped timer 100 at 2.8601e-05 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 8.18e-07
+Starting timer 300 at 0 (0 MB, 0 rounds) after 7.81e-07
+Stopped timer 300 at 2.01975 (0 MB, 0 rounds)
+Stopped timer 200 at 2.17183 (0 MB, 0 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.04e-06
+Starting timer 500 at 0 (0 MB, 0 rounds) after 7.84e-07
+Stopped timer 500 at 2.11619 (0 MB, 0 rounds)
+Stopped timer 400 at 2.11662 (0 MB, 0 rounds)
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.926e-06
+Stopped timer 600 at 0.258507 (0 MB, 0 rounds)
+Passing around 0.705818 MB in 171825 rounds, taking 4.06177 seconds
+Receiving directly 9.6e-05 MB in 6 rounds, taking 0.000529548 seconds
+Sending directly 0.031296 MB in 10 rounds, taking 0.000866982 seconds
 The following benchmarks are including preprocessing (offline phase).
-Time = 7.04106 seconds 
-Time10 = 2.39673 seconds (0 MB, 0 rounds)
-Time100 = 4.3835e-05 seconds (0 MB, 0 rounds)
-Time200 = 2.2062 seconds (0 MB, 0 rounds)
-Time300 = 2.04925 seconds (0 MB, 0 rounds)
-Time400 = 2.17421 seconds (0 MB, 0 rounds)
-Time500 = 2.17381 seconds (0 MB, 0 rounds)
-Time600 = 0.262185 seconds (0 MB, 0 rounds)
+Time = 6.96972 seconds 
+Time10 = 2.42103 seconds (0 MB, 0 rounds)
+Time100 = 2.8601e-05 seconds (0 MB, 0 rounds)
+Time200 = 2.17183 seconds (0 MB, 0 rounds)
+Time300 = 2.01975 seconds (0 MB, 0 rounds)
+Time400 = 2.11662 seconds (0 MB, 0 rounds)
+Time500 = 2.11619 seconds (0 MB, 0 rounds)
+Time600 = 0.258507 seconds (0 MB, 0 rounds)
 Data sent = 0.737114 MB in ~171842 rounds (party 0 only; use '-v' for more details)
 Global data sent = 2.14894 MB (all parties)
 Done
 Measure performance for 400 rows
 Compiling high-level code...
 Executing the program...
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 13683 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 13683 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 13683 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 10158 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 10158 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 10158 -h localhost
 Using statistical security parameter 40
 Executing comorbidity with 400 rows
-Starting timer 10 at 0 (0 MB, 0 rounds) after 4.555e-06
-Stopped timer 10 at 3.16711 (0 MB, 0 rounds)
-Starting timer 100 at 0 (0 MB, 0 rounds) after 1.214e-06
-Stopped timer 100 at 3.6758e-05 (0 MB, 0 rounds)
-Starting timer 200 at 0 (0 MB, 0 rounds) after 7.49e-07
-Starting timer 300 at 0 (0 MB, 0 rounds) after 7.96e-07
-Stopped timer 300 at 2.04637 (0 MB, 0 rounds)
-Stopped timer 200 at 2.25468 (0 MB, 0 rounds)
-Starting timer 400 at 0 (0 MB, 0 rounds) after 1.151e-06
-Starting timer 500 at 0 (0 MB, 0 rounds) after 9.56e-07
-Stopped timer 500 at 2.18882 (0 MB, 0 rounds)
-Stopped timer 400 at 2.18946 (0 MB, 0 rounds)
-Starting timer 600 at 0 (0 MB, 0 rounds) after 1.468e-06
-Stopped timer 600 at 0.345427 (0 MB, 0 rounds)
-Passing around 0.720618 MB in 177225 rounds, taking 4.25441 seconds
-Receiving directly 0.000128 MB in 8 rounds, taking 0.000709122 seconds
-Sending directly 0.041728 MB in 14 rounds, taking 0.00127829 seconds
+Starting timer 10 at 0 (0 MB, 0 rounds) after 5.558e-06
+Stopped timer 10 at 3.18185 (0 MB, 0 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.205e-06
+Stopped timer 100 at 5.8394e-05 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 8.93e-07
+Starting timer 300 at 0 (0 MB, 0 rounds) after 9.17e-07
+Stopped timer 300 at 2.02401 (0 MB, 0 rounds)
+Stopped timer 200 at 2.23167 (0 MB, 0 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.068e-06
+Starting timer 500 at 0 (0 MB, 0 rounds) after 9.97e-07
+Stopped timer 500 at 2.13209 (0 MB, 0 rounds)
+Stopped timer 400 at 2.13262 (0 MB, 0 rounds)
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.41e-06
+Stopped timer 600 at 0.34661 (0 MB, 0 rounds)
+Passing around 0.720618 MB in 177225 rounds, taking 4.18415 seconds
+Receiving directly 0.000128 MB in 8 rounds, taking 0.000791314 seconds
+Sending directly 0.041728 MB in 14 rounds, taking 0.00145283 seconds
 The following benchmarks are including preprocessing (offline phase).
-Time = 7.95821 seconds 
-Time10 = 3.16711 seconds (0 MB, 0 rounds)
-Time100 = 3.6758e-05 seconds (0 MB, 0 rounds)
-Time200 = 2.25468 seconds (0 MB, 0 rounds)
-Time300 = 2.04637 seconds (0 MB, 0 rounds)
-Time400 = 2.18946 seconds (0 MB, 0 rounds)
-Time500 = 2.18882 seconds (0 MB, 0 rounds)
-Time600 = 0.345427 seconds (0 MB, 0 rounds)
+Time = 7.89451 seconds 
+Time10 = 3.18185 seconds (0 MB, 0 rounds)
+Time100 = 5.8394e-05 seconds (0 MB, 0 rounds)
+Time200 = 2.23167 seconds (0 MB, 0 rounds)
+Time300 = 2.02401 seconds (0 MB, 0 rounds)
+Time400 = 2.13262 seconds (0 MB, 0 rounds)
+Time500 = 2.13209 seconds (0 MB, 0 rounds)
+Time600 = 0.34661 seconds (0 MB, 0 rounds)
 Data sent = 0.762346 MB in ~177248 rounds (party 0 only; use '-v' for more details)
 Global data sent = 2.20384 MB (all parties)
 Done
 Measure performance for 500 rows
 Compiling high-level code...
 Executing the program...
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 11763 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 11763 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 11763 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 14474 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 14474 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 14474 -h localhost
 Using statistical security parameter 40
 Executing comorbidity with 500 rows
-Starting timer 10 at 0 (0 MB, 0 rounds) after 5.358e-06
-Stopped timer 10 at 3.94197 (0 MB, 0 rounds)
-Starting timer 100 at 0 (0 MB, 0 rounds) after 1.103e-06
-Stopped timer 100 at 4.5504e-05 (0 MB, 0 rounds)
-Starting timer 200 at 0 (0 MB, 0 rounds) after 1.128e-06
-Starting timer 300 at 0 (0 MB, 0 rounds) after 8.34e-07
-Stopped timer 300 at 2.07525 (0 MB, 0 rounds)
-Stopped timer 200 at 2.3428 (0 MB, 0 rounds)
-Starting timer 400 at 0 (0 MB, 0 rounds) after 1.105e-06
-Starting timer 500 at 0 (0 MB, 0 rounds) after 8.56e-07
-Stopped timer 500 at 2.16342 (0 MB, 0 rounds)
-Stopped timer 400 at 2.1641 (0 MB, 0 rounds)
-Starting timer 600 at 0 (0 MB, 0 rounds) after 1.252e-06
-Stopped timer 600 at 0.428218 (0 MB, 0 rounds)
-Passing around 0.735418 MB in 182625 rounds, taking 4.40601 seconds
-Receiving directly 0.000144 MB in 9 rounds, taking 0.000938436 seconds
-Sending directly 0.052144 MB in 16 rounds, taking 0.00143895 seconds
+Starting timer 10 at 0 (0 MB, 0 rounds) after 5.49e-06
+Stopped timer 10 at 3.96925 (0 MB, 0 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.085e-06
+Stopped timer 100 at 4.6678e-05 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 8.07e-07
+Starting timer 300 at 0 (0 MB, 0 rounds) after 9.65e-07
+Stopped timer 300 at 2.06985 (0 MB, 0 rounds)
+Stopped timer 200 at 2.32626 (0 MB, 0 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.362e-06
+Starting timer 500 at 0 (0 MB, 0 rounds) after 9.08e-07
+Stopped timer 500 at 2.15877 (0 MB, 0 rounds)
+Stopped timer 400 at 2.15943 (0 MB, 0 rounds)
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.238e-06
+Stopped timer 600 at 0.445001 (0 MB, 0 rounds)
+Passing around 0.735418 MB in 182625 rounds, taking 4.38961 seconds
+Receiving directly 0.000144 MB in 9 rounds, taking 0.0234981 seconds
+Sending directly 0.052144 MB in 16 rounds, taking 0.0014465 seconds
 The following benchmarks are including preprocessing (offline phase).
-Time = 8.87876 seconds 
-Time10 = 3.94197 seconds (0 MB, 0 rounds)
-Time100 = 4.5504e-05 seconds (0 MB, 0 rounds)
-Time200 = 2.3428 seconds (0 MB, 0 rounds)
-Time300 = 2.07525 seconds (0 MB, 0 rounds)
-Time400 = 2.1641 seconds (0 MB, 0 rounds)
-Time500 = 2.16342 seconds (0 MB, 0 rounds)
-Time600 = 0.428218 seconds (0 MB, 0 rounds)
+Time = 8.90168 seconds 
+Time10 = 3.96925 seconds (0 MB, 0 rounds)
+Time100 = 4.6678e-05 seconds (0 MB, 0 rounds)
+Time200 = 2.32626 seconds (0 MB, 0 rounds)
+Time300 = 2.06985 seconds (0 MB, 0 rounds)
+Time400 = 2.15943 seconds (0 MB, 0 rounds)
+Time500 = 2.15877 seconds (0 MB, 0 rounds)
+Time600 = 0.445001 seconds (0 MB, 0 rounds)
 Data sent = 0.787562 MB in ~182651 rounds (party 0 only; use '-v' for more details)
 Global data sent = 2.25869 MB (all parties)
 Done
 Measure performance for 600 rows
 Compiling high-level code...
 Executing the program...
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 18676 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 18676 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 18676 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 12611 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 12611 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 12611 -h localhost
 Using statistical security parameter 40
 Executing comorbidity with 600 rows
-Starting timer 10 at 0 (0 MB, 0 rounds) after 5.492e-06
-Stopped timer 10 at 4.89372 (0 MB, 0 rounds)
-Starting timer 100 at 0 (0 MB, 0 rounds) after 9.82e-07
-Stopped timer 100 at 7.1456e-05 (0 MB, 0 rounds)
-Starting timer 200 at 0 (0 MB, 0 rounds) after 7.59e-07
-Starting timer 300 at 0 (0 MB, 0 rounds) after 8.06e-07
-Stopped timer 300 at 5.10543 (0 MB, 0 rounds)
-Stopped timer 200 at 5.42391 (0 MB, 0 rounds)
-Starting timer 400 at 0 (0 MB, 0 rounds) after 1.157e-06
-Starting timer 500 at 0 (0 MB, 0 rounds) after 9.04e-07
-Stopped timer 500 at 5.37496 (0 MB, 0 rounds)
-Stopped timer 400 at 5.37576 (0 MB, 0 rounds)
-Starting timer 600 at 0 (0 MB, 0 rounds) after 1.362e-06
-Stopped timer 600 at 0.525122 (0 MB, 0 rounds)
-Passing around 1.72507 MB in 417401 rounds, taking 10.0571 seconds
-Receiving directly 0.00016 MB in 10 rounds, taking 0.0166279 seconds
-Sending directly 0.06256 MB in 18 rounds, taking 0.00169443 seconds
+Starting timer 10 at 0 (0 MB, 0 rounds) after 6.677e-06
+Stopped timer 10 at 4.83435 (0 MB, 0 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.328e-06
+Stopped timer 100 at 5.729e-05 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 7.55e-07
+Starting timer 300 at 0 (0 MB, 0 rounds) after 7.66e-07
+Stopped timer 300 at 5.04573 (0 MB, 0 rounds)
+Stopped timer 200 at 5.36705 (0 MB, 0 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.171e-06
+Starting timer 500 at 0 (0 MB, 0 rounds) after 9.85e-07
+Stopped timer 500 at 5.33985 (0 MB, 0 rounds)
+Stopped timer 400 at 5.34066 (0 MB, 0 rounds)
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.514e-06
+Stopped timer 600 at 0.513098 (0 MB, 0 rounds)
+Passing around 1.72507 MB in 417401 rounds, taking 9.94615 seconds
+Receiving directly 0.00016 MB in 10 rounds, taking 0.00231176 seconds
+Sending directly 0.06256 MB in 18 rounds, taking 0.00182164 seconds
 The following benchmarks are including preprocessing (offline phase).
-Time = 16.2202 seconds 
-Time10 = 4.89372 seconds (0 MB, 0 rounds)
-Time100 = 7.1456e-05 seconds (0 MB, 0 rounds)
-Time200 = 5.42391 seconds (0 MB, 0 rounds)
-Time300 = 5.10543 seconds (0 MB, 0 rounds)
-Time400 = 5.37576 seconds (0 MB, 0 rounds)
-Time500 = 5.37496 seconds (0 MB, 0 rounds)
-Time600 = 0.525122 seconds (0 MB, 0 rounds)
+Time = 16.0566 seconds 
+Time10 = 4.83435 seconds (0 MB, 0 rounds)
+Time100 = 5.729e-05 seconds (0 MB, 0 rounds)
+Time200 = 5.36705 seconds (0 MB, 0 rounds)
+Time300 = 5.04573 seconds (0 MB, 0 rounds)
+Time400 = 5.34066 seconds (0 MB, 0 rounds)
+Time500 = 5.33985 seconds (0 MB, 0 rounds)
+Time600 = 0.513098 seconds (0 MB, 0 rounds)
 Data sent = 1.78763 MB in ~417430 rounds (party 0 only; use '-v' for more details)
 Global data sent = 5.23808 MB (all parties)
 Done
 Measure performance for 700 rows
 Compiling high-level code...
 Executing the program...
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 12458 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 12458 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 12458 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 18722 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 18722 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 18722 -h localhost
 Using statistical security parameter 40
 Executing comorbidity with 700 rows
-Starting timer 10 at 0 (0 MB, 0 rounds) after 5.646e-06
-Stopped timer 10 at 5.66264 (0 MB, 0 rounds)
-Starting timer 100 at 0 (0 MB, 0 rounds) after 1.289e-06
-Stopped timer 100 at 6.6194e-05 (0 MB, 0 rounds)
-Starting timer 200 at 0 (0 MB, 0 rounds) after 8.59e-07
-Starting timer 300 at 0 (0 MB, 0 rounds) after 8.53e-07
-Stopped timer 300 at 5.12352 (0 MB, 0 rounds)
-Stopped timer 200 at 5.4813 (0 MB, 0 rounds)
-Starting timer 400 at 0 (0 MB, 0 rounds) after 1.276e-06
-Starting timer 500 at 0 (0 MB, 0 rounds) after 9.87e-07
-Stopped timer 500 at 5.20536 (0 MB, 0 rounds)
-Stopped timer 400 at 5.2063 (0 MB, 0 rounds)
-Starting timer 600 at 0 (0 MB, 0 rounds) after 2.174e-06
-Stopped timer 600 at 0.609147 (0 MB, 0 rounds)
-Passing around 1.73987 MB in 422801 rounds, taking 10.05 seconds
-Receiving directly 0.000192 MB in 12 rounds, taking 0.00202294 seconds
-Sending directly 0.072992 MB in 22 rounds, taking 0.00218497 seconds
+Starting timer 10 at 0 (0 MB, 0 rounds) after 1.7329e-05
+Stopped timer 10 at 5.70749 (0 MB, 0 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.244e-06
+Stopped timer 100 at 7.2711e-05 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 8.9e-07
+Starting timer 300 at 0 (0 MB, 0 rounds) after 9.12e-07
+Stopped timer 300 at 5.03719 (0 MB, 0 rounds)
+Stopped timer 200 at 5.40004 (0 MB, 0 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.827e-06
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.236e-06
+Stopped timer 500 at 5.30526 (0 MB, 0 rounds)
+Stopped timer 400 at 5.3062 (0 MB, 0 rounds)
+Starting timer 600 at 0 (0 MB, 0 rounds) after 2.081e-06
+Stopped timer 600 at 0.618961 (0 MB, 0 rounds)
+Passing around 1.73987 MB in 422801 rounds, taking 10.0692 seconds
+Receiving directly 0.000192 MB in 12 rounds, taking 0.00163556 seconds
+Sending directly 0.072992 MB in 22 rounds, taking 0.00225666 seconds
 The following benchmarks are including preprocessing (offline phase).
-Time = 16.9611 seconds 
-Time10 = 5.66264 seconds (0 MB, 0 rounds)
-Time100 = 6.6194e-05 seconds (0 MB, 0 rounds)
-Time200 = 5.4813 seconds (0 MB, 0 rounds)
-Time300 = 5.12352 seconds (0 MB, 0 rounds)
-Time400 = 5.2063 seconds (0 MB, 0 rounds)
-Time500 = 5.20536 seconds (0 MB, 0 rounds)
-Time600 = 0.609147 seconds (0 MB, 0 rounds)
+Time = 17.0345 seconds 
+Time10 = 5.70749 seconds (0 MB, 0 rounds)
+Time100 = 7.2711e-05 seconds (0 MB, 0 rounds)
+Time200 = 5.40004 seconds (0 MB, 0 rounds)
+Time300 = 5.03719 seconds (0 MB, 0 rounds)
+Time400 = 5.3062 seconds (0 MB, 0 rounds)
+Time500 = 5.30526 seconds (0 MB, 0 rounds)
+Time600 = 0.618961 seconds (0 MB, 0 rounds)
 Data sent = 1.81286 MB in ~422836 rounds (party 0 only; use '-v' for more details)
 Global data sent = 5.29297 MB (all parties)
 Done
 Measure performance for 800 rows
 Compiling high-level code...
 Executing the program...
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 11797 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 11797 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 11797 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 16259 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 16259 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 16259 -h localhost
 Using statistical security parameter 40
 Executing comorbidity with 800 rows
-Starting timer 10 at 0 (0 MB, 0 rounds) after 4.226e-06
-Stopped timer 10 at 6.4168 (0 MB, 0 rounds)
-Starting timer 100 at 0 (0 MB, 0 rounds) after 9.16e-07
-Stopped timer 100 at 9.0077e-05 (0 MB, 0 rounds)
-Starting timer 200 at 0 (0 MB, 0 rounds) after 7.81e-07
-Starting timer 300 at 0 (0 MB, 0 rounds) after 7.55e-07
-Stopped timer 300 at 4.99662 (0 MB, 0 rounds)
-Stopped timer 200 at 5.40755 (0 MB, 0 rounds)
-Starting timer 400 at 0 (0 MB, 0 rounds) after 1.191e-06
-Starting timer 500 at 0 (0 MB, 0 rounds) after 7.67e-07
-Stopped timer 500 at 5.23507 (0 MB, 0 rounds)
-Stopped timer 400 at 5.23613 (0 MB, 0 rounds)
-Starting timer 600 at 0 (0 MB, 0 rounds) after 1.436e-06
-Stopped timer 600 at 0.68592 (0 MB, 0 rounds)
-Passing around 1.75467 MB in 428201 rounds, taking 10.1366 seconds
-Receiving directly 0.000208 MB in 13 rounds, taking 0.00087589 seconds
-Sending directly 0.083408 MB in 24 rounds, taking 0.00245558 seconds
+Starting timer 10 at 0 (0 MB, 0 rounds) after 4.261e-06
+Stopped timer 10 at 6.44266 (0 MB, 0 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 9.59e-07
+Stopped timer 100 at 8.5292e-05 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 8.12e-07
+Starting timer 300 at 0 (0 MB, 0 rounds) after 7.61e-07
+Stopped timer 300 at 5.1474 (0 MB, 0 rounds)
+Stopped timer 200 at 5.57376 (0 MB, 0 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.065e-06
+Starting timer 500 at 0 (0 MB, 0 rounds) after 9.6e-07
+Stopped timer 500 at 5.45206 (0 MB, 0 rounds)
+Stopped timer 400 at 5.45323 (0 MB, 0 rounds)
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.606e-06
+Stopped timer 600 at 0.698088 (0 MB, 0 rounds)
+Passing around 1.75467 MB in 428201 rounds, taking 10.4255 seconds
+Receiving directly 0.000208 MB in 13 rounds, taking 0.0550709 seconds
+Sending directly 0.083408 MB in 24 rounds, taking 0.00230499 seconds
 The following benchmarks are including preprocessing (offline phase).
-Time = 17.748 seconds 
-Time10 = 6.4168 seconds (0 MB, 0 rounds)
-Time100 = 9.0077e-05 seconds (0 MB, 0 rounds)
-Time200 = 5.40755 seconds (0 MB, 0 rounds)
-Time300 = 4.99662 seconds (0 MB, 0 rounds)
-Time400 = 5.23613 seconds (0 MB, 0 rounds)
-Time500 = 5.23507 seconds (0 MB, 0 rounds)
-Time600 = 0.68592 seconds (0 MB, 0 rounds)
+Time = 18.1695 seconds 
+Time10 = 6.44266 seconds (0 MB, 0 rounds)
+Time100 = 8.5292e-05 seconds (0 MB, 0 rounds)
+Time200 = 5.57376 seconds (0 MB, 0 rounds)
+Time300 = 5.1474 seconds (0 MB, 0 rounds)
+Time400 = 5.45323 seconds (0 MB, 0 rounds)
+Time500 = 5.45206 seconds (0 MB, 0 rounds)
+Time600 = 0.698088 seconds (0 MB, 0 rounds)
 Data sent = 1.83807 MB in ~428239 rounds (party 0 only; use '-v' for more details)
 Global data sent = 5.34782 MB (all parties)
 Done
 Measure performance for 900 rows
 Compiling high-level code...
 Executing the program...
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 12394 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 12394 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 12394 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 15092 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 15092 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 15092 -h localhost
 Using statistical security parameter 40
 Executing comorbidity with 900 rows
-Starting timer 10 at 0 (0 MB, 0 rounds) after 5.552e-06
-Stopped timer 10 at 7.24144 (0 MB, 0 rounds)
-Starting timer 100 at 0 (0 MB, 0 rounds) after 9.79e-07
-Stopped timer 100 at 9.4814e-05 (0 MB, 0 rounds)
-Starting timer 200 at 0 (0 MB, 0 rounds) after 8.48e-07
-Starting timer 300 at 0 (0 MB, 0 rounds) after 8.01e-07
-Stopped timer 300 at 4.97915 (0 MB, 0 rounds)
-Stopped timer 200 at 5.42446 (0 MB, 0 rounds)
-Starting timer 400 at 0 (0 MB, 0 rounds) after 1.035e-06
-Starting timer 500 at 0 (0 MB, 0 rounds) after 8.12e-07
-Stopped timer 500 at 5.20653 (0 MB, 0 rounds)
-Stopped timer 400 at 5.20773 (0 MB, 0 rounds)
-Starting timer 600 at 0 (0 MB, 0 rounds) after 1.371e-06
-Stopped timer 600 at 0.766192 (0 MB, 0 rounds)
-Passing around 1.76947 MB in 433601 rounds, taking 10.1274 seconds
-Receiving directly 0.000224 MB in 14 rounds, taking 0.0361344 seconds
-Sending directly 0.093824 MB in 26 rounds, taking 0.00263695 seconds
+Starting timer 10 at 0 (0 MB, 0 rounds) after 4.505e-06
+Stopped timer 10 at 7.24906 (0 MB, 0 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.103e-06
+Stopped timer 100 at 0.000103304 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 9.2e-07
+Starting timer 300 at 0 (0 MB, 0 rounds) after 9.08e-07
+Stopped timer 300 at 5.06087 (0 MB, 0 rounds)
+Stopped timer 200 at 5.52311 (0 MB, 0 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.615e-06
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.459e-06
+Stopped timer 500 at 5.27769 (0 MB, 0 rounds)
+Stopped timer 400 at 5.279 (0 MB, 0 rounds)
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.903e-06
+Stopped timer 600 at 0.789574 (0 MB, 0 rounds)
+Passing around 1.76947 MB in 433601 rounds, taking 10.2487 seconds
+Receiving directly 0.000224 MB in 14 rounds, taking 0.00238076 seconds
+Sending directly 0.093824 MB in 26 rounds, taking 0.00276771 seconds
 The following benchmarks are including preprocessing (offline phase).
-Time = 18.6415 seconds 
-Time10 = 7.24144 seconds (0 MB, 0 rounds)
-Time100 = 9.4814e-05 seconds (0 MB, 0 rounds)
-Time200 = 5.42446 seconds (0 MB, 0 rounds)
-Time300 = 4.97915 seconds (0 MB, 0 rounds)
-Time400 = 5.20773 seconds (0 MB, 0 rounds)
-Time500 = 5.20653 seconds (0 MB, 0 rounds)
-Time600 = 0.766192 seconds (0 MB, 0 rounds)
+Time = 18.8424 seconds 
+Time10 = 7.24906 seconds (0 MB, 0 rounds)
+Time100 = 0.000103304 seconds (0 MB, 0 rounds)
+Time200 = 5.52311 seconds (0 MB, 0 rounds)
+Time300 = 5.06087 seconds (0 MB, 0 rounds)
+Time400 = 5.279 seconds (0 MB, 0 rounds)
+Time500 = 5.27769 seconds (0 MB, 0 rounds)
+Time600 = 0.789574 seconds (0 MB, 0 rounds)
 Data sent = 1.86329 MB in ~433642 rounds (party 0 only; use '-v' for more details)
 Global data sent = 5.40267 MB (all parties)
 Done
 Measure performance for 1000 rows
 Compiling high-level code...
 Executing the program...
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 15799 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 15799 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 15799 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 10331 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 10331 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 10331 -h localhost
 Using statistical security parameter 40
 Executing comorbidity with 1000 rows
-Starting timer 10 at 0 (0 MB, 0 rounds) after 6.066e-06
-Stopped timer 10 at 8.21438 (0 MB, 0 rounds)
-Starting timer 100 at 0 (0 MB, 0 rounds) after 1.032e-06
-Stopped timer 100 at 0.000107616 (0 MB, 0 rounds)
-Starting timer 200 at 0 (0 MB, 0 rounds) after 7.67e-07
-Starting timer 300 at 0 (0 MB, 0 rounds) after 7.14e-07
-Stopped timer 300 at 5.13099 (0 MB, 0 rounds)
-Stopped timer 200 at 5.65645 (0 MB, 0 rounds)
-Starting timer 400 at 0 (0 MB, 0 rounds) after 1.012e-06
-Starting timer 500 at 0 (0 MB, 0 rounds) after 8.16e-07
-Stopped timer 500 at 5.27817 (0 MB, 0 rounds)
-Stopped timer 400 at 5.27949 (0 MB, 0 rounds)
-Starting timer 600 at 0 (0 MB, 0 rounds) after 1.387e-06
-Stopped timer 600 at 0.86064 (0 MB, 0 rounds)
-Passing around 1.78427 MB in 439001 rounds, taking 10.5296 seconds
-Receiving directly 0.00024 MB in 15 rounds, taking 0.0491602 seconds
-Sending directly 0.10424 MB in 28 rounds, taking 0.00264938 seconds
+Starting timer 10 at 0 (0 MB, 0 rounds) after 5.281e-06
+Stopped timer 10 at 8.80297 (0 MB, 0 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 9.78e-07
+Stopped timer 100 at 0.000107484 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 7.87e-07
+Starting timer 300 at 0 (0 MB, 0 rounds) after 8.09e-07
+Stopped timer 300 at 5.11644 (0 MB, 0 rounds)
+Stopped timer 200 at 5.66706 (0 MB, 0 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.132e-06
+Starting timer 500 at 0 (0 MB, 0 rounds) after 9.57e-07
+Stopped timer 500 at 5.5473 (0 MB, 0 rounds)
+Stopped timer 400 at 5.54885 (0 MB, 0 rounds)
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.413e-06
+Stopped timer 600 at 0.902011 (0 MB, 0 rounds)
+Passing around 1.78427 MB in 439001 rounds, taking 10.8212 seconds
+Receiving directly 0.00024 MB in 15 rounds, taking 0.00135991 seconds
+Sending directly 0.10424 MB in 28 rounds, taking 0.0026468 seconds
 The following benchmarks are including preprocessing (offline phase).
-Time = 20.0128 seconds 
-Time10 = 8.21438 seconds (0 MB, 0 rounds)
-Time100 = 0.000107616 seconds (0 MB, 0 rounds)
-Time200 = 5.65645 seconds (0 MB, 0 rounds)
-Time300 = 5.13099 seconds (0 MB, 0 rounds)
-Time400 = 5.27949 seconds (0 MB, 0 rounds)
-Time500 = 5.27817 seconds (0 MB, 0 rounds)
-Time600 = 0.86064 seconds (0 MB, 0 rounds)
+Time = 20.9226 seconds 
+Time10 = 8.80297 seconds (0 MB, 0 rounds)
+Time100 = 0.000107484 seconds (0 MB, 0 rounds)
+Time200 = 5.66706 seconds (0 MB, 0 rounds)
+Time300 = 5.11644 seconds (0 MB, 0 rounds)
+Time400 = 5.54885 seconds (0 MB, 0 rounds)
+Time500 = 5.5473 seconds (0 MB, 0 rounds)
+Time600 = 0.902011 seconds (0 MB, 0 rounds)
 Data sent = 1.88851 MB in ~439045 rounds (party 0 only; use '-v' for more details)
 Global data sent = 5.45752 MB (all parties)
 Done
 Measure performance for 1100 rows
 Compiling high-level code...
 Executing the program...
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 14776 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 14776 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 14776 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 10850 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 10850 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 10850 -h localhost
 Using statistical security parameter 40
 Executing comorbidity with 1100 rows
-Starting timer 10 at 0 (0 MB, 0 rounds) after 5.687e-06
-Stopped timer 10 at 8.88857 (0 MB, 0 rounds)
-Starting timer 100 at 0 (0 MB, 0 rounds) after 1.064e-06
-Stopped timer 100 at 0.000104056 (0 MB, 0 rounds)
-Starting timer 200 at 0 (0 MB, 0 rounds) after 8.11e-07
-Starting timer 300 at 0 (0 MB, 0 rounds) after 8.21e-07
-Stopped timer 300 at 12.2463 (0 MB, 0 rounds)
-Stopped timer 200 at 12.8165 (0 MB, 0 rounds)
-Starting timer 400 at 0 (0 MB, 0 rounds) after 1.16e-06
-Starting timer 500 at 0 (0 MB, 0 rounds) after 8.94e-07
-Stopped timer 500 at 12.7764 (0 MB, 0 rounds)
-Stopped timer 400 at 12.7779 (0 MB, 0 rounds)
-Starting timer 600 at 0 (0 MB, 0 rounds) after 1.409e-06
-Stopped timer 600 at 0.955418 (0 MB, 0 rounds)
-Passing around 4.13174 MB in 993265 rounds, taking 23.5685 seconds
-Receiving directly 0.000272 MB in 17 rounds, taking 0.00145565 seconds
-Sending directly 0.114672 MB in 32 rounds, taking 0.0030934 seconds
+Starting timer 10 at 0 (0 MB, 0 rounds) after 5.115e-06
+Stopped timer 10 at 8.89677 (0 MB, 0 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.03e-06
+Stopped timer 100 at 0.000129367 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 7.31e-07
+Starting timer 300 at 0 (0 MB, 0 rounds) after 7.77e-07
+Stopped timer 300 at 12.46 (0 MB, 0 rounds)
+Stopped timer 200 at 13.0515 (0 MB, 0 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.445e-06
+Starting timer 500 at 0 (0 MB, 0 rounds) after 9.71e-07
+Stopped timer 500 at 13.1663 (0 MB, 0 rounds)
+Stopped timer 400 at 13.1677 (0 MB, 0 rounds)
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.565e-06
+Stopped timer 600 at 0.973367 (0 MB, 0 rounds)
+Passing around 4.13174 MB in 993265 rounds, taking 24.1046 seconds
+Receiving directly 0.000272 MB in 17 rounds, taking 0.0178834 seconds
+Sending directly 0.114672 MB in 32 rounds, taking 0.00311577 seconds
 The following benchmarks are including preprocessing (offline phase).
-Time = 35.4402 seconds 
-Time10 = 8.88857 seconds (0 MB, 0 rounds)
-Time100 = 0.000104056 seconds (0 MB, 0 rounds)
-Time200 = 12.8165 seconds (0 MB, 0 rounds)
-Time300 = 12.2463 seconds (0 MB, 0 rounds)
-Time400 = 12.7779 seconds (0 MB, 0 rounds)
-Time500 = 12.7764 seconds (0 MB, 0 rounds)
-Time600 = 0.955418 seconds (0 MB, 0 rounds)
+Time = 36.0911 seconds 
+Time10 = 8.89677 seconds (0 MB, 0 rounds)
+Time100 = 0.000129367 seconds (0 MB, 0 rounds)
+Time200 = 13.0515 seconds (0 MB, 0 rounds)
+Time300 = 12.46 seconds (0 MB, 0 rounds)
+Time400 = 13.1677 seconds (0 MB, 0 rounds)
+Time500 = 13.1663 seconds (0 MB, 0 rounds)
+Time600 = 0.973367 seconds (0 MB, 0 rounds)
 Data sent = 4.24641 MB in ~993315 rounds (party 0 only; use '-v' for more details)
 Global data sent = 12.5104 MB (all parties)
 Done
 Measure performance for 1200 rows
 Compiling high-level code...
 Executing the program...
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 11048 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 11048 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 11048 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 18866 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 18866 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 18866 -h localhost
 Using statistical security parameter 40
 Executing comorbidity with 1200 rows
-Starting timer 10 at 0 (0 MB, 0 rounds) after 5.436e-06
-Stopped timer 10 at 9.67644 (0 MB, 0 rounds)
-Starting timer 100 at 0 (0 MB, 0 rounds) after 9.64e-07
-Stopped timer 100 at 0.000119081 (0 MB, 0 rounds)
-Starting timer 200 at 0 (0 MB, 0 rounds) after 8.8e-07
-Starting timer 300 at 0 (0 MB, 0 rounds) after 8.04e-07
-Stopped timer 300 at 12.552 (0 MB, 0 rounds)
-Stopped timer 200 at 13.1959 (0 MB, 0 rounds)
-Starting timer 400 at 0 (0 MB, 0 rounds) after 1.944e-06
-Starting timer 500 at 0 (0 MB, 0 rounds) after 1.264e-06
-Stopped timer 500 at 13.1982 (0 MB, 0 rounds)
-Stopped timer 400 at 13.1998 (0 MB, 0 rounds)
-Starting timer 600 at 0 (0 MB, 0 rounds) after 1.373e-06
-Stopped timer 600 at 1.06401 (0 MB, 0 rounds)
-Passing around 4.14654 MB in 998665 rounds, taking 24.4428 seconds
-Receiving directly 0.000288 MB in 18 rounds, taking 0.042939 seconds
-Sending directly 0.125088 MB in 34 rounds, taking 0.00345223 seconds
+Starting timer 10 at 0 (0 MB, 0 rounds) after 5.309e-06
+Stopped timer 10 at 9.89154 (0 MB, 0 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.121e-06
+Stopped timer 100 at 0.000127794 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 9.51e-07
+Starting timer 300 at 0 (0 MB, 0 rounds) after 9.65e-07
+Stopped timer 300 at 12.7767 (0 MB, 0 rounds)
+Stopped timer 200 at 13.4281 (0 MB, 0 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.676e-06
+Starting timer 500 at 0 (0 MB, 0 rounds) after 9.8e-07
+Stopped timer 500 at 13.3781 (0 MB, 0 rounds)
+Stopped timer 400 at 13.3798 (0 MB, 0 rounds)
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.357e-06
+Stopped timer 600 at 1.1583 (0 MB, 0 rounds)
+Passing around 4.14654 MB in 998665 rounds, taking 24.8753 seconds
+Receiving directly 0.000288 MB in 18 rounds, taking 0.0703719 seconds
+Sending directly 0.125088 MB in 34 rounds, taking 0.00346206 seconds
 The following benchmarks are including preprocessing (offline phase).
-Time = 37.1379 seconds 
-Time10 = 9.67644 seconds (0 MB, 0 rounds)
-Time100 = 0.000119081 seconds (0 MB, 0 rounds)
-Time200 = 13.1959 seconds (0 MB, 0 rounds)
-Time300 = 12.552 seconds (0 MB, 0 rounds)
-Time400 = 13.1998 seconds (0 MB, 0 rounds)
-Time500 = 13.1982 seconds (0 MB, 0 rounds)
-Time600 = 1.06401 seconds (0 MB, 0 rounds)
+Time = 37.8596 seconds 
+Time10 = 9.89154 seconds (0 MB, 0 rounds)
+Time100 = 0.000127794 seconds (0 MB, 0 rounds)
+Time200 = 13.4281 seconds (0 MB, 0 rounds)
+Time300 = 12.7767 seconds (0 MB, 0 rounds)
+Time400 = 13.3798 seconds (0 MB, 0 rounds)
+Time500 = 13.3781 seconds (0 MB, 0 rounds)
+Time600 = 1.1583 seconds (0 MB, 0 rounds)
 Data sent = 4.27163 MB in ~998718 rounds (party 0 only; use '-v' for more details)
 Global data sent = 12.5653 MB (all parties)
 Done
 Measure performance for 1300 rows
 Compiling high-level code...
 Executing the program...
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 16769 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 16769 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 16769 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 12470 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 12470 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 12470 -h localhost
 Using statistical security parameter 40
 Executing comorbidity with 1300 rows
-Starting timer 10 at 0 (0 MB, 0 rounds) after 5.134e-06
-Stopped timer 10 at 10.6021 (0 MB, 0 rounds)
-Starting timer 100 at 0 (0 MB, 0 rounds) after 9.54e-07
-Stopped timer 100 at 0.00013285 (0 MB, 0 rounds)
-Starting timer 200 at 0 (0 MB, 0 rounds) after 8.29e-07
-Starting timer 300 at 0 (0 MB, 0 rounds) after 7.6e-07
-Stopped timer 300 at 12.2894 (0 MB, 0 rounds)
-Stopped timer 200 at 12.9795 (0 MB, 0 rounds)
-Starting timer 400 at 0 (0 MB, 0 rounds) after 1.25e-06
-Starting timer 500 at 0 (0 MB, 0 rounds) after 9.6e-07
-Stopped timer 500 at 13.0783 (0 MB, 0 rounds)
-Stopped timer 400 at 13.08 (0 MB, 0 rounds)
-Starting timer 600 at 0 (0 MB, 0 rounds) after 1.375e-06
-Stopped timer 600 at 1.14479 (0 MB, 0 rounds)
-Passing around 4.16134 MB in 1004065 rounds, taking 24.1325 seconds
-Receiving directly 0.000304 MB in 19 rounds, taking 0.00182957 seconds
-Sending directly 0.135504 MB in 36 rounds, taking 0.00364179 seconds
+Starting timer 10 at 0 (0 MB, 0 rounds) after 4.485e-06
+Stopped timer 10 at 10.5739 (0 MB, 0 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.078e-06
+Stopped timer 100 at 0.000139007 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 9.6e-07
+Starting timer 300 at 0 (0 MB, 0 rounds) after 9.41e-07
+Stopped timer 300 at 12.2722 (0 MB, 0 rounds)
+Stopped timer 200 at 12.9548 (0 MB, 0 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.542e-06
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.52e-06
+Stopped timer 500 at 12.9203 (0 MB, 0 rounds)
+Stopped timer 400 at 12.922 (0 MB, 0 rounds)
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.326e-06
+Stopped timer 600 at 1.13831 (0 MB, 0 rounds)
+Passing around 4.16134 MB in 1004065 rounds, taking 23.9736 seconds
+Receiving directly 0.000304 MB in 19 rounds, taking 0.00370501 seconds
+Sending directly 0.135504 MB in 36 rounds, taking 0.00380096 seconds
 The following benchmarks are including preprocessing (offline phase).
-Time = 37.8083 seconds 
-Time10 = 10.6021 seconds (0 MB, 0 rounds)
-Time100 = 0.00013285 seconds (0 MB, 0 rounds)
-Time200 = 12.9795 seconds (0 MB, 0 rounds)
-Time300 = 12.2894 seconds (0 MB, 0 rounds)
-Time400 = 13.08 seconds (0 MB, 0 rounds)
-Time500 = 13.0783 seconds (0 MB, 0 rounds)
-Time600 = 1.14479 seconds (0 MB, 0 rounds)
+Time = 37.5909 seconds 
+Time10 = 10.5739 seconds (0 MB, 0 rounds)
+Time100 = 0.000139007 seconds (0 MB, 0 rounds)
+Time200 = 12.9548 seconds (0 MB, 0 rounds)
+Time300 = 12.2722 seconds (0 MB, 0 rounds)
+Time400 = 12.922 seconds (0 MB, 0 rounds)
+Time500 = 12.9203 seconds (0 MB, 0 rounds)
+Time600 = 1.13831 seconds (0 MB, 0 rounds)
 Data sent = 4.29684 MB in ~1004121 rounds (party 0 only; use '-v' for more details)
 Global data sent = 12.6201 MB (all parties)
 Done
 Measure performance for 1400 rows
 Compiling high-level code...
 Executing the program...
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 17131 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 17131 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 17131 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 17627 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 17627 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 17627 -h localhost
 Using statistical security parameter 40
 Executing comorbidity with 1400 rows
-Starting timer 10 at 0 (0 MB, 0 rounds) after 4.228e-06
-Stopped timer 10 at 11.3334 (0 MB, 0 rounds)
-Starting timer 100 at 0 (0 MB, 0 rounds) after 1.148e-06
-Stopped timer 100 at 0.000125867 (0 MB, 0 rounds)
-Starting timer 200 at 0 (0 MB, 0 rounds) after 8.98e-07
-Starting timer 300 at 0 (0 MB, 0 rounds) after 8.25e-07
-Stopped timer 300 at 11.6853 (0 MB, 0 rounds)
-Stopped timer 200 at 12.4032 (0 MB, 0 rounds)
-Starting timer 400 at 0 (0 MB, 0 rounds) after 1.02e-06
-Starting timer 500 at 0 (0 MB, 0 rounds) after 8.96e-07
-Stopped timer 500 at 12.8114 (0 MB, 0 rounds)
-Stopped timer 400 at 12.8132 (0 MB, 0 rounds)
-Starting timer 600 at 0 (0 MB, 0 rounds) after 1.45e-06
-Stopped timer 600 at 1.20475 (0 MB, 0 rounds)
-Passing around 4.17614 MB in 1009465 rounds, taking 23.466 seconds
-Receiving directly 0.000336 MB in 21 rounds, taking 0.00229439 seconds
-Sending directly 0.145936 MB in 40 rounds, taking 0.00398565 seconds
+Starting timer 10 at 0 (0 MB, 0 rounds) after 5.282e-06
+Stopped timer 10 at 11.4028 (0 MB, 0 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.038e-06
+Stopped timer 100 at 0.000155941 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 8.77e-07
+Starting timer 300 at 0 (0 MB, 0 rounds) after 8.4e-07
+Stopped timer 300 at 12.3749 (0 MB, 0 rounds)
+Stopped timer 200 at 13.0835 (0 MB, 0 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.161e-06
+Starting timer 500 at 0 (0 MB, 0 rounds) after 7.85e-07
+Stopped timer 500 at 13.3116 (0 MB, 0 rounds)
+Stopped timer 400 at 13.3135 (0 MB, 0 rounds)
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.543e-06
+Stopped timer 600 at 1.25247 (0 MB, 0 rounds)
+Passing around 4.17614 MB in 1009465 rounds, taking 24.5808 seconds
+Receiving directly 0.000336 MB in 21 rounds, taking 0.079944 seconds
+Sending directly 0.145936 MB in 40 rounds, taking 0.00396744 seconds
 The following benchmarks are including preprocessing (offline phase).
-Time = 37.7562 seconds 
-Time10 = 11.3334 seconds (0 MB, 0 rounds)
-Time100 = 0.000125867 seconds (0 MB, 0 rounds)
-Time200 = 12.4032 seconds (0 MB, 0 rounds)
-Time300 = 11.6853 seconds (0 MB, 0 rounds)
-Time400 = 12.8132 seconds (0 MB, 0 rounds)
-Time500 = 12.8114 seconds (0 MB, 0 rounds)
-Time600 = 1.20475 seconds (0 MB, 0 rounds)
+Time = 39.0541 seconds 
+Time10 = 11.4028 seconds (0 MB, 0 rounds)
+Time100 = 0.000155941 seconds (0 MB, 0 rounds)
+Time200 = 13.0835 seconds (0 MB, 0 rounds)
+Time300 = 12.3749 seconds (0 MB, 0 rounds)
+Time400 = 13.3135 seconds (0 MB, 0 rounds)
+Time500 = 13.3116 seconds (0 MB, 0 rounds)
+Time600 = 1.25247 seconds (0 MB, 0 rounds)
 Data sent = 4.32207 MB in ~1009527 rounds (party 0 only; use '-v' for more details)
 Global data sent = 12.675 MB (all parties)
 Done
 Measure performance for 1500 rows
 Compiling high-level code...
 Executing the program...
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 19366 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 19366 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 19366 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 18179 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 18179 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 18179 -h localhost
 Using statistical security parameter 40
 Executing comorbidity with 1500 rows
-Starting timer 10 at 0 (0 MB, 0 rounds) after 5.382e-06
-Stopped timer 10 at 12.1046 (0 MB, 0 rounds)
-Starting timer 100 at 0 (0 MB, 0 rounds) after 1.188e-06
-Stopped timer 100 at 0.000155152 (0 MB, 0 rounds)
-Starting timer 200 at 0 (0 MB, 0 rounds) after 8.45e-07
-Starting timer 300 at 0 (0 MB, 0 rounds) after 7.75e-07
-Stopped timer 300 at 12.3015 (0 MB, 0 rounds)
-Stopped timer 200 at 13.0918 (0 MB, 0 rounds)
-Starting timer 400 at 0 (0 MB, 0 rounds) after 1.528e-06
-Starting timer 500 at 0 (0 MB, 0 rounds) after 9.36e-07
-Stopped timer 500 at 12.962 (0 MB, 0 rounds)
-Stopped timer 400 at 12.964 (0 MB, 0 rounds)
-Starting timer 600 at 0 (0 MB, 0 rounds) after 1.414e-06
-Stopped timer 600 at 1.30425 (0 MB, 0 rounds)
-Passing around 4.19094 MB in 1014865 rounds, taking 24.295 seconds
-Receiving directly 0.000352 MB in 22 rounds, taking 0.00347544 seconds
-Sending directly 0.156352 MB in 42 rounds, taking 0.00410058 seconds
+Starting timer 10 at 0 (0 MB, 0 rounds) after 4.224e-06
+Stopped timer 10 at 12.1913 (0 MB, 0 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.031e-06
+Stopped timer 100 at 0.00016578 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 8.53e-07
+Starting timer 300 at 0 (0 MB, 0 rounds) after 7.48e-07
+Stopped timer 300 at 12.278 (0 MB, 0 rounds)
+Stopped timer 200 at 13.071 (0 MB, 0 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.102e-06
+Starting timer 500 at 0 (0 MB, 0 rounds) after 8.21e-07
+Stopped timer 500 at 12.5391 (0 MB, 0 rounds)
+Stopped timer 400 at 12.5412 (0 MB, 0 rounds)
+Starting timer 600 at 0 (0 MB, 0 rounds) after 2.018e-06
+Stopped timer 600 at 1.31672 (0 MB, 0 rounds)
+Passing around 4.19094 MB in 1014865 rounds, taking 23.9557 seconds
+Receiving directly 0.000352 MB in 22 rounds, taking 0.0874364 seconds
+Sending directly 0.156352 MB in 42 rounds, taking 0.0045562 seconds
 The following benchmarks are including preprocessing (offline phase).
-Time = 39.4664 seconds 
-Time10 = 12.1046 seconds (0 MB, 0 rounds)
-Time100 = 0.000155152 seconds (0 MB, 0 rounds)
-Time200 = 13.0918 seconds (0 MB, 0 rounds)
-Time300 = 12.3015 seconds (0 MB, 0 rounds)
-Time400 = 12.964 seconds (0 MB, 0 rounds)
-Time500 = 12.962 seconds (0 MB, 0 rounds)
-Time600 = 1.30425 seconds (0 MB, 0 rounds)
+Time = 39.1222 seconds 
+Time10 = 12.1913 seconds (0 MB, 0 rounds)
+Time100 = 0.00016578 seconds (0 MB, 0 rounds)
+Time200 = 13.071 seconds (0 MB, 0 rounds)
+Time300 = 12.278 seconds (0 MB, 0 rounds)
+Time400 = 12.5412 seconds (0 MB, 0 rounds)
+Time500 = 12.5391 seconds (0 MB, 0 rounds)
+Time600 = 1.31672 seconds (0 MB, 0 rounds)
 Data sent = 4.34729 MB in ~1014930 rounds (party 0 only; use '-v' for more details)
 Global data sent = 12.7299 MB (all parties)
 Done
 Measure performance for 1600 rows
 Compiling high-level code...
 Executing the program...
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 13627 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 13627 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 13627 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 19300 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 19300 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 19300 -h localhost
 Using statistical security parameter 40
 Executing comorbidity with 1600 rows
-Starting timer 10 at 0 (0 MB, 0 rounds) after 6.363e-06
-Stopped timer 10 at 13.2686 (0 MB, 0 rounds)
-Starting timer 100 at 0 (0 MB, 0 rounds) after 9.69e-07
-Stopped timer 100 at 0.000157739 (0 MB, 0 rounds)
-Starting timer 200 at 0 (0 MB, 0 rounds) after 9.47e-07
-Starting timer 300 at 0 (0 MB, 0 rounds) after 7.86e-07
-Stopped timer 300 at 12.7941 (0 MB, 0 rounds)
-Stopped timer 200 at 13.6652 (0 MB, 0 rounds)
-Starting timer 400 at 0 (0 MB, 0 rounds) after 1.719e-06
-Starting timer 500 at 0 (0 MB, 0 rounds) after 1.007e-06
-Stopped timer 500 at 13.5187 (0 MB, 0 rounds)
-Stopped timer 400 at 13.5224 (0 MB, 0 rounds)
-Starting timer 600 at 0 (0 MB, 0 rounds) after 1.982e-06
-Stopped timer 600 at 1.45978 (0 MB, 0 rounds)
-Passing around 4.20574 MB in 1020265 rounds, taking 25.4085 seconds
-Receiving directly 0.000368 MB in 23 rounds, taking 0.0283169 seconds
-Sending directly 0.166768 MB in 44 rounds, taking 0.00472524 seconds
+Starting timer 10 at 0 (0 MB, 0 rounds) after 6.645e-06
+Stopped timer 10 at 13.004 (0 MB, 0 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 9.68e-07
+Stopped timer 100 at 0.000159376 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 8.68e-07
+Starting timer 300 at 0 (0 MB, 0 rounds) after 7.34e-07
+Stopped timer 300 at 12.1827 (0 MB, 0 rounds)
+Stopped timer 200 at 13.0178 (0 MB, 0 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.274e-06
+Starting timer 500 at 0 (0 MB, 0 rounds) after 9.28e-07
+Stopped timer 500 at 12.8278 (0 MB, 0 rounds)
+Stopped timer 400 at 12.8299 (0 MB, 0 rounds)
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.331e-06
+Stopped timer 600 at 1.35484 (0 MB, 0 rounds)
+Passing around 4.20574 MB in 1020265 rounds, taking 24.0997 seconds
+Receiving directly 0.000368 MB in 23 rounds, taking 0.00360422 seconds
+Sending directly 0.166768 MB in 44 rounds, taking 0.00438304 seconds
 The following benchmarks are including preprocessing (offline phase).
-Time = 41.9178 seconds 
-Time10 = 13.2686 seconds (0 MB, 0 rounds)
-Time100 = 0.000157739 seconds (0 MB, 0 rounds)
-Time200 = 13.6652 seconds (0 MB, 0 rounds)
-Time300 = 12.7941 seconds (0 MB, 0 rounds)
-Time400 = 13.5224 seconds (0 MB, 0 rounds)
-Time500 = 13.5187 seconds (0 MB, 0 rounds)
-Time600 = 1.45978 seconds (0 MB, 0 rounds)
+Time = 40.2083 seconds 
+Time10 = 13.004 seconds (0 MB, 0 rounds)
+Time100 = 0.000159376 seconds (0 MB, 0 rounds)
+Time200 = 13.0178 seconds (0 MB, 0 rounds)
+Time300 = 12.1827 seconds (0 MB, 0 rounds)
+Time400 = 12.8299 seconds (0 MB, 0 rounds)
+Time500 = 12.8278 seconds (0 MB, 0 rounds)
+Time600 = 1.35484 seconds (0 MB, 0 rounds)
 Data sent = 4.37251 MB in ~1020333 rounds (party 0 only; use '-v' for more details)
 Global data sent = 12.7847 MB (all parties)
 Done
 Measure performance for 1700 rows
 Compiling high-level code...
 Executing the program...
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 19680 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 19680 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 19680 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 18706 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 18706 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 18706 -h localhost
 Using statistical security parameter 40
 Executing comorbidity with 1700 rows
-Starting timer 10 at 0 (0 MB, 0 rounds) after 3.918e-06
-Stopped timer 10 at 14.1684 (0 MB, 0 rounds)
-Starting timer 100 at 0 (0 MB, 0 rounds) after 1.135e-06
-Stopped timer 100 at 0.000161455 (0 MB, 0 rounds)
-Starting timer 200 at 0 (0 MB, 0 rounds) after 9.14e-07
-Starting timer 300 at 0 (0 MB, 0 rounds) after 8.16e-07
-Stopped timer 300 at 12.5252 (0 MB, 0 rounds)
-Stopped timer 200 at 13.4351 (0 MB, 0 rounds)
-Starting timer 400 at 0 (0 MB, 0 rounds) after 1.611e-06
-Starting timer 500 at 0 (0 MB, 0 rounds) after 9.77e-07
-Stopped timer 500 at 13.2712 (0 MB, 0 rounds)
-Stopped timer 400 at 13.2734 (0 MB, 0 rounds)
-Starting timer 600 at 0 (0 MB, 0 rounds) after 1.586e-06
-Stopped timer 600 at 1.48117 (0 MB, 0 rounds)
-Passing around 4.22054 MB in 1025665 rounds, taking 25.0838 seconds
-Receiving directly 0.0004 MB in 25 rounds, taking 0.00190689 seconds
-Sending directly 0.1772 MB in 48 rounds, taking 0.00514875 seconds
+Starting timer 10 at 0 (0 MB, 0 rounds) after 5.35e-06
+Stopped timer 10 at 13.8542 (0 MB, 0 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 9.57e-07
+Stopped timer 100 at 0.00018809 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 9.29e-07
+Starting timer 300 at 0 (0 MB, 0 rounds) after 8.31e-07
+Stopped timer 300 at 12.016 (0 MB, 0 rounds)
+Stopped timer 200 at 12.904 (0 MB, 0 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.213e-06
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.02e-06
+Stopped timer 500 at 13.0711 (0 MB, 0 rounds)
+Stopped timer 400 at 13.0735 (0 MB, 0 rounds)
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.299e-06
+Stopped timer 600 at 1.48822 (0 MB, 0 rounds)
+Passing around 4.22054 MB in 1025665 rounds, taking 24.3941 seconds
+Receiving directly 0.0004 MB in 25 rounds, taking 0.0442123 seconds
+Sending directly 0.1772 MB in 48 rounds, taking 0.00512752 seconds
 The following benchmarks are including preprocessing (offline phase).
-Time = 42.36 seconds 
-Time10 = 14.1684 seconds (0 MB, 0 rounds)
-Time100 = 0.000161455 seconds (0 MB, 0 rounds)
-Time200 = 13.4351 seconds (0 MB, 0 rounds)
-Time300 = 12.5252 seconds (0 MB, 0 rounds)
-Time400 = 13.2734 seconds (0 MB, 0 rounds)
-Time500 = 13.2712 seconds (0 MB, 0 rounds)
-Time600 = 1.48117 seconds (0 MB, 0 rounds)
+Time = 41.3217 seconds 
+Time10 = 13.8542 seconds (0 MB, 0 rounds)
+Time100 = 0.00018809 seconds (0 MB, 0 rounds)
+Time200 = 12.904 seconds (0 MB, 0 rounds)
+Time300 = 12.016 seconds (0 MB, 0 rounds)
+Time400 = 13.0735 seconds (0 MB, 0 rounds)
+Time500 = 13.0711 seconds (0 MB, 0 rounds)
+Time600 = 1.48822 seconds (0 MB, 0 rounds)
 Data sent = 4.39774 MB in ~1025739 rounds (party 0 only; use '-v' for more details)
 Global data sent = 12.8396 MB (all parties)
 Done
 Measure performance for 1800 rows
 Compiling high-level code...
 Executing the program...
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 13263 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 13263 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 13263 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 13636 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 13636 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 13636 -h localhost
 Using statistical security parameter 40
 Executing comorbidity with 1800 rows
-Starting timer 10 at 0 (0 MB, 0 rounds) after 4.616e-06
-Stopped timer 10 at 17.5771 (0 MB, 0 rounds)
-Starting timer 100 at 0 (0 MB, 0 rounds) after 1.097e-06
-Stopped timer 100 at 0.000177491 (0 MB, 0 rounds)
-Starting timer 200 at 0 (0 MB, 0 rounds) after 1.09e-06
-Starting timer 300 at 0 (0 MB, 0 rounds) after 9.33e-07
-Stopped timer 300 at 14.5822 (0 MB, 0 rounds)
-Stopped timer 200 at 15.6735 (0 MB, 0 rounds)
-Starting timer 400 at 0 (0 MB, 0 rounds) after 1.451e-06
-Starting timer 500 at 0 (0 MB, 0 rounds) after 1.019e-06
-Stopped timer 500 at 15.1152 (0 MB, 0 rounds)
-Stopped timer 400 at 15.1179 (0 MB, 0 rounds)
-Starting timer 600 at 0 (0 MB, 0 rounds) after 1.674e-06
-Stopped timer 600 at 1.84517 (0 MB, 0 rounds)
-Passing around 4.23534 MB in 1031065 rounds, taking 28.9304 seconds
-Receiving directly 0.000416 MB in 26 rounds, taking 0.00234901 seconds
-Sending directly 0.187616 MB in 50 rounds, taking 0.00431049 seconds
+Starting timer 10 at 0 (0 MB, 0 rounds) after 5.677e-06
+Stopped timer 10 at 14.5708 (0 MB, 0 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.101e-06
+Stopped timer 100 at 0.000164779 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 9.75e-07
+Starting timer 300 at 0 (0 MB, 0 rounds) after 8.11e-07
+Stopped timer 300 at 12.1276 (0 MB, 0 rounds)
+Stopped timer 200 at 13.0069 (0 MB, 0 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.243e-06
+Starting timer 500 at 0 (0 MB, 0 rounds) after 8.3e-07
+Stopped timer 500 at 12.7385 (0 MB, 0 rounds)
+Stopped timer 400 at 12.7407 (0 MB, 0 rounds)
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.337e-06
+Stopped timer 600 at 1.55277 (0 MB, 0 rounds)
+Passing around 4.23534 MB in 1031065 rounds, taking 24.3011 seconds
+Receiving directly 0.000416 MB in 26 rounds, taking 0.0506215 seconds
+Sending directly 0.187616 MB in 50 rounds, taking 0.00522922 seconds
 The following benchmarks are including preprocessing (offline phase).
-Time = 50.2154 seconds 
-Time10 = 17.5771 seconds (0 MB, 0 rounds)
-Time100 = 0.000177491 seconds (0 MB, 0 rounds)
-Time200 = 15.6735 seconds (0 MB, 0 rounds)
-Time300 = 14.5822 seconds (0 MB, 0 rounds)
-Time400 = 15.1179 seconds (0 MB, 0 rounds)
-Time500 = 15.1152 seconds (0 MB, 0 rounds)
-Time600 = 1.84517 seconds (0 MB, 0 rounds)
+Time = 41.873 seconds 
+Time10 = 14.5708 seconds (0 MB, 0 rounds)
+Time100 = 0.000164779 seconds (0 MB, 0 rounds)
+Time200 = 13.0069 seconds (0 MB, 0 rounds)
+Time300 = 12.1276 seconds (0 MB, 0 rounds)
+Time400 = 12.7407 seconds (0 MB, 0 rounds)
+Time500 = 12.7385 seconds (0 MB, 0 rounds)
+Time600 = 1.55277 seconds (0 MB, 0 rounds)
 Data sent = 4.42295 MB in ~1031142 rounds (party 0 only; use '-v' for more details)
 Global data sent = 12.8945 MB (all parties)
 Done
 Measure performance for 1900 rows
 Compiling high-level code...
 Executing the program...
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 10473 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 10473 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 10473 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 15029 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 15029 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 15029 -h localhost
 Using statistical security parameter 40
 Executing comorbidity with 1900 rows
-Starting timer 10 at 0 (0 MB, 0 rounds) after 4.41e-06
-Stopped timer 10 at 18.5797 (0 MB, 0 rounds)
-Starting timer 100 at 0 (0 MB, 0 rounds) after 1.278e-06
-Stopped timer 100 at 0.000207607 (0 MB, 0 rounds)
-Starting timer 200 at 0 (0 MB, 0 rounds) after 1.22e-06
-Starting timer 300 at 0 (0 MB, 0 rounds) after 9.91e-07
-Stopped timer 300 at 14.3696 (0 MB, 0 rounds)
-Stopped timer 200 at 15.5459 (0 MB, 0 rounds)
-Starting timer 400 at 0 (0 MB, 0 rounds) after 1.674e-06
-Starting timer 500 at 0 (0 MB, 0 rounds) after 1.472e-06
-Stopped timer 500 at 15.2296 (0 MB, 0 rounds)
-Stopped timer 400 at 15.2324 (0 MB, 0 rounds)
-Starting timer 600 at 0 (0 MB, 0 rounds) after 1.665e-06
-Stopped timer 600 at 1.9248 (0 MB, 0 rounds)
-Passing around 4.25014 MB in 1036465 rounds, taking 28.9329 seconds
-Receiving directly 0.000432 MB in 27 rounds, taking 0.055471 seconds
-Sending directly 0.198032 MB in 52 rounds, taking 0.00461414 seconds
+Starting timer 10 at 0 (0 MB, 0 rounds) after 4.544e-06
+Stopped timer 10 at 15.4178 (0 MB, 0 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 9.15e-07
+Stopped timer 100 at 0.000186173 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 8.49e-07
+Starting timer 300 at 0 (0 MB, 0 rounds) after 8.19e-07
+Stopped timer 300 at 12.3686 (0 MB, 0 rounds)
+Stopped timer 200 at 13.3844 (0 MB, 0 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.26e-06
+Starting timer 500 at 0 (0 MB, 0 rounds) after 9.63e-07
+Stopped timer 500 at 12.9256 (0 MB, 0 rounds)
+Stopped timer 400 at 12.9282 (0 MB, 0 rounds)
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.366e-06
+Stopped timer 600 at 1.64604 (0 MB, 0 rounds)
+Passing around 4.25014 MB in 1036465 rounds, taking 24.8873 seconds
+Receiving directly 0.000432 MB in 27 rounds, taking 0.00730108 seconds
+Sending directly 0.198032 MB in 52 rounds, taking 0.0053198 seconds
 The following benchmarks are including preprocessing (offline phase).
-Time = 51.2846 seconds 
-Time10 = 18.5797 seconds (0 MB, 0 rounds)
-Time100 = 0.000207607 seconds (0 MB, 0 rounds)
-Time200 = 15.5459 seconds (0 MB, 0 rounds)
-Time300 = 14.3696 seconds (0 MB, 0 rounds)
-Time400 = 15.2324 seconds (0 MB, 0 rounds)
-Time500 = 15.2296 seconds (0 MB, 0 rounds)
-Time600 = 1.9248 seconds (0 MB, 0 rounds)
+Time = 43.3785 seconds 
+Time10 = 15.4178 seconds (0 MB, 0 rounds)
+Time100 = 0.000186173 seconds (0 MB, 0 rounds)
+Time200 = 13.3844 seconds (0 MB, 0 rounds)
+Time300 = 12.3686 seconds (0 MB, 0 rounds)
+Time400 = 12.9282 seconds (0 MB, 0 rounds)
+Time500 = 12.9256 seconds (0 MB, 0 rounds)
+Time600 = 1.64604 seconds (0 MB, 0 rounds)
 Data sent = 4.44817 MB in ~1036545 rounds (party 0 only; use '-v' for more details)
 Global data sent = 12.9493 MB (all parties)
 Done
 Measure performance for 2000 rows
 Compiling high-level code...
 Executing the program...
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 12563 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 12563 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 12563 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 10167 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 10167 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 10167 -h localhost
 Using statistical security parameter 40
 Executing comorbidity with 2000 rows
-Starting timer 10 at 0 (0 MB, 0 rounds) after 5.375e-06
-Stopped timer 10 at 19.8079 (0 MB, 0 rounds)
-Starting timer 100 at 0 (0 MB, 0 rounds) after 1.412e-06
-Stopped timer 100 at 0.00021519 (0 MB, 0 rounds)
-Starting timer 200 at 0 (0 MB, 0 rounds) after 1.13e-06
-Starting timer 300 at 0 (0 MB, 0 rounds) after 9.83e-07
-Stopped timer 300 at 14.1287 (0 MB, 0 rounds)
-Stopped timer 200 at 15.3167 (0 MB, 0 rounds)
-Starting timer 400 at 0 (0 MB, 0 rounds) after 1.472e-06
-Starting timer 500 at 0 (0 MB, 0 rounds) after 1.009e-06
-Stopped timer 500 at 15.1166 (0 MB, 0 rounds)
-Stopped timer 400 at 15.1196 (0 MB, 0 rounds)
-Starting timer 600 at 0 (0 MB, 0 rounds) after 1.513e-06
-Stopped timer 600 at 2.02233 (0 MB, 0 rounds)
-Passing around 4.26494 MB in 1041865 rounds, taking 28.7059 seconds
-Receiving directly 0.000448 MB in 28 rounds, taking 0.0137315 seconds
-Sending directly 0.208448 MB in 54 rounds, taking 0.00494716 seconds
+Starting timer 10 at 0 (0 MB, 0 rounds) after 5.01e-06
+Stopped timer 10 at 16.3612 (0 MB, 0 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.138e-06
+Stopped timer 100 at 0.000199026 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 8.76e-07
+Starting timer 300 at 0 (0 MB, 0 rounds) after 8.26e-07
+Stopped timer 300 at 12.1712 (0 MB, 0 rounds)
+Stopped timer 200 at 13.2168 (0 MB, 0 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.434e-06
+Starting timer 500 at 0 (0 MB, 0 rounds) after 1.095e-06
+Stopped timer 500 at 12.7817 (0 MB, 0 rounds)
+Stopped timer 400 at 12.7842 (0 MB, 0 rounds)
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.251e-06
+Stopped timer 600 at 1.6847 (0 MB, 0 rounds)
+Passing around 4.26494 MB in 1041865 rounds, taking 24.4023 seconds
+Receiving directly 0.000448 MB in 28 rounds, taking 0.0047618 seconds
+Sending directly 0.208448 MB in 54 rounds, taking 0.00513019 seconds
 The following benchmarks are including preprocessing (offline phase).
-Time = 52.2682 seconds 
-Time10 = 19.8079 seconds (0 MB, 0 rounds)
-Time100 = 0.00021519 seconds (0 MB, 0 rounds)
-Time200 = 15.3167 seconds (0 MB, 0 rounds)
-Time300 = 14.1287 seconds (0 MB, 0 rounds)
-Time400 = 15.1196 seconds (0 MB, 0 rounds)
-Time500 = 15.1166 seconds (0 MB, 0 rounds)
-Time600 = 2.02233 seconds (0 MB, 0 rounds)
+Time = 44.0488 seconds 
+Time10 = 16.3612 seconds (0 MB, 0 rounds)
+Time100 = 0.000199026 seconds (0 MB, 0 rounds)
+Time200 = 13.2168 seconds (0 MB, 0 rounds)
+Time300 = 12.1712 seconds (0 MB, 0 rounds)
+Time400 = 12.7842 seconds (0 MB, 0 rounds)
+Time500 = 12.7817 seconds (0 MB, 0 rounds)
+Time600 = 1.6847 seconds (0 MB, 0 rounds)
 Data sent = 4.47339 MB in ~1041948 rounds (party 0 only; use '-v' for more details)
 Global data sent = 13.0042 MB (all parties)
 Done
 Measure performance for 4000 rows
 Compiling high-level code...
 Executing the program...
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 10734 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 10734 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 10734 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 14933 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 14933 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 14933 -h localhost
 Using statistical security parameter 40
 Executing comorbidity with 4000 rows
-Starting timer 10 at 0 (0 MB, 0 rounds) after 5.574e-06
-Stopped timer 10 at 39.6542 (0 MB, 0 rounds)
-Starting timer 100 at 0 (0 MB, 0 rounds) after 1.576e-06
-Stopped timer 100 at 0.000410813 (0 MB, 0 rounds)
-Starting timer 200 at 0 (0 MB, 0 rounds) after 1.211e-06
-Starting timer 300 at 0 (0 MB, 0 rounds) after 1.115e-06
-Stopped timer 300 at 34.743 (0 MB, 0 rounds)
-Stopped timer 200 at 37.202 (0 MB, 0 rounds)
-Starting timer 400 at 0 (0 MB, 0 rounds) after 1.914e-06
-Starting timer 500 at 0 (0 MB, 0 rounds) after 1.127e-06
-Stopped timer 500 at 36.7419 (0 MB, 0 rounds)
-Stopped timer 400 at 36.7479 (0 MB, 0 rounds)
-Starting timer 600 at 0 (0 MB, 0 rounds) after 1.66e-06
-Stopped timer 600 at 4.03242 (0 MB, 0 rounds)
-Passing around 10.0619 MB in 2444201 rounds, taking 69.1276 seconds
-Receiving directly 0.000864 MB in 54 rounds, taking 0.382038 seconds
-Sending directly 0.416864 MB in 106 rounds, taking 0.00913891 seconds
+Starting timer 10 at 0 (0 MB, 0 rounds) after 5.151e-06
+Stopped timer 10 at 32.7137 (0 MB, 0 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.007e-06
+Stopped timer 100 at 0.000377599 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 9.53e-07
+Starting timer 300 at 0 (0 MB, 0 rounds) after 8.23e-07
+Stopped timer 300 at 28.9815 (0 MB, 0 rounds)
+Stopped timer 200 at 31.0704 (0 MB, 0 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.343e-06
+Starting timer 500 at 0 (0 MB, 0 rounds) after 9.8e-07
+Stopped timer 500 at 30.0682 (0 MB, 0 rounds)
+Stopped timer 400 at 30.0735 (0 MB, 0 rounds)
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.708e-06
+Stopped timer 600 at 3.46694 (0 MB, 0 rounds)
+Passing around 10.0619 MB in 2444201 rounds, taking 57.4559 seconds
+Receiving directly 0.000864 MB in 54 rounds, taking 0.0158723 seconds
+Sending directly 0.416864 MB in 106 rounds, taking 0.0109146 seconds
 The following benchmarks are including preprocessing (offline phase).
-Time = 117.639 seconds 
-Time10 = 39.6542 seconds (0 MB, 0 rounds)
-Time100 = 0.000410813 seconds (0 MB, 0 rounds)
-Time200 = 37.202 seconds (0 MB, 0 rounds)
-Time300 = 34.743 seconds (0 MB, 0 rounds)
-Time400 = 36.7479 seconds (0 MB, 0 rounds)
-Time500 = 36.7419 seconds (0 MB, 0 rounds)
-Time600 = 4.03242 seconds (0 MB, 0 rounds)
+Time = 97.3264 seconds 
+Time10 = 32.7137 seconds (0 MB, 0 rounds)
+Time100 = 0.000377599 seconds (0 MB, 0 rounds)
+Time200 = 31.0704 seconds (0 MB, 0 rounds)
+Time300 = 28.9815 seconds (0 MB, 0 rounds)
+Time400 = 30.0735 seconds (0 MB, 0 rounds)
+Time500 = 30.0682 seconds (0 MB, 0 rounds)
+Time600 = 3.46694 seconds (0 MB, 0 rounds)
 Data sent = 10.4787 MB in ~2444362 rounds (party 0 only; use '-v' for more details)
 Global data sent = 30.6042 MB (all parties)
 Done
 Measure performance for 6000 rows
 Compiling high-level code...
 Executing the program...
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 17632 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 17632 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 17632 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 12633 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 12633 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 12633 -h localhost
 Using statistical security parameter 40
 Executing comorbidity with 6000 rows
-Starting timer 10 at 0 (0 MB, 0 rounds) after 5.216e-06
-Stopped timer 10 at 49.7674 (0 MB, 0 rounds)
-Starting timer 100 at 0 (0 MB, 0 rounds) after 1.056e-06
-Stopped timer 100 at 0.000560488 (0 MB, 0 rounds)
-Starting timer 200 at 0 (0 MB, 0 rounds) after 1.258e-06
-Starting timer 300 at 0 (0 MB, 0 rounds) after 8.62e-07
-Stopped timer 300 at 69.6103 (0 MB, 0 rounds)
-Stopped timer 200 at 72.7758 (0 MB, 0 rounds)
-Starting timer 400 at 0 (0 MB, 0 rounds) after 1.288e-06
-Starting timer 500 at 0 (0 MB, 0 rounds) after 1.017e-06
-Stopped timer 500 at 73.4708 (0 MB, 0 rounds)
-Stopped timer 400 at 73.4786 (0 MB, 0 rounds)
-Starting timer 600 at 0 (0 MB, 0 rounds) after 1.919e-06
-Stopped timer 600 at 5.17412 (0 MB, 0 rounds)
-Passing around 23.1702 MB in 5566857 rounds, taking 134.336 seconds
-Receiving directly 0.00128 MB in 80 rounds, taking 0.401374 seconds
-Sending directly 0.62528 MB in 158 rounds, taking 0.0166893 seconds
+Starting timer 10 at 0 (0 MB, 0 rounds) after 6.034e-06
+Stopped timer 10 at 49.1307 (0 MB, 0 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 9.72e-07
+Stopped timer 100 at 0.000546685 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 9.33e-07
+Starting timer 300 at 0 (0 MB, 0 rounds) after 8.06e-07
+Stopped timer 300 at 69.3636 (0 MB, 0 rounds)
+Stopped timer 200 at 72.5736 (0 MB, 0 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.268e-06
+Starting timer 500 at 0 (0 MB, 0 rounds) after 9.84e-07
+Stopped timer 500 at 73.2638 (0 MB, 0 rounds)
+Stopped timer 400 at 73.2716 (0 MB, 0 rounds)
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.79e-06
+Stopped timer 600 at 5.29417 (0 MB, 0 rounds)
+Passing around 23.1702 MB in 5566857 rounds, taking 134.175 seconds
+Receiving directly 0.00128 MB in 80 rounds, taking 0.244009 seconds
+Sending directly 0.62528 MB in 158 rounds, taking 0.0170865 seconds
 The following benchmarks are including preprocessing (offline phase).
-Time = 201.198 seconds 
-Time10 = 49.7674 seconds (0 MB, 0 rounds)
-Time100 = 0.000560488 seconds (0 MB, 0 rounds)
-Time200 = 72.7758 seconds (0 MB, 0 rounds)
-Time300 = 69.6103 seconds (0 MB, 0 rounds)
-Time400 = 73.4786 seconds (0 MB, 0 rounds)
-Time500 = 73.4708 seconds (0 MB, 0 rounds)
-Time600 = 5.17412 seconds (0 MB, 0 rounds)
+Time = 200.272 seconds 
+Time10 = 49.1307 seconds (0 MB, 0 rounds)
+Time100 = 0.000546685 seconds (0 MB, 0 rounds)
+Time200 = 72.5736 seconds (0 MB, 0 rounds)
+Time300 = 69.3636 seconds (0 MB, 0 rounds)
+Time400 = 73.2716 seconds (0 MB, 0 rounds)
+Time500 = 73.2638 seconds (0 MB, 0 rounds)
+Time600 = 5.29417 seconds (0 MB, 0 rounds)
 Data sent = 23.7954 MB in ~5567096 rounds (party 0 only; use '-v' for more details)
 Global data sent = 70.1383 MB (all parties)
 Done
 Measure performance for 8000 rows
 Compiling high-level code...
 Executing the program...
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 17271 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 17271 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 17271 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 15575 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 15575 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 15575 -h localhost
 Using statistical security parameter 40
 Executing comorbidity with 8000 rows
-Starting timer 10 at 0 (0 MB, 0 rounds) after 5.117e-06
-Stopped timer 10 at 67.3819 (0 MB, 0 rounds)
-Starting timer 100 at 0 (0 MB, 0 rounds) after 9.65e-07
-Stopped timer 100 at 0.000752813 (0 MB, 0 rounds)
-Starting timer 200 at 0 (0 MB, 0 rounds) after 1.342e-06
-Starting timer 300 at 0 (0 MB, 0 rounds) after 8.22e-07
-Stopped timer 300 at 69.7986 (0 MB, 0 rounds)
-Stopped timer 200 at 74.0138 (0 MB, 0 rounds)
-Starting timer 400 at 0 (0 MB, 0 rounds) after 1.513e-06
-Starting timer 500 at 0 (0 MB, 0 rounds) after 1.1e-06
-Stopped timer 500 at 73.6542 (0 MB, 0 rounds)
-Stopped timer 400 at 73.6646 (0 MB, 0 rounds)
-Starting timer 600 at 0 (0 MB, 0 rounds) after 1.451e-06
-Stopped timer 600 at 7.12598 (0 MB, 0 rounds)
-Passing around 23.4662 MB in 5674857 rounds, taking 137.684 seconds
-Receiving directly 0.001696 MB in 106 rounds, taking 0.978961 seconds
-Sending directly 0.833696 MB in 210 rounds, taking 0.0216393 seconds
+Starting timer 10 at 0 (0 MB, 0 rounds) after 5.612e-06
+Stopped timer 10 at 65.7193 (0 MB, 0 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.022e-06
+Stopped timer 100 at 0.000777188 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 8.87e-07
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.005e-06
+Stopped timer 300 at 70.0934 (0 MB, 0 rounds)
+Stopped timer 200 at 74.3684 (0 MB, 0 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.338e-06
+Starting timer 500 at 0 (0 MB, 0 rounds) after 9.12e-07
+Stopped timer 500 at 73.1773 (0 MB, 0 rounds)
+Stopped timer 400 at 73.1877 (0 MB, 0 rounds)
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.564e-06
+Stopped timer 600 at 6.68277 (0 MB, 0 rounds)
+Passing around 23.4662 MB in 5674857 rounds, taking 136.643 seconds
+Receiving directly 0.001696 MB in 106 rounds, taking 0.0117032 seconds
+Sending directly 0.833696 MB in 210 rounds, taking 0.02251 seconds
 The following benchmarks are including preprocessing (offline phase).
-Time = 222.189 seconds 
-Time10 = 67.3819 seconds (0 MB, 0 rounds)
-Time100 = 0.000752813 seconds (0 MB, 0 rounds)
-Time200 = 74.0138 seconds (0 MB, 0 rounds)
-Time300 = 69.7986 seconds (0 MB, 0 rounds)
-Time400 = 73.6646 seconds (0 MB, 0 rounds)
-Time500 = 73.6542 seconds (0 MB, 0 rounds)
-Time600 = 7.12598 seconds (0 MB, 0 rounds)
+Time = 219.961 seconds 
+Time10 = 65.7193 seconds (0 MB, 0 rounds)
+Time100 = 0.000777188 seconds (0 MB, 0 rounds)
+Time200 = 74.3684 seconds (0 MB, 0 rounds)
+Time300 = 70.0934 seconds (0 MB, 0 rounds)
+Time400 = 73.1877 seconds (0 MB, 0 rounds)
+Time500 = 73.1773 seconds (0 MB, 0 rounds)
+Time600 = 6.68277 seconds (0 MB, 0 rounds)
 Data sent = 24.2998 MB in ~5675174 rounds (party 0 only; use '-v' for more details)
 Global data sent = 71.2356 MB (all parties)
 Done
 Measure performance for 10000 rows
 Compiling high-level code...
 Executing the program...
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 14454 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 14454 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 14454 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 15734 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 15734 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 15734 -h localhost
 Using statistical security parameter 40
 Executing comorbidity with 10000 rows
-Starting timer 10 at 0 (0 MB, 0 rounds) after 5.522e-06
-Stopped timer 10 at 83.2888 (0 MB, 0 rounds)
-Starting timer 100 at 0 (0 MB, 0 rounds) after 1.064e-06
-Stopped timer 100 at 0.000945802 (0 MB, 0 rounds)
-Starting timer 200 at 0 (0 MB, 0 rounds) after 9.63e-07
-Starting timer 300 at 0 (0 MB, 0 rounds) after 8.12e-07
-Stopped timer 300 at 166.335 (0 MB, 0 rounds)
-Stopped timer 200 at 171.63 (0 MB, 0 rounds)
-Starting timer 400 at 0 (0 MB, 0 rounds) after 1.303e-06
-Starting timer 500 at 0 (0 MB, 0 rounds) after 9.15e-07
-Stopped timer 500 at 174.613 (0 MB, 0 rounds)
-Stopped timer 400 at 174.626 (0 MB, 0 rounds)
-Starting timer 600 at 0 (0 MB, 0 rounds) after 1.582e-06
-Stopped timer 600 at 9.01599 (0 MB, 0 rounds)
-Passing around 53.2861 MB in 12729673 rounds, taking 316.02 seconds
-Receiving directly 0.002112 MB in 132 rounds, taking 0.0171021 seconds
-Sending directly 1.04211 MB in 262 rounds, taking 0.0274728 seconds
+Starting timer 10 at 0 (0 MB, 0 rounds) after 5.235e-06
+Stopped timer 10 at 81.7969 (0 MB, 0 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 9.56e-07
+Stopped timer 100 at 0.00092183 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 8.96e-07
+Starting timer 300 at 0 (0 MB, 0 rounds) after 7.98e-07
+Stopped timer 300 at 157.626 (0 MB, 0 rounds)
+Stopped timer 200 at 162.85 (0 MB, 0 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.2e-06
+Starting timer 500 at 0 (0 MB, 0 rounds) after 9.51e-07
+Stopped timer 500 at 166.968 (0 MB, 0 rounds)
+Stopped timer 400 at 166.979 (0 MB, 0 rounds)
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.264e-06
+Stopped timer 600 at 8.41529 (0 MB, 0 rounds)
+Passing around 53.2861 MB in 12729673 rounds, taking 299.849 seconds
+Receiving directly 0.002112 MB in 132 rounds, taking 0.371465 seconds
+Sending directly 1.04211 MB in 262 rounds, taking 0.028361 seconds
 The following benchmarks are including preprocessing (offline phase).
-Time = 438.564 seconds 
-Time10 = 83.2888 seconds (0 MB, 0 rounds)
-Time100 = 0.000945802 seconds (0 MB, 0 rounds)
-Time200 = 171.63 seconds (0 MB, 0 rounds)
-Time300 = 166.335 seconds (0 MB, 0 rounds)
-Time400 = 174.626 seconds (0 MB, 0 rounds)
-Time500 = 174.613 seconds (0 MB, 0 rounds)
-Time600 = 9.01599 seconds (0 MB, 0 rounds)
+Time = 420.044 seconds 
+Time10 = 81.7969 seconds (0 MB, 0 rounds)
+Time100 = 0.00092183 seconds (0 MB, 0 rounds)
+Time200 = 162.85 seconds (0 MB, 0 rounds)
+Time300 = 157.626 seconds (0 MB, 0 rounds)
+Time400 = 166.979 seconds (0 MB, 0 rounds)
+Time500 = 166.968 seconds (0 MB, 0 rounds)
+Time600 = 8.41529 seconds (0 MB, 0 rounds)
 Data sent = 54.3282 MB in ~12730068 rounds (party 0 only; use '-v' for more details)
 Global data sent = 160.905 MB (all parties)
 Done
 Measure performance for 20000 rows
 Compiling high-level code...
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 14863 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 14863 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 14863 -h localhost
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 17771 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 17771 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 17771 -h localhost
 Using statistical security parameter 40
 Executing comorbidity with 20000 rows
-Starting timer 10 at 0 (0 MB, 0 rounds) after 5.676e-06
-Stopped timer 10 at 168.115 (0 MB, 0 rounds)
-Starting timer 100 at 0 (0 MB, 0 rounds) after 1.001e-06
-Stopped timer 100 at 0.00198772 (0 MB, 0 rounds)
-Starting timer 200 at 0 (0 MB, 0 rounds) after 1.194e-06
-Starting timer 300 at 0 (0 MB, 0 rounds) after 1.03e-06
-Stopped timer 300 at 385.136 (0 MB, 0 rounds)
-Stopped timer 200 at 396.166 (0 MB, 0 rounds)
-Starting timer 400 at 0 (0 MB, 0 rounds) after 1.319e-06
-Starting timer 500 at 0 (0 MB, 0 rounds) after 9.29e-07
-Stopped timer 500 at 405.69 (0 MB, 0 rounds)
-Stopped timer 400 at 405.717 (0 MB, 0 rounds)
-Starting timer 600 at 0 (0 MB, 0 rounds) after 1.617e-06
-Stopped timer 600 at 18.0454 (0 MB, 0 rounds)
-Passing around 122.17 MB in 29129385 rounds, taking 724.29 seconds
-Receiving directly 0.004192 MB in 262 rounds, taking 0.176262 seconds
-Sending directly 2.08419 MB in 522 rounds, taking 0.0500067 seconds
+Starting timer 10 at 0 (0 MB, 0 rounds) after 2.1781e-05
+Stopped timer 10 at 163.386 (0 MB, 0 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.182e-06
+Stopped timer 100 at 0.00190067 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 8.85e-07
+Starting timer 300 at 0 (0 MB, 0 rounds) after 7.79e-07
+Stopped timer 300 at 366.731 (0 MB, 0 rounds)
+Stopped timer 200 at 377.173 (0 MB, 0 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.444e-06
+Starting timer 500 at 0 (0 MB, 0 rounds) after 9.11e-07
+Stopped timer 500 at 381.513 (0 MB, 0 rounds)
+Stopped timer 400 at 381.539 (0 MB, 0 rounds)
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.358e-06
+Stopped timer 600 at 16.6816 (0 MB, 0 rounds)
+Passing around 122.17 MB in 29129385 rounds, taking 685.476 seconds
+Receiving directly 0.004192 MB in 262 rounds, taking 0.138786 seconds
+Sending directly 2.08419 MB in 522 rounds, taking 0.0538823 seconds
 The following benchmarks are including preprocessing (offline phase).
-Time = 988.047 seconds 
-Time10 = 168.115 seconds (0 MB, 0 rounds)
-Time100 = 0.00198772 seconds (0 MB, 0 rounds)
-Time200 = 396.166 seconds (0 MB, 0 rounds)
-Time300 = 385.136 seconds (0 MB, 0 rounds)
-Time400 = 405.717 seconds (0 MB, 0 rounds)
-Time500 = 405.69 seconds (0 MB, 0 rounds)
-Time600 = 18.0454 seconds (0 MB, 0 rounds)
+Time = 938.784 seconds 
+Time10 = 163.386 seconds (0 MB, 0 rounds)
+Time100 = 0.00190067 seconds (0 MB, 0 rounds)
+Time200 = 377.173 seconds (0 MB, 0 rounds)
+Time300 = 366.731 seconds (0 MB, 0 rounds)
+Time400 = 381.539 seconds (0 MB, 0 rounds)
+Time500 = 381.513 seconds (0 MB, 0 rounds)
+Time600 = 16.6816 seconds (0 MB, 0 rounds)
 Data sent = 124.254 MB in ~29130170 rounds (party 0 only; use '-v' for more details)
 Global data sent = 368.602 MB (all parties)
 Done
 Measure performance for 40000 rows
 Compiling high-level code...
 Executing the program...
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 13907 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 13907 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 13907 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 17299 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 17299 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 17299 -h localhost
 Using statistical security parameter 40
 Executing comorbidity with 40000 rows
-Starting timer 10 at 0 (0 MB, 0 rounds) after 3.602e-06
-Stopped timer 10 at 338.105 (0 MB, 0 rounds)
-Starting timer 100 at 0 (0 MB, 0 rounds) after 9.47e-07
-Stopped timer 100 at 0.00408723 (0 MB, 0 rounds)
-Starting timer 200 at 0 (0 MB, 0 rounds) after 1.049e-06
-Starting timer 300 at 0 (0 MB, 0 rounds) after 8.71e-07
-Stopped timer 300 at 895.315 (0 MB, 0 rounds)
-Stopped timer 200 at 917.825 (0 MB, 0 rounds)
-Starting timer 400 at 0 (0 MB, 0 rounds) after 1.169e-06
-Starting timer 500 at 0 (0 MB, 0 rounds) after 9.36e-07
-Stopped timer 500 at 948.29 (0 MB, 0 rounds)
-Stopped timer 400 at 948.34 (0 MB, 0 rounds)
-Starting timer 600 at 0 (0 MB, 0 rounds) after 1.344e-06
-Stopped timer 600 at 36.7656 (0 MB, 0 rounds)
-Passing around 277.763 MB in 66123113 rounds, taking 1687.85 seconds
-Receiving directly 0.008352 MB in 522 rounds, taking 0.0435318 seconds
-Sending directly 4.16835 MB in 1042 rounds, taking 0.114756 seconds
+Starting timer 10 at 0 (0 MB, 0 rounds) after 4.668e-06
+Stopped timer 10 at 327.439 (0 MB, 0 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.206e-06
+Stopped timer 100 at 0.00408974 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.011e-06
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.033e-06
+Stopped timer 300 at 837.745 (0 MB, 0 rounds)
+Stopped timer 200 at 858.711 (0 MB, 0 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.231e-06
+Starting timer 500 at 0 (0 MB, 0 rounds) after 9.98e-07
+Stopped timer 500 at 883.974 (0 MB, 0 rounds)
+Stopped timer 400 at 884.022 (0 MB, 0 rounds)
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.599e-06
+Stopped timer 600 at 34.2826 (0 MB, 0 rounds)
+Passing around 277.763 MB in 66123113 rounds, taking 1577.06 seconds
+Receiving directly 0.008352 MB in 522 rounds, taking 0.073836 seconds
+Sending directly 4.16835 MB in 1042 rounds, taking 0.1095 seconds
 The following benchmarks are including preprocessing (offline phase).
-Time = 2241.04 seconds 
-Time10 = 338.105 seconds (0 MB, 0 rounds)
-Time100 = 0.00408723 seconds (0 MB, 0 rounds)
-Time200 = 917.825 seconds (0 MB, 0 rounds)
-Time300 = 895.315 seconds (0 MB, 0 rounds)
-Time400 = 948.34 seconds (0 MB, 0 rounds)
-Time500 = 948.29 seconds (0 MB, 0 rounds)
-Time600 = 36.7656 seconds (0 MB, 0 rounds)
+Time = 2104.46 seconds 
+Time10 = 327.439 seconds (0 MB, 0 rounds)
+Time100 = 0.00408974 seconds (0 MB, 0 rounds)
+Time200 = 858.711 seconds (0 MB, 0 rounds)
+Time300 = 837.745 seconds (0 MB, 0 rounds)
+Time400 = 884.022 seconds (0 MB, 0 rounds)
+Time500 = 883.974 seconds (0 MB, 0 rounds)
+Time600 = 34.2826 seconds (0 MB, 0 rounds)
 Data sent = 281.932 MB in ~66124678 rounds (party 0 only; use '-v' for more details)
 Global data sent = 837.475 MB (all parties)
 Done
 Measure performance for 60000 rows
 Compiling high-level code...
 Executing the program...
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 16874 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 16874 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 16874 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 12430 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 12430 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 12430 -h localhost
 Using statistical security parameter 40
 Executing comorbidity with 60000 rows
-Starting timer 10 at 0 (0 MB, 0 rounds) after 5.07e-06
-Stopped timer 10 at 506.421 (0 MB, 0 rounds)
-Starting timer 100 at 0 (0 MB, 0 rounds) after 1.139e-06
-Stopped timer 100 at 0.0069862 (0 MB, 0 rounds)
-Starting timer 200 at 0 (0 MB, 0 rounds) after 1.335e-06
-Starting timer 300 at 0 (0 MB, 0 rounds) after 1.021e-06
-Stopped timer 300 at 893.068 (0 MB, 0 rounds)
-Stopped timer 200 at 926.132 (0 MB, 0 rounds)
-Starting timer 400 at 0 (0 MB, 0 rounds) after 1.277e-06
-Starting timer 500 at 0 (0 MB, 0 rounds) after 9.45e-07
-Stopped timer 500 at 950.753 (0 MB, 0 rounds)
-Stopped timer 400 at 950.825 (0 MB, 0 rounds)
-Starting timer 600 at 0 (0 MB, 0 rounds) after 1.352e-06
-Stopped timer 600 at 55.6129 (0 MB, 0 rounds)
-Passing around 280.723 MB in 67203113 rounds, taking 1716.03 seconds
-Receiving directly 0.012512 MB in 782 rounds, taking 0.0696268 seconds
-Sending directly 6.25251 MB in 1562 rounds, taking 0.159809 seconds
+Starting timer 10 at 0 (0 MB, 0 rounds) after 4.644e-06
+Stopped timer 10 at 493.301 (0 MB, 0 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 9.57e-07
+Stopped timer 100 at 0.00663271 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.228e-06
+Starting timer 300 at 0 (0 MB, 0 rounds) after 8.95e-07
+Stopped timer 300 at 845.653 (0 MB, 0 rounds)
+Stopped timer 200 at 877.867 (0 MB, 0 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.387e-06
+Starting timer 500 at 0 (0 MB, 0 rounds) after 9.65e-07
+Stopped timer 500 at 891.643 (0 MB, 0 rounds)
+Stopped timer 400 at 891.713 (0 MB, 0 rounds)
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.353e-06
+Stopped timer 600 at 52.8044 (0 MB, 0 rounds)
+Passing around 280.723 MB in 67203113 rounds, taking 1616.28 seconds
+Receiving directly 0.012512 MB in 782 rounds, taking 1.83598 seconds
+Sending directly 6.25251 MB in 1562 rounds, taking 0.164634 seconds
 The following benchmarks are including preprocessing (offline phase).
-Time = 2439 seconds 
-Time10 = 506.421 seconds (0 MB, 0 rounds)
-Time100 = 0.0069862 seconds (0 MB, 0 rounds)
-Time200 = 926.132 seconds (0 MB, 0 rounds)
-Time300 = 893.068 seconds (0 MB, 0 rounds)
-Time400 = 950.825 seconds (0 MB, 0 rounds)
-Time500 = 950.753 seconds (0 MB, 0 rounds)
-Time600 = 55.6129 seconds (0 MB, 0 rounds)
+Time = 2315.69 seconds 
+Time10 = 493.301 seconds (0 MB, 0 rounds)
+Time100 = 0.00663271 seconds (0 MB, 0 rounds)
+Time200 = 877.867 seconds (0 MB, 0 rounds)
+Time300 = 845.653 seconds (0 MB, 0 rounds)
+Time400 = 891.713 seconds (0 MB, 0 rounds)
+Time500 = 891.643 seconds (0 MB, 0 rounds)
+Time600 = 52.8044 seconds (0 MB, 0 rounds)
 Data sent = 286.976 MB in ~67205458 rounds (party 0 only; use '-v' for more details)
 Global data sent = 848.447 MB (all parties)
 Done
 Measure performance for 80000 rows
 Compiling high-level code...
 Executing the program...
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 11172 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 11172 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 11172 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 12209 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 12209 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 12209 -h localhost
 Using statistical security parameter 40
 Executing comorbidity with 80000 rows
-Starting timer 10 at 0 (0 MB, 0 rounds) after 5.398e-06
-Stopped timer 10 at 788.017 (0 MB, 0 rounds)
-Starting timer 100 at 0 (0 MB, 0 rounds) after 1.298e-06
-Stopped timer 100 at 0.00972728 (0 MB, 0 rounds)
-Starting timer 200 at 0 (0 MB, 0 rounds) after 1.359e-06
-Starting timer 300 at 0 (0 MB, 0 rounds) after 1.195e-06
-Stopped timer 300 at 2278.24 (0 MB, 0 rounds)
-Stopped timer 200 at 2328.72 (0 MB, 0 rounds)
-Starting timer 400 at 0 (0 MB, 0 rounds) after 1.584e-06
-Starting timer 500 at 0 (0 MB, 0 rounds) after 1.034e-06
-Stopped timer 500 at 2407.77 (0 MB, 0 rounds)
-Stopped timer 400 at 2407.88 (0 MB, 0 rounds)
-Starting timer 600 at 0 (0 MB, 0 rounds) after 1.885e-06
-Stopped timer 600 at 83.3928 (0 MB, 0 rounds)
-Passing around 626.83 MB in 149023465 rounds, taking 4264.32 seconds
-Receiving directly 0.016672 MB in 1042 rounds, taking 1.27746 seconds
-Sending directly 8.33667 MB in 2082 rounds, taking 0.17644 seconds
+Starting timer 10 at 0 (0 MB, 0 rounds) after 3.776e-06
+Stopped timer 10 at 656.995 (0 MB, 0 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 9e-07
+Stopped timer 100 at 0.00892822 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.09e-06
+Starting timer 300 at 0 (0 MB, 0 rounds) after 8.09e-07
+Stopped timer 300 at 1913.85 (0 MB, 0 rounds)
+Stopped timer 200 at 1956.72 (0 MB, 0 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.196e-06
+Starting timer 500 at 0 (0 MB, 0 rounds) after 9.03e-07
+Stopped timer 500 at 2055.25 (0 MB, 0 rounds)
+Stopped timer 400 at 2055.35 (0 MB, 0 rounds)
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.366e-06
+Stopped timer 600 at 72.235 (0 MB, 0 rounds)
+Passing around 626.83 MB in 149023465 rounds, taking 3627.61 seconds
+Receiving directly 0.016672 MB in 1042 rounds, taking 5.37507 seconds
+Sending directly 8.33667 MB in 2082 rounds, taking 0.22176 seconds
 The following benchmarks are including preprocessing (offline phase).
-Time = 5608.02 seconds 
-Time10 = 788.017 seconds (0 MB, 0 rounds)
-Time100 = 0.00972728 seconds (0 MB, 0 rounds)
-Time200 = 2328.72 seconds (0 MB, 0 rounds)
-Time300 = 2278.24 seconds (0 MB, 0 rounds)
-Time400 = 2407.88 seconds (0 MB, 0 rounds)
-Time500 = 2407.77 seconds (0 MB, 0 rounds)
-Time600 = 83.3928 seconds (0 MB, 0 rounds)
+Time = 4741.3 seconds 
+Time10 = 656.995 seconds (0 MB, 0 rounds)
+Time100 = 0.00892822 seconds (0 MB, 0 rounds)
+Time200 = 1956.72 seconds (0 MB, 0 rounds)
+Time300 = 1913.85 seconds (0 MB, 0 rounds)
+Time400 = 2055.35 seconds (0 MB, 0 rounds)
+Time500 = 2055.25 seconds (0 MB, 0 rounds)
+Time600 = 72.235 seconds (0 MB, 0 rounds)
 Data sent = 635.166 MB in ~149026590 rounds (party 0 only; use '-v' for more details)
 Global data sent = 1888.86 MB (all parties)
 Done
 Measure performance for 100000 rows
 Compiling high-level code...
 Executing the program...
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 15990 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 15990 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 15990 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 12340 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 12340 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 12340 -h localhost
 Using statistical security parameter 40
 Executing comorbidity with 100000 rows
-Starting timer 10 at 0 (0 MB, 0 rounds) after 6.806e-06
-Stopped timer 10 at 989.143 (0 MB, 0 rounds)
-Starting timer 100 at 0 (0 MB, 0 rounds) after 1.182e-06
-Stopped timer 100 at 0.0113054 (0 MB, 0 rounds)
-Starting timer 200 at 0 (0 MB, 0 rounds) after 1.356e-06
-Starting timer 300 at 0 (0 MB, 0 rounds) after 1.04e-06
-Stopped timer 300 at 2292.01 (0 MB, 0 rounds)
-Stopped timer 200 at 2355.32 (0 MB, 0 rounds)
-Starting timer 400 at 0 (0 MB, 0 rounds) after 1.346e-06
-Starting timer 500 at 0 (0 MB, 0 rounds) after 1.037e-06
-Stopped timer 500 at 2415.39 (0 MB, 0 rounds)
-Stopped timer 400 at 2415.53 (0 MB, 0 rounds)
-Starting timer 600 at 0 (0 MB, 0 rounds) after 1.657e-06
-Stopped timer 600 at 104.39 (0 MB, 0 rounds)
-Passing around 629.79 MB in 150103465 rounds, taking 4319.9 seconds
-Receiving directly 0.020832 MB in 1302 rounds, taking 0.364375 seconds
-Sending directly 10.4208 MB in 2602 rounds, taking 0.2424 seconds
+Starting timer 10 at 0 (0 MB, 0 rounds) after 5.039e-06
+Stopped timer 10 at 817.299 (0 MB, 0 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.009e-06
+Stopped timer 100 at 0.0106137 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.091e-06
+Starting timer 300 at 0 (0 MB, 0 rounds) after 9.29e-07
+Stopped timer 300 at 1881.15 (0 MB, 0 rounds)
+Stopped timer 200 at 1934.02 (0 MB, 0 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.217e-06
+Starting timer 500 at 0 (0 MB, 0 rounds) after 8.32e-07
+Stopped timer 500 at 2011.88 (0 MB, 0 rounds)
+Stopped timer 400 at 2011.99 (0 MB, 0 rounds)
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.327e-06
+Stopped timer 600 at 87.9946 (0 MB, 0 rounds)
+Passing around 629.79 MB in 150103465 rounds, taking 3572.6 seconds
+Receiving directly 0.020832 MB in 1302 rounds, taking 0.218729 seconds
+Sending directly 10.4208 MB in 2602 rounds, taking 0.279601 seconds
 The following benchmarks are including preprocessing (offline phase).
-Time = 5864.4 seconds 
-Time10 = 989.143 seconds (0 MB, 0 rounds)
-Time100 = 0.0113054 seconds (0 MB, 0 rounds)
-Time200 = 2355.32 seconds (0 MB, 0 rounds)
-Time300 = 2292.01 seconds (0 MB, 0 rounds)
-Time400 = 2415.53 seconds (0 MB, 0 rounds)
-Time500 = 2415.39 seconds (0 MB, 0 rounds)
-Time600 = 104.39 seconds (0 MB, 0 rounds)
+Time = 4851.32 seconds 
+Time10 = 817.299 seconds (0 MB, 0 rounds)
+Time100 = 0.0106137 seconds (0 MB, 0 rounds)
+Time200 = 1934.02 seconds (0 MB, 0 rounds)
+Time300 = 1881.15 seconds (0 MB, 0 rounds)
+Time400 = 2011.99 seconds (0 MB, 0 rounds)
+Time500 = 2011.88 seconds (0 MB, 0 rounds)
+Time600 = 87.9946 seconds (0 MB, 0 rounds)
 Data sent = 640.211 MB in ~150107370 rounds (party 0 only; use '-v' for more details)
 Global data sent = 1899.83 MB (all parties)
 Done
 Measure performance for 200000 rows
 Compiling high-level code...
 Executing the program...
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 12703 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 12703 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 12703 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 16010 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 16010 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 16010 -h localhost
 Using statistical security parameter 40
 Executing comorbidity with 200000 rows
-Starting timer 10 at 0 (0 MB, 0 rounds) after 4.265e-06
-Stopped timer 10 at 1648.05 (0 MB, 0 rounds)
-Starting timer 100 at 0 (0 MB, 0 rounds) after 1.249e-06
-Stopped timer 100 at 0.0243847 (0 MB, 0 rounds)
-Starting timer 200 at 0 (0 MB, 0 rounds) after 1.071e-06
-Starting timer 300 at 0 (0 MB, 0 rounds) after 1.048e-06
-Stopped timer 300 at 4374.85 (0 MB, 0 rounds)
-Stopped timer 200 at 4482.49 (0 MB, 0 rounds)
-Starting timer 400 at 0 (0 MB, 0 rounds) after 1.453e-06
-Starting timer 500 at 0 (0 MB, 0 rounds) after 9.17e-07
-Stopped timer 500 at 4591.37 (0 MB, 0 rounds)
-Stopped timer 400 at 4591.6 (0 MB, 0 rounds)
-Starting timer 600 at 0 (0 MB, 0 rounds) after 1.333e-06
-Stopped timer 600 at 174.87 (0 MB, 0 rounds)
-Passing around 1411.1 MB in 335858537 rounds, taking 8214.22 seconds
-Receiving directly 0.041632 MB in 2602 rounds, taking 9.82234 seconds
-Sending directly 20.8416 MB in 5202 rounds, taking 0.506857 seconds
+Starting timer 10 at 0 (0 MB, 0 rounds) after 5.72e-06
+Stopped timer 10 at 1635.64 (0 MB, 0 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.012e-06
+Stopped timer 100 at 0.0234197 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.029e-06
+Starting timer 300 at 0 (0 MB, 0 rounds) after 8.29e-07
+Stopped timer 300 at 4281.78 (0 MB, 0 rounds)
+Stopped timer 200 at 4387.89 (0 MB, 0 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.325e-06
+Starting timer 500 at 0 (0 MB, 0 rounds) after 9.13e-07
+Stopped timer 500 at 4511.16 (0 MB, 0 rounds)
+Stopped timer 400 at 4511.38 (0 MB, 0 rounds)
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.408e-06
+Stopped timer 600 at 172.256 (0 MB, 0 rounds)
+Passing around 1411.1 MB in 335858537 rounds, taking 8048.43 seconds
+Receiving directly 0.041632 MB in 2602 rounds, taking 5.0434 seconds
+Sending directly 20.8416 MB in 5202 rounds, taking 0.561827 seconds
 The following benchmarks are including preprocessing (offline phase).
-Time = 10897 seconds 
-Time10 = 1648.05 seconds (0 MB, 0 rounds)
-Time100 = 0.0243847 seconds (0 MB, 0 rounds)
-Time200 = 4482.49 seconds (0 MB, 0 rounds)
-Time300 = 4374.85 seconds (0 MB, 0 rounds)
-Time400 = 4591.6 seconds (0 MB, 0 rounds)
-Time500 = 4591.37 seconds (0 MB, 0 rounds)
-Time600 = 174.87 seconds (0 MB, 0 rounds)
+Time = 10707.2 seconds 
+Time10 = 1635.64 seconds (0 MB, 0 rounds)
+Time100 = 0.0234197 seconds (0 MB, 0 rounds)
+Time200 = 4387.89 seconds (0 MB, 0 rounds)
+Time300 = 4281.78 seconds (0 MB, 0 rounds)
+Time400 = 4511.38 seconds (0 MB, 0 rounds)
+Time500 = 4511.16 seconds (0 MB, 0 rounds)
+Time600 = 172.256 seconds (0 MB, 0 rounds)
 Data sent = 1431.94 MB in ~335866342 rounds (party 0 only; use '-v' for more details)
 Global data sent = 4254.22 MB (all parties)
 Done
 Measure performance for 400000 rows
 Compiling high-level code...
 Executing the program...
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 plaintext_comorbidity -pn 11794 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 plaintext_comorbidity -pn 11794 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 plaintext_comorbidity -pn 11794 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 14810 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 14810 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 14810 -h localhost
 Using statistical security parameter 40
 Executing comorbidity with 400000 rows
-Starting timer 10 at 0 (0 MB, 0 rounds) after 7.684e-06
-Stopped timer 10 at 3944.9 (0 MB, 0 rounds)
-Starting timer 100 at 0 (0 MB, 0 rounds) after 1.168e-06
-Stopped timer 100 at 0.0567598 (0 MB, 0 rounds)
-Starting timer 200 at 0 (0 MB, 0 rounds) after 1.344e-06
-Starting timer 300 at 0 (0 MB, 0 rounds) after 1.217e-06
-Stopped timer 300 at 11411.6 (0 MB, 0 rounds)
-Stopped timer 200 at 11663 (0 MB, 0 rounds)
-Starting timer 400 at 0 (0 MB, 0 rounds) after 2.12e-06
-Starting timer 500 at 0 (0 MB, 0 rounds) after 1.112e-06
-Stopped timer 500 at 10918.8 (0 MB, 0 rounds)
-Stopped timer 400 at 10919.3 (0 MB, 0 rounds)
-Starting timer 600 at 0 (0 MB, 0 rounds) after 1.714e-06
-Stopped timer 600 at 375.999 (0 MB, 0 rounds)
-Passing around 3143.06 MB in 747214569 rounds, taking 20398.9 seconds
-Receiving directly 0.083232 MB in 5202 rounds, taking 3.20171 seconds
-Sending directly 41.6832 MB in 10402 rounds, taking 0.888454 seconds
+Starting timer 10 at 0 (0 MB, 0 rounds) after 7.174e-06
+Stopped timer 10 at 3285.3 (0 MB, 0 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.113e-06
+Stopped timer 100 at 0.0546705 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.026e-06
+Starting timer 300 at 0 (0 MB, 0 rounds) after 8.99e-07
+Stopped timer 300 at 9592.84 (0 MB, 0 rounds)
+Stopped timer 200 at 9804.4 (0 MB, 0 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.109e-06
+Starting timer 500 at 0 (0 MB, 0 rounds) after 7.86e-07
+Stopped timer 500 at 10102.7 (0 MB, 0 rounds)
+Stopped timer 400 at 10103.1 (0 MB, 0 rounds)
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.44e-06
+Stopped timer 600 at 345.961 (0 MB, 0 rounds)
+Passing around 3143.06 MB in 747214569 rounds, taking 17935.3 seconds
+Receiving directly 0.083232 MB in 5202 rounds, taking 0.590544 seconds
+Sending directly 41.6832 MB in 10402 rounds, taking 1.05545 seconds
 The following benchmarks are including preprocessing (offline phase).
-Time = 26903.2 seconds 
-Time10 = 3944.9 seconds (0 MB, 0 rounds)
-Time100 = 0.0567598 seconds (0 MB, 0 rounds)
-Time200 = 11663 seconds (0 MB, 0 rounds)
-Time300 = 11411.6 seconds (0 MB, 0 rounds)
-Time400 = 10919.3 seconds (0 MB, 0 rounds)
-Time500 = 10918.8 seconds (0 MB, 0 rounds)
-Time600 = 375.999 seconds (0 MB, 0 rounds)
+Time = 23538.8 seconds 
+Time10 = 3285.3 seconds (0 MB, 0 rounds)
+Time100 = 0.0546705 seconds (0 MB, 0 rounds)
+Time200 = 9804.4 seconds (0 MB, 0 rounds)
+Time300 = 9592.84 seconds (0 MB, 0 rounds)
+Time400 = 10103.1 seconds (0 MB, 0 rounds)
+Time500 = 10102.7 seconds (0 MB, 0 rounds)
+Time600 = 345.961 seconds (0 MB, 0 rounds)
 Data sent = 3184.75 MB in ~747230174 rounds (party 0 only; use '-v' for more details)
 Global data sent = 9471.04 MB (all parties)
 Done
 Measure performance for 600000 rows
 Compiling high-level code...
 Executing the program...
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 10188 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 10188 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 10188 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 14210 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 14210 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 14210 -h localhost
 Using statistical security parameter 40
 Executing comorbidity with 600000 rows
-Starting timer 10 at 0 (0 MB, 0 rounds) after 8.174e-06
-Stopped timer 10 at 4918.32 (0 MB, 0 rounds)
-Starting timer 100 at 0 (0 MB, 0 rounds) after 1.054e-06
-Stopped timer 100 at 0.0749409 (0 MB, 0 rounds)
-Starting timer 200 at 0 (0 MB, 0 rounds) after 1.117e-06
-Starting timer 300 at 0 (0 MB, 0 rounds) after 9.73e-07
-Stopped timer 300 at 21381.6 (0 MB, 0 rounds)
-Stopped timer 200 at 21700.4 (0 MB, 0 rounds)
-Starting timer 400 at 0 (0 MB, 0 rounds) after 1.2982e-05
-Starting timer 500 at 0 (0 MB, 0 rounds) after 9.64e-07
-Stopped timer 500 at 22553.6 (0 MB, 0 rounds)
-Stopped timer 400 at 22554.3 (0 MB, 0 rounds)
-Starting timer 600 at 0 (0 MB, 0 rounds) after 1.821e-06
-Stopped timer 600 at 525.976 (0 MB, 0 rounds)
-Passing around 6933.9 MB in 1643012713 rounds, taking 39712.6 seconds
-Receiving directly 0.124832 MB in 7802 rounds, taking 0.844197 seconds
-Sending directly 62.5248 MB in 15602 rounds, taking 1.5861 seconds
+Starting timer 10 at 0 (0 MB, 0 rounds) after 7.707e-06
+Stopped timer 10 at 4929.57 (0 MB, 0 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 1.04e-06
+Stopped timer 100 at 0.0767321 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.033e-06
+Starting timer 300 at 0 (0 MB, 0 rounds) after 8.86e-07
+Stopped timer 300 at 21100.4 (0 MB, 0 rounds)
+Stopped timer 200 at 21412.3 (0 MB, 0 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.195e-06
+Starting timer 500 at 0 (0 MB, 0 rounds) after 9.4e-07
+Stopped timer 500 at 22289.5 (0 MB, 0 rounds)
+Stopped timer 400 at 22290.1 (0 MB, 0 rounds)
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.253e-06
+Stopped timer 600 at 521.845 (0 MB, 0 rounds)
+Passing around 6933.9 MB in 1643012713 rounds, taking 39158.5 seconds
+Receiving directly 0.124832 MB in 7802 rounds, taking 0.690398 seconds
+Sending directly 62.5248 MB in 15602 rounds, taking 1.5342 seconds
 The following benchmarks are including preprocessing (offline phase).
-Time = 49699.1 seconds 
-Time10 = 4918.32 seconds (0 MB, 0 rounds)
-Time100 = 0.0749409 seconds (0 MB, 0 rounds)
-Time200 = 21700.4 seconds (0 MB, 0 rounds)
-Time300 = 21381.6 seconds (0 MB, 0 rounds)
-Time400 = 22554.3 seconds (0 MB, 0 rounds)
-Time500 = 22553.6 seconds (0 MB, 0 rounds)
-Time600 = 525.976 seconds (0 MB, 0 rounds)
+Time = 49153.9 seconds 
+Time10 = 4929.57 seconds (0 MB, 0 rounds)
+Time100 = 0.0767321 seconds (0 MB, 0 rounds)
+Time200 = 21412.3 seconds (0 MB, 0 rounds)
+Time300 = 21100.4 seconds (0 MB, 0 rounds)
+Time400 = 22290.1 seconds (0 MB, 0 rounds)
+Time500 = 22289.5 seconds (0 MB, 0 rounds)
+Time600 = 521.845 seconds (0 MB, 0 rounds)
 Data sent = 6996.43 MB in ~1643036118 rounds (party 0 only; use '-v' for more details)
 Global data sent = 20864.5 MB (all parties)
 Done
 Measure performance for 800000 rows
 Compiling high-level code...
 Executing the program...
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 19261 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 19261 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 19261 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 15401 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 15401 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 15401 -h localhost
 Using statistical security parameter 40
 Executing comorbidity with 800000 rows
-Starting timer 10 at 0 (0 MB, 0 rounds) after 6.132e-06
-Stopped timer 10 at 6568.86 (0 MB, 0 rounds)
-Starting timer 100 at 0 (0 MB, 0 rounds) after 1.084e-06
-Stopped timer 100 at 0.0912331 (0 MB, 0 rounds)
-Starting timer 200 at 0 (0 MB, 0 rounds) after 1.014e-06
-Starting timer 300 at 0 (0 MB, 0 rounds) after 9.8e-07
-Stopped timer 300 at 21232.9 (0 MB, 0 rounds)
-Stopped timer 200 at 21653 (0 MB, 0 rounds)
-Starting timer 400 at 0 (0 MB, 0 rounds) after 1.271e-06
-Starting timer 500 at 0 (0 MB, 0 rounds) after 1e-06
-Stopped timer 500 at 22541.6 (0 MB, 0 rounds)
-Stopped timer 400 at 22542.5 (0 MB, 0 rounds)
-Starting timer 600 at 0 (0 MB, 0 rounds) after 1.177e-06
-Stopped timer 600 at 706.936 (0 MB, 0 rounds)
-Passing around 6963.5 MB in 1653812713 rounds, taking 39733.9 seconds
-Receiving directly 0.166432 MB in 10402 rounds, taking 3.79019 seconds
-Sending directly 83.3664 MB in 20802 rounds, taking 2.12823 seconds
+Starting timer 10 at 0 (0 MB, 0 rounds) after 8.076e-06
+Stopped timer 10 at 6552.43 (0 MB, 0 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 9.69e-07
+Stopped timer 100 at 0.091521 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 1.43e-06
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.032e-06
+Stopped timer 300 at 21263.6 (0 MB, 0 rounds)
+Stopped timer 200 at 21684.3 (0 MB, 0 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.253e-06
+Starting timer 500 at 0 (0 MB, 0 rounds) after 8.87e-07
+Stopped timer 500 at 22506.7 (0 MB, 0 rounds)
+Stopped timer 400 at 22507.6 (0 MB, 0 rounds)
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.378e-06
+Stopped timer 600 at 708.935 (0 MB, 0 rounds)
+Passing around 6963.5 MB in 1653812713 rounds, taking 39779.4 seconds
+Receiving directly 0.166432 MB in 10402 rounds, taking 2.17188 seconds
+Sending directly 83.3664 MB in 20802 rounds, taking 1.43459 seconds
 The following benchmarks are including preprocessing (offline phase).
-Time = 51471.4 seconds 
-Time10 = 6568.86 seconds (0 MB, 0 rounds)
-Time100 = 0.0912331 seconds (0 MB, 0 rounds)
-Time200 = 21653 seconds (0 MB, 0 rounds)
-Time300 = 21232.9 seconds (0 MB, 0 rounds)
-Time400 = 22542.5 seconds (0 MB, 0 rounds)
-Time500 = 22541.6 seconds (0 MB, 0 rounds)
-Time600 = 706.936 seconds (0 MB, 0 rounds)
+Time = 51453.4 seconds 
+Time10 = 6552.43 seconds (0 MB, 0 rounds)
+Time100 = 0.091521 seconds (0 MB, 0 rounds)
+Time200 = 21684.3 seconds (0 MB, 0 rounds)
+Time300 = 21263.6 seconds (0 MB, 0 rounds)
+Time400 = 22507.6 seconds (0 MB, 0 rounds)
+Time500 = 22506.7 seconds (0 MB, 0 rounds)
+Time600 = 708.935 seconds (0 MB, 0 rounds)
 Data sent = 7046.87 MB in ~1653843918 rounds (party 0 only; use '-v' for more details)
 Global data sent = 20974.2 MB (all parties)
 Done
 Measure performance for 1000000 rows
 Compiling high-level code...
 Executing the program...
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 10224 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 10224 -h localhost
-Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 10224 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 0 comorbidity -pn 18735 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 1 comorbidity -pn 18735 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-bin-party.x 2 comorbidity -pn 18735 -h localhost
 Using statistical security parameter 40
 Executing comorbidity with 1000000 rows
-Starting timer 10 at 0 (0 MB, 0 rounds) after 8.198e-06
-Stopped timer 10 at 8193.97 (0 MB, 0 rounds)
-Starting timer 100 at 0 (0 MB, 0 rounds) after 1.105e-06
-Stopped timer 100 at 0.12847 (0 MB, 0 rounds)
-Starting timer 200 at 0 (0 MB, 0 rounds) after 1.33e-06
-Starting timer 300 at 0 (0 MB, 0 rounds) after 9.1e-07
-Stopped timer 300 at 21515.5 (0 MB, 0 rounds)
-Stopped timer 200 at 22050.1 (0 MB, 0 rounds)
-Starting timer 400 at 0 (0 MB, 0 rounds) after 2.088e-06
-Starting timer 500 at 0 (0 MB, 0 rounds) after 9.42e-07
-Stopped timer 500 at 22722 (0 MB, 0 rounds)
-Stopped timer 400 at 22723.1 (0 MB, 0 rounds)
-Starting timer 600 at 0 (0 MB, 0 rounds) after 1.239e-06
-Stopped timer 600 at 884.609 (0 MB, 0 rounds)
-Passing around 6993.1 MB in 1664612713 rounds, taking 40545.7 seconds
-Receiving directly 0.208032 MB in 13002 rounds, taking 49.2336 seconds
-Sending directly 104.208 MB in 26002 rounds, taking 2.66992 seconds
+Starting timer 10 at 0 (0 MB, 0 rounds) after 5.615e-06
+Stopped timer 10 at 8176.49 (0 MB, 0 rounds)
+Starting timer 100 at 0 (0 MB, 0 rounds) after 9.94e-07
+Stopped timer 100 at 0.131033 (0 MB, 0 rounds)
+Starting timer 200 at 0 (0 MB, 0 rounds) after 9.85e-07
+Starting timer 300 at 0 (0 MB, 0 rounds) after 1.37e-06
+Stopped timer 300 at 20985.3 (0 MB, 0 rounds)
+Stopped timer 200 at 21505.6 (0 MB, 0 rounds)
+Starting timer 400 at 0 (0 MB, 0 rounds) after 1.279e-06
+Starting timer 500 at 0 (0 MB, 0 rounds) after 9.38e-07
+Stopped timer 500 at 22773.9 (0 MB, 0 rounds)
+Stopped timer 400 at 22775 (0 MB, 0 rounds)
+Starting timer 600 at 0 (0 MB, 0 rounds) after 1.225e-06
+Stopped timer 600 at 904.514 (0 MB, 0 rounds)
+Passing around 6993.1 MB in 1664612713 rounds, taking 40086.5 seconds
+Receiving directly 0.208032 MB in 13002 rounds, taking 7.72135 seconds
+Sending directly 104.208 MB in 26002 rounds, taking 2.77969 seconds
 The following benchmarks are including preprocessing (offline phase).
-Time = 53852 seconds 
-Time10 = 8193.97 seconds (0 MB, 0 rounds)
-Time100 = 0.12847 seconds (0 MB, 0 rounds)
-Time200 = 22050.1 seconds (0 MB, 0 rounds)
-Time300 = 21515.5 seconds (0 MB, 0 rounds)
-Time400 = 22723.1 seconds (0 MB, 0 rounds)
-Time500 = 22722 seconds (0 MB, 0 rounds)
-Time600 = 884.609 seconds (0 MB, 0 rounds)
+Time = 53361.7 seconds 
+Time10 = 8176.49 seconds (0 MB, 0 rounds)
+Time100 = 0.131033 seconds (0 MB, 0 rounds)
+Time200 = 21505.6 seconds (0 MB, 0 rounds)
+Time300 = 20985.3 seconds (0 MB, 0 rounds)
+Time400 = 22775 seconds (0 MB, 0 rounds)
+Time500 = 22773.9 seconds (0 MB, 0 rounds)
+Time600 = 904.514 seconds (0 MB, 0 rounds)
 Data sent = 7097.31 MB in ~1664651718 rounds (party 0 only; use '-v' for more details)
 Global data sent = 21083.9 MB (all parties)
 Done
