@@ -1,3 +1,4 @@
+### nested-loop join
 Starting cmd=numactl --membind=0 --cpunodebind=0 -- measurements/measure_secure.sh plaintext_cdiff
 Running performance test for secure query: plaintext_cdiff
 Generating test data...
