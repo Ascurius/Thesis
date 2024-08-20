@@ -97,7 +97,7 @@ def sort_merge_join_un(
         right: sint.Matrix, 
         l_key: int, 
         r_key: int,
-        condition: Callable[[sint.Array, sint.Array], bool] = lambda left, right: sint(1)
+        condition: Callable[[sint.Array, sint.Array], bool] = lambda left, right: sintbit(1)
     ) -> sint.Matrix:
     left_sorted = Matrix.create_from(left)
     right_sorted = Matrix.create_from(right)
@@ -116,33 +116,38 @@ def sort_merge_join_un(
     i = regint(0)
     j = regint(0)
     cnt = regint(0)
+    rel = sint.Array(1).create_from(sint(1))
 
     @while_do(lambda: (i < left_sorted.shape[0]) & (j < right_sorted.shape[0]))
     def _():
         left_row = left_sorted[i]
         left_value = left_row[l_key]
 
-        lt = (left_sorted[i][l_key] < right_sorted[j][r_key]).if_else(1,0).reveal()
-        gt = (left_sorted[i][l_key] > right_sorted[j][r_key]).if_else(1,0).reveal()
-        eq = (left_sorted[i][l_key] == right_sorted[j][r_key]).if_else(1,0).reveal()
+        lt = (left_sorted[i][l_key] < right_sorted[j][r_key]).if_else(1,0)
+        gt = (left_sorted[i][l_key] > right_sorted[j][r_key]).if_else(1,0)
+        eq = (left_sorted[i][l_key] == right_sorted[j][r_key]).if_else(1,0)
 
-        @if_(lt)
+        i_lt = lt.if_else((i+1), i)
+        j_gt = gt.if_else((j+1), j)
+
+        j.update(j_gt.reveal())
+        i.update(i_lt.reveal())
+
+        @while_do(and_(
+            lambda: (j < right_sorted.shape[0]), 
+            lambda: (right_sorted[j][r_key] == left_value).if_else(1,0).reveal()
+        ))
         def _():
-            i.update(i+1)
-        @if_(gt)
-        def _():
-            j.update(j+1)
-        @if_(eq)
-        def _():
-            @while_do(and_(lambda: (j < right_sorted.shape[0]), lambda: (right_sorted[j][r_key] == left_value).if_else(1,0).reveal()))
-            def _():
-                @if_(condition(left_row, right_sorted[j]).reveal())
-                def _():
-                    rel = sint.Array(1).create_from(sint(1))
-                    result[cnt] = left_sorted[i].concat(right_sorted[j].concat(rel))
-                cnt.update(cnt+1)
-                j.update(j+1)
-            i.update(i+1)
+            join_condition = (condition(left_row, right_sorted[j]) & eq).if_else(1, 0)
+
+            result[cnt] = join_condition.if_else(
+                left_sorted[i].concat(right_sorted[j].concat(rel)),
+                result[cnt]
+            )
+            cnt.update(join_condition.if_else(cnt + 1, cnt).reveal())
+            j.update(eq.if_else(j + 1, j).reveal())
+
+        i.update(eq.if_else(i + 1, i).reveal())
     return result
 
 def improved_nested_loop(
