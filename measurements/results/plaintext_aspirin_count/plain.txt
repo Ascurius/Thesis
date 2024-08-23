@@ -1,5 +1,3 @@
-Running performance test for plain query plaintext_aspirin_count on c08
-Generating test data...
 rows,union_all,first_filter,second_filter,join,third_filter,distinct,distinct_sort,count,total#
 100,.000001,.000123,.000054,.001817,.001225,.000360,.000074,.003221
 200,.000002,.000114,.000729,.005772,.005045,.001499,.000410,.011662
