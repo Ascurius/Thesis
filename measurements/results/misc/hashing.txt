@@ -1,0 +1,482 @@
+### hashing
+Running performance test for secure query: test
+Generating test data...
+Measure performance for 100 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 17545 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 17545 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 17545 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Computing the hashes for 100 rows
+The following benchmarks are including preprocessing (offline phase).
+Time = 0.527288 seconds 
+Data sent = 0.4824 MB in ~2700 rounds (party 0 only; use '-v' for more details)
+Global data sent = 1.4456 MB (all parties)
+Done
+Measure performance for 200 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 13802 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 13802 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 13802 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Computing the hashes for 200 rows
+The following benchmarks are including preprocessing (offline phase).
+Time = 1.09609 seconds 
+Data sent = 0.9648 MB in ~5400 rounds (party 0 only; use '-v' for more details)
+Global data sent = 2.8912 MB (all parties)
+Done
+Measure performance for 300 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 17850 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 17850 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 17850 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Computing the hashes for 300 rows
+The following benchmarks are including preprocessing (offline phase).
+Time = 1.57068 seconds 
+Data sent = 1.4472 MB in ~8100 rounds (party 0 only; use '-v' for more details)
+Global data sent = 4.3368 MB (all parties)
+Done
+Measure performance for 400 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 13600 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 13600 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 13600 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Computing the hashes for 400 rows
+The following benchmarks are including preprocessing (offline phase).
+Time = 2.11272 seconds 
+Data sent = 1.9296 MB in ~10800 rounds (party 0 only; use '-v' for more details)
+Global data sent = 5.7824 MB (all parties)
+Done
+Measure performance for 500 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 16518 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 16518 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 16518 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Computing the hashes for 500 rows
+The following benchmarks are including preprocessing (offline phase).
+Time = 2.66839 seconds 
+Data sent = 2.412 MB in ~13500 rounds (party 0 only; use '-v' for more details)
+Global data sent = 7.228 MB (all parties)
+Done
+Measure performance for 600 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 12706 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 12706 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 12706 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Computing the hashes for 600 rows
+The following benchmarks are including preprocessing (offline phase).
+Time = 2.92664 seconds 
+Data sent = 2.8944 MB in ~16200 rounds (party 0 only; use '-v' for more details)
+Global data sent = 8.6736 MB (all parties)
+Done
+Measure performance for 700 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 10889 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 10889 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 10889 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Computing the hashes for 700 rows
+The following benchmarks are including preprocessing (offline phase).
+Time = 3.64833 seconds 
+Data sent = 3.3768 MB in ~18900 rounds (party 0 only; use '-v' for more details)
+Global data sent = 10.1192 MB (all parties)
+Done
+Measure performance for 800 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 16954 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 16954 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 16954 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Computing the hashes for 800 rows
+The following benchmarks are including preprocessing (offline phase).
+Time = 4.211 seconds 
+Data sent = 3.8592 MB in ~21600 rounds (party 0 only; use '-v' for more details)
+Global data sent = 11.5648 MB (all parties)
+Done
+Measure performance for 900 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 13242 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 13242 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 13242 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Computing the hashes for 900 rows
+The following benchmarks are including preprocessing (offline phase).
+Time = 4.68041 seconds 
+Data sent = 4.3416 MB in ~24300 rounds (party 0 only; use '-v' for more details)
+Global data sent = 13.0104 MB (all parties)
+Done
+Measure performance for 1000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 10625 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 10625 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 10625 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Computing the hashes for 1000 rows
+The following benchmarks are including preprocessing (offline phase).
+Time = 5.29624 seconds 
+Data sent = 4.824 MB in ~27000 rounds (party 0 only; use '-v' for more details)
+Global data sent = 14.456 MB (all parties)
+Done
+Starting cmd=numactl --membind=0 --cpunodebind=0 -- measurements/measure_secure.sh test
+Running performance test for secure query: test
+Generating test data...
+Measure performance for 1100 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 16665 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 16665 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 16665 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Computing the hashes for 1100 rows
+The following benchmarks are including preprocessing (offline phase).
+Time = 5.73027 seconds 
+Data sent = 5.3064 MB in ~29700 rounds (party 0 only; use '-v' for more details)
+Global data sent = 15.9016 MB (all parties)
+Done
+Measure performance for 1200 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 12101 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 12101 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 12101 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Computing the hashes for 1200 rows
+The following benchmarks are including preprocessing (offline phase).
+Time = 6.22785 seconds 
+Data sent = 5.7888 MB in ~32400 rounds (party 0 only; use '-v' for more details)
+Global data sent = 17.3472 MB (all parties)
+Done
+Measure performance for 1300 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 18864 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 18864 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 18864 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Computing the hashes for 1300 rows
+The following benchmarks are including preprocessing (offline phase).
+Time = 6.93072 seconds 
+Data sent = 6.2712 MB in ~35100 rounds (party 0 only; use '-v' for more details)
+Global data sent = 18.7928 MB (all parties)
+Done
+Measure performance for 1400 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 11154 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 11154 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 11154 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Computing the hashes for 1400 rows
+The following benchmarks are including preprocessing (offline phase).
+Time = 7.30724 seconds 
+Data sent = 6.7536 MB in ~37800 rounds (party 0 only; use '-v' for more details)
+Global data sent = 20.2384 MB (all parties)
+Done
+Measure performance for 1500 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 10496 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 10496 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 10496 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Computing the hashes for 1500 rows
+The following benchmarks are including preprocessing (offline phase).
+Time = 7.9796 seconds 
+Data sent = 7.236 MB in ~40500 rounds (party 0 only; use '-v' for more details)
+Global data sent = 21.684 MB (all parties)
+Done
+Measure performance for 1600 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 15435 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 15435 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 15435 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Computing the hashes for 1600 rows
+The following benchmarks are including preprocessing (offline phase).
+Time = 8.43901 seconds 
+Data sent = 7.7184 MB in ~43200 rounds (party 0 only; use '-v' for more details)
+Global data sent = 23.1296 MB (all parties)
+Done
+Measure performance for 1700 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 16356 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 16356 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 16356 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Computing the hashes for 1700 rows
+The following benchmarks are including preprocessing (offline phase).
+Time = 8.91585 seconds 
+Data sent = 8.2008 MB in ~45900 rounds (party 0 only; use '-v' for more details)
+Global data sent = 24.5752 MB (all parties)
+Done
+Measure performance for 1800 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 11835 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 11835 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 11835 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Computing the hashes for 1800 rows
+The following benchmarks are including preprocessing (offline phase).
+Time = 9.4019 seconds 
+Data sent = 8.6832 MB in ~48600 rounds (party 0 only; use '-v' for more details)
+Global data sent = 26.0208 MB (all parties)
+Done
+Measure performance for 1900 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 16065 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 16065 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 16065 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Computing the hashes for 1900 rows
+The following benchmarks are including preprocessing (offline phase).
+Time = 9.96242 seconds 
+Data sent = 9.1656 MB in ~51300 rounds (party 0 only; use '-v' for more details)
+Global data sent = 27.4664 MB (all parties)
+Done
+Measure performance for 2000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 19677 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 19677 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 19677 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Computing the hashes for 2000 rows
+The following benchmarks are including preprocessing (offline phase).
+Time = 10.5415 seconds 
+Data sent = 9.648 MB in ~54000 rounds (party 0 only; use '-v' for more details)
+Global data sent = 28.912 MB (all parties)
+Done
+Measure performance for 4000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 11540 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 11540 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 11540 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Computing the hashes for 4000 rows
+The following benchmarks are including preprocessing (offline phase).
+Time = 20.9273 seconds 
+Data sent = 19.296 MB in ~108000 rounds (party 0 only; use '-v' for more details)
+Global data sent = 57.824 MB (all parties)
+Done
+Measure performance for 6000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 18933 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 18933 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 18933 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Computing the hashes for 6000 rows
+The following benchmarks are including preprocessing (offline phase).
+Time = 31.322 seconds 
+Data sent = 28.944 MB in ~162000 rounds (party 0 only; use '-v' for more details)
+Global data sent = 86.736 MB (all parties)
+Done
+Measure performance for 8000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 17084 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 17084 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 17084 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Computing the hashes for 8000 rows
+The following benchmarks are including preprocessing (offline phase).
+Time = 42.1223 seconds 
+Data sent = 38.592 MB in ~216000 rounds (party 0 only; use '-v' for more details)
+Global data sent = 115.648 MB (all parties)
+Done
+Measure performance for 10000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 18861 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 18861 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 18861 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Computing the hashes for 10000 rows
+The following benchmarks are including preprocessing (offline phase).
+Time = 52.4864 seconds 
+Data sent = 48.24 MB in ~270000 rounds (party 0 only; use '-v' for more details)
+Global data sent = 144.56 MB (all parties)
+Done
+Measure performance for 20000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 10509 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 10509 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 10509 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Computing the hashes for 20000 rows
+The following benchmarks are including preprocessing (offline phase).
+Time = 105.084 seconds 
+Data sent = 96.48 MB in ~540000 rounds (party 0 only; use '-v' for more details)
+Global data sent = 289.12 MB (all parties)
+Done
+Measure performance for 40000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 15464 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 15464 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 15464 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Computing the hashes for 40000 rows
+The following benchmarks are including preprocessing (offline phase).
+Time = 210.74 seconds 
+Data sent = 192.96 MB in ~1080000 rounds (party 0 only; use '-v' for more details)
+Global data sent = 578.24 MB (all parties)
+Done
+Measure performance for 60000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 11436 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 11436 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 11436 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Computing the hashes for 60000 rows
+The following benchmarks are including preprocessing (offline phase).
+Time = 317.221 seconds 
+Data sent = 289.44 MB in ~1620000 rounds (party 0 only; use '-v' for more details)
+Global data sent = 867.36 MB (all parties)
+Done
+Measure performance for 80000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 13461 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 13461 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 13461 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Computing the hashes for 80000 rows
+The following benchmarks are including preprocessing (offline phase).
+Time = 423.377 seconds 
+Data sent = 385.92 MB in ~2160000 rounds (party 0 only; use '-v' for more details)
+Global data sent = 1156.48 MB (all parties)
+Done
+Measure performance for 100000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 19183 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 19183 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 19183 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Computing the hashes for 100000 rows
+The following benchmarks are including preprocessing (offline phase).
+Time = 519.875 seconds 
+Data sent = 482.4 MB in ~2700000 rounds (party 0 only; use '-v' for more details)
+Global data sent = 1445.6 MB (all parties)
+Done
+Measure performance for 200000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 19376 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 19376 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 19376 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Computing the hashes for 200000 rows
+The following benchmarks are including preprocessing (offline phase).
+Time = 1039.12 seconds 
+Data sent = 964.8 MB in ~5400000 rounds (party 0 only; use '-v' for more details)
+Global data sent = 2891.2 MB (all parties)
+Done
+Measure performance for 400000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 13568 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 13568 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 13568 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Computing the hashes for 400000 rows
+The following benchmarks are including preprocessing (offline phase).
+Time = 2085.27 seconds 
+Data sent = 1929.6 MB in ~10800000 rounds (party 0 only; use '-v' for more details)
+Global data sent = 5782.4 MB (all parties)
+Done
+Measure performance for 600000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 14131 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 14131 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 14131 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Computing the hashes for 600000 rows
+The following benchmarks are including preprocessing (offline phase).
+Time = 3127.64 seconds 
+Data sent = 2894.4 MB in ~16200000 rounds (party 0 only; use '-v' for more details)
+Global data sent = 8673.6 MB (all parties)
+Done
+Measure performance for 800000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 18485 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 18485 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 18485 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Computing the hashes for 800000 rows
+The following benchmarks are including preprocessing (offline phase).
+Time = 4171.46 seconds 
+Data sent = 3859.2 MB in ~21600000 rounds (party 0 only; use '-v' for more details)
+Global data sent = 11564.8 MB (all parties)
+Done
+Measure performance for 1000000 rows
+Compiling high-level code...
+Executing the program...
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 0 test -pn 10639 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 1 test -pn 10639 -h localhost
+Running /home/mpretz/Thesis/MP-SPDZ/Scripts/../replicated-ring-party.x 2 test -pn 10639 -h localhost
+Using statistical security parameter 40
+Trying to run 64-bit computation
+Computing the hashes for 1000000 rows
+The following benchmarks are including preprocessing (offline phase).
+Time = 5221.58 seconds 
+Data sent = 4824 MB in ~27000000 rounds (party 0 only; use '-v' for more details)
+Global data sent = 14456 MB (all parties)
+Done
