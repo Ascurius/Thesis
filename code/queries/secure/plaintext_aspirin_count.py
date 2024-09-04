@@ -27,61 +27,134 @@ def select_distinct(
         prev_value.update(new_value)
     return result
 
-def sort_merge_join(
+def join_nested_loop(
+        left: sint.Matrix, 
+        right: sint.Matrix, 
+        left_key: int, 
+        right_key: int,
+        condition: Callable[[sint.Array, sint.Array], bool] = lambda left, right: True
+    ) -> sint.Matrix:
+    result = sint.Matrix(
+        rows=left.shape[0] * right.shape[0],
+        columns=left.shape[1] + right.shape[1] + 1
+    )
+    current_idx = regint(0)
+    @for_range_opt(left.shape[0])
+    def _(left_row):
+        @for_range_opt(right.shape[0])
+        def _(right_row):
+            new_row = left[left_row].concat(right[right_row])
+            result[current_idx].assign(new_row)
+            result[current_idx][-1] = (
+                (left[left_row][left_key] == right[right_row][right_key]) &
+                condition(left[left_row], right[right_row])
+            ).if_else(sint(1),sint(0))
+            current_idx.update(current_idx + regint(1))
+    return result
+
+def sort_merge_join_uu(
         left: sint.Matrix, 
         right: sint.Matrix, 
         l_key: int, 
         r_key: int,
-        condition: Callable[[sint.Array, sint.Array], bool] = lambda left, right: True
+        condition: Callable[[sint.Array, sint.Array], bool] = lambda left, right: sintbit(1)
     ) -> sint.Matrix:
+    left_sorted = Matrix.create_from(left)
+    right_sorted = Matrix.create_from(right)
+
     start_timer(1000)
-    left.sort((l_key,))
-    right.sort((r_key))
+    left_sorted.sort((l_key,))
+    right_sorted.sort((r_key,))
     stop_timer(1000)
 
     result = sint.Matrix(
-        rows=left.shape[0]*right.shape[0],
+        rows=right_sorted.shape[0],
+        columns=left_sorted.shape[1] + right_sorted.shape[1] + 1
+    )
+    result.assign_all(0)
+
+    i = regint(0)
+    j = regint(0)
+    cnt = regint(0)
+    rel = sint.Array(1).create_from(sint(1))
+
+    @while_do(lambda: (i < left_sorted.shape[0]) & (j < right_sorted.shape[0]))
+    def _():
+        lt = (left_sorted[i][l_key] < right_sorted[j][r_key]).if_else(1,0)
+        gt = (left_sorted[i][l_key] > right_sorted[j][r_key]).if_else(1,0)
+        eq = (left_sorted[i][l_key] == right_sorted[j][r_key]).if_else(1,0)
+
+        eqc = (eq & condition(left_sorted[i], right_sorted[j])).if_else(1,0)
+
+        result[cnt] = (eqc).if_else(left_sorted[i].concat(right_sorted[j]).concat(rel), result[cnt])
+        cnt.update(cnt+1)
+
+        i_lt = lt.if_else((i + 1), i)
+        j_gt = gt.if_else((j + 1), j)
+
+        i_eq = (eqc).if_else((i + 1), i_lt)
+        j_eq = (eqc).if_else((j + 1), j_gt)
+
+        i.update(i_eq.reveal())
+        j.update(j_eq.reveal())
+    return result
+
+def sort_merge_join_un(
+        left: sint.Matrix, 
+        right: sint.Matrix, 
+        l_key: int, 
+        r_key: int,
+        condition: Callable[[sint.Array, sint.Array], bool] = lambda left, right: sintbit(1)
+    ) -> sint.Matrix:
+    left_sorted = Matrix.create_from(left)
+    right_sorted = Matrix.create_from(right)
+
+    start_timer(1000)
+    left_sorted.sort((l_key,))
+    right_sorted.sort((r_key,))
+    stop_timer(1000)
+
+    result = sint.Matrix(
+        rows=right.shape[0],
         columns=left.shape[1] + right.shape[1] + 1
     )
     result.assign_all(0)
 
     i = regint(0)
     j = regint(0)
-    mark = regint(-1)
     cnt = regint(0)
+    rel = sint.Array(1).create_from(sint(1))
 
-    @while_do(lambda: (i < left.shape[0]) & (j < right.shape[0]+1))
+    @while_do(lambda: (i < left_sorted.shape[0]) & (j < right_sorted.shape[0]))
     def _():
-        @if_(j >= right.shape[0])
+        left_row = left_sorted[i]
+        left_value = left_row[l_key]
+
+        lt = (left_sorted[i][l_key] < right_sorted[j][r_key]).if_else(1,0)
+        gt = (left_sorted[i][l_key] > right_sorted[j][r_key]).if_else(1,0)
+        eq = (left_sorted[i][l_key] == right_sorted[j][r_key]).if_else(1,0)
+
+        i_lt = lt.if_else((i+1), i)
+        j_gt = gt.if_else((j+1), j)
+
+        j.update(j_gt.reveal())
+        i.update(i_lt.reveal())
+
+        @while_do(and_(
+            lambda: (j < right_sorted.shape[0]), 
+            lambda: (right_sorted[j][r_key] == left_value).if_else(1,0).reveal()
+        ))
         def _():
-            j.update(mark)
-            i.update(i+1)
-            mark.update(-1)
-            @if_(i >= len(left))
-            def _():
-                break_loop()
-        @if_(mark == -1)
-        def _():
-            @while_do(lambda: (left[i][l_key] < right[j][l_key]).if_else(1,0).reveal())
-            def _():
-                i.update(i+1)
-            @while_do(lambda: (left[i][l_key] > right[j][l_key]).if_else(1,0).reveal())
-            def _():
-                j.update(j+1)
-            mark.update(j)
-        @if_e((left[i][l_key] == right[j][l_key]).if_else(1,0).reveal())
-        def _():
-            @if_(condition(left[i], right[j]).reveal())
-            def _():
-                rel = sint.Array(1).create_from(sint(1))
-                result[cnt] = left[i].concat(right[j].concat(rel))
-                cnt.update(cnt+1)
-            j.update(j+1)
-        @else_
-        def _():
-            j.update(mark)
-            i.update(i+1)
-            mark.update(-1)
+            join_condition = (condition(left_row, right_sorted[j]) & eq).if_else(1, 0)
+
+            result[cnt] = join_condition.if_else(
+                left_sorted[i].concat(right_sorted[j].concat(rel)),
+                result[cnt]
+            )
+            cnt.update(join_condition.if_else(cnt + 1, cnt).reveal())
+            j.update(eq.if_else(j + 1, j).reveal())
+
+        i.update(eq.if_else(i + 1, i).reveal())
     return result
 
 def where(matrix: sint.Matrix, key: int, value: int) -> sint.Matrix:
@@ -121,7 +194,7 @@ def union_all(left, right):
         result[left.shape[0] + j].assign_vector(right[j])
     return result
 
-max_rows = 10
+max_rows = 50
 print_ln("Executing plaintext_aspirin_count with %s rows", max_rows)
 start_timer(10)
 a = sint.Matrix(max_rows, 13)
@@ -151,7 +224,7 @@ def join_condition(left, right):
     ).if_else(1,0)
 
 start_timer(400)
-join = sort_merge_join(aw, bw, 1, 1, join_condition)
+join = sort_merge_join_un(aw, bw, 0, 1, join_condition)
 stop_timer(400)
 
 # start_timer(500)

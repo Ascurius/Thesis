@@ -39,9 +39,9 @@ def select_columns(matrix: sint.Matrix, keys: sint.Array) -> sint.Matrix:
 
 def group_by_count(matrix: sint.Matrix, key: int) -> sint.Matrix:
     # matrix.sort((key,2))
-    # matrix.sort((key,))
     start_timer(300)
-    sort_by_two_cols(matrix, key, 2)
+    # sort_by_two_cols(matrix, key, 2)
+    matrix.sort((key,))
     stop_timer(300)
     result = sint.Matrix(
         rows=matrix.shape[0],
@@ -102,7 +102,7 @@ def limit(matrix: sint.Matrix, maximum: int, relevancy_col: int) -> sint.Matrix:
         count.update(next_count)
     return result
 
-max_rows = 100
+max_rows = 1000000
 print_ln("Executing comorbidity with %s rows", max_rows)
 start_timer(10)
 a = sint.Matrix(max_rows, 13)

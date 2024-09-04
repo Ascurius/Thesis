@@ -28,23 +28,23 @@ def select_distinct(
     return result
 
 def sort_merge_join_uu(
-        left_in: sint.Matrix, 
-        right_in: sint.Matrix, 
+        left: sint.Matrix, 
+        right: sint.Matrix, 
         l_key: int, 
         r_key: int,
-        condition: Callable[[sint.Array, sint.Array], bool] = lambda left, right: sint(1)
+        condition: Callable[[sint.Array, sint.Array], bool] = lambda left, right: sintbit(1)
     ) -> sint.Matrix:
     left_sorted = Matrix.create_from(left)
     right_sorted = Matrix.create_from(right)
 
     start_timer(1000)
-    left.sort((l_key,))
-    right.sort((r_key,))
+    left_sorted.sort((l_key,))
+    right_sorted.sort((r_key,))
     stop_timer(1000)
 
     result = sint.Matrix(
-        rows=right.shape[0],
-        columns=left.shape[1] + right.shape[1] + 1
+        rows=right_sorted.shape[0],
+        columns=left_sorted.shape[1] + right_sorted.shape[1] + 1
     )
     result.assign_all(0)
 
@@ -53,24 +53,25 @@ def sort_merge_join_uu(
     cnt = regint(0)
     rel = sint.Array(1).create_from(sint(1))
 
-    @while_do(lambda: (i < left.shape[0]) & (j < right.shape[0]))
+    @while_do(lambda: (i < left_sorted.shape[0]) & (j < right_sorted.shape[0]))
     def _():
-        lt = (left[i][l_key] < right[j][r_key]).if_else(1,0)
-        gt = (left[i][l_key] > right[j][r_key]).if_else(1,0)
-        eq = (left[i][l_key] == right[j][r_key]).if_else(1,0)
+        lt = (left_sorted[i][l_key] < right_sorted[j][r_key]).if_else(1,0)
+        gt = (left_sorted[i][l_key] > right_sorted[j][r_key]).if_else(1,0)
+        eq = (left_sorted[i][l_key] == right_sorted[j][r_key]).if_else(1,0)
 
-        @if_(lt.reveal())
-        def _():
-            i.update(i+1)
-        @if_(gt.reveal())
-        def _():
-            j.update(j+1)
-        @if_(eq.reveal())
-        def _():
-            result[cnt] = left[i].concat(right[j]).concat(rel)
-            cnt.update(cnt+1)
-            i.update(i+1)
-            j.update(j+1)
+        eqc = (eq & condition(left_sorted[i], right_sorted[j])).if_else(1,0)
+
+        result[cnt] = (eqc).if_else(left_sorted[i].concat(right_sorted[j]).concat(rel), result[cnt])
+        cnt.update(cnt+1)
+
+        i_lt = lt.if_else((i + 1), i)
+        j_gt = gt.if_else((j + 1), j)
+
+        i_eq = (eqc).if_else((i + 1), i_lt)
+        j_eq = (eqc).if_else((j + 1), j_gt)
+
+        i.update(i_eq.reveal())
+        j.update(j_eq.reveal())
     return result
 
 def sort_merge_join_un(
@@ -220,7 +221,7 @@ def where_less_then(matrix: sint.Matrix, col_1: int, col_2: int) -> sint.Matrix:
         ).if_else(1,0)
     return result
 
-max_rows = 700
+max_rows = 10
 print_ln("Executing aspirin_count with %s rows", max_rows)
 start_timer(10)
 a = sint.Matrix(max_rows, 13)
@@ -245,7 +246,7 @@ def join_condition(left, right):
     ).if_else(1,0)
 
 start_timer(300)
-join = join_nested_loop(aw, bw, 1, 1, condition=join_condition)
+join = sort_merge_join_uu(aw, bw, 0, 0, condition=join_condition)
 stop_timer(300)
 
 # start_timer(400)
@@ -265,13 +266,13 @@ start_timer(500)
 select = select_distinct(join, 0, condition=distinct_condition)
 stop_timer(500)
 
-# count = regint(0)
-# start_timer(700)
-# @for_range_opt(select.shape[0])
-# def _(i):
-#     dbit_5 = (select[i][-1] == 1).if_else(1,0) # select distinct
-#     @if_(dbit_5.reveal())
-#     def _():
-#         count.update(count + 1)
-# stop_timer(700)
-# print_ln("%s", count)
+count = regint(0)
+start_timer(700)
+@for_range_opt(select.shape[0])
+def _(i):
+    dbit_5 = (select[i][-1] == 1).if_else(1,0) # select distinct
+    @if_(dbit_5.reveal())
+    def _():
+        count.update(count + 1)
+stop_timer(700)
+print_ln("%s", count)
