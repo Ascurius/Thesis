@@ -20,9 +20,10 @@ fi
 
 echo "Running performance test for plain query $query on $(hostname)"
 
-rows=(100 200 300 400 500 600 700 800 900 1000 2000 4000 6000 8000 10000 20000 40000 60000 80000 100000 200000 400000 600000 800000 1000000) # Complete Benchmarks
-# rows=(50 100 150 200 250 300 350 400 450 500) # Microbenchmarks
-# rows=(100) # Testing purposes
+### Complete Benchmarks
+rows=(100 200 300 400 500 600 700 800 900 1000 1100 1200 1300 1400 1500 1600 1700 1800 1900 2000 4000 6000 8000 10000 20000 40000 60000 80000 100000 200000 400000 600000 800000 1000000)
+### Microbenchmarks
+# rows=(100 200 300 400 500 600 700 800 900 1000 1100 1200 1300 1400 1500 1600 1700 1800 1900 2000)
 # Set default start_max_rows if not specified
 if [ -z "$start_max_rows" ]; then
     start_max_rows=${rows[0]}
@@ -71,7 +72,7 @@ for ((i=start_index; i<${#rows[@]}; i++)); do
     total_execution_time=0.0
     total_times=()
     for ((j=1; j<=$num_tests; j++)); do
-        output=$(python3 "$query_path" "$max_rows" "$join_type")
+        output=$(python3 "$query_path" "$max_rows" "$join_type" "1" "1")
         
         # Extract times using grep and regex
         times=($(echo "$output" | grep -oP '\d+\.\d+'))
