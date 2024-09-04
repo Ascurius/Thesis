@@ -9,7 +9,6 @@ path=$(pwd)
 query=$1
 # query_path="$path/code/queries/secure/$query.py"
 query_path="$path/code/test.py"
-n_tests=1
 
 if [ ! -f "$query_path" ]; then
     echo "Query file '$query_path' could not be found!"
