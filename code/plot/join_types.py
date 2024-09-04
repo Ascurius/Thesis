@@ -2,6 +2,7 @@ import numpy as np
 import re
 
 from collections import defaultdict
+import pandas as pd
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import PolynomialFeatures
 from sklearn.pipeline import make_pipeline
@@ -67,8 +68,7 @@ plaintext_comorbidity_times = {
 }
 
 
-def parse_data(query):
-    filename = f"./measurements/results/{query}/secure.txt"
+def parse_data(query, filename):
     data = defaultdict(list)
     current_entry = {}
     current_join_type = None
@@ -138,7 +138,25 @@ def parse_data(query):
         if current_entry and current_join_type:
             data[current_join_type].append(current_entry)
     
-    return dict(data)
+    dataframes_dict = {}
+    
+    for join_type, entries in data.items():
+        flattened_data = []
+        for entry in entries:
+            row = {
+                "rows": entry.get('rows'),
+                "total_time": entry.get('total_time'),
+                "data_sent": entry.get('data_sent'),
+                "rounds": entry.get('rounds'),
+                "global_data_sent": entry.get('global_data_sent')
+            }
+            row.update(entry.get('times', {}))  # Add times as separate columns
+            flattened_data.append(row)
+        
+        # Convert to DataFrame and add to the dictionary
+        dataframes_dict[join_type] = pd.DataFrame(flattened_data)
+    
+    return dataframes_dict
 
 def polynomial_extrapolation(rows, times, rows_to_extrapolate, degree=2):
     poly = PolynomialFeatures(degree)
@@ -187,46 +205,57 @@ def plot_operator_times(parsed_data):
     plt.tight_layout()
     plt.savefig(f'./measurements/plot/{query}_join_types.png')
 
-def plot_operator_times_over_rows(parsed_data):
-    plt.figure(figsize=(12, 8))
+def plot_operator_times_over_rows(parsed_data, hashing=False):
+    plt.figure(figsize=(9, 8))
 
     rows_to_extrapolate = np.array([4000, 6000, 8000, 10000, 20000, 40000, 60000, 80000, 100000, 200000, 400000, 600000, 800000, 1000000])
 
-    for join_type, entries in parsed_data.items():
-        rows = [entry['rows'] for entry in entries if 'total_time' in entry]
-        total_times = [entry['total_time'] for entry in entries if 'total_time' in entry]
-        
-        # Plot original data
-        plt.plot(rows, total_times, marker='o', linestyle='-', label=join_type)
-        
-        if rows[-1] <= 2000:
-            # Polynomial extrapolation
-            polynomial_extrapolated_times = polynomial_extrapolation(np.array(rows), np.array(total_times), rows_to_extrapolate, degree=2)
-            
-            # Plot extrapolated data with dashed line and empty markers
-            plt.plot(rows_to_extrapolate, [polynomial_extrapolated_times[row] for row in rows_to_extrapolate],
-                     linestyle='--', marker='o', markerfacecolor='none', color=plt.gca().lines[-1].get_color())
-            
-            # Draw dashed line between the last original point and the first extrapolated point
-            plt.plot([rows[-1], rows_to_extrapolate[0]], [total_times[-1], polynomial_extrapolated_times[rows_to_extrapolate[0]]],
-                     linestyle='--', color=plt.gca().lines[-1].get_color())
+    for join_type, df in parsed_data.items():
+        if 'rows' in df.columns and 'total_time' in df.columns:
+            rows = df['rows'].values
+            total_times = df['join'].values
 
+            # Plot original data
+            plt.plot(rows, total_times, marker='o', linestyle='-', label=join_type)
+            
+            if rows[-1] <= 2000:
+                # Polynomial extrapolation
+                polynomial_extrapolated_times = polynomial_extrapolation(np.array(rows), np.array(total_times), rows_to_extrapolate, degree=2)
+                
+                # Plot extrapolated data with dashed line and empty markers
+                plt.plot(rows_to_extrapolate, [polynomial_extrapolated_times[row] for row in rows_to_extrapolate],
+                         linestyle='--', marker='o', markerfacecolor='none', color=plt.gca().lines[-1].get_color())
+                
+                # Draw dashed line between the last original point and the first extrapolated point
+                plt.plot([rows[-1], rows_to_extrapolate[0]], [total_times[-1], polynomial_extrapolated_times[rows_to_extrapolate[0]]],
+                         linestyle='--', color=plt.gca().lines[-1].get_color())
+        else:
+            print(f"DataFrame for join type {join_type} does not have the required columns 'rows' and 'total_time'.")
 
-    plt.xlabel('Rows')
+    if hashing:
+        hashing_data = parse_data(query, filename=f"./measurements/results/misc/hashing.txt")["hashing"]
+        plt.plot(hashing_data["rows"], hashing_data["total_time"], marker='o', linestyle='-', label="hashing")
+
+    plt.xlabel('Rows', fontsize=22)
     plt.xscale("log")
-    # plt.yscale("log")
-    plt.ylabel('Time (s)')
-    # plt.title('Total Time vs. Number of Rows for Different Join Types')
-    # plt.ticklabel_format(style='plain', axis='x')
-    plt.legend()
+    plt.xticks(fontsize=20)
+
+    plt.yscale("log")
+    plt.ylabel('Time (s)', fontsize=22)
+    plt.yticks(fontsize=20)
+
+    plt.legend(fontsize=18, loc='upper left')
     plt.grid(True)
 
-    plt.savefig(f'./measurements/plot/{query}_join_types.png')
+    if hashing:
+        plt.savefig(f'./measurements/plot/{query}_join_types_hashing.png')
+    else:
+        plt.savefig(f'./measurements/plot/{query}_join_types.png')
 
-query = "aspirin_count"
+query = "cdiff"
 
-data = parse_data(query)
+data = parse_data(query, filename = f"./measurements/results/{query}/secure.txt")
 
 # pprint(data["arithmetic"])
 
-plot_operator_times_over_rows(data)
+plot_operator_times_over_rows(data, hashing=False)

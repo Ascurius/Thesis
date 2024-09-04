@@ -102,13 +102,13 @@ def parse_data(query):
             if match:
                 if current_entry:
                     data[current_join_type].append(current_entry)
-                current_entry = {'rows': match.group(1), "times":{}}
+                current_entry = {'rows': int(match.group(1)), "times":{}}
                 continue
             
             # Extract total time
             match = re.match(r'Time\s*=\s*(\d+\.?\d+)', line)
             if match:
-                current_entry['total_time'] = match.group(1)
+                current_entry['total_time'] = float(match.group(1))
                 continue
             
             # Extract times for specific timers
@@ -117,20 +117,20 @@ def parse_data(query):
                 timer_key = match.group(1)
                 timer_value = match.group(2)
                 if timer_key in timer_keys:
-                    current_entry["times"][timer_keys[timer_key]] = timer_value
+                    current_entry["times"][timer_keys[timer_key]] = float(timer_value)
                 continue
             
             # Extract data sent and rounds
             match = re.match(r'Data sent\s*=\s*([\d.]+) MB in ~(\d+) rounds', line)
             if match:
-                current_entry['data_sent'] = match.group(1)
-                current_entry['rounds'] = match.group(2)
+                current_entry['data_sent'] = float(match.group(1))
+                current_entry['rounds'] = int(match.group(2))
                 continue
             
             # Extract global data sent
             match = re.match(r'Global data sent\s*=\s*([\d.]+) MB', line)
             if match:
-                current_entry['global_data_sent'] = match.group(1)
+                current_entry['global_data_sent'] = float(match.group(1))
                 continue
         
         # Append the last entry
@@ -187,18 +187,29 @@ def extrapolate_specific_rows(data, target_rows):
 
     return secure_full
 
-query = "comorbidity"
-domain = "binary"
+query = "plaintext_cdiff"
+domain = "nested-loop join"
 
 secure = parse_data(query)[domain]
 plain = pd.read_csv(f"./measurements/results/{query}/plain.txt")
-db = pd.read_csv(f"./measurements/results/{query}/db.txt", header=None, names=['Rows', 'Time'], skipinitialspace=True)
+db = pd.read_csv(f"./measurements/results/{query}/db.txt", header=None, names=['rows', 'time'], skipinitialspace=True)
 
-if len(secure["rows"]) < 34:
-    secure = extrapolate_specific_rows(secure, target_rows=[400000, 600000, 800000, 1000000])
-else:
-    secure["rows"] = pd.to_numeric(secure["rows"], errors='coerce')
-    secure["total_time"] = pd.to_numeric(secure["total_time"], errors='coerce')
+secure["rows"] = pd.to_numeric(secure["rows"], errors='coerce')
+secure["total_time"] = pd.to_numeric(secure["total_time"], errors='coerce')
+
+secure = secure[secure["rows"] <= 2000]
+plain = plain[plain["rows"] <= 2000]
+db = db[db["rows"] <= 2000]
+
+missing = len(secure)
+
+sp = (sum(secure[:missing]["total_time"]) / len(secure[:missing]["total_time"])) / (sum(plain[:missing]['total']) / len(plain[:missing]['total']))
+sd = (sum(secure[:missing]["total_time"]) / len(secure[:missing]["total_time"])) / (sum(db[:missing]['time']) / len(db[:missing]['time']))
+
+print(f"Factor (excluding extrapolated data) {query} in {domain} secure-plain", sp)
+print(f"Factor (excluding extrapolated data) {query} in {domain} secure-db", sd)
+
+secure = extrapolate_specific_rows(secure, plain[~plain['rows'].isin(secure['rows'])]['rows'])
 
 # print("Secure Data Ranges:")
 # print("Rows:", secure["rows"].min(), "-", secure["rows"].max())
@@ -209,24 +220,29 @@ else:
 # print("Total Time:", plain["total"].min(), "-", plain["total"].max())
 
 # print("DB Data Ranges:")
-# print("Rows:", db["Rows"].min(), "-", db["Rows"].max())
-# print("Total Time:", db["Time"].min(), "-", db["Time"].max())
+# print("Rows:", db["rows"].min(), "-", db["rows"].max())
+# print("Total Time:", db["time"].min(), "-", db["time"].max())
 
-# sp = (sum(secure["total_time"]) / len(secure["total_time"])) / (sum(plain['total']) / len(plain['total']))
-# sd = (sum(secure["total_time"]) / len(secure["total_time"])) / (sum(db['Time']) / len(db['Time']))
+sp = (sum(secure["total_time"]) / len(secure["total_time"])) / (sum(plain['total']) / len(plain['total']))
+sd = (sum(secure["total_time"]) / len(secure["total_time"])) / (sum(db['time']) / len(db['time']))
 
-# print("Factor secure-plain", sp)
-# print("Factor secure-db", sd)
+print(f"Factor (including extrapolated data) {query} in {domain} secure-plain", sp)
+print(f"Factor (including extrapolated data) {query} in {domain} secure-db", sd)
 
-plt.figure(figsize=(10, 6))
+plt.figure(figsize=(10, 8))
 
-if len(secure["rows"]) < 34:
-    plt.plot(secure["rows"][len(secure)-5:], secure["total_time"][len(secure)-5:], marker='o', linestyle='--', color='b',
+if missing < len(plain):
+    # extrapolated data
+    plt.plot(secure["rows"][missing-1:], secure["total_time"][missing-1:], marker='o', linestyle='--', color='b',
             markerfacecolor='none', markeredgewidth=1)
-    plt.plot(secure["rows"][:len(secure)-4], secure["total_time"][:len(secure)-4], marker='o', linestyle='-', color='b', label='MP-SPDZ')
-plt.plot(secure["rows"], secure["total_time"], marker='o', linestyle='-', color='b', label='MP-SPDZ')
+    # real data
+    plt.plot(secure["rows"][:missing], secure["total_time"][:missing], marker='o', linestyle='-', color='b', label='MP-SPDZ')
+else:
+    # Falls keine daten extrapoliert werden müssen
+    plt.plot(secure["rows"], secure["total_time"], marker='o', linestyle='-', color='b', label='MP-SPDZ')
+
 plt.plot(plain["rows"], plain["total"], marker='o', linestyle='-', color='g', label='Python')
-plt.plot(db["Rows"], db["Time"], marker='o', linestyle='-', color='r', label='DuckDB')
+plt.plot(db["rows"], db["time"], marker='o', linestyle='-', color='r', label='DuckDB')
 
 plt.xscale('log')
 plt.yscale('log')
@@ -234,7 +250,7 @@ plt.xlabel('Rows', fontsize=22)
 plt.ylabel('Time (s)', fontsize=22)
 plt.xticks(fontsize=20)
 plt.yticks(fontsize=20)
-plt.legend(fontsize=18, loc='upper left')
+plt.legend(fontsize=22, loc='upper left')
 
-output_path = f"./measurements/plot/{query}_total_{domain}.png"
+output_path = f"./measurements/plot/{query}_total.png"
 plt.savefig(output_path)
